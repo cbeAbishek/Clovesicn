@@ -53,7 +53,7 @@ const WhyChooseUs = () => {
             The EcoTech Advantage
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            When you partner with EcoTech Solutions, you're choosing proven excellence, 
+            When you partner with EcoTech Solutions, youre choosing proven excellence, 
             sustainable innovation, and unwavering commitment to your success.
           </p>
         </div>

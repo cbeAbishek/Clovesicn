@@ -25,19 +25,19 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222 84% 4.9%;
     
-    /* Primary Brand Color - Green #60b257 */
-    --primary: 112 33% 52%;
+    /* Primary Brand Color - Green #39b54b */
+    --primary: 129 52% 47%;
     --primary-foreground: 0 0% 98%;
-    --primary-50: 112 50% 95%;
-    --primary-100: 112 47% 88%;
-    --primary-200: 112 45% 78%;
-    --primary-300: 112 42% 68%;
-    --primary-400: 112 38% 60%;
-    --primary-500: 112 33% 52%;
-    --primary-600: 112 38% 42%;
-    --primary-700: 112 43% 32%;
-    --primary-800: 112 48% 24%;
-    --primary-900: 112 53% 16%;
+    --primary-50: 129 52% 47%;
+    --primary-100: 129 52% 47%;
+    --primary-200: 129 52% 47%;
+    --primary-300: 129 52% 47%;
+    --primary-400: 129 52% 47%;
+    --primary-500: 129 52% 41%;
+    --primary-600: 129 52% 35%;
+    --primary-700: 129 52% 30%;
+    --primary-800: 129 52% 24%;
+    --primary-900: 129 52% 12%;
     
     /* Secondary Color - Complementary Teal */
     --secondary: 180 35% 45%;
