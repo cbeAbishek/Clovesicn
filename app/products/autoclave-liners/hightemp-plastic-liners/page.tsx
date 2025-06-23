@@ -1,9 +1,9 @@
-import ProductSubPageTemplate from '../../ProductSubPageTemplate';
+import ProductSubPageTemplate from '../../../products/ProductSubPageTemplate';
 
 export default function Page() {
   return (
     <ProductSubPageTemplate
-      title="High Temp Autoclave Liners"
+      title="High Temp Plastic Liners"
       description="Our high temp liners are designed for extreme conditions..."
       image="https://picsum.photos/800/400"
       features={[
