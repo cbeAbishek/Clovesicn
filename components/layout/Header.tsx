@@ -44,11 +44,11 @@ const Header = () => {
           <div className="hidden md:flex items-center space-x-6">
             <div className="flex items-center space-x-2">
               <Phone className="h-4 w-4" />
-              <span>+1 (555) 123-4567</span>
+              <span>+91 73395 55309</span>
             </div>
             <div className="flex items-center space-x-2">
               <Mail className="h-4 w-4" />
-              <span>info@ecotechsolutions.com</span>
+              <span>info@clovesinc.org</span>
             </div>
           </div>
           <div className="flex items-center space-x-4">
@@ -76,8 +76,7 @@ const Header = () => {
                 <span className="text-white font-bold text-lg">E</span>
               </div>
               <div>
-                <div className="font-bold text-xl text-gray-900">EcoTech</div>
-                <div className="text-xs text-primary-600 font-medium">Solutions</div>
+                <div className="font-bold text-xl text-gray-900">Cloves INC</div>
               </div>
             </Link>
 
