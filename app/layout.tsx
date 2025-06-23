@@ -4,11 +4,68 @@ import type { Metadata } from 'next';
 import Preloader from '../components/layout/preloader';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
+import { AiChatbot } from '@/components/chatbot';
 
-export const metadata: Metadata = {
-  title: 'Cloves INC ',
-  description: 'Meta Description for Cloves INC',
+// app/products/autoclave-liners/page.tsx
+
+export const metadata = {
+  title: "Clover Inc – Premium Industrial Packaging",
+  description:
+    "Discover Clover Inc’s Autoclave Liners – durable, heat-resistant, and chemical-safe packaging solutions for sterilization and industrial applications.",
+  keywords: [
+    "Autoclave liners",
+    "Sterilization bags",
+    "Industrial packaging",
+    "Heat resistant liners",
+    "Medical autoclave bags",
+    "Clover Inc",
+    "High temperature liners",
+    "Custom autoclave packaging"
+  ],
+  authors: [{ name: "Clover Inc", url: "https://cloverinc.com" }],
+  creator: "Clover Inc",
+  publisher: "Clover Inc",
+  openGraph: {
+    title: "Autoclave Liners | Clover Inc",
+    description:
+      "Explore top-grade autoclave liners from Clover Inc. Ideal for sterilization, industrial, and medical use. Heat resistant and customizable.",
+    url: "https://cloverinc.com/products/autoclave-liners",
+    siteName: "Clover Inc",
+    locale: "en_US",
+    images: [
+      {
+        url: "https://cloverinc.com/images/products/autoclave-liners-og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Autoclave Liners – Clover Inc"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Autoclave Liners | Clover Inc",
+    description:
+      "Discover heat-resistant autoclave liners from Clover Inc – perfect for industrial and medical sterilization.",
+    creator: "@cloverinc",
+    images: ["https://cloverinc.com/images/products/autoclave-liners-og.jpg"]
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1
+    }
+  },
+  alternates: {
+    canonical: "https://cloverinc.com/products/autoclave-liners"
+  },
+  metadataBase: new URL("https://cloverinc.com")
 };
+
 
 export default function RootLayout({
   children,
@@ -17,9 +74,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+    <head>
+      <meta charSet="UTF-8" />
+      <meta name="theme-color" content="#39b54b" />
+      <link rel="icon" href="/icon.png" />
+      </head> 
       <body>
       <Preloader />
       <Header />
+      <AiChatbot />
+      {/* Main content area */}
       <div className="min-h-screen flex flex-col">
         {children}
       </div>

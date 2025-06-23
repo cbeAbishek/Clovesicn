@@ -1,27 +1,18 @@
-import Link from 'next/link';
-
-interface SubProduct {
-  name: string;
-  href: string;
-}
-
-interface ProductPageTemplateProps {
+interface ProductSubPageTemplateProps {
   title: string;
   description: string;
   image: string;
   features: string[];
   specifications: { label: string; value: string }[];
-  subProducts?: SubProduct[];
 }
 
-export default function ProductPageTemplate({
+export default function ProductSubPageTemplate({
   title,
   description,
   image,
   features,
   specifications,
-  subProducts = [],
-}: ProductPageTemplateProps) {
+}: ProductSubPageTemplateProps) {
   return (
     <section className="pt-28 px-4 sm:px-6 lg:px-8 pb-20 bg-white text-gray-800">
       <div className="max-w-6xl mx-auto space-y-24">
@@ -59,20 +50,6 @@ export default function ProductPageTemplate({
             ))}
           </div>
         </div>
-        {/* Subproduct Navigation */}
-        {subProducts.length > 0 && (
-          <div className="flex flex-wrap gap-4 justify-center my-8">
-            {subProducts.map((sp) => (
-              <Link
-                key={sp.href}
-                href={sp.href}
-                className="px-6 py-3 bg-green-600 text-white rounded-lg shadow hover:bg-green-700 transition"
-              >
-                {sp.name}
-              </Link>
-            ))}
-          </div>
-        )}
       </div>
     </section>
   );
