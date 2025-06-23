@@ -291,9 +291,9 @@ export function AiChatbot() {
                   type="submit"
                   disabled={!message.trim()}
                   size="icon"
-                  className="ml-2 h-8 w-8 rounded-full bg-[#39b54b] p-0 text-white hover:bg-[#39b54b] disabled:bg-orange-300"
+                  className="ml-2 h-8 w-8 rounded-full bg-[#39b54b] p-0 text-white hover:bg-[#39b54b] disabled:bg-green-200"
                 >
-                  <Send className="h-4 w-4" />
+                  <Send className="h-4 w-4 text-black" />
                 </Button>
               </div>
               <p className="mt-2 text-center text-xs text-gray-500 dark:text-gray-400">
