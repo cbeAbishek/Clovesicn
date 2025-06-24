@@ -20,6 +20,7 @@ const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isAudioMuted, setIsAudioMuted] = useState(true);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -68,25 +69,45 @@ const NavBar = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
-            {/* Logo */}
-            <div className="flex-shrink-0 group">
-              <div className="w-12 h-12 bg-gradient-to-br from-[#39b54b] to-[#2d8f3a] rounded-xl flex items-center justify-center transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 shadow-lg">
-                <div className="flex items-center space-x-4 group cursor-pointer">
-                  <Link href="/" className="relative">
-                    <Image
-                      src="/icon.png"
-                      alt="Cloves Inc Logo"
-                      width={50}
-                      height={50}
-                      className="w-auto h-12 rounded-2xl transition-all duration-300 group-hover:scale-105"
-                    />
-                  </Link>
-                </div>
+            <div
+              className="flex-shrink-0 group"
+              onMouseEnter={e => {
+                const img = e.currentTarget.querySelector('img');
+                if (img) {
+                  img.classList.add('glow');
+                }
+              }}
+              onMouseLeave={e => {
+                const img = e.currentTarget.querySelector('img');
+                if (img) {
+                  img.classList.remove('glow');
+                }
+              }}
+            >
+              {/* Audio Mute/Unmute Button */}
+             
+              <div className="flex items-center space-x-4 group cursor-pointer">
+                <Link href="/" className="relative">
+                  <Image
+                    src="/cicon.png"
+                    alt="Cloves Inc Logo"
+                    width={50}
+                    height={50}
+                    className="w-auto h-12 rounded-2xl transition-all duration-300 group-hover:scale-105"
+                  />
+                </Link>
+                <style jsx global>{`
+                  .glow {
+                    box-shadow: 0 0 24px 6px #39b54b88, 0 0 8px 2px #2d8f3a55;
+                    transition: box-shadow 0.3s;
+                  }
+                `}</style>
               </div>
               {/* <div className="font-bold text-2xl bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
                 Cloves INC
               </div> */}
             </div>
+            
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-1">

@@ -20,7 +20,7 @@ const mobileSlides = [
     {
       title: "Global Reach, Local Impact",
       subtitle: "Supplying sustainable products to over 10 countries, supporting local communities and economies",
-      image: "/images/hero/mobile/b14.jpg",
+      image: "/images/hero/mobile/b7.jpg",
       stats: "10+ Countries Served"
     },
     {
