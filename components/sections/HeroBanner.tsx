@@ -48,36 +48,57 @@ const HeroBanner = () => {
       <div className="relative z-10 max-w-full mx-auto px-4 sm:px-6 lg:px-8 py-20 flex items-center justify-center min-h-[60vh]">
         <div className="w-full  items-center justify-center">
           {/* Left Column - Main Content */}
-          <div className="text-white animate-fade-in flex flex-col items-center text-center">
-            <div className="inline-flex items-center space-x-2 bg-primary-600/20 backdrop-blur-sm border border-primary-400/30 rounded-full px-4 py-2 mb-6">
+            <div className="text-white flex flex-col items-center text-center">
+            {/* Stats */}
+            <div className="inline-flex items-center space-x-2 bg-primary-600/20 backdrop-blur-sm border border-primary-400/30 rounded-full px-4 py-2 mb-6 transition-all duration-700 ease-in-out"
+              key={`stats-${currentSlide}`}
+              style={{ willChange: 'opacity, transform' }}
+            >
               <CheckCircle className="h-4 w-4 text-primary-400" />
-              <span className="text-sm font-medium text-primary-200">
-                {slides[currentSlide].stats}
+              <span
+              className="text-sm font-medium text-primary-200 transition-opacity duration-700 ease-in-out"
+              key={`stats-text-${currentSlide}`}
+              >
+              {slides[currentSlide].stats}
               </span>
             </div>
-            
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+
+            {/* Title */}
+            <h1
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6 transition-all duration-700 ease-in-out"
+              key={`title-${currentSlide}`}
+              style={{ willChange: 'opacity, transform' }}
+            >
               {slides[currentSlide].title}
             </h1>
-            
-            <p className="text-xl sm:text-2xl text-gray-200 mb-8 leading-relaxed max-w-2xl">
+
+            {/* Subtitle */}
+            <p
+              className="text-xl sm:text-2xl text-gray-200 mb-8 leading-relaxed max-w-2xl transition-all duration-700 ease-in-out"
+              key={`subtitle-${currentSlide}`}
+              style={{ willChange: 'opacity, transform' }}
+            >
               {slides[currentSlide].subtitle}
             </p>
+            
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mb-12 justify-center">
-              <Button size="lg" className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 text-lg font-semibold shadow-brand">
-                Explore Products
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-white text-[#39b54b] hover:bg-white hover:text-gray-900 px-8 py-4 text-lg font-semibold backdrop-blur-sm"
-              >
-                <Play className="mr-2 h-5 w-5" />
-                Watch Our Story
-              </Button>
+                <a href="/products">
+                <Button size="lg" className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 text-lg font-semibold shadow-brand">
+                  Explore Products
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+                </a>
+                <a href="/about">
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="border-white text-[#39b54b] hover:bg-white hover:text-gray-900 px-8 py-4 text-lg font-semibold backdrop-blur-sm"
+                >
+                  About us
+                </Button>
+                </a>
             </div>
 
             {/* Achievement Stats */}
