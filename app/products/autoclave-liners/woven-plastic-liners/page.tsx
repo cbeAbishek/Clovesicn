@@ -1,4 +1,4 @@
-import ProductSubPageTemplate from '../../../products/ProductSubPageTemplate';
+import ProductSubPageTemplate from '../../../../components/products/ProductSubPageTemplate';
 
 export default function Page() {
   return (

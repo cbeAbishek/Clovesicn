@@ -23,7 +23,8 @@ export default function ProductSubPageTemplate({
             {description}
           </p>
         </div>
-        {/* Image + Description Section */}
+
+        {/* Image + Features Section */}
         <div className="grid md:grid-cols-2 gap-10 items-center animate-fade-in-up">
           <img
             src={image}
@@ -39,17 +40,20 @@ export default function ProductSubPageTemplate({
             </ul>
           </div>
         </div>
-        {/* Specifications Grid */}
-        <div className="bg-gray-50 rounded-xl p-8 animate-fade-in-up">
-          <h2 className="text-2xl font-semibold text-green-600 mb-4">Specifications</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm text-gray-700">
-            {specifications.map((spec, i) => (
-              <div key={i}>
-                <span className="font-semibold">{spec.label}:</span> {spec.value}
-              </div>
-            ))}
+
+        {/* Specifications Section */}
+        {specifications.length > 0 && (
+          <div className="bg-gray-50 rounded-xl p-8 animate-fade-in-up">
+            <h2 className="text-2xl font-semibold text-green-600 mb-4">Specifications</h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm text-gray-700">
+              {specifications.map((spec, i) => (
+                <div key={i}>
+                  <span className="font-semibold">{spec.label}:</span> {spec.value}
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );
