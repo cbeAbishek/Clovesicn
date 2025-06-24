@@ -17,6 +17,7 @@ import {
   Star,
   CheckCircle,
 } from 'lucide-react';
+import Link from 'next/link';
 
 const ProductsPage = () => {
   const [activeCategory, setActiveCategory] = useState(0);
@@ -45,6 +46,7 @@ const ProductsPage = () => {
           ],
           icon: Thermometer,
           image: '/images/products/high-temp-plastic-liners.jpg',
+          route: '/products/autoclave-liners/hightemp-plastic-liners',
         },
         {
           name: 'Textile Liners',
@@ -55,6 +57,7 @@ const ProductsPage = () => {
           ],
           icon: Shirt,
           image: '/images/products/textile-liners.jpg',
+          route: '/products/autoclave-liners/textile-liners',
         },
         {
           name: 'Jute/Hessian Liners',
@@ -65,6 +68,7 @@ const ProductsPage = () => {
           ],
           icon: Leaf,
           image: '/images/products/jute-hessian-liners.jpg',
+          route: '/products/autoclave-liners/jute-hessian-liners',
         },
         {
           name: 'Woven Plastic Liners',
@@ -75,6 +79,7 @@ const ProductsPage = () => {
           ],
           icon: Shield,
           image: '/images/products/woven-plastic-liners.jpg',
+          route: '/products/autoclave-liners/woven-plastic-liners',
         },
       ],
     },
@@ -95,6 +100,7 @@ const ProductsPage = () => {
           ],
           icon: Package,
           image: '/images/products/bulk-bags.jpg',
+          route: '/products/packaging-solutions/bulk-bags',
         },
         {
           name: 'Poly-Woven Bags',
@@ -105,6 +111,7 @@ const ProductsPage = () => {
           ],
           icon: Shield,
           image: '/images/products/poly-woven-bags.jpg',
+          route: '/products/packaging-solutions/polywoven-bags',
         },
         {
           name: 'Mesh Bags',
@@ -115,6 +122,7 @@ const ProductsPage = () => {
           ],
           icon: Globe,
           image: '/images/products/mesh-bags.jpg',
+          route: '/products/packaging-solutions/mesh-bags',
         },
         {
           name: 'Multiwall Paper Sacks',
@@ -125,6 +133,7 @@ const ProductsPage = () => {
           ],
           icon: Leaf,
           image: '/images/products/multiwall-paper-sacks.jpg',
+          route: '/products/packaging-solutions/multiwall-paper-sacks',
         },
       ],
     },
@@ -145,6 +154,7 @@ const ProductsPage = () => {
           ],
           icon: Leaf,
           image: '/images/products/hessian-jute.jpg',
+          route: '/products/natural-synthetic-fabrics/hessian-jute',
         },
         {
           name: 'Calico',
@@ -155,6 +165,7 @@ const ProductsPage = () => {
           ],
           icon: Shirt,
           image: '/images/products/calico.jpg',
+          route: '/products/natural-synthetic-fabrics/calico',
         },
         {
           name: 'Poly-Woven Fabrics',
@@ -165,6 +176,7 @@ const ProductsPage = () => {
           ],
           icon: Shield,
           image: '/images/products/poly-woven-fabrics.jpg',
+          route: '/products/natural-synthetic-fabrics/poly-woven-fabrics',
         },
         {
           name: 'Woven & Knitted Fabrics',
@@ -175,6 +187,7 @@ const ProductsPage = () => {
           ],
           icon: Globe,
           image: '/images/products/woven-knitted-fabrics.jpg',
+          route: '/products/natural-synthetic-fabrics/woven-knitted-fabrics',
         },
       ],
     },
@@ -195,6 +208,7 @@ const ProductsPage = () => {
           ],
           icon: Bed,
           image: '/images/products/bedding.jpg',
+          route: '/products/commercial-textiles/bedding',
         },
         {
           name: 'Towels',
@@ -205,6 +219,7 @@ const ProductsPage = () => {
           ],
           icon: Shirt,
           image: '/images/products/towels.jpg',
+          route: '/products/commercial-textiles/towels',
         },
         {
           name: 'Laundry Bags',
@@ -215,6 +230,7 @@ const ProductsPage = () => {
           ],
           icon: Package,
           image: '/images/products/laundry-bags.jpg',
+          route: '/products/commercial-textiles/laundry-bags',
         },
         {
           name: 'Shower Curtains',
@@ -225,6 +241,7 @@ const ProductsPage = () => {
           ],
           icon: Shield,
           image: '/images/products/shower-curtains.jpg',
+          route: '/products/commercial-textiles/shower-curtains',
         },
       ],
     },
@@ -328,88 +345,89 @@ const ProductsPage = () => {
           </div>
 
           {/* Products Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {category.products.map((product, productIndex) => (
-              <div
-                key={productIndex}
-                className={`group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-2 hover:scale-105 overflow-hidden
-                  ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
-                `}
-                style={{ transitionDelay: `${categoryIndex * 150 + productIndex * 80}ms` }}
-                onMouseEnter={() =>
-                  setHoveredProduct(`${categoryIndex}-${productIndex}`)
-                }
-                onMouseLeave={() => setHoveredProduct(null)}
+              <Link
+              key={productIndex}
+              href={product.route}
+              className={`group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-2 hover:scale-105 overflow-hidden
+                ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
+              `}
+              style={{ transitionDelay: `${categoryIndex * 150 + productIndex * 80}ms` }}
+              onMouseEnter={() =>
+                setHoveredProduct(`${categoryIndex}-${productIndex}`)
+              }
+              onMouseLeave={() => setHoveredProduct(null)}
               >
-                {/* Card Background Animation */}
-                <div
-                  className={`absolute inset-0 bg-gradient-to-r ${category.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
-                ></div>
+              {/* Card Background Animation */}
+              <div
+                className={`absolute inset-0 bg-gradient-to-r ${category.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
+              ></div>
 
-                {/* Product Image */}
-                <div className="relative w-full h-36 bg-gray-100 flex items-center justify-center overflow-hidden">
-                  <Image
-                    //src={product.image || '/images/hero/b1.jpg'}
-                    src='/images/hero/b1.jpg'
-                    alt={product.name}
-                    className="object-cover w-full h-full"
-                    fill
-                    sizes="100vw"
-                    style={{ objectFit: 'cover' }}
-                  />
-                </div>
-
-                {/* Content */}
-                <div className="relative p-6">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div
-                      className={`w-12 h-12 rounded-xl bg-gradient-to-r ${category.color} flex items-center justify-center transform transition-all duration-300 group-hover:rotate-12 group-hover:scale-110`}
-                    >
-                      <product.icon className="w-6 h-6 text-white" />
-                    </div>
-                    <h3 className="text-lg font-bold text-gray-900 group-hover:text-[#39b54b] transition-colors duration-300">
-                      {product.name}
-                    </h3>
-                  </div>
-
-                  <div className="space-y-3">
-                    {product.features.map((feature, featureIndex) => (
-                      <div
-                        key={featureIndex}
-                        className={`flex items-start gap-3 transform transition-all duration-300 ${
-                          hoveredProduct ===
-                          `${categoryIndex}-${productIndex}`
-                            ? 'translate-x-0 opacity-100'
-                            : 'translate-x-2 opacity-70'
-                        }`}
-                        style={{ transitionDelay: `${featureIndex * 100}ms` }}
-                      >
-                        <CheckCircle className="w-4 h-4 text-[#39b54b] mt-0.5 flex-shrink-0" />
-                        <span className="text-sm text-gray-600 group-hover:text-gray-800 transition-colors duration-300">
-                          {feature}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Hover Action */}
-                  <div
-                    className={`mt-6 flex items-center gap-2 text-[#39b54b] font-medium text-sm transform transition-all duration-300 ${
-                      hoveredProduct === `${categoryIndex}-${productIndex}`
-                        ? 'translate-x-0 opacity-100'
-                        : 'translate-x-4 opacity-0'
-                    }`}
-                  >
-                    <span>Learn More</span>
-                    <ChevronRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
-                  </div>
-                </div>
-
-                {/* Animated Border */}
-                <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-[#39b54b]/20 transition-all duration-500"></div>
+              {/* Product Image */}
+              <div className="relative w-full h-36 bg-gray-100 flex items-center justify-center overflow-hidden">
+                <Image
+                //src={product.image || '/images/hero/b1.jpg'}
+                src='/images/hero/b1.jpg'
+                alt={product.name}
+                className="object-cover w-full h-full"
+                fill
+                sizes="100vw"
+                style={{ objectFit: 'cover' }}
+                />
               </div>
+
+              {/* Content */}
+              <div className="relative p-6">
+                <div className="flex items-center gap-4 mb-4">
+                <div
+                  className={`w-12 h-12 rounded-xl bg-gradient-to-r ${category.color} flex items-center justify-center transform transition-all duration-300 group-hover:rotate-12 group-hover:scale-110`}
+                >
+                  <product.icon className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 group-hover:text-[#39b54b] transition-colors duration-300">
+                  {product.name}
+                </h3>
+                </div>
+
+                <div className="space-y-3">
+                {product.features.map((feature, featureIndex) => (
+                  <div
+                  key={featureIndex}
+                  className={`flex items-start gap-3 transform transition-all duration-300 ${
+                    hoveredProduct ===
+                    `${categoryIndex}-${productIndex}`
+                    ? 'translate-x-0 opacity-100'
+                    : 'translate-x-2 opacity-70'
+                  }`}
+                  style={{ transitionDelay: `${featureIndex * 100}ms` }}
+                  >
+                  <CheckCircle className="w-4 h-4 text-[#39b54b] mt-0.5 flex-shrink-0" />
+                  <span className="text-sm text-gray-600 group-hover:text-gray-800 transition-colors duration-300">
+                    {feature}
+                  </span>
+                  </div>
+                ))}
+                </div>
+
+                {/* Hover Action */}
+                <div
+                className={`mt-6 flex items-center gap-2 text-[#39b54b] font-medium text-sm transform transition-all duration-300 ${
+                  hoveredProduct === `${categoryIndex}-${productIndex}`
+                  ? 'translate-x-0 opacity-100'
+                  : 'translate-x-4 opacity-0 pointer-events-none'
+                }`}
+                >
+                <span>Learn More</span>
+                <ChevronRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
+                </div>
+              </div>
+
+              {/* Animated Border */}
+              <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-[#39b54b]/20 transition-all duration-500"></div>
+              </Link>
             ))}
-          </div>
+            </div>
         </div>
       ))}
     </div>
