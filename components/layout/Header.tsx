@@ -14,11 +14,14 @@ import {
   FileText,
   Zap,
 } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isAudioMuted, setIsAudioMuted] = useState(true);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,25 +69,45 @@ const NavBar = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
-            {/* Logo */}
-            <div className="flex-shrink-0 group">
-              <div className="w-12 h-12 bg-gradient-to-br from-[#39b54b] to-[#2d8f3a] rounded-xl flex items-center justify-center transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 shadow-lg">
-                <div className="flex items-center space-x-4 group cursor-pointer">
-                  <Link href="/" className="relative">
-                    <Image
-                      src="/icon.png"
-                      alt="Cloves Inc Logo"
-                      width={50}
-                      height={50}
-                      className="w-auto h-12 rounded-2xl transition-all duration-300 group-hover:scale-105"
-                    />
-                  </Link>
-                </div>
+            <div
+              className="flex-shrink-0 group"
+              onMouseEnter={e => {
+                const img = e.currentTarget.querySelector('img');
+                if (img) {
+                  img.classList.add('glow');
+                }
+              }}
+              onMouseLeave={e => {
+                const img = e.currentTarget.querySelector('img');
+                if (img) {
+                  img.classList.remove('glow');
+                }
+              }}
+            >
+              {/* Audio Mute/Unmute Button */}
+             
+              <div className="flex items-center space-x-4 group cursor-pointer">
+                <Link href="/" className="relative">
+                  <Image
+                    src="/cicon.png"
+                    alt="Cloves Inc Logo"
+                    width={50}
+                    height={50}
+                    className="w-auto h-12 rounded-2xl transition-all duration-300 group-hover:scale-105"
+                  />
+                </Link>
+                <style jsx global>{`
+                  .glow {
+                    box-shadow: 0 0 24px 6px #39b54b88, 0 0 8px 2px #2d8f3a55;
+                    transition: box-shadow 0.3s;
+                  }
+                `}</style>
               </div>
               {/* <div className="font-bold text-2xl bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
                 Cloves INC
               </div> */}
             </div>
+            
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-1">
@@ -92,13 +115,27 @@ const NavBar = () => {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="group relative px-4 py-2 text-gray-700 hover:text-[#39b54b] transition-all duration-300 font-medium"
+                  className={`group relative px-4 py-2 transition-all duration-300 font-medium
+                    ${
+                      pathname === item.href
+                        ? 'text-[#39b54b] font-semibold'
+                        : 'text-gray-700 hover:text-[#39b54b]'
+                    }
+                  `}
                 >
                   <span className="flex items-center space-x-2">
                     <item.icon className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" />
                     <span>{item.name}</span>
                   </span>
-                  <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#39b54b] to-[#2d8f3a] transition-all duration-300 group-hover:w-full"></div>
+                  <div
+                    className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#39b54b] to-[#2d8f3a] transition-all duration-300
+                    ${
+                      pathname === item.href
+                        ? 'w-full'
+                        : 'w-0 group-hover:w-full'
+                    }
+                  `}
+                  ></div>
                 </a>
               ))}
 
@@ -108,7 +145,15 @@ const NavBar = () => {
                 onMouseEnter={() => setIsProductsOpen(true)}
                 onMouseLeave={() => setIsProductsOpen(false)}
               >
-                <button className="flex items-center space-x-2 px-4 py-2 text-gray-700 hover:text-[#39b54b] transition-all duration-300 font-medium group">
+                <button
+                  className={`flex items-center space-x-2 px-4 py-2 transition-all duration-300 font-medium group
+                  ${
+                    pathname.startsWith('/products')
+                      ? 'text-[#39b54b] font-semibold'
+                      : 'text-gray-700 hover:text-[#39b54b]'
+                  }
+                `}
+                >
                   <Package className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" />
                   <span>Products</span>
                   <ChevronDown
@@ -116,7 +161,15 @@ const NavBar = () => {
                       isProductsOpen ? 'rotate-180' : ''
                     }`}
                   />
-                  <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#39b54b] to-[#2d8f3a] transition-all duration-300 group-hover:w-full"></div>
+                  <div
+                    className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#39b54b] to-[#2d8f3a] transition-all duration-300
+                    ${
+                      pathname.startsWith('/products')
+                        ? 'w-full'
+                        : 'w-0 group-hover:w-full'
+                    }
+                  `}
+                  ></div>
                 </button>
 
                 {/* Dropdown Menu */}
@@ -186,18 +239,32 @@ const NavBar = () => {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="flex items-center space-x-3 p-3 rounded-xl hover:bg-gradient-to-r hover:from-[#39b54b]/10 hover:to-[#2d8f3a]/10 transition-all duration-300 transform hover:translate-x-2"
+                  className={`flex items-center space-x-3 p-3 rounded-xl transition-all duration-300 transform hover:translate-x-2
+                    ${
+                      pathname === item.href
+                        ? 'bg-gradient-to-r from-[#39b54b]/10 to-[#2d8f3a]/10 text-[#39b54b] font-semibold'
+                        : 'hover:bg-gradient-to-r hover:from-[#39b54b]/10 hover:to-[#2d8f3a]/10 text-gray-700'
+                    }
+                  `}
                   style={{ animationDelay: `${index * 50}ms` }}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <item.icon className="w-5 h-5 text-[#39b54b]" />
-                  <span className="text-gray-700 font-medium">{item.name}</span>
+                  <span className="font-medium">{item.name}</span>
                 </a>
               ))}
 
               {/* Mobile Products Section */}
               <div className="space-y-2">
-                <div className="flex items-center space-x-3 p-3 text-gray-800 font-semibold">
+                <div
+                  className={`flex items-center space-x-3 p-3 font-semibold
+                  ${
+                    pathname.startsWith('/products')
+                      ? 'text-[#39b54b]'
+                      : 'text-gray-800'
+                  }
+                `}
+                >
                   <Package className="w-5 h-5 text-[#39b54b]" />
                   <span>Products</span>
                 </div>
@@ -205,14 +272,20 @@ const NavBar = () => {
                   <a
                     key={item.name}
                     href={item.href}
-                    className="flex items-center space-x-3 p-3 pl-12 rounded-xl hover:bg-gradient-to-r hover:from-[#39b54b]/10 hover:to-[#2d8f3a]/10 transition-all duration-300 transform hover:translate-x-2"
+                    className={`flex items-center space-x-3 p-3 pl-12 rounded-xl transition-all duration-300 transform hover:translate-x-2
+                      ${
+                        pathname === item.href
+                          ? 'bg-gradient-to-r from-[#39b54b]/10 to-[#2d8f3a]/10 text-[#39b54b] font-semibold'
+                          : 'hover:bg-gradient-to-r hover:from-[#39b54b]/10 hover:to-[#2d8f3a]/10 text-gray-600'
+                      }
+                    `}
                     style={{
                       animationDelay: `${(index + navItems.length) * 50}ms`,
                     }}
                     onClick={() => setIsMenuOpen(false)}
                   >
                     <item.icon className="w-4 h-4 text-[#39b54b]" />
-                    <span className="text-gray-600 text-sm">{item.name}</span>
+                    <span className="text-sm">{item.name}</span>
                   </a>
                 ))}
               </div>
