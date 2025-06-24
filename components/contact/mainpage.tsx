@@ -1,17 +1,17 @@
-"use client";
+'use client';
 import React, { useState, useEffect } from 'react';
-import { 
-  Phone, 
-  Mail, 
-  MapPin, 
-  FileText, 
-  Upload, 
-  Send, 
-  Clock, 
-  Award, 
-  Shield, 
-  Leaf, 
-  MessageCircle, 
+import {
+  Phone,
+  Mail,
+  MapPin,
+  FileText,
+  Upload,
+  Send,
+  Clock,
+  Award,
+  Shield,
+  Leaf,
+  MessageCircle,
   PhoneCall,
   CheckCircle,
   AlertCircle,
@@ -22,7 +22,7 @@ import {
   Star,
   ArrowRight,
   Download,
-  Play
+  Play,
 } from 'lucide-react';
 
 const ContactPage = () => {
@@ -34,9 +34,9 @@ const ContactPage = () => {
     industry: '',
     subject: '',
     message: '',
-    file: null
+    file: null,
   });
-  
+
   const [errors, setErrors] = useState<Errors>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -49,7 +49,7 @@ const ContactPage = () => {
     'Agriculture & Spices',
     'Manufacturing & Industrial',
     'Retail & E-commerce',
-    'Other'
+    'Other',
   ];
 
   const subjects = [
@@ -59,10 +59,10 @@ const ContactPage = () => {
     'Partnership Opportunity',
     'Sample Request',
     'Bulk Order',
-    'Custom Solution'
+    'Custom Solution',
   ];
 
-interface FormData {
+  interface FormData {
     fullName: string;
     companyName: string;
     email: string;
@@ -71,67 +71,77 @@ interface FormData {
     subject: string;
     message: string;
     file: File | null;
-}
+  }
 
-interface Errors {
+  interface Errors {
     [key: string]: string | undefined;
-}
+  }
 
-interface HandleInputChangeEvent extends React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement> {}
+  interface HandleInputChangeEvent
+    extends React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    > {}
 
-const handleInputChange = (e: HandleInputChangeEvent) => {
+  const handleInputChange = (e: HandleInputChangeEvent) => {
     const { name, value } = e.target;
     setFormData((prev: FormData) => ({ ...prev, [name]: value }));
     if (errors[name]) {
-        setErrors((prev: Errors) => ({ ...prev, [name]: '' }));
+      setErrors((prev: Errors) => ({ ...prev, [name]: '' }));
     }
-};
+  };
 
-interface HandleFileUploadEvent extends React.ChangeEvent<HTMLInputElement> {}
+  interface HandleFileUploadEvent extends React.ChangeEvent<HTMLInputElement> {}
 
-const handleFileUpload = (e: HandleFileUploadEvent): void => {
+  const handleFileUpload = (e: HandleFileUploadEvent): void => {
     const file = e.target.files && e.target.files[0];
     setFormData((prev: FormData) => ({ ...prev, file }));
-};
+  };
 
   const validateForm = () => {
     const newErrors: Partial<Errors> = {};
     if (!formData.fullName.trim()) newErrors.fullName = 'Full name is required';
-    if (!formData.companyName.trim()) newErrors.companyName = 'Company name is required';
+    if (!formData.companyName.trim())
+      newErrors.companyName = 'Company name is required';
     if (!formData.email.trim()) newErrors.email = 'Email is required';
-    if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Email is invalid';
+    if (!/\S+@\S+\.\S+/.test(formData.email))
+      newErrors.email = 'Email is invalid';
     if (!formData.industry) newErrors.industry = 'Please select an industry';
     if (!formData.subject) newErrors.subject = 'Please select a subject';
     if (!formData.message.trim()) newErrors.message = 'Message is required';
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-interface HandleSubmitEvent extends React.FormEvent<HTMLFormElement> {}
+  interface HandleSubmitEvent extends React.FormEvent<HTMLFormElement> {}
 
-interface HandleSubmitResult {}
+  interface HandleSubmitResult {}
 
-const handleSubmit = async (e: HandleSubmitEvent): Promise<HandleSubmitResult | void> => {
+  const handleSubmit = async (
+    e: HandleSubmitEvent,
+  ): Promise<HandleSubmitResult | void> => {
     e.preventDefault();
     if (!validateForm()) return;
 
     setIsLoading(true);
     setTimeout(() => {
-        setIsLoading(false);
-        setIsSubmitted(true);
-        setTimeout(() => setIsSubmitted(false), 5000);
+      setIsLoading(false);
+      setIsSubmitted(true);
+      setTimeout(() => setIsSubmitted(false), 5000);
     }, 2000);
-};
+  };
 
   interface AnimatedCounterProps {
     end: number;
     duration?: number;
   }
 
-  const AnimatedCounter: React.FC<AnimatedCounterProps> = ({ end, duration = 2000 }) => {
+  const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
+    end,
+    duration = 2000,
+  }) => {
     const [count, setCount] = useState(0);
-    
+
     useEffect(() => {
       let startTime: number | undefined;
       const animate = (currentTime: number) => {
@@ -142,7 +152,7 @@ const handleSubmit = async (e: HandleSubmitEvent): Promise<HandleSubmitResult | 
       };
       requestAnimationFrame(animate);
     }, [end, duration]);
-    
+
     return <span>{count}</span>;
   };
 
@@ -151,13 +161,16 @@ const handleSubmit = async (e: HandleSubmitEvent): Promise<HandleSubmitResult | 
     delay?: number;
   }
 
-  const FloatingElement: React.FC<FloatingElementProps> = ({ children, delay = 0 }) => (
-    <div 
+  const FloatingElement: React.FC<FloatingElementProps> = ({
+    children,
+    delay = 0,
+  }) => (
+    <div
       className="animate-bounce"
-      style={{ 
+      style={{
         animationDelay: `${delay}s`,
         animationDuration: '3s',
-        animationIterationCount: 'infinite'
+        animationIterationCount: 'infinite',
       }}
     >
       {children}
@@ -168,19 +181,33 @@ const handleSubmit = async (e: HandleSubmitEvent): Promise<HandleSubmitResult | 
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
       {/* Hero Section */}
       <div className="relative overflow-hidden bg-gradient-to-r from-[#39b54b] to-[#2d8f3a] text-white">
-        <div className="absolute inset-0 bg-black/10"></div>
-        <div className="relative container mx-auto px-4 py-16 lg:py-24">
+        {/* Background image with low opacity */}
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: "url('/contact/con2.jpg')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            opacity: 0.15,
+            pointerEvents: 'none',
+          }}
+        />
+        <div className="absolute inset-0 bg-black/10 z-10"></div>
+        <div className="relative container mx-auto px-4 py-16 lg:py-24 z-20">
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm rounded-full px-6 py-2 mb-6 animate-fade-in">
               <Zap className="w-4 h-4 animate-pulse" />
-              <span className="text-sm font-medium">Connect with Global Spice Leaders</span>
+              <span className="text-sm font-medium">
+                Connect with Global Spice Leaders
+              </span>
             </div>
             <h1 className="text-4xl lg:text-6xl font-bold mb-6 animate-slide-up">
               Let&#39;s Grow Your Business
               <span className="block text-green-200">Together</span>
             </h1>
             <p className="text-xl lg:text-2xl opacity-90 mb-8 animate-slide-up delay-200">
-              From premium spices to custom packaging solutions - we&#39;re here to elevate your business
+              From premium spices to custom packaging solutions - we&#39;re here
+              to elevate your business
             </p>
             <div className="flex flex-wrap justify-center gap-4 animate-slide-up delay-300">
               <div className="flex items-center space-x-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
@@ -198,7 +225,7 @@ const handleSubmit = async (e: HandleSubmitEvent): Promise<HandleSubmitResult | 
             </div>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent z-30"></div>
       </div>
 
       {/* Stats Section */}
@@ -243,7 +270,9 @@ const handleSubmit = async (e: HandleSubmitEvent): Promise<HandleSubmitResult | 
                 <MessageCircle className="w-6 h-6 text-[#39b54b]" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-gray-800">Get In Touch</h2>
+                <h2 className="text-2xl font-bold text-gray-800">
+                  Get In Touch
+                </h2>
                 <p className="text-gray-600">We&#39;d love to hear from you</p>
               </div>
             </div>
@@ -252,8 +281,12 @@ const handleSubmit = async (e: HandleSubmitEvent): Promise<HandleSubmitResult | 
               <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-xl flex items-center space-x-3 animate-fade-in">
                 <CheckCircle className="w-5 h-5 text-green-600" />
                 <div>
-                  <p className="text-green-800 font-medium">Message Sent Successfully!</p>
-                  <p className="text-green-600 text-sm">We&#39;ll get back to you within 12 hours.</p>
+                  <p className="text-green-800 font-medium">
+                    Message Sent Successfully!
+                  </p>
+                  <p className="text-green-600 text-sm">
+                    We&#39;ll get back to you within 12 hours.
+                  </p>
                 </div>
               </div>
             )}
@@ -269,7 +302,9 @@ const handleSubmit = async (e: HandleSubmitEvent): Promise<HandleSubmitResult | 
                     name="fullName"
                     value={formData.fullName}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-300 group-hover:border-[#39b54b]/50 ${errors.fullName ? 'border-red-500' : 'border-gray-300'}`}
+                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-300 group-hover:border-[#39b54b]/50 ${
+                      errors.fullName ? 'border-red-500' : 'border-gray-300'
+                    }`}
                     placeholder="John Doe"
                   />
                   {errors.fullName && (
@@ -289,7 +324,9 @@ const handleSubmit = async (e: HandleSubmitEvent): Promise<HandleSubmitResult | 
                     name="companyName"
                     value={formData.companyName}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-300 group-hover:border-[#39b54b]/50 ${errors.companyName ? 'border-red-500' : 'border-gray-300'}`}
+                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-300 group-hover:border-[#39b54b]/50 ${
+                      errors.companyName ? 'border-red-500' : 'border-gray-300'
+                    }`}
                     placeholder="Your Company"
                   />
                   {errors.companyName && (
@@ -311,7 +348,9 @@ const handleSubmit = async (e: HandleSubmitEvent): Promise<HandleSubmitResult | 
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-300 group-hover:border-[#39b54b]/50 ${errors.email ? 'border-red-500' : 'border-gray-300'}`}
+                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-300 group-hover:border-[#39b54b]/50 ${
+                      errors.email ? 'border-red-500' : 'border-gray-300'
+                    }`}
                     placeholder="john@company.com"
                   />
                   {errors.email && (
@@ -346,11 +385,15 @@ const handleSubmit = async (e: HandleSubmitEvent): Promise<HandleSubmitResult | 
                     name="industry"
                     value={formData.industry}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-300 group-hover:border-[#39b54b]/50 ${errors.industry ? 'border-red-500' : 'border-gray-300'}`}
+                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-300 group-hover:border-[#39b54b]/50 ${
+                      errors.industry ? 'border-red-500' : 'border-gray-300'
+                    }`}
                   >
                     <option value="">Select Industry</option>
-                    {industries.map(industry => (
-                      <option key={industry} value={industry}>{industry}</option>
+                    {industries.map((industry) => (
+                      <option key={industry} value={industry}>
+                        {industry}
+                      </option>
                     ))}
                   </select>
                   {errors.industry && (
@@ -369,11 +412,15 @@ const handleSubmit = async (e: HandleSubmitEvent): Promise<HandleSubmitResult | 
                     name="subject"
                     value={formData.subject}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-300 group-hover:border-[#39b54b]/50 ${errors.subject ? 'border-red-500' : 'border-gray-300'}`}
+                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-300 group-hover:border-[#39b54b]/50 ${
+                      errors.subject ? 'border-red-500' : 'border-gray-300'
+                    }`}
                   >
                     <option value="">Select Subject</option>
-                    {subjects.map(subject => (
-                      <option key={subject} value={subject}>{subject}</option>
+                    {subjects.map((subject) => (
+                      <option key={subject} value={subject}>
+                        {subject}
+                      </option>
                     ))}
                   </select>
                   {errors.subject && (
@@ -394,7 +441,9 @@ const handleSubmit = async (e: HandleSubmitEvent): Promise<HandleSubmitResult | 
                   value={formData.message}
                   onChange={handleInputChange}
                   rows={5}
-                  className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-300 group-hover:border-[#39b54b]/50 resize-none ${errors.message ? 'border-red-500' : 'border-gray-300'}`}
+                  className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-300 group-hover:border-[#39b54b]/50 resize-none ${
+                    errors.message ? 'border-red-500' : 'border-gray-300'
+                  }`}
                   placeholder="Tell us about your requirements, quantities, specifications, or any questions..."
                 />
                 {errors.message && (
@@ -419,9 +468,13 @@ const handleSubmit = async (e: HandleSubmitEvent): Promise<HandleSubmitResult | 
                   <div className="text-center">
                     <Upload className="w-8 h-8 text-gray-400 mx-auto mb-2 group-hover:text-[#39b54b] transition-colors" />
                     <p className="text-gray-600">
-                      {formData.file ? formData.file.name : 'Drop files here or click to upload'}
+                      {formData.file
+                        ? formData.file.name
+                        : 'Drop files here or click to upload'}
                     </p>
-                    <p className="text-xs text-gray-500 mt-1">PDF, DOC, TXT, JPG, PNG (Max 10MB)</p>
+                    <p className="text-xs text-gray-500 mt-1">
+                      PDF, DOC, TXT, JPG, PNG (Max 10MB)
+                    </p>
                   </div>
                 </div>
               </div>
@@ -448,9 +501,13 @@ const handleSubmit = async (e: HandleSubmitEvent): Promise<HandleSubmitResult | 
                 <div className="p-4 bg-blue-50 border border-blue-200 rounded-xl animate-fade-in">
                   <div className="flex items-center space-x-2">
                     <Clock className="w-5 h-5 text-blue-600" />
-                    <p className="text-blue-800 font-medium">Healthcare Priority Service</p>
+                    <p className="text-blue-800 font-medium">
+                      Healthcare Priority Service
+                    </p>
                   </div>
-                  <p className="text-blue-600 text-sm mt-1">Healthcare clients receive quotes within 12 hours!</p>
+                  <p className="text-blue-600 text-sm mt-1">
+                    Healthcare clients receive quotes within 12 hours!
+                  </p>
                 </div>
               )}
             </form>
@@ -460,8 +517,10 @@ const handleSubmit = async (e: HandleSubmitEvent): Promise<HandleSubmitResult | 
           <div className="space-y-8">
             {/* Contact Details */}
             <div className="bg-white rounded-2xl shadow-xl p-6 lg:p-8 hover:shadow-2xl transition-shadow duration-300">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">Contact Information</h3>
-              
+              <h3 className="text-2xl font-bold text-gray-800 mb-6">
+                Contact Information
+              </h3>
+
               <div className="space-y-6">
                 <div className="flex items-start space-x-4 group hover:scale-105 transition-transform duration-300">
                   <div className="p-3 bg-[#39b54b]/10 rounded-xl group-hover:bg-[#39b54b]/20 transition-colors">
@@ -490,11 +549,21 @@ const handleSubmit = async (e: HandleSubmitEvent): Promise<HandleSubmitResult | 
                     <MapPin className="w-6 h-6 text-[#39b54b]" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-800">Global Offices</h4>
+                    <h4 className="font-semibold text-gray-800">
+                      Global Offices
+                    </h4>
                     <div className="space-y-2 text-gray-600">
-                      <p><strong>USA:</strong> 123 Spice Avenue, New York, NY 10001</p>
-                      <p><strong>India:</strong> Spice Garden Complex, Kerala 682001</p>
-                      <p><strong>UAE:</strong> Dubai Spice Souk, Dubai 12345</p>
+                      <p>
+                        <strong>USA:</strong> 123 Spice Avenue, New York, NY
+                        10001
+                      </p>
+                      <p>
+                        <strong>India:</strong> Spice Garden Complex, Kerala
+                        682001
+                      </p>
+                      <p>
+                        <strong>UAE:</strong> Dubai Spice Souk, Dubai 12345
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -503,8 +572,10 @@ const handleSubmit = async (e: HandleSubmitEvent): Promise<HandleSubmitResult | 
 
             {/* Certifications */}
             <div className="bg-white rounded-2xl shadow-xl p-6 lg:p-8 hover:shadow-2xl transition-shadow duration-300">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">Certifications & Trust</h3>
-              
+              <h3 className="text-2xl font-bold text-gray-800 mb-6">
+                Certifications & Trust
+              </h3>
+
               <div className="grid grid-cols-2 gap-4">
                 <div className="flex items-center space-x-3 p-3 bg-gray-50 rounded-xl hover:bg-[#39b54b]/5 transition-colors">
                   <Award className="w-8 h-8 text-[#39b54b]" />
@@ -513,7 +584,7 @@ const handleSubmit = async (e: HandleSubmitEvent): Promise<HandleSubmitResult | 
                     <p className="text-xs text-gray-600">Quality Management</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center space-x-3 p-3 bg-gray-50 rounded-xl hover:bg-[#39b54b]/5 transition-colors">
                   <Shield className="w-8 h-8 text-[#39b54b]" />
                   <div>
@@ -521,7 +592,7 @@ const handleSubmit = async (e: HandleSubmitEvent): Promise<HandleSubmitResult | 
                     <p className="text-xs text-gray-600">Food Safety</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center space-x-3 p-3 bg-gray-50 rounded-xl hover:bg-[#39b54b]/5 transition-colors">
                   <Leaf className="w-8 h-8 text-[#39b54b]" />
                   <div>
@@ -529,7 +600,7 @@ const handleSubmit = async (e: HandleSubmitEvent): Promise<HandleSubmitResult | 
                     <p className="text-xs text-gray-600">USDA Certified</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center space-x-3 p-3 bg-gray-50 rounded-xl hover:bg-[#39b54b]/5 transition-colors">
                   <Globe className="w-8 h-8 text-[#39b54b]" />
                   <div>
@@ -543,7 +614,7 @@ const handleSubmit = async (e: HandleSubmitEvent): Promise<HandleSubmitResult | 
             {/* Quick Actions */}
             <div className="bg-gradient-to-r from-[#39b54b] to-[#2d8f3a] rounded-2xl p-6 lg:p-8 text-white">
               <h3 className="text-2xl font-bold mb-6">Quick Actions</h3>
-              
+
               <div className="space-y-4">
                 <button className="w-full bg-white/20 backdrop-blur-sm hover:bg-white/30 p-4 rounded-xl flex items-center space-x-3 transition-all duration-300 hover:scale-105">
                   <MessageCircle className="w-6 h-6" />
@@ -552,15 +623,17 @@ const handleSubmit = async (e: HandleSubmitEvent): Promise<HandleSubmitResult | 
                     <p className="text-sm opacity-90">Get instant support</p>
                   </div>
                 </button>
-                
+
                 <button className="w-full bg-white/20 backdrop-blur-sm hover:bg-white/30 p-4 rounded-xl flex items-center space-x-3 transition-all duration-300 hover:scale-105">
                   <PhoneCall className="w-6 h-6" />
                   <div className="text-left">
                     <p className="font-semibold">Request Callback</p>
-                    <p className="text-sm opacity-90">We&#39;ll call you back</p>
+                    <p className="text-sm opacity-90">
+                      We&#39;ll call you back
+                    </p>
                   </div>
                 </button>
-                
+
                 <button className="w-full bg-white/20 backdrop-blur-sm hover:bg-white/30 p-4 rounded-xl flex items-center space-x-3 transition-all duration-300 hover:scale-105">
                   <Download className="w-6 h-6" />
                   <div className="text-left">
@@ -579,7 +652,9 @@ const handleSubmit = async (e: HandleSubmitEvent): Promise<HandleSubmitResult | 
                 ))}
               </div>
               <blockquote className="text-gray-700 mb-4 italic">
-                &quot;Cloves Inc. has been our trusted spice supplier for over 3 years. Their quality consistency and timely delivery have helped us maintain our product standards across 50+ locations.&quot;
+                &quot;Cloves Inc. has been our trusted spice supplier for over 3
+                years. Their quality consistency and timely delivery have helped
+                us maintain our product standards across 50+ locations.&quot;
               </blockquote>
               <div className="flex items-center space-x-3">
                 <div className="w-12 h-12 bg-[#39b54b]/10 rounded-full flex items-center justify-center">
@@ -587,7 +662,9 @@ const handleSubmit = async (e: HandleSubmitEvent): Promise<HandleSubmitResult | 
                 </div>
                 <div>
                   <p className="font-semibold text-gray-800">Sarah Johnson</p>
-                  <p className="text-sm text-gray-600">Procurement Manager, FoodChain Inc.</p>
+                  <p className="text-sm text-gray-600">
+                    Procurement Manager, FoodChain Inc.
+                  </p>
                 </div>
               </div>
             </div>
@@ -602,81 +679,111 @@ const handleSubmit = async (e: HandleSubmitEvent): Promise<HandleSubmitResult | 
                 <Clock className="w-8 h-8 text-[#39b54b]" />
               </div>
             </FloatingElement>
-            <h3 className="text-xl font-bold text-gray-800 mb-2">24/7 Support</h3>
-            <p className="text-gray-600">Round-the-clock assistance for urgent requirements</p>
+            <h3 className="text-xl font-bold text-gray-800 mb-2">
+              24/7 Support
+            </h3>
+            <p className="text-gray-600">
+              Round-the-clock assistance for urgent requirements
+            </p>
           </div>
-          
+
           <div className="bg-white rounded-2xl shadow-xl p-6 text-center hover:shadow-2xl transition-shadow duration-300">
             <FloatingElement delay={1}>
               <div className="w-16 h-16 bg-[#39b54b]/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Zap className="w-8 h-8 text-[#39b54b]" />
               </div>
             </FloatingElement>
-            <h3 className="text-xl font-bold text-gray-800 mb-2">Quick Response</h3>
+            <h3 className="text-xl font-bold text-gray-800 mb-2">
+              Quick Response
+            </h3>
             <p className="text-gray-600">Average response time under 2 hours</p>
           </div>
-          
+
           <div className="bg-white rounded-2xl shadow-xl p-6 text-center hover:shadow-2xl transition-shadow duration-300">
             <FloatingElement delay={2}>
               <div className="w-16 h-16 bg-[#39b54b]/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Globe className="w-8 h-8 text-[#39b54b]" />
               </div>
             </FloatingElement>
-            <h3 className="text-xl font-bold text-gray-800 mb-2">Global Reach</h3>
-            <p className="text-gray-600">Serving clients across 50+ countries worldwide</p>
+            <h3 className="text-xl font-bold text-gray-800 mb-2">
+              Global Reach
+            </h3>
+            <p className="text-gray-600">
+              Serving clients across 50+ countries worldwide
+            </p>
           </div>
         </div>
 
         {/* Resource Hub */}
         <div className="mt-16 bg-gray-50 rounded-3xl p-8 lg:p-12">
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">Resource Hub</h2>
-            <p className="text-xl text-gray-600">Everything you need to know about our products and services</p>
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
+              Resource Hub
+            </h2>
+            <p className="text-xl text-gray-600">
+              Everything you need to know about our products and services
+            </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-white rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:scale-105 group cursor-pointer">
               <div className="w-12 h-12 bg-[#39b54b]/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-[#39b54b]/20 transition-colors">
                 <FileText className="w-6 h-6 text-[#39b54b]" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">Product Catalog</h3>
-              <p className="text-gray-600 text-sm mb-4">Complete range of spices and packaging solutions</p>
+              <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                Product Catalog
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                Complete range of spices and packaging solutions
+              </p>
               <div className="flex items-center text-[#39b54b] text-sm font-medium">
                 <span>Download PDF</span>
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </div>
             </div>
-            
+
             <div className="bg-white rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:scale-105 group cursor-pointer">
               <div className="w-12 h-12 bg-[#39b54b]/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-[#39b54b]/20 transition-colors">
                 <Award className="w-6 h-6 text-[#39b54b]" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">Quality Standards</h3>
-              <p className="text-gray-600 text-sm mb-4">Our certifications and quality assurance processes</p>
+              <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                Quality Standards
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                Our certifications and quality assurance processes
+              </p>
               <div className="flex items-center text-[#39b54b] text-sm font-medium">
                 <span>Learn More</span>
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </div>
             </div>
-            
+
             <div className="bg-white rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:scale-105 group cursor-pointer">
               <div className="w-12 h-12 bg-[#39b54b]/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-[#39b54b]/20 transition-colors">
                 <Building className="w-6 h-6 text-[#39b54b]" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">Case Studies</h3>
-              <p className="text-gray-600 text-sm mb-4">Success stories from our global clients</p>
+              <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                Case Studies
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                Success stories from our global clients
+              </p>
               <div className="flex items-center text-[#39b54b] text-sm font-medium">
                 <span>Read Stories</span>
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </div>
             </div>
-            
+
             <div className="bg-white rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:scale-105 group cursor-pointer">
               <div className="w-12 h-12 bg-[#39b54b]/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-[#39b54b]/20 transition-colors">
                 <Play className="w-6 h-6 text-[#39b54b]" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">Virtual Tour</h3>
-              <p className="text-gray-600 text-sm mb-4">Take a virtual tour of our processing facilities</p>
+              <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                Virtual Tour
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                Take a virtual tour of our processing facilities
+              </p>
               <div className="flex items-center text-[#39b54b] text-sm font-medium">
                 <span>Watch Now</span>
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -688,9 +795,14 @@ const handleSubmit = async (e: HandleSubmitEvent): Promise<HandleSubmitResult | 
         {/* Newsletter Signup */}
         <div className="mt-16 bg-gradient-to-r from-[#39b54b] to-[#2d8f3a] rounded-3xl p-8 lg:p-12 text-white text-center">
           <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4">Stay Updated</h2>
-            <p className="text-xl opacity-90 mb-8">Get the latest updates on new products, industry insights, and special offers</p>
-            
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              Stay Updated
+            </h2>
+            <p className="text-xl opacity-90 mb-8">
+              Get the latest updates on new products, industry insights, and
+              special offers
+            </p>
+
             <div className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
               <input
                 type="email"
@@ -702,8 +814,10 @@ const handleSubmit = async (e: HandleSubmitEvent): Promise<HandleSubmitResult | 
                 <span>Subscribe</span>
               </button>
             </div>
-            
-            <p className="text-sm opacity-75 mt-4">No spam, unsubscribe at any time</p>
+
+            <p className="text-sm opacity-75 mt-4">
+              No spam, unsubscribe at any time
+            </p>
           </div>
         </div>
       </div>
@@ -721,28 +835,40 @@ const handleSubmit = async (e: HandleSubmitEvent): Promise<HandleSubmitResult | 
       {/* Custom Styles */}
       <style jsx>{`
         @keyframes fade-in {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
-        
+
         @keyframes slide-up {
-          from { opacity: 0; transform: translateY(30px); }
-          to { opacity: 1; transform: translateY(0); }
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
-        
+
         .animate-fade-in {
           animation: fade-in 0.6s ease-out;
         }
-        
+
         .animate-slide-up {
           animation: slide-up 0.8s ease-out;
         }
-        
+
         .delay-200 {
           animation-delay: 0.2s;
           animation-fill-mode: both;
         }
-        
+
         .delay-300 {
           animation-delay: 0.3s;
           animation-fill-mode: both;

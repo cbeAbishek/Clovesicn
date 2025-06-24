@@ -54,7 +54,7 @@ export default function ClovesAdModal() {
 
                     {/* Banner Image */}
                     <Image
-                        src="/images/banner.jpg"
+                        src="/images/banner1.jpg"
                         alt="Cloves Inc. - Latest Update"
                         width={400}
                         height={160}

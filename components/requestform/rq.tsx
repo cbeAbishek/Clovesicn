@@ -256,7 +256,7 @@ const RequestQuotePage = () => {
       {/* Header Section */}
       <div className="relative bg-gradient-to-r from-[#39b54b] to-[#2d8f3a] overflow-hidden">
         <div className="absolute inset-0 bg-black bg-opacity-10"></div>
-        <div className="absolute inset-0 bg-[url('/ceo.jpg')] opacity-20"></div>
+        <div className="absolute inset-0 bg-[url('/images/rq.jpg')] opacity-20"></div>
 
         <div
           className={`relative z-10 container mx-auto px-6 py-20 transition-all duration-1000 ${

@@ -7,9 +7,9 @@ import { Globe, PackageCheck, Users, TimerReset } from 'lucide-react';
 const AboutPage = () => {
   const stats = [
     { icon: Users, number: '500+', label: 'Clients' },
-    { icon: Globe, number: '40+', label: 'Countries Served' },
+    { icon: Globe, number: '10+', label: 'Countries Served' },
     { icon: PackageCheck, number: '50M+', label: 'Products Delivered' },
-    { icon: TimerReset, number: '25+', label: 'Years of Experience' },
+    { icon: TimerReset, number: '8+', label: 'Years of Experience' },
   ];
 
   return (
