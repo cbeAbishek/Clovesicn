@@ -6,6 +6,7 @@ interface ProductSubPageTemplateProps {
   image: string;
   features: React.ReactNode[];
   specifications: { label: string; value: string; icon?: React.ReactNode }[];
+  iconSize?: number;
 }
 
 export default function ProductSubPageTemplate({
@@ -14,6 +15,7 @@ export default function ProductSubPageTemplate({
   image,
   features,
   specifications,
+  iconSize = 26,
 }: ProductSubPageTemplateProps) {
   return (
     <section className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-green-50">
@@ -176,7 +178,9 @@ export default function ProductSubPageTemplate({
                           <div className="flex items-center mb-3">
                             <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center mr-3 group-hover:from-green-600 group-hover:to-green-700 transition-all duration-300">
                               <div className="text-white">
-                                {spec.icon}
+                                {spec.icon && React.isValidElement(spec.icon)
+                                  ? React.cloneElement(spec.icon as any, { size: iconSize })
+                                  : spec.icon}
                               </div>
                             </div>
                             <dt className="text-sm font-bold text-gray-600 uppercase tracking-wider group-hover:text-green-700 transition-colors">
