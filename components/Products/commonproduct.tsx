@@ -257,7 +257,7 @@ const ProductsPage = () => {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
       {/* Hero Section */}
       <div className="relative overflow-hidden bg-gradient-to-r from-slate-900 via-gray-900 to-slate-800">
-        <div className="absolute inset-0 bg-[url('/images/hero/b1.jpg')] opacity-10"></div>
+        <div className="absolute inset-0 bg-[url('/images/hero/b1.jpg')] opacity-30"></div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div
@@ -269,9 +269,8 @@ const ProductsPage = () => {
           >
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
               <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-                Premium
+              Premium
               </span>
-              <br />
               <span className="bg-gradient-to-r from-[#39b54b] to-emerald-400 bg-clip-text text-transparent">
                 Products
               </span>
