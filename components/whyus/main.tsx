@@ -404,14 +404,13 @@ const WhyChooseUs = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-[#39b54b] hover:bg-[#2d8f3a] text-white px-8 py-4 rounded-full font-semibold text-lg transform hover:scale-105 transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl">
-                Get Started Today
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </button>
-              <button className="border-2 border-[#39b54b] text-[#39b54b] hover:bg-[#39b54b] hover:text-white px-8 py-4 rounded-full font-semibold text-lg transform hover:scale-105 transition-all duration-300 flex items-center justify-center">
-                <Users className="mr-2 w-5 h-5" />
-                Contact Our Team
-              </button>
+                <a
+                  href="/request-quote"
+                  className="bg-[#39b54b] hover:bg-[#2d8f3a] text-white px-8 py-4 rounded-full font-semibold text-lg transform hover:scale-105 transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl"
+                >
+                  Get Your Quote Now
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </a>
             </div>
           </div>
         </div>

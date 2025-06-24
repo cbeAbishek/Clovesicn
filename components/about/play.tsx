@@ -142,7 +142,7 @@ const PlayfulHeroSection = () => {
           </div>
 
           {/* Right - Swiper */}
-          <div className="relative w-full h-96 lg:h-[500px] rounded-3xl border border-white/30 shadow-2xl overflow-hidden group hover:scale-105 transition-transform duration-500">
+            <div className="relative w-full h-96 lg:h-[500px] rounded-3xl border border-white/30 shadow-2xl overflow-hidden group hover:scale-105 transition-transform duration-500">
             <Swiper
               spaceBetween={30}
               slidesPerView={1}
@@ -151,22 +151,27 @@ const PlayfulHeroSection = () => {
               autoplay={{ delay: 2500, disableOnInteraction: false }}
               style={{ width: '100%', height: '100%' }}
             >
-              {['adi/am.jpg',
-                'adi/ai.jpg',
-                'adi/as.jpg'].map((src, i) => (
-                <SwiperSlide key={i}>
-                  <Image
-                    src={src}
-                    alt={`Slide ${i + 1}`}
-                    className="w-full h-full object-cover rounded-3xl"
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    style={{ objectFit: 'cover', borderRadius: '1.5rem' }}
-                  />
-                </SwiperSlide>
+              {[
+              'adi/ai.jpg',
+              'adi/am.jpg',
+              'adi/as.jpg',
+              'adi/bk.jpg',
+              'adi/bn.jpg',
+              'adi/bu.jpg'
+              ].map((src, i) => (
+              <SwiperSlide key={i}>
+                <Image
+                src={src}
+                alt={`Slide ${i + 1}`}
+                className="w-full h-full object-cover rounded-3xl"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                style={{ objectFit: 'cover', borderRadius: '1.5rem' }}
+                />
+              </SwiperSlide>
               ))}
             </Swiper>
-          </div>
+            </div>
         </div>
       </div>
 
