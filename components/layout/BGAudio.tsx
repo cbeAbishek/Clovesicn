@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import {Volume2,VolumeOff} from 'lucide-react';
 
 const BGAudio: React.FC = () => {
     const [isAudioMuted, setIsAudioMuted] = useState(false);
@@ -20,17 +21,10 @@ const BGAudio: React.FC = () => {
                 >
                     {isAudioMuted ? (
                         // Mute (Ludice style)
-                        <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path d="M9 9v6h4l5 5V4l-5 5H9z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                            <line x1="4" y1="4" x2="20" y2="20" strokeWidth="2" strokeLinecap="round" />
-                        </svg>
+                        <VolumeOff className="w-6 h-6 text-gray-700" />
                     ) : (
                         // Unmute (Ludice style)
-                        <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path d="M9 9v6h4l5 5V4l-5 5H9z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                            <path d="M15.54 8.46a5 5 0 010 7.07" strokeWidth="2" strokeLinecap="round" />
-                            <path d="M17.66 6.34a9 9 0 010 12.73" strokeWidth="2" strokeLinecap="round" />
-                        </svg>
+                       <Volume2 className="w-6 h-6 text-gray-700" />
                     )}
                 </button>
             </div>

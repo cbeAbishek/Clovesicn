@@ -1,1097 +1,738 @@
+// app/request-quote/page.tsx
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   ChevronDown,
+  ChevronUp,
   Check,
-  Upload,
   Download,
   Mail,
-  Building2,
+  Upload,
   Leaf,
   Shield,
-  Package,
-  FileText,
-  User,
+  Award,
+  Building2,
   Phone,
   MapPin,
-  Clock,
-  CheckCircle2,
-  ArrowRight,
-  ArrowLeft,
-  X,
+  Calendar,
+  User,
+  FileText,
+  Package,
+  Recycle,
+  Heart,
+  Star,
 } from 'lucide-react';
-import { downloadQuotePDF } from './pdfGenerator'; // Assuming you have a utility function for PDF generation
-import { useEffect as reactUseEffect } from 'react';
+import { generateQuotePDF} from './pdfGenerator';
 
-const ProductsPage = () => {
-  const [currentStep, setCurrentStep] = useState(1);
-  const [formData, setFormData] = useState<FormData>({
-    products: {} as Record<string, number | undefined>,
-    customization: {
-      industry: '',
-      hospitalName: '',
-      sustainability: false,
-      specifications: null,
-    },
-    contact: {
-      name: '',
-      company: '',
-      email: '',
-      phone: '',
-      region: '',
-      timeline: '',
-      customDate: '',
-      gdprConsent: false,
-    },
-  });
-
-  const [expandedCategories, setExpandedCategories] = useState<
-    Record<string, boolean>
-  >({});
-  const [isSubmitted, setIsSubmitted] = useState(false);
+const RequestQuotePage = () => {
+  const [openAccordions, setOpenAccordions] = useState<{
+    [category: string]: boolean;
+  }>({});
+  const [selectedProducts, setSelectedProducts] = useState<{
+    [productId: string]: boolean;
+  }>({});
+  const [quantities, setQuantities] = useState<{ [productId: string]: number }>(
+    {},
+  );
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
-  const [hasScrolled, setHasScrolled] = useState(false);
+  const [isGenerating, setIsGenerating] = useState(false);
+  const [generationStatus, setGenerationStatus] = useState('');
+  const [formData, setFormData] = useState({
+    industry: '',
+    hospitalName: '',
+    facilityType: '',
+    sustainability: false,
+    name: '',
+    company: '',
+    email: '',
+    phone: '',
+    region: '',
+    deliveryTimeline: '',
+    customDate: '',
+    gdprConsent: false,
+  });
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [animateHeader, setAnimateHeader] = useState(false);
+
+  useEffect(() => {
+    setAnimateHeader(true);
+  }, []);
 
   const productCategories = {
-    'Autoclave Liners': {
-      icon: Shield,
-      items: [
-        {
-          id: 'al-1',
-          name: 'High-Temp Plastic Liners',
-          price: 'Available in 30 kg rolls',
-          tags: ['Heat Resistant up to 140°C', 'Medical Waste Sterilization'],
-          description:
-            'Designed to withstand extreme heat during autoclaving, protecting carts from melting waste.',
-        },
-        {
-          id: 'al-2',
-          name: 'Textile Liners',
-          price: 'Cost-effective & Eco-Friendly',
-          tags: ['Reusable', 'Eco-Friendly'],
-          description:
-            'Lightweight and durable liners made from polyester and cotton blends, ideal for healthcare settings.',
-        },
-        {
-          id: 'al-3',
-          name: 'Jute/Hessian Liners',
-          price: 'Durable & Biodegradable',
-          tags: ['Biodegradable', 'Australia Preferred'],
-          description:
-            'Robust, eco-friendly liners suitable for unshredded medical waste systems.',
-        },
-        {
-          id: 'al-4',
-          name: 'Woven Plastic Liners',
-          price: 'Lightweight & Strong',
-          tags: ['Tear-Resistant', 'Cost-Effective Alternative to Jute'],
-          description:
-            'Ultra-durable and lightweight alternative to jute liners with excellent handling and transport benefits.',
-        },
-      ],
-    },
-    'Industrial Packaging Solutions': {
-      icon: Package,
-      items: [
-        {
-          id: 'ps-1',
-          name: 'Bulk Bags',
-          price: 'Custom Sizes Available',
-          tags: ['Heavy-Duty', 'Industrial Use'],
-          description:
-            'Ideal for transporting bulk materials like chemicals, grains, and industrial products.',
-        },
-        {
-          id: 'ps-2',
-          name: 'Poly-Woven Bags',
-          price: 'Moisture-Proof & Durable',
-          tags: ['Tear-Resistant', 'Customizable'],
-          description:
-            'Versatile packaging solution used for cement, chemicals, and grains with high strength and durability.',
-        },
-        {
-          id: 'ps-3',
-          name: 'Mesh Bags',
-          price: 'Breathable & Lightweight',
-          tags: ['Produce Packaging', 'Custom Sizes'],
-          description:
-            'Perfect for fruits, vegetables, and perishables ensuring freshness and air circulation.',
-        },
-        {
-          id: 'ps-4',
-          name: 'Multiwall Paper Sacks',
-          price: 'Environmentally Friendly',
-          tags: ['Moisture Resistant', 'Sustainable'],
-          description:
-            'Multi-layered sacks for dry goods and industrial materials offering excellent protection and recyclability.',
-        },
-      ],
-    },
-    'Natural & Synthetic Fabrics': {
-      icon: FileText,
-      items: [
-        {
-          id: 'nf-1',
-          name: 'Hessian (Jute) Fabric',
-          price: 'Strong & Sustainable',
-          tags: ['Biodegradable', 'Industrial Packaging'],
-          description:
-            'Heavy-duty fabric ideal for packaging and protection across industries due to its strength and eco-friendliness.',
-        },
-        {
-          id: 'nf-2',
-          name: 'Calico Fabric',
-          price: 'Soft & Breathable',
-          tags: ['Medical Use', 'Customizable'],
-          description:
-            'Used in commercial and medical applications, offering breathability and versatility.',
-        },
-        {
-          id: 'nf-3',
-          name: 'Poly-Woven Fabrics',
-          price: 'Tear-Resistant & Durable',
-          tags: ['Industrial Packaging', 'Lightweight'],
-          description:
-            'Perfect for heavy-duty packaging and storage solutions with superior wear resistance.',
-        },
-        {
-          id: 'nf-4',
-          name: 'Woven & Knitted Fabrics',
-          price: 'Custom Industrial Grade',
-          tags: ['Reinforced', 'Tear-Resistant'],
-          description:
-            'Designed for industrial use, offering high durability and customizable sizes for protective barriers and packaging.',
-        },
-      ],
-    },
-    'Commercial Textiles': {
-      items: [
-        {
-          id: 'ct-1',
-          name: 'Hospital Bedding',
-          price: 'Durable & Comfortable',
-          tags: ['Healthcare Use', 'Launderable'],
-          description:
-            'High-quality bedding designed for hospitals and healthcare environments, built for comfort and repeated washing.',
-        },
-        {
-          id: 'ct-2',
-          name: 'Industrial Towels',
-          price: 'Absorbent & Long-Lasting',
-          tags: ['Commercial Use', 'Washable'],
-          description:
-            'High absorbency towels suitable for hospitality, healthcare, and industrial sectors.',
-        },
-        {
-          id: 'ct-3',
-          name: 'Laundry Bags',
-          price: 'Tear-Resistant & Sturdy',
-          tags: ['Commercial Laundry', 'Customizable'],
-          description:
-            'Heavy-duty laundry bags for commercial operations, available in various sizes and designs.',
-        },
-        {
-          id: 'ct-4',
-          name: 'Shower Curtains',
-          price: 'Waterproof & Durable',
-          tags: ['Hospitality Use', 'Easy to Clean'],
-          description:
-            'Water-resistant shower curtains ideal for healthcare and hotel environments with easy maintenance.',
-        },
-      ],
-    },
+    'Autoclave Liners': [
+      { id: 'al-1', name: 'High-Temperature Sterilization Bags', price: '$89' },
+      { id: 'al-2', name: 'Medical Waste Disposal Liners', price: '$156' },
+      { id: 'al-3', name: 'Steam Sterilization Pouches', price: '$234' },
+      { id: 'al-4', name: 'Indicator Strip Bags', price: '$67' },
+    ],
+    'Packaging Solutions': [
+      { id: 'ps-1', name: 'Biodegradable Food Containers', price: '$45' },
+      { id: 'ps-2', name: 'Compostable Packaging Films', price: '$78' },
+      { id: 'ps-3', name: 'Sustainable Clamshell Boxes', price: '$92' },
+      { id: 'ps-4', name: 'Eco-Friendly Wrap Materials', price: '$123' },
+    ],
+    'Industrial Solutions': [
+      { id: 'is-1', name: 'Heavy-Duty Containment Bags', price: '$189' },
+      { id: 'is-2', name: 'Chemical-Resistant Liners', price: '$267' },
+      { id: 'is-3', name: 'Anti-Static Packaging', price: '$134' },
+      { id: 'is-4', name: 'Temperature-Controlled Bags', price: '$198' },
+    ],
+    'Specialty Products': [
+      { id: 'sp-1', name: 'Custom Printed Solutions', price: '$345' },
+      { id: 'sp-2', name: 'Barrier Protection Films', price: '$456' },
+      { id: 'sp-3', name: 'Vacuum Seal Pouches', price: '$167' },
+      { id: 'sp-4', name: 'Multi-Layer Composites', price: '$289' },
+    ],
   };
 
   const filters = [
     'Medical Waste Sterilization',
     'Biodegradable',
-    'Heat Resistant up to 140°C',
-    'Eco-Friendly',
-    'Reusable',
-    'Industrial Packaging',
-    'Hospitality Use',
-    'Heavy-Duty',
-    'Tear-Resistant',
-    'Customizable',
+    'High Temperature',
+    'Chemical Resistant',
+    'Food Grade',
+    'Anti-Static',
   ];
+
   const industries = [
     'Healthcare',
     'Agriculture',
+    'Hospitality',
     'Manufacturing',
-    'Research',
-    'Other',
+    'Food Service',
+    'Laboratory',
+    'Pharmaceutical',
+    'Veterinary',
   ];
-  const timelines = ['ASAP', '1-2 weeks', '3-4 weeks', 'Custom date'];
 
-   useEffect(() => {
-    if (!hasScrolled) {
-      window.scrollTo(0, 0);
-      setHasScrolled(true);
-    }
-  }, [currentStep, hasScrolled]);
-  interface ProductItem {
+  interface Product {
     id: string;
     name: string;
     price: string;
-    tags?: string[];
   }
 
-  interface ProductCategory {
-    icon: React.ComponentType<{ className?: string; size?: number }>;
-    // Removed unused ProductCategory interface
+  interface ProductCategories {
+    [category: string]: Product[];
+  }
+
+  interface AccordionState {
+    [category: string]: boolean;
+  }
+
+  interface SelectedProductsState {
+    [productId: string]: boolean;
+  }
+
+  interface QuantitiesState {
+    [productId: string]: number;
+  }
+
+  interface FormData {
     industry: string;
     hospitalName: string;
+    facilityType: string;
     sustainability: boolean;
-    specifications: FileList | null;
-  }
-
-  interface ContactData {
     name: string;
     company: string;
     email: string;
     phone: string;
     region: string;
-    timeline: string;
+    deliveryTimeline: string;
     customDate: string;
     gdprConsent: boolean;
   }
 
-  interface CustomizationData {
-    industry: string;
-    hospitalName: string;
-    sustainability: boolean;
-    specifications: FileList | null;
-  }
-
-  interface FormData {
-    products: Record<string, number | undefined>;
-    customization: CustomizationData;
-    contact: ContactData;
-  }
-
-  type ExpandedCategories = Record<string, boolean>;
-
-   const toggleCategory = (category: string) => {
-    setExpandedCategories((prev: ExpandedCategories) => ({
+  const toggleAccordion = (category: string) => {
+    setOpenAccordions((prev: AccordionState) => ({
       ...prev,
       [category]: !prev[category],
     }));
   };
 
-  interface HandleProductSelection {
+  interface ToggleProductFn {
+    (productId: string): void;
+  }
+
+  const toggleProduct: ToggleProductFn = (productId) => {
+    setSelectedProducts((prev: SelectedProductsState) => ({
+      ...prev,
+      [productId]: !prev[productId],
+    }));
+  };
+
+  interface UpdateQuantityFn {
     (productId: string, quantity: number): void;
   }
 
-  const handleProductSelection = useCallback((productId: string, quantity: number) => {
-    setFormData((prev) => ({
+  const updateQuantity: UpdateQuantityFn = (productId, quantity) => {
+    setQuantities((prev: QuantitiesState) => ({
       ...prev,
-      products: {
-        ...prev.products,
-        [productId]: quantity > 0 ? quantity : undefined,
-      },
+      [productId]: quantity,
     }));
-  }, []);
+  };
 
-  interface HandleFilterToggle {
+  interface ToggleFilterFn {
     (filter: string): void;
   }
 
-  const handleFilterToggle = (filter: string) => {
+  const toggleFilter: ToggleFilterFn = (filter) => {
     setActiveFilters((prev: string[]) =>
       prev.includes(filter)
-        ? prev.filter((f) => f !== filter)
+        ? prev.filter((f: string) => f !== filter)
         : [...prev, filter],
     );
   };
 
-  interface GetFilteredItems {
-    (items: ProductItem[]): ProductItem[];
+  interface HandleInputChangeFn {
+    (field: keyof FormData, value: string | boolean): void;
   }
 
-  const getFilteredItems: GetFilteredItems = (items) => {
-    if (activeFilters.length === 0) return items;
-    return items.filter(
-      (item) =>
-        item.tags && item.tags.some((tag) => activeFilters.includes(tag)),
-    );
+  const handleInputChange: HandleInputChangeFn = (field, value) => {
+    setFormData((prev: FormData) => ({
+      ...prev,
+      [field]: value,
+    }));
   };
 
-  const handleNextStep = () => {
-    if (currentStep < 4) {
-      setCurrentStep((prev) => prev + 1);
+  const generateQuote = async () => {
+    // Validate form
+    const selectedItems = Object.keys(selectedProducts).filter(
+      (id) => selectedProducts[id],
+    );
+    if (selectedItems.length === 0) {
+      alert('Please select at least one product');
+      return;
+    }
+
+    if (!formData.name || !formData.email || !formData.company) {
+      alert('Please fill in required fields (Name, Email, Company)');
+      return;
+    }
+
+    if (!formData.gdprConsent) {
+      alert('Please accept the GDPR compliance terms');
+      return;
+    }
+
+    setIsGenerating(true);
+    setGenerationStatus('Generating PDF quote...');
+
+    try {
+      // Generate PDF
+      const pdfResult = generateQuotePDF(
+        formData,
+        selectedProducts,
+        quantities,
+        productCategories,
+      );
+
+      if (!pdfResult.success) {
+        throw new Error(pdfResult.error);
+      }
+
+      setGenerationStatus('Creating email...');
+
+
+      setGenerationStatus('Opening email client...');
+
+      // Small delay for UX
+      setTimeout(() => {
+        //window.location.href = mailtoLink;
+        setIsSubmitted(true);
+        setGenerationStatus('Complete!');
+        setIsGenerating(false);
+      }, 1000);
+    } catch (error) {
+      console.error('Error generating quote:', error);
+      alert('There was an error generating your quote. Please try again.');
+      setIsGenerating(false);
     }
   };
 
-  const handlePrevStep = () => {
-    if (currentStep > 1) {
-      setCurrentStep((prev) => prev - 1);
-    }
-  };
-
-  const handleSubmit = () => {
-    setIsSubmitted(true)
-  };
-
-  const getSelectedProductsCount = () => {
-    return Object.keys(formData.products).filter(
-      (key) => formData.products[key],
-    ).length;
-  };
-
-  const StepIndicator = () => (
-    <div className="flex items-center justify-center mb-8">
-      {[1, 2, 3, 4].map((step) => (
-        <div key={step} className="flex items-center">
-          <div
-            className={`
-            w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold
-            transition-all duration-500 transform
-            ${
-              currentStep >= step
-                ? 'bg-[#39b54b] text-white scale-110 shadow-lg'
-                : 'bg-gray-200 text-gray-600'
-            }
-          `}
-          >
-            {currentStep > step ? <Check size={16} /> : step}
-          </div>
-          {step < 4 && (
-            <div
-              className={`
-              w-16 h-1 mx-2 transition-all duration-500
-              ${currentStep > step ? 'bg-[#39b54b]' : 'bg-gray-200'}
-            `}
-            />
-          )}
-        </div>
-      ))}
-    </div>
-  );
-
-  const ProductCard = ({
-    item,
-    category,
-  }: {
-    item: ProductItem;
-    category: string;
-  }) => {
-    const isSelected = formData.products[item.id];
-    const quantity = formData.products[item.id] || 0;
-
-    return (
-      <div
-        className={`
-          bg-white rounded-lg border p-4 transition-all duration-300
-          ${
-            isSelected
-              ? 'border-[#39b54b] bg-green-50 shadow-md'
-              : 'border-gray-200 hover:border-[#39b54b] hover:shadow-sm'
-          }
-        `}
-      >
-        <div className="flex items-start justify-between mb-3">
-          <div className="flex-1">
-            <h4 className="font-semibold text-gray-800 mb-1">{item.name}</h4>
-            <p className="text-[#39b54b] font-medium">{item.price}</p>
-            {item.tags && (
-              <div className="flex flex-wrap gap-1 mt-2">
-                {item.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-2 py-1 bg-[#39b54b] text-white text-xs rounded-full"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            )}
-          </div>
-        </div>
-        <div className="flex items-center gap-3">
-          <label className="flex items-center cursor-pointer">
-            <input
-              type="checkbox"
-              checked={!!isSelected}
-              onChange={(e) =>
-                handleProductSelection(item.id, e.target.checked ? 1 : 0)
-              }
-              className="sr-only"
-            />
-            <div
-              className={`
-              w-5 h-5 border-2 rounded transition-all duration-300
-              ${
-                isSelected
-                  ? 'bg-[#39b54b] border-[#39b54b]'
-                  : 'border-gray-300 hover:border-[#39b54b]'
-              }
-            `}
-            >
-              {isSelected && <Check size={12} className="text-white m-0.5" />}
-            </div>
-            <span className="ml-2 text-sm">Select</span>
-          </label>
-          {isSelected && (
-            <div className="flex items-center gap-2">
-              <label className="text-sm">Qty:</label>
-              <input
-                type="number"
-                min="1"
-                value={quantity}
-                onChange={(e) =>
-                  handleProductSelection(item.id, parseInt(e.target.value) || 1)
-                }
-                className="w-16 px-2 py-1 border border-gray-300 rounded focus:border-[#39b54b] focus:outline-none"
-              />
-            </div>
-          )}
-        </div>
-      </div>
-    );
-  };
-
-  const Step1 = () => (
-    <div className="space-y-6">
-      <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold text-gray-800 mb-2">
-          Select Products
-        </h2>
-        <p className="text-gray-600">
-          Choose from our range of healthcare and industrial solutions
-        </p>
-      </div>
-
-      {/* Filters */}
-      <div className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
-        <h3 className="font-semibold text-gray-800 mb-3">Filter by:</h3>
-        <div className="flex flex-wrap gap-2">
-          {filters.map((filter) => (
-            <button
-              key={filter}
-              onClick={() => handleFilterToggle(filter)}
-              className={`
-                px-3 py-1 rounded-full text-sm font-medium transition-all duration-300 transform
-                ${
-                  activeFilters.includes(filter)
-                    ? 'bg-[#39b54b] text-white scale-105 shadow-md'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                }
-              `}
-            >
-              {filter}
-              {activeFilters.includes(filter) && (
-                <X size={14} className="inline ml-1" />
-              )}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Product Categories */}
-      <div className="space-y-4">
-        {Object.entries(productCategories).map(([category, data]) => {
-          // Use data.icon if present, otherwise fallback to a default icon (e.g., Package)
-          const Icon = (data as any).icon || Package;
-          const isExpanded = expandedCategories[category];
-          const filteredItems = getFilteredItems(data.items);
-
-          return (
-            <div
-              key={category}
-              className="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden"
-            >
-              <button
-                onClick={() => toggleCategory(category)}
-                className="w-full p-4 flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
-              >
-                <div className="flex items-center gap-3">
-                  <Icon className="text-[#39b54b]" size={20} />
-                  <h3 className="font-semibold text-gray-800">{category}</h3>
-                  <span className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full">
-                    {filteredItems.length} items
-                  </span>
-                </div>
-                <ChevronDown
-                  className={`text-gray-400 transition-transform duration-300 ${
-                    isExpanded ? 'rotate-180' : ''
-                  }`}
-                  size={20}
-                />
-              </button>
-
-              {isExpanded && (
-                <div className="p-4 pt-0">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {filteredItems.map((item) => (
-                      <ProductCard
-                        key={item.id}
-                        item={item}
-                        category={category}
-                      />
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-          );
-        })}
-      </div>
-
-      {getSelectedProductsCount() > 0 && (
-        <div className="fixed bottom-[90px] right-6 ">
-          <div className="bg-[#39b54b] text-white px-6 py-3 rounded-full shadow-lg flex items-center gap-2 ">
-            <CheckCircle2 size={20} />
-            <span>
-              {getSelectedProductsCount()} product
-              {getSelectedProductsCount() !== 1 ? 's' : ''} selected
-            </span>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-
-  const Step2 = () => {
-    const [showHospitalField, setShowHospitalField] = useState(false);
-
-    // Update hospital field visibility when industry changes
-    useEffect(() => {
-      setShowHospitalField(formData.customization.industry === 'Healthcare');
-    }, [formData.customization.industry]);
-
-    return (
-      <form
-        onSubmit={e => e.preventDefault()}
-        className="space-y-6"
-      >
-        <div className="text-center mb-8">
-          <h2 className="text-2xl font-bold text-gray-800 mb-2">
-            Customization & Industry Details
-          </h2>
-          <p className="text-gray-600">
-            Help us tailor our solutions to your specific needs
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="space-y-6">
-            <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
-              <label className="block text-sm font-semibold text-gray-700 mb-3">
-                <Building2 className="inline mr-2 text-[#39b54b]" size={16} />
-                Industry
-              </label>
-              <select
-                value={formData.customization.industry}
-                onChange={(e) =>
-                  setFormData((prev) => ({
-                    ...prev,
-                    customization: {
-                      ...prev.customization,
-                      industry: e.target.value,
-                    },
-                  }))
-                }
-                className="w-full p-3 border border-gray-300 rounded-lg focus:border-[#39b54b] focus:outline-none transition-colors duration-200"
-              >
-                <option value="">Select your industry</option>
-                {industries.map((industry) => (
-                  <option key={industry} value={industry}>
-                    {industry}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            {/* Conditionally render hospital field */}
-            {showHospitalField && (
-              <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
-                <label className="block text-sm font-semibold text-gray-700 mb-3">
-                  Hospital/Facility Name
-                </label>
-                <input
-                  key="hospitalName"
-                  type="text"
-                  value={formData.customization.hospitalName}
-                  onChange={(e) =>
-                    setFormData((prev) => ({
-                      ...prev,
-                      customization: {
-                        ...prev.customization,
-                        hospitalName: e.target.value,
-                      },
-                    }))
-                  }
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:border-[#39b54b] focus:outline-none transition-colors duration-200"
-                  placeholder="Enter facility name"
-                  autoComplete="off"
-                />
-              </div>
-            )}
-
-            <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
-              <label className="flex items-center cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={formData.customization.sustainability}
-                  onChange={(e) =>
-                    setFormData((prev) => ({
-                      ...prev,
-                      customization: {
-                        ...prev.customization,
-                        sustainability: e.target.checked,
-                      },
-                    }))
-                  }
-                  className="sr-only"
-                />
-                <div
-                  className={`
-                  w-5 h-5 border-2 rounded transition-all duration-300
-                  ${
-                    formData.customization.sustainability
-                      ? 'bg-[#39b54b] border-[#39b54b]'
-                      : 'border-gray-300 hover:border-[#39b54b]'
-                  }
-                `}
-                >
-                  {formData.customization.sustainability && (
-                    <Check size={12} className="text-white m-0.5" />
-                  )}
-                </div>
-                <span className="ml-3 flex items-center">
-                  <Leaf className="text-[#39b54b] mr-2" size={16} />
-                  <span className="font-semibold text-gray-700">
-                    Prioritize Eco-Friendly Materials
-                  </span>
-                </span>
-              </label>
-              <p className="text-sm text-gray-600 mt-2 ml-8">
-                Well recommend sustainable alternatives when available
-              </p>
-            </div>
-          </div>
-
-          <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
-            <label className="block text-sm font-semibold text-gray-700 mb-3">
-              <Upload className="inline mr-2 text-[#39b54b]" size={16} />
-              Upload Specifications (Optional)
-            </label>
-            <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-[#39b54b] transition-colors duration-300">
-              <Upload className="mx-auto text-gray-400 mb-4" size={48} />
-              <p className="text-gray-600 mb-2">
-                Drop your specification files here
-              </p>
-              <p className="text-sm text-gray-500">or click to browse</p>
-              <input type="file" className="hidden" multiple />
-            </div>
-          </div>
-        </div>
-      </form>
-    );
-  };
-
-  const Step3 = () => (
-    <form
-      onSubmit={e => e.preventDefault()}
-      className="space-y-6"
-    >
-      <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold text-gray-800 mb-2">
-          Contact & Delivery Information
-        </h2>
-        <p className="text-gray-600">
-          Well use this information to prepare your customized quote
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="space-y-6">
-          <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
-            <label className="block text-sm font-semibold text-gray-700 mb-3">
-              <User className="inline mr-2 text-[#39b54b]" size={16} />
-              Full Name *
-            </label>
-            <input
-              key="contactName"
-              type="text"
-              required
-              value={formData.contact.name}
-              onChange={(e) =>
-                setFormData((prev) => ({
-                  ...prev,
-                  contact: { ...prev.contact, name: e.target.value },
-                }))
-              }
-              className="w-full p-3 border border-gray-300 rounded-lg focus:border-[#39b54b] focus:outline-none transition-colors duration-200"
-              placeholder="Enter your full name"
-              autoComplete="off"
-            />
-          </div>
-
-          <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
-            <label className="block text-sm font-semibold text-gray-700 mb-3">
-              <Building2 className="inline mr-2 text-[#39b54b]" size={16} />
-              Company *
-            </label>
-            <input
-              key="contactCompany"
-              type="text"
-              required
-              value={formData.contact.company}
-              onChange={(e) =>
-                setFormData((prev) => ({
-                  ...prev,
-                  contact: { ...prev.contact, company: e.target.value },
-                }))
-              }
-              className="w-full p-3 border border-gray-300 rounded-lg focus:border-[#39b54b] focus:outline-none transition-colors duration-200"
-              placeholder="Enter your company name"
-              autoComplete="off"
-            />
-          </div>
-
-          <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
-            <label className="block text-sm font-semibold text-gray-700 mb-3">
-              <Mail className="inline mr-2 text-[#39b54b]" size={16} />
-              Email Address *
-            </label>
-            <input
-              key="contactEmail"
-              type="email"
-              required
-              value={formData.contact.email}
-              onChange={(e) =>
-                setFormData((prev) => ({
-                  ...prev,
-                  contact: { ...prev.contact, email: e.target.value },
-                }))
-              }
-              className="w-full p-3 border border-gray-300 rounded-lg focus:border-[#39b54b] focus:outline-none transition-colors duration-200"
-              placeholder="Enter your email address"
-              autoComplete="off"
-            />
-          </div>
-        </div>
-
-        <div className="space-y-6">
-          <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
-            <label className="block text-sm font-semibold text-gray-700 mb-3">
-              <Phone className="inline mr-2 text-[#39b54b]" size={16} />
-              Phone Number
-            </label>
-            <input
-              key="contactPhone"
-              type="tel"
-              value={formData.contact.phone}
-              onChange={(e) =>
-                setFormData((prev) => ({
-                  ...prev,
-                  contact: { ...prev.contact, phone: e.target.value },
-                }))
-              }
-              className="w-full p-3 border border-gray-300 rounded-lg focus:border-[#39b54b] focus:outline-none transition-colors duration-200"
-              placeholder="Enter your phone number"
-              autoComplete="off"
-            />
-          </div>
-
-          <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
-            <label className="block text-sm font-semibold text-gray-700 mb-3">
-              <MapPin className="inline mr-2 text-[#39b54b]" size={16} />
-              Region
-            </label>
-            <input
-              key="contactRegion"
-              type="text"
-              value={formData.contact.region}
-              onChange={(e) =>
-                setFormData((prev) => ({
-                  ...prev,
-                  contact: { ...prev.contact, region: e.target.value },
-                }))
-              }
-              className="w-full p-3 border border-gray-300 rounded-lg focus:border-[#39b54b] focus:outline-none transition-colors duration-200"
-              placeholder="Enter your region/location"
-              autoComplete="off"
-            />
-          </div>
-
-          <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
-            <label className="block text-sm font-semibold text-gray-700 mb-3">
-              <Clock className="inline mr-2 text-[#39b54b]" size={16} />
-              Preferred Timeline
-            </label>
-            <select
-              key="contactTimeline"
-              value={formData.contact.timeline}
-              onChange={(e) =>
-                setFormData((prev) => ({
-                  ...prev,
-                  contact: { ...prev.contact, timeline: e.target.value },
-                }))
-              }
-              className="w-full p-3 border border-gray-300 rounded-lg focus:border-[#39b54b] focus:outline-none transition-colors duration-200"
-              autoComplete="off"
-            >
-              <option value="">Select timeline</option>
-              {timelines.map((timeline) => (
-                <option key={timeline} value={timeline}>
-                  {timeline}
-                </option>
-              ))}
-            </select>
-
-            {formData.contact.timeline === 'Custom date' && (
-              <div className="mt-4">
-                <input
-                  key="contactCustomDate"
-                  type="date"
-                  value={formData.contact.customDate}
-                  onChange={(e) =>
-                    setFormData((prev) => ({
-                      ...prev,
-                      contact: { ...prev.contact, customDate: e.target.value },
-                    }))
-                  }
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:border-[#39b54b] focus:outline-none transition-colors duration-200"
-                  autoComplete="off"
-                />
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
-        <label className="flex items-start cursor-pointer">
-          <input
-            key="contactGdprConsent"
-            type="checkbox"
-            required
-            checked={formData.contact.gdprConsent}
-            onChange={(e) =>
-              setFormData((prev) => ({
-                ...prev,
-                contact: { ...prev.contact, gdprConsent: e.target.checked },
-              }))
-            }
-            className="sr-only"
-            autoComplete="off"
-          />
-          <div
-            className={`
-              w-5 h-5 border-2 rounded transition-all duration-300 mt-0.5
-              ${
-                formData.contact.gdprConsent
-                  ? 'bg-[#39b54b] border-[#39b54b]'
-                  : 'border-gray-300 hover:border-[#39b54b]'
-              }
-            `}
-          >
-            {formData.contact.gdprConsent && (
-              <Check size={12} className="text-white m-0.5" />
-            )}
-          </div>
-          <span className="ml-3 text-sm text-gray-600">
-            I consent to the processing of my personal data in accordance with
-            the
-            <a href="#" className="text-[#39b54b] hover:underline ml-1">
-              Privacy Policy
-            </a>
-            and agree to be contacted regarding my quote request. *
-          </span>
-        </label>
-      </div>
-    </form>
-  );
-
-  const Step4 = () => (
-    <div className="text-center space-y-8">
-      {!isSubmitted ? (
-        <>
-          <div className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-800 mb-2">
-              Review & Submit
-            </h2>
-            <p className="text-gray-600">
-              Please review your request before submitting
-            </p>
-          </div>
-
-          <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm text-left max-w-2xl mx-auto">
-            <h3 className="font-semibold text-gray-800 mb-4">
-              Request Summary
-            </h3>
-
-            <div className="space-y-4">
-              <div>
-                <h4 className="font-medium text-gray-700">
-                  Selected Products:
-                </h4>
-                <p className="text-gray-600">
-                  {getSelectedProductsCount()} product
-                  {getSelectedProductsCount() !== 1 ? 's' : ''} selected
-                </p>
-              </div>
-
-              {formData.customization.industry && (
-                <div>
-                  <h4 className="font-medium text-gray-700">Industry:</h4>
-                  <p className="text-gray-600">
-                    {formData.customization.industry}
-                  </p>
-                </div>
-              )}
-
-              <div>
-                <h4 className="font-medium text-gray-700">Contact:</h4>
-                <p className="text-gray-600">
-                  {formData.contact.name} - {formData.contact.company}
-                </p>
-                <p className="text-gray-600">{formData.contact.email}</p>
-              </div>
-
-              {formData.customization.sustainability && (
-                <div className="flex items-center text-[#39b54b]">
-                  <Leaf size={16} className="mr-2" />
-                  <span className="text-sm">
-                    Eco-friendly materials prioritized
-                  </span>
-                </div>
-              )}
-            </div>
-          </div>
-
-          <button
-            onClick={handleSubmit}
-            className="bg-[#39b54b] text-white px-8 py-4 rounded-lg font-semibold hover:bg-green-600 transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center gap-2 mx-auto"
-          >
-            Submit Request
-            <ArrowRight size={20} />
-          </button>
-        </>
-      ) : (
-        <div className="max-w-md mx-auto">
-          <div className="mb-8">
-            <div className="w-20 h-20 bg-[#39b54b] rounded-full flex items-center justify-center mx-auto mb-4">
-              <CheckCircle2 className="text-white" size={40} />
-            </div>
-            <h2 className="text-2xl font-bold text-gray-800 mb-2">
-              Request Submitted Successfully!
-            </h2>
-            <p className="text-gray-600">
-              Your quote request has been processed and a PDF has been
-              generated.
-            </p>
-          </div>
-
-          <div className="space-y-4">
-            <button
-              className="w-full bg-[#39b54b] text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-all duration-300 flex items-center justify-center gap-2"
-              onClick={() => {
-                downloadQuotePDF(formData);
-              }}
-            >
-              <Download size={20} />
-              Download PDF Quote
-            </button>
-          </div>
-
-          <p className="text-sm text-gray-500 mt-6">
-            Well contact you within 24 hours with your customized quote.
-          </p>
-        </div>
-      )}
-    </div>
-  );
+  const selectedCount = Object.values(selectedProducts).filter(Boolean).length;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50">
-      {/* Header */}
-      <div className="relative bg-gradient-to-r from-[#39b54b] to-green-600 text-white py-16 overflow-hidden">
-        <div className="absolute inset-0 bg-black bg-opacity-20"></div>
-        <div className="absolute top-4 right-4 bg-white bg-opacity-20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-medium animate-pulse">
-          <Shield className="inline mr-2" size={16} />
-          ISO 9001 Certified | Eco-Friendly Materials
-        </div>
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
+      {/* Header Section */}
+      <div className="relative bg-gradient-to-r from-[#39b54b] to-[#2d8f3a] overflow-hidden">
+        <div className="absolute inset-0 bg-black bg-opacity-10"></div>
+        <div className="absolute inset-0 bg-[url('/ceo.jpg')] opacity-20"></div>
 
-        <div className="relative max-w-4xl mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 animate-in fade-in slide-in-from-top duration-700">
-            Request a Quote
-          </h1>
-          <p className="text-xl md:text-2xl opacity-90 animate-in fade-in slide-in-from-top duration-700 delay-200">
-            Tailored Solutions for Healthcare, Industrial, and Commercial Needs
-          </p>
+        <div
+          className={`relative z-10 container mx-auto px-6 py-20 transition-all duration-1000 ${
+            animateHeader
+              ? 'translate-y-0 opacity-100'
+              : 'translate-y-8 opacity-0'
+          }`}
+        >
+          <div className="text-center text-white max-w-4xl mx-auto">
+            <div className="flex justify-center mb-6">
+              <div className="bg-white bg-opacity-20 backdrop-blur-sm px-4 py-2 rounded-full flex items-center space-x-2 animate-pulse">
+                <Award className="h-5 w-5" />
+                <span className="text-sm font-medium">
+                  ISO 9001 Certified | Eco-Friendly Materials
+                </span>
+                <Leaf className="h-5 w-5" />
+              </div>
+            </div>
+
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+              Request a Quote
+            </h1>
+
+            <p className="text-xl md:text-2xl font-light opacity-90 mb-8">
+              Tailored Solutions for Healthcare, Industrial, and Commercial
+              Needs
+            </p>
+
+            <div className="flex justify-center space-x-8 text-sm">
+              <div className="flex items-center space-x-2">
+                <Shield className="h-5 w-5" />
+                <span>Medical Grade</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Recycle className="h-5 w-5" />
+                <span>Sustainable</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Star className="h-5 w-5" />
+                <span>Premium Quality</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Main Content */}
-      <div className="max-w-6xl mx-auto px-6 py-12">
-        <StepIndicator />
+      {/* Main Form Section */}
+      <div className="container mx-auto px-6 py-12">
+        <div className="max-w-4xl mx-auto">
+          {/* Filter Section */}
+          <div className="mb-8 p-6 bg-white rounded-2xl shadow-lg border border-gray-100">
+            <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+              <FileText className="h-5 w-5 mr-2 text-[#39b54b]" />
+              Filter Products
+            </h3>
+            <div className="flex flex-wrap gap-3">
+              {filters.map((filter) => (
+                <button
+                  key={filter}
+                  onClick={() => toggleFilter(filter)}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 transform hover:scale-105 ${
+                    activeFilters.includes(filter)
+                      ? 'bg-[#39b54b] text-white shadow-lg'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
+                >
+                  {filter}
+                  {activeFilters.includes(filter) && (
+                    <Check className="h-4 w-4 ml-2 inline" />
+                  )}
+                </button>
+              ))}
+            </div>
+          </div>
 
-        <div className="min-h-[600px]">
-          {currentStep === 1 && <Step1 />}
-          {currentStep === 2 && <Step2 />}
-          {currentStep === 3 && <Step3 />}
-          {currentStep === 4 && <Step4 />}
-        </div>
+          {/* Product Selection */}
+          <div className="mb-8 p-6 bg-white rounded-2xl shadow-lg border border-gray-100">
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-lg font-semibold text-gray-800 flex items-center">
+                <Package className="h-5 w-5 mr-2 text-[#39b54b]" />
+                Select Products
+              </h3>
+              {selectedCount > 0 && (
+                <div className="bg-[#39b54b] text-white px-3 py-1 rounded-full text-sm font-medium animate-bounce">
+                  {selectedCount} selected
+                </div>
+              )}
+            </div>
 
-        {/* Navigation */}
-        {!isSubmitted && (
-          <div className="flex items-center justify-between mt-8 pt-8 border-t border-gray-200">
-            <button
-              onClick={() => {
-                setHasScrolled(false);
-                handlePrevStep();
-              }}
-              disabled={currentStep === 1}
-              className={`
-                px-6 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center gap-2
-                ${
-                  currentStep === 1
-                    ? 'text-gray-400 cursor-not-allowed'
-                    : 'text-[#39b54b] border-2 border-[#39b54b] hover:bg-[#39b54b] hover:text-white transform hover:scale-105'
+            <div className="space-y-4">
+              {Object.entries(productCategories).map(([category, products]) => (
+                <div
+                  key={category}
+                  className="border border-gray-200 rounded-xl overflow-hidden"
+                >
+                  <button
+                    onClick={() => toggleAccordion(category)}
+                    className="w-full px-6 py-4 bg-gray-50 hover:bg-gray-100 transition-colors duration-200 flex items-center justify-between"
+                  >
+                    <span className="font-medium text-gray-800">
+                      {category}
+                    </span>
+                    <div className="flex items-center space-x-2">
+                      <span className="text-sm text-gray-500">
+                        {products.length} products
+                      </span>
+                      {openAccordions[category] ? (
+                        <ChevronUp className="h-5 w-5 text-gray-500" />
+                      ) : (
+                        <ChevronDown className="h-5 w-5 text-gray-500" />
+                      )}
+                    </div>
+                  </button>
+
+                  <div
+                    className={`transition-all duration-300 overflow-hidden ${
+                      openAccordions[category]
+                        ? 'max-h-96 opacity-100'
+                        : 'max-h-0 opacity-0'
+                    }`}
+                  >
+                    <div className="p-6 space-y-4">
+                      {products.map((product) => (
+                        <div
+                          key={product.id}
+                          className="flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+                        >
+                          <div className="flex items-center space-x-3">
+                            <input
+                              type="checkbox"
+                              checked={selectedProducts[product.id] || false}
+                              onChange={() => toggleProduct(product.id)}
+                              className="h-5 w-5 text-[#39b54b] rounded focus:ring-[#39b54b]"
+                            />
+                            <div>
+                              <span className="font-medium text-gray-800">
+                                {product.name}
+                              </span>
+                              <span className="text-[#39b54b] font-semibold ml-2">
+                                {product.price}
+                              </span>
+                            </div>
+                          </div>
+
+                          {selectedProducts[product.id] && (
+                            <div className="flex items-center space-x-2 animate-slide-in">
+                              <label className="text-sm text-gray-600">
+                                Qty:
+                              </label>
+                              <input
+                                type="number"
+                                min="1"
+                                value={quantities[product.id] || 1}
+                                onChange={(e) =>
+                                  updateQuantity(
+                                    product.id,
+                                    Number(e.target.value),
+                                  )
+                                }
+                                className="w-20 px-3 py-1 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#39b54b] focus:border-transparent"
+                              />
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Industry & Custom Fields */}
+          <div className="mb-8 p-6 bg-white rounded-2xl shadow-lg border border-gray-100">
+            <h3 className="text-lg font-semibold text-gray-800 mb-6 flex items-center">
+              <Building2 className="h-5 w-5 mr-2 text-[#39b54b]" />
+              Industry Information
+            </h3>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Industry *
+                </label>
+                <select
+                  value={formData.industry}
+                  onChange={(e) =>
+                    handleInputChange('industry', e.target.value)
+                  }
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-200"
+                >
+                  <option value="">Select your industry</option>
+                  {industries.map((industry) => (
+                    <option key={industry} value={industry}>
+                      {industry}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {formData.industry === 'Healthcare' && (
+                <div className="animate-slide-in">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Hospital/Facility Name
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.hospitalName}
+                    onChange={(e) =>
+                      handleInputChange('hospitalName', e.target.value)
+                    }
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-200"
+                    placeholder="Enter facility name"
+                  />
+                </div>
+              )}
+
+              {formData.industry && formData.industry !== 'Healthcare' && (
+                <div className="animate-slide-in">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Facility Type
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.facilityType}
+                    onChange={(e) =>
+                      handleInputChange('facilityType', e.target.value)
+                    }
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-200"
+                    placeholder="e.g., Manufacturing plant, Restaurant, Lab"
+                  />
+                </div>
+              )}
+            </div>
+
+            <div className="mt-6">
+              <label className="flex items-center space-x-3 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={formData.sustainability}
+                  onChange={(e) =>
+                    handleInputChange('sustainability', e.target.checked)
+                  }
+                  className="h-5 w-5 text-[#39b54b] rounded focus:ring-[#39b54b]"
+                />
+                <span className="text-gray-700 flex items-center">
+                  <Leaf className="h-5 w-5 mr-2 text-[#39b54b]" />I prefer
+                  eco-friendly and sustainable materials
+                </span>
+              </label>
+            </div>
+          </div>
+
+          {/* Contact Information */}
+          <div className="mb-8 p-6 bg-white rounded-2xl shadow-lg border border-gray-100">
+            <h3 className="text-lg font-semibold text-gray-800 mb-6 flex items-center">
+              <User className="h-5 w-5 mr-2 text-[#39b54b]" />
+              Contact Information
+            </h3>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Full Name *
+                </label>
+                <input
+                  type="text"
+                  value={formData.name}
+                  onChange={(e) => handleInputChange('name', e.target.value)}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-200"
+                  placeholder="Enter your full name"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Company *
+                </label>
+                <input
+                  type="text"
+                  value={formData.company}
+                  onChange={(e) => handleInputChange('company', e.target.value)}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-200"
+                  placeholder="Enter company name"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Email *
+                </label>
+                <input
+                  type="email"
+                  value={formData.email}
+                  onChange={(e) => handleInputChange('email', e.target.value)}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-200"
+                  placeholder="Enter email address"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  value={formData.phone}
+                  onChange={(e) => handleInputChange('phone', e.target.value)}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-200"
+                  placeholder="Enter phone number"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Region
+                </label>
+                <input
+                  type="text"
+                  value={formData.region}
+                  onChange={(e) => handleInputChange('region', e.target.value)}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-200"
+                  placeholder="Enter your region/location"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Delivery Timeline
+                </label>
+                <select
+                  value={formData.deliveryTimeline}
+                  onChange={(e) =>
+                    handleInputChange('deliveryTimeline', e.target.value)
+                  }
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-200"
+                >
+                  <option value="">Select timeline</option>
+                  <option value="ASAP">ASAP</option>
+                  <option value="1-2 weeks">1-2 weeks</option>
+                  <option value="custom">Custom date</option>
+                </select>
+              </div>
+            </div>
+
+            {formData.deliveryTimeline === 'custom' && (
+              <div className="mt-6 animate-slide-in">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Custom Delivery Date
+                </label>
+                <input
+                  type="date"
+                  value={formData.customDate}
+                  onChange={(e) =>
+                    handleInputChange('customDate', e.target.value)
+                  }
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-200"
+                />
+              </div>
+            )}
+          </div>
+
+          {/* File Upload */}
+          {/* <div className="mb-8 p-6 bg-white rounded-2xl shadow-lg border border-gray-100">
+            <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+              <Upload className="h-5 w-5 mr-2 text-[#39b54b]" />
+              Upload Specifications (Optional)
+            </h3>
+            <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-[#39b54b] transition-colors duration-200">
+              <Upload className="h-12 w-12 mx-auto text-gray-400 mb-4" />
+              <p className="text-gray-600 mb-2">
+                Upload specification sheets, drawings, or requirements
+              </p>
+              <p className="text-sm text-gray-500">
+                PDF, DOC, or image files up to 10MB
+              </p>
+              <input
+                type="file"
+                className="hidden"
+                accept=".pdf,.doc,.docx,.jpg,.png"
+              />
+              <button className="mt-4 px-6 py-2 bg-[#39b54b] text-white rounded-lg hover:bg-[#2d8f3a] transition-colors duration-200">
+                Choose Files
+              </button>
+            </div>
+          </div> */}
+
+          {/* GDPR Compliance */}
+          <div className="mb-8 p-6 bg-gray-50 rounded-2xl">
+            <label className="flex items-start space-x-3 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={formData.gdprConsent}
+                onChange={(e) =>
+                  handleInputChange('gdprConsent', e.target.checked)
                 }
-              `}
-            >
-              <ArrowLeft size={20} />
-              Previous
-            </button>
+                className="h-5 w-5 text-[#39b54b] rounded focus:ring-[#39b54b] mt-1"
+              />
+              <div className="text-sm text-gray-700">
+                <p className="font-medium mb-1">GDPR Compliance *</p>
+                <p>
+                  I consent to Cloves Inc. processing my personal data for the
+                  purpose of providing a quote. I understand I can withdraw
+                  consent at any time by contacting privacy@clovesinc.com
+                </p>
+              </div>
+            </label>
+          </div>
 
-            <div className="text-sm text-gray-500">Step {currentStep} of 4</div>
-
+          {/* Submit Button */}
+          <div className="text-center">
             <button
-              onClick={() => {
-                setHasScrolled(false);
-                handleNextStep();
-              }}
-              disabled={currentStep === 4}
-              className={`
-                px-6 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center gap-2 transform hover:scale-105
-                ${
-                  currentStep === 4
-                    ? 'text-gray-400 cursor-not-allowed'
-                    : 'bg-[#39b54b] text-white hover:bg-green-600 shadow-lg'
-                }
-              `}
+              onClick={generateQuote}
+              disabled={isSubmitted || isGenerating}
+              className={`px-12 py-6 text-lg font-semibold rounded-2xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-[#39b54b] focus:ring-opacity-50 ${
+                isSubmitted || isGenerating
+                  ? 'bg-gray-400 text-gray-700 cursor-not-allowed'
+                  : 'bg-[#39b54b] text-white hover:bg-[#2d8f3a] shadow-lg hover:shadow-xl'
+              }`}
             >
-              Next
-              <ArrowRight size={20} />
+              {isGenerating ? (
+                <div className="flex items-center space-x-2">
+                  <Check className="h-6 w-6" />
+                  <span>Quote Generated!</span>
+                </div>
+              ) : (
+                <div className="flex items-center space-x-2">
+                  <Download className="h-6 w-6" />
+                  <span>Generate Quote & Email Me</span>
+                  <Mail className="h-6 w-6" />
+                </div>
+              )}
             </button>
           </div>
-        )}
+
+          {/* Success Message */}
+          {isSubmitted && (
+            <div className="mt-8 p-6 bg-green-50 border border-green-200 rounded-2xl animate-slide-in">
+              <div className="flex items-center space-x-3 text-green-800">
+                <div className="bg-green-500 rounded-full p-2">
+                  <Check className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-lg">
+                    Quote Request Submitted Successfully!
+                  </h4>
+                  <p className="text-green-700 mt-1">
+                    Your PDF quote has been downloaded and your email client has
+                    opened with a pre-filled message. Please send the email to
+                    complete your quote request.
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
+
+      <style jsx>{`
+        @keyframes slide-in {
+          from {
+            opacity: 0;
+            transform: translateX(-20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        .animate-slide-in {
+          animation: slide-in 0.3s ease-out;
+        }
+      `}</style>
     </div>
   );
 };
 
-export default ProductsPage;
-function useEffect(effect: () => void | (() => void), deps?: React.DependencyList) {
-  return reactUseEffect(effect, deps);
-}
-
-function useCallback<T extends (...args: any[]) => any>(callback: T, deps: React.DependencyList): T {
-  return callback;
-}
-
-
+export default RequestQuotePage;
