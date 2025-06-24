@@ -1,11 +1,11 @@
-"use client";
+'use client';
 import React, { useState } from 'react';
-import { 
-  ChevronDown, 
-  Check, 
-  Upload, 
-  Download, 
-  Mail, 
+import {
+  ChevronDown,
+  Check,
+  Upload,
+  Download,
+  Mail,
   Building2,
   Leaf,
   Shield,
@@ -18,9 +18,10 @@ import {
   CheckCircle2,
   ArrowRight,
   ArrowLeft,
-  X
+  X,
 } from 'lucide-react';
 import { downloadQuotePDF } from './pdfGenerator'; // Assuming you have a utility function for PDF generation
+import { useEffect as reactUseEffect } from 'react';
 
 const ProductsPage = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -30,7 +31,7 @@ const ProductsPage = () => {
       industry: '',
       hospitalName: '',
       sustainability: false,
-      specifications: null
+      specifications: null,
     },
     contact: {
       name: '',
@@ -40,61 +41,211 @@ const ProductsPage = () => {
       region: '',
       timeline: '',
       customDate: '',
-      gdprConsent: false
-    }
+      gdprConsent: false,
+    },
   });
-  
-  const [expandedCategories, setExpandedCategories] = useState<Record<string, boolean>>({});
+
+  const [expandedCategories, setExpandedCategories] = useState<
+    Record<string, boolean>
+  >({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
+  const [hasScrolled, setHasScrolled] = useState(false);
 
   const productCategories = {
     'Autoclave Liners': {
       icon: Shield,
       items: [
-        { id: 'al-1', name: 'Standard Autoclave Liners', price: '$25/pack' },
-        { id: 'al-2', name: 'Heavy-Duty Sterilization Bags', price: '$35/pack' },
-        { id: 'al-3', name: 'Biodegradable Autoclave Liners', price: '$40/pack', tags: ['Biodegradable'] }
-      ]
+        {
+          id: 'al-1',
+          name: 'High-Temp Plastic Liners',
+          price: 'Available in 30 kg rolls',
+          tags: ['Heat Resistant up to 140°C', 'Medical Waste Sterilization'],
+          description:
+            'Designed to withstand extreme heat during autoclaving, protecting carts from melting waste.',
+        },
+        {
+          id: 'al-2',
+          name: 'Textile Liners',
+          price: 'Cost-effective & Eco-Friendly',
+          tags: ['Reusable', 'Eco-Friendly'],
+          description:
+            'Lightweight and durable liners made from polyester and cotton blends, ideal for healthcare settings.',
+        },
+        {
+          id: 'al-3',
+          name: 'Jute/Hessian Liners',
+          price: 'Durable & Biodegradable',
+          tags: ['Biodegradable', 'Australia Preferred'],
+          description:
+            'Robust, eco-friendly liners suitable for unshredded medical waste systems.',
+        },
+        {
+          id: 'al-4',
+          name: 'Woven Plastic Liners',
+          price: 'Lightweight & Strong',
+          tags: ['Tear-Resistant', 'Cost-Effective Alternative to Jute'],
+          description:
+            'Ultra-durable and lightweight alternative to jute liners with excellent handling and transport benefits.',
+        },
+      ],
     },
-    'Packaging Solutions': {
+    'Industrial Packaging Solutions': {
       icon: Package,
       items: [
-        { id: 'ps-1', name: 'Medical Waste Containers', price: '$15/unit', tags: ['Medical Waste Sterilization'] },
-        { id: 'ps-2', name: 'Sustainable Packaging', price: '$20/unit', tags: ['Biodegradable'] },
-        { id: 'ps-3', name: 'Industrial Storage Solutions', price: '$30/unit' }
-      ]
+        {
+          id: 'ps-1',
+          name: 'Bulk Bags',
+          price: 'Custom Sizes Available',
+          tags: ['Heavy-Duty', 'Industrial Use'],
+          description:
+            'Ideal for transporting bulk materials like chemicals, grains, and industrial products.',
+        },
+        {
+          id: 'ps-2',
+          name: 'Poly-Woven Bags',
+          price: 'Moisture-Proof & Durable',
+          tags: ['Tear-Resistant', 'Customizable'],
+          description:
+            'Versatile packaging solution used for cement, chemicals, and grains with high strength and durability.',
+        },
+        {
+          id: 'ps-3',
+          name: 'Mesh Bags',
+          price: 'Breathable & Lightweight',
+          tags: ['Produce Packaging', 'Custom Sizes'],
+          description:
+            'Perfect for fruits, vegetables, and perishables ensuring freshness and air circulation.',
+        },
+        {
+          id: 'ps-4',
+          name: 'Multiwall Paper Sacks',
+          price: 'Environmentally Friendly',
+          tags: ['Moisture Resistant', 'Sustainable'],
+          description:
+            'Multi-layered sacks for dry goods and industrial materials offering excellent protection and recyclability.',
+        },
+      ],
     },
-    'Specialized Equipment': {
+    'Natural & Synthetic Fabrics': {
       icon: FileText,
       items: [
-        { id: 'se-1', name: 'Custom Sterilization Systems', price: 'Quote on request' },
-        { id: 'se-2', name: 'Eco-Friendly Disposal Units', price: 'Quote on request', tags: ['Biodegradable'] }
-      ]
-    }
+        {
+          id: 'nf-1',
+          name: 'Hessian (Jute) Fabric',
+          price: 'Strong & Sustainable',
+          tags: ['Biodegradable', 'Industrial Packaging'],
+          description:
+            'Heavy-duty fabric ideal for packaging and protection across industries due to its strength and eco-friendliness.',
+        },
+        {
+          id: 'nf-2',
+          name: 'Calico Fabric',
+          price: 'Soft & Breathable',
+          tags: ['Medical Use', 'Customizable'],
+          description:
+            'Used in commercial and medical applications, offering breathability and versatility.',
+        },
+        {
+          id: 'nf-3',
+          name: 'Poly-Woven Fabrics',
+          price: 'Tear-Resistant & Durable',
+          tags: ['Industrial Packaging', 'Lightweight'],
+          description:
+            'Perfect for heavy-duty packaging and storage solutions with superior wear resistance.',
+        },
+        {
+          id: 'nf-4',
+          name: 'Woven & Knitted Fabrics',
+          price: 'Custom Industrial Grade',
+          tags: ['Reinforced', 'Tear-Resistant'],
+          description:
+            'Designed for industrial use, offering high durability and customizable sizes for protective barriers and packaging.',
+        },
+      ],
+    },
+    'Commercial Textiles': {
+      items: [
+        {
+          id: 'ct-1',
+          name: 'Hospital Bedding',
+          price: 'Durable & Comfortable',
+          tags: ['Healthcare Use', 'Launderable'],
+          description:
+            'High-quality bedding designed for hospitals and healthcare environments, built for comfort and repeated washing.',
+        },
+        {
+          id: 'ct-2',
+          name: 'Industrial Towels',
+          price: 'Absorbent & Long-Lasting',
+          tags: ['Commercial Use', 'Washable'],
+          description:
+            'High absorbency towels suitable for hospitality, healthcare, and industrial sectors.',
+        },
+        {
+          id: 'ct-3',
+          name: 'Laundry Bags',
+          price: 'Tear-Resistant & Sturdy',
+          tags: ['Commercial Laundry', 'Customizable'],
+          description:
+            'Heavy-duty laundry bags for commercial operations, available in various sizes and designs.',
+        },
+        {
+          id: 'ct-4',
+          name: 'Shower Curtains',
+          price: 'Waterproof & Durable',
+          tags: ['Hospitality Use', 'Easy to Clean'],
+          description:
+            'Water-resistant shower curtains ideal for healthcare and hotel environments with easy maintenance.',
+        },
+      ],
+    },
   };
 
-  const filters = ['Medical Waste Sterilization', 'Biodegradable'];
-  const industries = ['Healthcare', 'Agriculture', 'Manufacturing', 'Research', 'Other'];
+  const filters = [
+    'Medical Waste Sterilization',
+    'Biodegradable',
+    'Heat Resistant up to 140°C',
+    'Eco-Friendly',
+    'Reusable',
+    'Industrial Packaging',
+    'Hospitality Use',
+    'Heavy-Duty',
+    'Tear-Resistant',
+    'Customizable',
+  ];
+  const industries = [
+    'Healthcare',
+    'Agriculture',
+    'Manufacturing',
+    'Research',
+    'Other',
+  ];
   const timelines = ['ASAP', '1-2 weeks', '3-4 weeks', 'Custom date'];
 
-interface ProductItem {
+   useEffect(() => {
+    if (!hasScrolled) {
+      window.scrollTo(0, 0);
+      setHasScrolled(true);
+    }
+  }, [currentStep, hasScrolled]);
+  interface ProductItem {
     id: string;
     name: string;
     price: string;
     tags?: string[];
-}
+  }
 
-interface ProductCategory {
+  interface ProductCategory {
     icon: React.ComponentType<{ className?: string; size?: number }>;
-// Removed unused ProductCategory interface
+    // Removed unused ProductCategory interface
     industry: string;
     hospitalName: string;
     sustainability: boolean;
     specifications: FileList | null;
-}
+  }
 
-interface ContactData {
+  interface ContactData {
     name: string;
     company: string;
     email: string;
@@ -103,115 +254,127 @@ interface ContactData {
     timeline: string;
     customDate: string;
     gdprConsent: boolean;
-}
+  }
 
-interface CustomizationData {
+  interface CustomizationData {
     industry: string;
     hospitalName: string;
     sustainability: boolean;
     specifications: FileList | null;
-}
+  }
 
-interface FormData {
+  interface FormData {
     products: Record<string, number | undefined>;
     customization: CustomizationData;
     contact: ContactData;
-}
+  }
 
-type ExpandedCategories = Record<string, boolean>;
+  type ExpandedCategories = Record<string, boolean>;
 
-const toggleCategory = (category: string) => {
+   const toggleCategory = (category: string) => {
     setExpandedCategories((prev: ExpandedCategories) => ({
-        ...prev,
-        [category]: !prev[category]
+      ...prev,
+      [category]: !prev[category],
     }));
-};
+  };
 
-interface HandleProductSelection {
+  interface HandleProductSelection {
     (productId: string, quantity: number): void;
-}
+  }
 
-const handleProductSelection: HandleProductSelection = (productId, quantity) => {
-    setFormData(prev => ({
-        ...prev,
-        products: {
-            ...prev.products,
-            [productId]: quantity > 0 ? quantity : undefined
-        }
+  const handleProductSelection = useCallback((productId: string, quantity: number) => {
+    setFormData((prev) => ({
+      ...prev,
+      products: {
+        ...prev.products,
+        [productId]: quantity > 0 ? quantity : undefined,
+      },
     }));
-};
+  }, []);
 
-interface HandleFilterToggle {
+  interface HandleFilterToggle {
     (filter: string): void;
-}
+  }
 
-const handleFilterToggle: HandleFilterToggle = (filter) => {
+  const handleFilterToggle = (filter: string) => {
     setActiveFilters((prev: string[]) =>
-        prev.includes(filter)
-            ? prev.filter((f) => f !== filter)
-            : [...prev, filter]
+      prev.includes(filter)
+        ? prev.filter((f) => f !== filter)
+        : [...prev, filter],
     );
-};
+  };
 
-interface GetFilteredItems {
+  interface GetFilteredItems {
     (items: ProductItem[]): ProductItem[];
-}
+  }
 
-const getFilteredItems: GetFilteredItems = (items) => {
+  const getFilteredItems: GetFilteredItems = (items) => {
     if (activeFilters.length === 0) return items;
-    return items.filter(item =>
-        item.tags && item.tags.some(tag => activeFilters.includes(tag))
+    return items.filter(
+      (item) =>
+        item.tags && item.tags.some((tag) => activeFilters.includes(tag)),
     );
-};
+  };
 
   const handleNextStep = () => {
     if (currentStep < 4) {
-      setCurrentStep(prev => prev + 1);
+      setCurrentStep((prev) => prev + 1);
     }
   };
 
   const handlePrevStep = () => {
     if (currentStep > 1) {
-      setCurrentStep(prev => prev - 1);
+      setCurrentStep((prev) => prev - 1);
     }
   };
 
   const handleSubmit = () => {
-    setIsSubmitted(true);
-    // Generate PDF and mailto link would go here
-    console.log('Form submitted:', formData);
+    setIsSubmitted(true)
   };
 
   const getSelectedProductsCount = () => {
-    return Object.keys(formData.products).filter(key => formData.products[key]).length;
+    return Object.keys(formData.products).filter(
+      (key) => formData.products[key],
+    ).length;
   };
 
   const StepIndicator = () => (
     <div className="flex items-center justify-center mb-8">
       {[1, 2, 3, 4].map((step) => (
         <div key={step} className="flex items-center">
-          <div className={`
+          <div
+            className={`
             w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold
             transition-all duration-500 transform
-            ${currentStep >= step 
-              ? 'bg-[#39b54b] text-white scale-110 shadow-lg' 
-              : 'bg-gray-200 text-gray-600'
+            ${
+              currentStep >= step
+                ? 'bg-[#39b54b] text-white scale-110 shadow-lg'
+                : 'bg-gray-200 text-gray-600'
             }
-          `}>
+          `}
+          >
             {currentStep > step ? <Check size={16} /> : step}
           </div>
           {step < 4 && (
-            <div className={`
+            <div
+              className={`
               w-16 h-1 mx-2 transition-all duration-500
               ${currentStep > step ? 'bg-[#39b54b]' : 'bg-gray-200'}
-            `} />
+            `}
+            />
           )}
         </div>
       ))}
     </div>
   );
 
-  const ProductCard = ({ item, category }: { item: ProductItem; category: string }) => {
+  const ProductCard = ({
+    item,
+    category,
+  }: {
+    item: ProductItem;
+    category: string;
+  }) => {
     const isSelected = formData.products[item.id];
     const quantity = formData.products[item.id] || 0;
 
@@ -219,9 +382,10 @@ const getFilteredItems: GetFilteredItems = (items) => {
       <div
         className={`
           bg-white rounded-lg border p-4 transition-all duration-300
-          ${isSelected
-            ? 'border-[#39b54b] bg-green-50 shadow-md'
-            : 'border-gray-200 hover:border-[#39b54b] hover:shadow-sm'
+          ${
+            isSelected
+              ? 'border-[#39b54b] bg-green-50 shadow-md'
+              : 'border-gray-200 hover:border-[#39b54b] hover:shadow-sm'
           }
         `}
       >
@@ -231,8 +395,11 @@ const getFilteredItems: GetFilteredItems = (items) => {
             <p className="text-[#39b54b] font-medium">{item.price}</p>
             {item.tags && (
               <div className="flex flex-wrap gap-1 mt-2">
-                {item.tags.map(tag => (
-                  <span key={tag} className="px-2 py-1 bg-[#39b54b] text-white text-xs rounded-full">
+                {item.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-2 py-1 bg-[#39b54b] text-white text-xs rounded-full"
+                  >
                     {tag}
                   </span>
                 ))}
@@ -245,16 +412,21 @@ const getFilteredItems: GetFilteredItems = (items) => {
             <input
               type="checkbox"
               checked={!!isSelected}
-              onChange={(e) => handleProductSelection(item.id, e.target.checked ? 1 : 0)}
+              onChange={(e) =>
+                handleProductSelection(item.id, e.target.checked ? 1 : 0)
+              }
               className="sr-only"
             />
-            <div className={`
+            <div
+              className={`
               w-5 h-5 border-2 rounded transition-all duration-300
-              ${isSelected
-                ? 'bg-[#39b54b] border-[#39b54b]'
-                : 'border-gray-300 hover:border-[#39b54b]'
+              ${
+                isSelected
+                  ? 'bg-[#39b54b] border-[#39b54b]'
+                  : 'border-gray-300 hover:border-[#39b54b]'
               }
-            `}>
+            `}
+            >
               {isSelected && <Check size={12} className="text-white m-0.5" />}
             </div>
             <span className="ml-2 text-sm">Select</span>
@@ -266,7 +438,9 @@ const getFilteredItems: GetFilteredItems = (items) => {
                 type="number"
                 min="1"
                 value={quantity}
-                onChange={(e) => handleProductSelection(item.id, parseInt(e.target.value) || 1)}
+                onChange={(e) =>
+                  handleProductSelection(item.id, parseInt(e.target.value) || 1)
+                }
                 className="w-16 px-2 py-1 border border-gray-300 rounded focus:border-[#39b54b] focus:outline-none"
               />
             </div>
@@ -279,28 +453,35 @@ const getFilteredItems: GetFilteredItems = (items) => {
   const Step1 = () => (
     <div className="space-y-6">
       <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold text-gray-800 mb-2">Select Products</h2>
-        <p className="text-gray-600">Choose from our range of healthcare and industrial solutions</p>
+        <h2 className="text-2xl font-bold text-gray-800 mb-2">
+          Select Products
+        </h2>
+        <p className="text-gray-600">
+          Choose from our range of healthcare and industrial solutions
+        </p>
       </div>
 
       {/* Filters */}
       <div className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
         <h3 className="font-semibold text-gray-800 mb-3">Filter by:</h3>
         <div className="flex flex-wrap gap-2">
-          {filters.map(filter => (
+          {filters.map((filter) => (
             <button
               key={filter}
               onClick={() => handleFilterToggle(filter)}
               className={`
                 px-3 py-1 rounded-full text-sm font-medium transition-all duration-300 transform
-                ${activeFilters.includes(filter)
-                  ? 'bg-[#39b54b] text-white scale-105 shadow-md'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                ${
+                  activeFilters.includes(filter)
+                    ? 'bg-[#39b54b] text-white scale-105 shadow-md'
+                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                 }
               `}
             >
               {filter}
-              {activeFilters.includes(filter) && <X size={14} className="inline ml-1" />}
+              {activeFilters.includes(filter) && (
+                <X size={14} className="inline ml-1" />
+              )}
             </button>
           ))}
         </div>
@@ -309,12 +490,16 @@ const getFilteredItems: GetFilteredItems = (items) => {
       {/* Product Categories */}
       <div className="space-y-4">
         {Object.entries(productCategories).map(([category, data]) => {
-          const Icon = data.icon;
+          // Use data.icon if present, otherwise fallback to a default icon (e.g., Package)
+          const Icon = (data as any).icon || Package;
           const isExpanded = expandedCategories[category];
           const filteredItems = getFilteredItems(data.items);
-          
+
           return (
-            <div key={category} className="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden">
+            <div
+              key={category}
+              className="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden"
+            >
               <button
                 onClick={() => toggleCategory(category)}
                 className="w-full p-4 flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
@@ -326,17 +511,23 @@ const getFilteredItems: GetFilteredItems = (items) => {
                     {filteredItems.length} items
                   </span>
                 </div>
-                <ChevronDown 
-                  className={`text-gray-400 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} 
-                  size={20} 
+                <ChevronDown
+                  className={`text-gray-400 transition-transform duration-300 ${
+                    isExpanded ? 'rotate-180' : ''
+                  }`}
+                  size={20}
                 />
               </button>
-              
+
               {isExpanded && (
                 <div className="p-4 pt-0">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {filteredItems.map(item => (
-                      <ProductCard key={item.id} item={item} category={category} />
+                    {filteredItems.map((item) => (
+                      <ProductCard
+                        key={item.id}
+                        item={item}
+                        category={category}
+                      />
                     ))}
                   </div>
                 </div>
@@ -347,115 +538,170 @@ const getFilteredItems: GetFilteredItems = (items) => {
       </div>
 
       {getSelectedProductsCount() > 0 && (
-        <div className="fixed bottom-6 right-6">
-          <div className="bg-[#39b54b] text-white px-6 py-3 rounded-full shadow-lg flex items-center gap-2">
+        <div className="fixed bottom-[90px] right-6 ">
+          <div className="bg-[#39b54b] text-white px-6 py-3 rounded-full shadow-lg flex items-center gap-2 ">
             <CheckCircle2 size={20} />
-            <span>{getSelectedProductsCount()} product{getSelectedProductsCount() !== 1 ? 's' : ''} selected</span>
+            <span>
+              {getSelectedProductsCount()} product
+              {getSelectedProductsCount() !== 1 ? 's' : ''} selected
+            </span>
           </div>
         </div>
       )}
     </div>
   );
 
-  const Step2 = () => (
-    <div className="space-y-6">
-      <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold text-gray-800 mb-2">Customization & Industry Details</h2>
-        <p className="text-gray-600">Help us tailor our solutions to your specific needs</p>
-      </div>
+  const Step2 = () => {
+    const [showHospitalField, setShowHospitalField] = useState(false);
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="space-y-6">
-          <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
-            <label className="block text-sm font-semibold text-gray-700 mb-3">
-              <Building2 className="inline mr-2 text-[#39b54b]" size={16} />
-              Industry
-            </label>
-            <select
-              value={formData.customization.industry}
-              onChange={(e) => setFormData(prev => ({
-                ...prev,
-                customization: { ...prev.customization, industry: e.target.value }
-              }))}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:border-[#39b54b] focus:outline-none transition-colors duration-200"
-            >
-              <option value="">Select your industry</option>
-              {industries.map(industry => (
-                <option key={industry} value={industry}>{industry}</option>
-              ))}
-            </select>
-          </div>
+    // Update hospital field visibility when industry changes
+    useEffect(() => {
+      setShowHospitalField(formData.customization.industry === 'Healthcare');
+    }, [formData.customization.industry]);
 
-          {formData.customization.industry === 'Healthcare' && (
+    return (
+      <form
+        onSubmit={e => e.preventDefault()}
+        className="space-y-6"
+      >
+        <div className="text-center mb-8">
+          <h2 className="text-2xl font-bold text-gray-800 mb-2">
+            Customization & Industry Details
+          </h2>
+          <p className="text-gray-600">
+            Help us tailor our solutions to your specific needs
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="space-y-6">
             <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
               <label className="block text-sm font-semibold text-gray-700 mb-3">
-                Hospital/Facility Name
+                <Building2 className="inline mr-2 text-[#39b54b]" size={16} />
+                Industry
               </label>
-              <input
-                type="text"
-                value={formData.customization.hospitalName}
-                onChange={(e) => setFormData(prev => ({
-                  ...prev,
-                  customization: { ...prev.customization, hospitalName: e.target.value }
-                }))}
+              <select
+                value={formData.customization.industry}
+                onChange={(e) =>
+                  setFormData((prev) => ({
+                    ...prev,
+                    customization: {
+                      ...prev.customization,
+                      industry: e.target.value,
+                    },
+                  }))
+                }
                 className="w-full p-3 border border-gray-300 rounded-lg focus:border-[#39b54b] focus:outline-none transition-colors duration-200"
-                placeholder="Enter facility name"
-              />
+              >
+                <option value="">Select your industry</option>
+                {industries.map((industry) => (
+                  <option key={industry} value={industry}>
+                    {industry}
+                  </option>
+                ))}
+              </select>
             </div>
-          )}
+
+            {/* Conditionally render hospital field */}
+            {showHospitalField && (
+              <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                <label className="block text-sm font-semibold text-gray-700 mb-3">
+                  Hospital/Facility Name
+                </label>
+                <input
+                  key="hospitalName"
+                  type="text"
+                  value={formData.customization.hospitalName}
+                  onChange={(e) =>
+                    setFormData((prev) => ({
+                      ...prev,
+                      customization: {
+                        ...prev.customization,
+                        hospitalName: e.target.value,
+                      },
+                    }))
+                  }
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:border-[#39b54b] focus:outline-none transition-colors duration-200"
+                  placeholder="Enter facility name"
+                  autoComplete="off"
+                />
+              </div>
+            )}
+
+            <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+              <label className="flex items-center cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={formData.customization.sustainability}
+                  onChange={(e) =>
+                    setFormData((prev) => ({
+                      ...prev,
+                      customization: {
+                        ...prev.customization,
+                        sustainability: e.target.checked,
+                      },
+                    }))
+                  }
+                  className="sr-only"
+                />
+                <div
+                  className={`
+                  w-5 h-5 border-2 rounded transition-all duration-300
+                  ${
+                    formData.customization.sustainability
+                      ? 'bg-[#39b54b] border-[#39b54b]'
+                      : 'border-gray-300 hover:border-[#39b54b]'
+                  }
+                `}
+                >
+                  {formData.customization.sustainability && (
+                    <Check size={12} className="text-white m-0.5" />
+                  )}
+                </div>
+                <span className="ml-3 flex items-center">
+                  <Leaf className="text-[#39b54b] mr-2" size={16} />
+                  <span className="font-semibold text-gray-700">
+                    Prioritize Eco-Friendly Materials
+                  </span>
+                </span>
+              </label>
+              <p className="text-sm text-gray-600 mt-2 ml-8">
+                Well recommend sustainable alternatives when available
+              </p>
+            </div>
+          </div>
 
           <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
-            <label className="flex items-center cursor-pointer">
-              <input
-                type="checkbox"
-                checked={formData.customization.sustainability}
-                onChange={(e) => setFormData(prev => ({
-                  ...prev,
-                  customization: { ...prev.customization, sustainability: e.target.checked }
-                }))}
-                className="sr-only"
-              />
-              <div className={`
-                w-5 h-5 border-2 rounded transition-all duration-300
-                ${formData.customization.sustainability 
-                  ? 'bg-[#39b54b] border-[#39b54b]' 
-                  : 'border-gray-300 hover:border-[#39b54b]'
-                }
-              `}>
-                {formData.customization.sustainability && <Check size={12} className="text-white m-0.5" />}
-              </div>
-              <span className="ml-3 flex items-center">
-                <Leaf className="text-[#39b54b] mr-2" size={16} />
-                <span className="font-semibold text-gray-700">Prioritize Eco-Friendly Materials</span>
-              </span>
+            <label className="block text-sm font-semibold text-gray-700 mb-3">
+              <Upload className="inline mr-2 text-[#39b54b]" size={16} />
+              Upload Specifications (Optional)
             </label>
-            <p className="text-sm text-gray-600 mt-2 ml-8">
-              Well recommend sustainable alternatives when available
-            </p>
+            <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-[#39b54b] transition-colors duration-300">
+              <Upload className="mx-auto text-gray-400 mb-4" size={48} />
+              <p className="text-gray-600 mb-2">
+                Drop your specification files here
+              </p>
+              <p className="text-sm text-gray-500">or click to browse</p>
+              <input type="file" className="hidden" multiple />
+            </div>
           </div>
         </div>
-
-        <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
-          <label className="block text-sm font-semibold text-gray-700 mb-3">
-            <Upload className="inline mr-2 text-[#39b54b]" size={16} />
-            Upload Specifications (Optional)
-          </label>
-          <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-[#39b54b] transition-colors duration-300">
-            <Upload className="mx-auto text-gray-400 mb-4" size={48} />
-            <p className="text-gray-600 mb-2">Drop your specification files here</p>
-            <p className="text-sm text-gray-500">or click to browse</p>
-            <input type="file" className="hidden" multiple />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+      </form>
+    );
+  };
 
   const Step3 = () => (
-    <div className="space-y-6">
+    <form
+      onSubmit={e => e.preventDefault()}
+      className="space-y-6"
+    >
       <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold text-gray-800 mb-2">Contact & Delivery Information</h2>
-        <p className="text-gray-600">Well use this information to prepare your customized quote</p>
+        <h2 className="text-2xl font-bold text-gray-800 mb-2">
+          Contact & Delivery Information
+        </h2>
+        <p className="text-gray-600">
+          Well use this information to prepare your customized quote
+        </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -466,15 +712,19 @@ const getFilteredItems: GetFilteredItems = (items) => {
               Full Name *
             </label>
             <input
+              key="contactName"
               type="text"
               required
               value={formData.contact.name}
-              onChange={(e) => setFormData(prev => ({
-                ...prev,
-                contact: { ...prev.contact, name: e.target.value }
-              }))}
+              onChange={(e) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  contact: { ...prev.contact, name: e.target.value },
+                }))
+              }
               className="w-full p-3 border border-gray-300 rounded-lg focus:border-[#39b54b] focus:outline-none transition-colors duration-200"
               placeholder="Enter your full name"
+              autoComplete="off"
             />
           </div>
 
@@ -484,15 +734,19 @@ const getFilteredItems: GetFilteredItems = (items) => {
               Company *
             </label>
             <input
+              key="contactCompany"
               type="text"
               required
               value={formData.contact.company}
-              onChange={(e) => setFormData(prev => ({
-                ...prev,
-                contact: { ...prev.contact, company: e.target.value }
-              }))}
+              onChange={(e) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  contact: { ...prev.contact, company: e.target.value },
+                }))
+              }
               className="w-full p-3 border border-gray-300 rounded-lg focus:border-[#39b54b] focus:outline-none transition-colors duration-200"
               placeholder="Enter your company name"
+              autoComplete="off"
             />
           </div>
 
@@ -502,15 +756,19 @@ const getFilteredItems: GetFilteredItems = (items) => {
               Email Address *
             </label>
             <input
+              key="contactEmail"
               type="email"
               required
               value={formData.contact.email}
-              onChange={(e) => setFormData(prev => ({
-                ...prev,
-                contact: { ...prev.contact, email: e.target.value }
-              }))}
+              onChange={(e) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  contact: { ...prev.contact, email: e.target.value },
+                }))
+              }
               className="w-full p-3 border border-gray-300 rounded-lg focus:border-[#39b54b] focus:outline-none transition-colors duration-200"
               placeholder="Enter your email address"
+              autoComplete="off"
             />
           </div>
         </div>
@@ -522,14 +780,18 @@ const getFilteredItems: GetFilteredItems = (items) => {
               Phone Number
             </label>
             <input
+              key="contactPhone"
               type="tel"
               value={formData.contact.phone}
-              onChange={(e) => setFormData(prev => ({
-                ...prev,
-                contact: { ...prev.contact, phone: e.target.value }
-              }))}
+              onChange={(e) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  contact: { ...prev.contact, phone: e.target.value },
+                }))
+              }
               className="w-full p-3 border border-gray-300 rounded-lg focus:border-[#39b54b] focus:outline-none transition-colors duration-200"
               placeholder="Enter your phone number"
+              autoComplete="off"
             />
           </div>
 
@@ -539,14 +801,18 @@ const getFilteredItems: GetFilteredItems = (items) => {
               Region
             </label>
             <input
+              key="contactRegion"
               type="text"
               value={formData.contact.region}
-              onChange={(e) => setFormData(prev => ({
-                ...prev,
-                contact: { ...prev.contact, region: e.target.value }
-              }))}
+              onChange={(e) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  contact: { ...prev.contact, region: e.target.value },
+                }))
+              }
               className="w-full p-3 border border-gray-300 rounded-lg focus:border-[#39b54b] focus:outline-none transition-colors duration-200"
               placeholder="Enter your region/location"
+              autoComplete="off"
             />
           </div>
 
@@ -556,29 +822,39 @@ const getFilteredItems: GetFilteredItems = (items) => {
               Preferred Timeline
             </label>
             <select
+              key="contactTimeline"
               value={formData.contact.timeline}
-              onChange={(e) => setFormData(prev => ({
-                ...prev,
-                contact: { ...prev.contact, timeline: e.target.value }
-              }))}
+              onChange={(e) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  contact: { ...prev.contact, timeline: e.target.value },
+                }))
+              }
               className="w-full p-3 border border-gray-300 rounded-lg focus:border-[#39b54b] focus:outline-none transition-colors duration-200"
+              autoComplete="off"
             >
               <option value="">Select timeline</option>
-              {timelines.map(timeline => (
-                <option key={timeline} value={timeline}>{timeline}</option>
+              {timelines.map((timeline) => (
+                <option key={timeline} value={timeline}>
+                  {timeline}
+                </option>
               ))}
             </select>
-            
+
             {formData.contact.timeline === 'Custom date' && (
               <div className="mt-4">
                 <input
+                  key="contactCustomDate"
                   type="date"
                   value={formData.contact.customDate}
-                  onChange={(e) => setFormData(prev => ({
-                    ...prev,
-                    contact: { ...prev.contact, customDate: e.target.value }
-                  }))}
+                  onChange={(e) =>
+                    setFormData((prev) => ({
+                      ...prev,
+                      contact: { ...prev.contact, customDate: e.target.value },
+                    }))
+                  }
                   className="w-full p-3 border border-gray-300 rounded-lg focus:border-[#39b54b] focus:outline-none transition-colors duration-200"
+                  autoComplete="off"
                 />
               </div>
             )}
@@ -589,32 +865,44 @@ const getFilteredItems: GetFilteredItems = (items) => {
       <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
         <label className="flex items-start cursor-pointer">
           <input
+            key="contactGdprConsent"
             type="checkbox"
             required
             checked={formData.contact.gdprConsent}
-            onChange={(e) => setFormData(prev => ({
-              ...prev,
-              contact: { ...prev.contact, gdprConsent: e.target.checked }
-            }))}
-            className="sr-only"
-          />
-          <div className={`
-            w-5 h-5 border-2 rounded transition-all duration-300 mt-0.5
-            ${formData.contact.gdprConsent 
-              ? 'bg-[#39b54b] border-[#39b54b]' 
-              : 'border-gray-300 hover:border-[#39b54b]'
+            onChange={(e) =>
+              setFormData((prev) => ({
+                ...prev,
+                contact: { ...prev.contact, gdprConsent: e.target.checked },
+              }))
             }
-          `}>
-            {formData.contact.gdprConsent && <Check size={12} className="text-white m-0.5" />}
+            className="sr-only"
+            autoComplete="off"
+          />
+          <div
+            className={`
+              w-5 h-5 border-2 rounded transition-all duration-300 mt-0.5
+              ${
+                formData.contact.gdprConsent
+                  ? 'bg-[#39b54b] border-[#39b54b]'
+                  : 'border-gray-300 hover:border-[#39b54b]'
+              }
+            `}
+          >
+            {formData.contact.gdprConsent && (
+              <Check size={12} className="text-white m-0.5" />
+            )}
           </div>
           <span className="ml-3 text-sm text-gray-600">
-            I consent to the processing of my personal data in accordance with the 
-            <a href="#" className="text-[#39b54b] hover:underline ml-1">Privacy Policy</a> 
+            I consent to the processing of my personal data in accordance with
+            the
+            <a href="#" className="text-[#39b54b] hover:underline ml-1">
+              Privacy Policy
+            </a>
             and agree to be contacted regarding my quote request. *
           </span>
         </label>
       </div>
-    </div>
+    </form>
   );
 
   const Step4 = () => (
@@ -622,36 +910,53 @@ const getFilteredItems: GetFilteredItems = (items) => {
       {!isSubmitted ? (
         <>
           <div className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-800 mb-2">Review & Submit</h2>
-            <p className="text-gray-600">Please review your request before submitting</p>
+            <h2 className="text-2xl font-bold text-gray-800 mb-2">
+              Review & Submit
+            </h2>
+            <p className="text-gray-600">
+              Please review your request before submitting
+            </p>
           </div>
 
           <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm text-left max-w-2xl mx-auto">
-            <h3 className="font-semibold text-gray-800 mb-4">Request Summary</h3>
-            
+            <h3 className="font-semibold text-gray-800 mb-4">
+              Request Summary
+            </h3>
+
             <div className="space-y-4">
               <div>
-                <h4 className="font-medium text-gray-700">Selected Products:</h4>
-                <p className="text-gray-600">{getSelectedProductsCount()} product{getSelectedProductsCount() !== 1 ? 's' : ''} selected</p>
+                <h4 className="font-medium text-gray-700">
+                  Selected Products:
+                </h4>
+                <p className="text-gray-600">
+                  {getSelectedProductsCount()} product
+                  {getSelectedProductsCount() !== 1 ? 's' : ''} selected
+                </p>
               </div>
-              
+
               {formData.customization.industry && (
                 <div>
                   <h4 className="font-medium text-gray-700">Industry:</h4>
-                  <p className="text-gray-600">{formData.customization.industry}</p>
+                  <p className="text-gray-600">
+                    {formData.customization.industry}
+                  </p>
                 </div>
               )}
-              
+
               <div>
                 <h4 className="font-medium text-gray-700">Contact:</h4>
-                <p className="text-gray-600">{formData.contact.name} - {formData.contact.company}</p>
+                <p className="text-gray-600">
+                  {formData.contact.name} - {formData.contact.company}
+                </p>
                 <p className="text-gray-600">{formData.contact.email}</p>
               </div>
-              
+
               {formData.customization.sustainability && (
                 <div className="flex items-center text-[#39b54b]">
                   <Leaf size={16} className="mr-2" />
-                  <span className="text-sm">Eco-friendly materials prioritized</span>
+                  <span className="text-sm">
+                    Eco-friendly materials prioritized
+                  </span>
                 </div>
               )}
             </div>
@@ -671,8 +976,13 @@ const getFilteredItems: GetFilteredItems = (items) => {
             <div className="w-20 h-20 bg-[#39b54b] rounded-full flex items-center justify-center mx-auto mb-4">
               <CheckCircle2 className="text-white" size={40} />
             </div>
-            <h2 className="text-2xl font-bold text-gray-800 mb-2">Request Submitted Successfully!</h2>
-            <p className="text-gray-600">Your quote request has been processed and a PDF has been generated.</p>
+            <h2 className="text-2xl font-bold text-gray-800 mb-2">
+              Request Submitted Successfully!
+            </h2>
+            <p className="text-gray-600">
+              Your quote request has been processed and a PDF has been
+              generated.
+            </p>
           </div>
 
           <div className="space-y-4">
@@ -685,8 +995,6 @@ const getFilteredItems: GetFilteredItems = (items) => {
               <Download size={20} />
               Download PDF Quote
             </button>
-            
-            
           </div>
 
           <p className="text-sm text-gray-500 mt-6">
@@ -706,7 +1014,7 @@ const getFilteredItems: GetFilteredItems = (items) => {
           <Shield className="inline mr-2" size={16} />
           ISO 9001 Certified | Eco-Friendly Materials
         </div>
-        
+
         <div className="relative max-w-4xl mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 animate-in fade-in slide-in-from-top duration-700">
             Request a Quote
@@ -720,7 +1028,7 @@ const getFilteredItems: GetFilteredItems = (items) => {
       {/* Main Content */}
       <div className="max-w-6xl mx-auto px-6 py-12">
         <StepIndicator />
-        
+
         <div className="min-h-[600px]">
           {currentStep === 1 && <Step1 />}
           {currentStep === 2 && <Step2 />}
@@ -732,13 +1040,17 @@ const getFilteredItems: GetFilteredItems = (items) => {
         {!isSubmitted && (
           <div className="flex items-center justify-between mt-8 pt-8 border-t border-gray-200">
             <button
-              onClick={handlePrevStep}
+              onClick={() => {
+                setHasScrolled(false);
+                handlePrevStep();
+              }}
               disabled={currentStep === 1}
               className={`
                 px-6 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center gap-2
-                ${currentStep === 1 
-                  ? 'text-gray-400 cursor-not-allowed' 
-                  : 'text-[#39b54b] border-2 border-[#39b54b] hover:bg-[#39b54b] hover:text-white transform hover:scale-105'
+                ${
+                  currentStep === 1
+                    ? 'text-gray-400 cursor-not-allowed'
+                    : 'text-[#39b54b] border-2 border-[#39b54b] hover:bg-[#39b54b] hover:text-white transform hover:scale-105'
                 }
               `}
             >
@@ -746,18 +1058,20 @@ const getFilteredItems: GetFilteredItems = (items) => {
               Previous
             </button>
 
-            <div className="text-sm text-gray-500">
-              Step {currentStep} of 4
-            </div>
+            <div className="text-sm text-gray-500">Step {currentStep} of 4</div>
 
             <button
-              onClick={handleNextStep}
+              onClick={() => {
+                setHasScrolled(false);
+                handleNextStep();
+              }}
               disabled={currentStep === 4}
               className={`
                 px-6 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center gap-2 transform hover:scale-105
-                ${currentStep === 4 
-                  ? 'text-gray-400 cursor-not-allowed' 
-                  : 'bg-[#39b54b] text-white hover:bg-green-600 shadow-lg'
+                ${
+                  currentStep === 4
+                    ? 'text-gray-400 cursor-not-allowed'
+                    : 'bg-[#39b54b] text-white hover:bg-green-600 shadow-lg'
                 }
               `}
             >
@@ -772,3 +1086,12 @@ const getFilteredItems: GetFilteredItems = (items) => {
 };
 
 export default ProductsPage;
+function useEffect(effect: () => void | (() => void), deps?: React.DependencyList) {
+  return reactUseEffect(effect, deps);
+}
+
+function useCallback<T extends (...args: any[]) => any>(callback: T, deps: React.DependencyList): T {
+  return callback;
+}
+
+

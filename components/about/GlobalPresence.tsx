@@ -1,5 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const GlobalPresenceSection = () => {
   return (
@@ -11,13 +12,17 @@ const GlobalPresenceSection = () => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="rounded-3xl overflow-hidden border-4 border-[#39b54b]/20 shadow-xl"
-        >
-          <img
-            src="/bn.jpg"
-            alt="Global Presence"
-            className="w-full h-full object-cover"
-          />
+            className="rounded-3xl overflow-hidden "
+          >
+            <Image
+              src="/about/Global.png"
+              alt="Global Presence"
+              className="w-full h-full object-cover"
+              width={800}
+              height={600}
+              layout="responsive"
+              priority
+            />
         </motion.div>
 
         {/* Right Side - Content */}

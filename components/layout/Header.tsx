@@ -140,11 +140,17 @@ const NavBar = () => {
               ))}
 
               {/* Products Dropdown */}
-              <div
+                <div
                 className="relative group"
-                onMouseEnter={() => setIsProductsOpen(true)}
-                onMouseLeave={() => setIsProductsOpen(false)}
-              >
+                onClick={() => setIsProductsOpen((open) => !open)}
+                tabIndex={0}
+                onBlur={(e) => {
+                  // Close dropdown if focus leaves the dropdown area
+                  if (!e.currentTarget.contains(e.relatedTarget)) {
+                  setIsProductsOpen(false);
+                  }
+                }}
+                >
                 <button
                   className={`flex items-center space-x-2 px-4 py-2 transition-all duration-300 font-medium group
                   ${
@@ -182,7 +188,7 @@ const NavBar = () => {
                 >
                   <div className="p-2">
                     {productSubmenu.map((item, index) => (
-                      <a
+                      <Link
                         key={item.name}
                         href={item.href}
                         className="flex items-center space-x-3 p-3 rounded-xl hover:bg-gradient-to-r hover:from-[#39b54b]/10 hover:to-[#2d8f3a]/10 transition-all duration-300 group/item"
@@ -194,7 +200,7 @@ const NavBar = () => {
                         <span className="text-gray-700 font-medium group-hover/item:text-[#39b54b] transition-colors duration-300">
                           {item.name}
                         </span>
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>

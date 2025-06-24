@@ -1,5 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const SustainabilityFocusSection = () => {
   return (
@@ -22,7 +23,7 @@ const SustainabilityFocusSection = () => {
           </h2>
 
           <p className="text-gray-700 text-base leading-relaxed">
-            Sustainability is not a feature — it's our foundation. From recyclable raw materials to zero-waste production lines, Cloves Inc. designs every process to minimize environmental impact.
+            Sustainability is not a feature — its our foundation. From recyclable raw materials to zero-waste production lines, Cloves Inc. designs every process to minimize environmental impact.
           </p>
 
           <p className="text-gray-700 text-base leading-relaxed">
@@ -40,13 +41,17 @@ const SustainabilityFocusSection = () => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="rounded-3xl overflow-hidden border-4 border-[#39b54b]/20 shadow-xl"
+          className="rounded-3xl overflow-hidden"
         >
-          <img
-            src="/bu.jpg"
-            alt="Sustainability Visual"
-            className="w-full h-full object-cover"
-          />
+         <Image
+              src="/about/Sustainability.png"
+              alt="Global Presence"
+              className="w-full h-full object-cover"
+              width={800}
+              height={600}
+              layout="responsive"
+              priority
+            />
         </motion.div>
       </div>
     </section>

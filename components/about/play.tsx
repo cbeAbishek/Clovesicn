@@ -7,10 +7,15 @@ import {
   Rocket,
   Play,
   ChevronDown,
+  Globe,
+  Award,
+  Handshake,
 } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
+import 'swiper/css/autoplay';
+import Image from 'next/image';
 
 const PlayfulHeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -132,14 +137,7 @@ const PlayfulHeroSection = () => {
                 </span>
               </button>
 
-              <button className="group bg-white/70 backdrop-blur-sm text-slate-700 px-8 py-4 rounded-2xl font-bold text-lg border-2 border-[#39b54b]/20 hover:border-[#39b54b] hover:scale-105 hover:rotate-1 transition-all duration-300">
-                <span className="flex items-center gap-3">
-                  <span className="w-10 h-10 bg-gradient-to-r from-[#39b54b] to-emerald-600 rounded-full flex items-center justify-center group-hover:animate-pulse">
-                    <Play className="w-5 h-5 text-white" />
-                  </span>
-                  Watch Demo
-                </span>
-              </button>
+              
             </div>
           </div>
 
@@ -157,10 +155,13 @@ const PlayfulHeroSection = () => {
                 'adi/ai.jpg',
                 'adi/as.jpg'].map((src, i) => (
                 <SwiperSlide key={i}>
-                  <img
+                  <Image
                     src={src}
                     alt={`Slide ${i + 1}`}
                     className="w-full h-full object-cover rounded-3xl"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    style={{ objectFit: 'cover', borderRadius: '1.5rem' }}
                   />
                 </SwiperSlide>
               ))}
@@ -188,17 +189,17 @@ const PlayfulHeroSection = () => {
 <div className="relative z-10 mt-8 px-4">
   <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
     {[
-      { title: 'Eco Friendly', icon: '🌱' },
-      { title: 'Global Reach', icon: '🌍' },
-      { title: 'Quality First', icon: '🏆' },
-      { title: 'Trusted by 500+', icon: '🤝' }
+      { title: 'Eco Friendly', icon: <Sparkles className="w-8 h-8 mx-auto text-white" /> },
+      { title: 'Global Reach', icon: <Globe className="w-8 h-8 mx-auto text-white" /> },
+      { title: 'Quality First', icon: <Award className="w-8 h-8 mx-auto text-white" /> },
+      { title: 'Trusted by 500+', icon: <Handshake className="w-8 h-8 mx-auto text-white" /> }
     ].map((feature, index) => (
       <div
-        key={index}
-        className="bg-gradient-to-br from-[#39b54b] to-emerald-600 text-white rounded-2xl p-6 shadow-lg text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+      key={index}
+      className="bg-gradient-to-br from-[#39b54b] to-emerald-600 text-white rounded-2xl p-6 shadow-lg text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
       >
-        <div className="text-3xl mb-2 animate-bounce">{feature.icon}</div>
-        <div className="text-lg font-semibold">{feature.title}</div>
+      <div className="mb-2 animate-bounce">{feature.icon}</div>
+      <div className="text-lg font-semibold">{feature.title}</div>
       </div>
     ))}
   </div>

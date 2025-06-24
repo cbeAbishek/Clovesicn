@@ -1,5 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const MissionSection = () => {
   return (
@@ -22,15 +23,22 @@ const MissionSection = () => {
           </h2>
 
           <p className="text-gray-700 text-base leading-relaxed">
-            At Cloves Inc., our mission is to revolutionize the way the world approaches waste packaging. We are committed to crafting high-performance, eco-conscious liners and containers that not only protect the environment but also elevate industry standards.
+            At Cloves Inc., our mission is to revolutionize the way the world
+            approaches waste packaging. We are committed to crafting
+            high-performance, eco-conscious liners and containers that not only
+            protect the environment but also elevate industry standards.
           </p>
 
           <p className="text-gray-700 text-base leading-relaxed">
-            With a relentless focus on innovation and scalability, we empower global industries to adopt sustainable alternatives without compromising on quality or efficiency.
+            With a relentless focus on innovation and scalability, we empower
+            global industries to adopt sustainable alternatives without
+            compromising on quality or efficiency.
           </p>
 
           <p className="text-gray-700 text-base leading-relaxed">
-            Backed by years of expertise and a passionate team, Cloves Inc. leads with purpose — delivering smart, sustainable packaging systems that drive real impact.
+            Backed by years of expertise and a passionate team, Cloves Inc.
+            leads with purpose — delivering smart, sustainable packaging systems
+            that drive real impact.
           </p>
         </motion.div>
 
@@ -40,12 +48,16 @@ const MissionSection = () => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="rounded-3xl overflow-hidden border-4 border-[#39b54b]/20 shadow-xl"
+          className="rounded-3xl overflow-hidden "
         >
-          <img
-            src="/bk.jpg"
-            alt="Mission Visual"
+          <Image
+            src="/about/mission.png"
+            alt="Global Presence"
             className="w-full h-full object-cover"
+            width={800}
+            height={600}
+            layout="responsive"
+            priority
           />
         </motion.div>
       </div>

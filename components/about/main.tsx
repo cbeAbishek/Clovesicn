@@ -3,9 +3,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Globe, PackageCheck, Users, TimerReset } from 'lucide-react';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
-import HeroSection from '@/components/ui/Herosection';
 
 const AboutPage = () => {
   const stats = [
@@ -17,42 +14,8 @@ const AboutPage = () => {
 
   return (
     <>
-      <Header />
 
       <main className="pt-20 px-6 space-y-16 min-h-screen bg-[url('/wavesgren.jpg')] bg-cover bg-center bg-no-repeat">
-
-        {/* Hero Section */}
-        {/* Optional Hero: uncomment below if needed */}
-        {/* 
-        <motion.section
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: 'easeOut' }}
-          className="bg-gradient-to-br from-green-100 to-white text-green-900 text-center px-6 py-20 rounded-xl shadow-sm"
-        >
-          <div className="max-w-3xl mx-auto space-y-4">
-            <motion.h1
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
-              className="text-4xl font-bold"
-            >
-              About Cloves Inc.
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.5 }}
-              className="text-lg text-green-800"
-            >
-              A global leader in medical waste liners and packaging — rooted in innovation, sustainability, and service.
-            </motion.p>
-          </div>
-        </motion.section>
-        */}
-
-        {/* Removed: Mission + Values section */}
-
         {/* Impact Stats */}
         <section className="bg-gradient-to-r from-green-50 to-green-100 py-16">
           <div className="max-w-6xl mx-auto px-4 text-center space-y-12">
@@ -91,8 +54,6 @@ const AboutPage = () => {
           </div>
         </section>
       </main>
-
-      <Footer />
     </>
   );
 };
