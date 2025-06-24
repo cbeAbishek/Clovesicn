@@ -1,12 +1,13 @@
 "use client";
 import React, { useState } from 'react';
 import { ChevronRight, ChevronLeft, Upload, MessageCircle, Shield, Award, Leaf, Phone, Mail, MapPin, CheckCircle } from 'lucide-react';
+import { jsPDF } from "jspdf";
 
 const RequestQuotePage = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState<{
     productCategory: string;
-    specificProduct: string;
+    specificProduct: string[];
     industry: string;
     quantity: string;
     specifications: string;
@@ -21,7 +22,7 @@ const RequestQuotePage = () => {
     fileUploads: File[];
   }>({
     productCategory: '',
-    specificProduct: '',
+    specificProduct: [],
     industry: '',
     quantity: '',
     specifications: '',
@@ -36,6 +37,9 @@ const RequestQuotePage = () => {
     fileUploads: []
   });
   const [submitted, setSubmitted] = useState(false);
+  const [showProductModal, setShowProductModal] = useState(false);
+  const [showDownloadModal, setShowDownloadModal] = useState(false);
+  const [showEmailError, setShowEmailError] = useState(false);
 
   const productCategories = {
     'Autoclave Liners': ['High-temp plastic', 'Textile', 'Jute/Hessian', 'Woven plastic'],
@@ -50,7 +54,7 @@ const RequestQuotePage = () => {
 
   interface FormData {
     productCategory: string;
-    specificProduct: string;
+    specificProduct: string[];
     industry: string;
     quantity: string;
     specifications: string;
@@ -66,7 +70,7 @@ const RequestQuotePage = () => {
   }
 
   interface HandleInputChange {
-    (field: keyof FormData, value: string | boolean): void;
+    (field: keyof FormData, value: string | boolean | string[]): void;
   }
 
   const handleInputChange: HandleInputChange = (field, value) => {
@@ -83,6 +87,43 @@ const RequestQuotePage = () => {
   };
 
   const nextStep = () => {
+    if (currentStep === 1) {
+      if (!formData.productCategory) {
+        alert("Please select a product category.");
+        return;
+      }
+      if (formData.specificProduct.length === 0) {
+        alert("Please select at least one specific product.");
+        return;
+      }
+      if (!formData.industry) {
+        alert("Please select your industry.");
+        return;
+      }
+
+      // Show modal for additional products
+      setShowProductModal(true);
+      return;
+    }
+
+    if (currentStep === 2) {
+      if (!formData.deliveryTimeline) {
+        alert("Please select a delivery timeline.");
+        return;
+      }
+    }
+
+    if (currentStep === 3) {
+      if (!formData.name || !formData.company || !formData.email || !formData.phone || !formData.region) {
+        alert("Please fill in all required contact and delivery information.");
+        return;
+      }
+      if (!formData.email.includes("@")) {
+        setShowEmailError(true);
+        return;
+      }
+    }
+
     if (currentStep < 4) setCurrentStep(currentStep + 1);
   };
 
@@ -94,6 +135,67 @@ const RequestQuotePage = () => {
     // Here you would normally send data to your backend/CRM
     setSubmitted(true);
     setCurrentStep(5);
+  };
+
+  const handleCategoryQuantityChange = (category: string, quantity: string) => {
+    const validQuantity = Math.max(1, parseInt(quantity) || 1); // Ensure quantity is at least 1
+    setFormData((prev) => ({
+      ...prev,
+      specificProduct: prev.specificProduct.map((product) =>
+        product.startsWith(category) ? `${category} (${validQuantity})` : product
+      ),
+    }));
+  };
+
+  const handleProductSelection = (product: string) => {
+    setFormData((prev) => {
+      const alreadySelected = prev.specificProduct.some((p) => p.startsWith(product));
+      if (alreadySelected) {
+        return {
+          ...prev,
+          specificProduct: prev.specificProduct.filter((p) => !p.startsWith(product)),
+        };
+      } else {
+        return {
+          ...prev,
+          specificProduct: [...prev.specificProduct, `${product} (1)`], // Default quantity to 1
+        };
+      }
+    });
+  };
+
+  const handleModalResponse = (addMoreProducts: boolean) => {
+    setShowProductModal(false);
+    if (!addMoreProducts) {
+      setCurrentStep(currentStep + 1);
+    }
+  };
+
+  const handleDownloadProducts = () => {
+    setShowDownloadModal(true);
+  };
+
+  const confirmDownload = () => {
+    setShowDownloadModal(false);
+
+    // Create a new PDF document
+    const doc = new jsPDF();
+
+    // Add header
+    doc.setFontSize(16);
+    doc.text("Cloves Inc. - Selected Products", 10, 10);
+
+    // Add selected products
+    doc.setFontSize(12);
+    formData.specificProduct.forEach((product, index) => {
+      doc.text(`• ${product}`, 10, 20 + index * 10);
+    });
+
+    // Add contact info
+    doc.text(`Contact: ${formData.email}`, 10, 50);
+
+    // Save the PDF
+    doc.save("Selected_Products.pdf");
   };
 
   const StepIndicator = () => (
@@ -113,7 +215,7 @@ const RequestQuotePage = () => {
 
   if (submitted) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-green-50 to-white ">
+      <div className="min-h-screen bg-gradient-to-br from-green-50 to-white">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-2xl mx-auto text-center">
             <CheckCircle className="w-20 h-20 text-[#39b54b] mx-auto mb-6" />
@@ -122,28 +224,40 @@ const RequestQuotePage = () => {
               Thank you for your request. We'll get back to you within 24-48 hours with a customized quote.
             </p>
             <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Your Tracking Number</h3>
-              <p className="text-2xl font-mono text-[#39b54b] bg-green-50 py-2 px-4 rounded">
-                CLV-{Math.random().toString(36).substr(2, 9).toUpperCase()}
-              </p>
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">What would you like to do next?</h3>
+              <div className="flex justify-center space-x-4">
+                <button
+                  onClick={() => alert("Previewing the process...")}
+                  className="bg-[#39b54b] text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-colors"
+                >
+                  Preview Process
+                </button>
+                <button
+                  onClick={handleDownloadProducts}
+                  className="bg-[#39b54b] text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-colors"
+                >
+                  Download Products
+                </button>
+              </div>
             </div>
-            <p className="text-gray-600 mb-8">
-              A confirmation email has been sent to {formData.email} with your request details.
-            </p>
-            <button 
+            {/* <button 
               onClick={() => window.location.reload()} 
               className="bg-[#39b54b] text-white px-8 py-3 rounded-lg hover:bg-green-600 transition-colors"
             >
               Submit Another Request
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
     );
   }
 
+  function closeEmailError(): void {
+    setShowEmailError(false);
+  }
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-white mt-[100px]">
+    <div className="min-h-screen bg-gradient-to-br from-green-50 to-white">
       {/* Header */}
       <div className="bg-gradient-to-r from-[#39b54b] to-green-600 text-white py-20">
         <div className="container mx-auto px-4 text-center">
@@ -189,20 +303,37 @@ const RequestQuotePage = () => {
 
                 {formData.productCategory && (
                   <div className="mb-6">
-                    <label className="block text-sm font-medium text-gray-700 mb-3">Specific Product</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-3">
+                      Specific Product & Quantity (Selected: {formData.specificProduct.length})
+                    </label>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                       {productCategories[formData.productCategory as keyof typeof productCategories].map((product) => (
-                        <label key={product} className="flex items-center space-x-3 cursor-pointer">
-                          <input
-                            type="radio"
-                            name="specificProduct"
-                            value={product}
-                            checked={formData.specificProduct === product}
-                            onChange={(e) => handleInputChange('specificProduct', e.target.value)}
-                            className="text-[#39b54b] focus:ring-[#39b54b]"
-                          />
-                          <span className="text-gray-700">{product}</span>
-                        </label>
+                        <div key={product} className="space-y-2">
+                          <label className="flex items-center space-x-3 cursor-pointer">
+                            <input
+                              type="checkbox"
+                              name="specificProduct"
+                              value={product}
+                              checked={formData.specificProduct.some((p) => p.startsWith(product))}
+                              onChange={() => handleProductSelection(product)}
+                              className="text-[#39b54b] focus:ring-[#39b54b]"
+                            />
+                            <span className="text-gray-700">{product}</span>
+                          </label>
+                          {formData.specificProduct.some((p) => p.startsWith(product)) && (
+                            <input
+                              type="number"
+                              placeholder="Enter quantity"
+                              value={
+                                formData.specificProduct
+                                  .find((p) => p.startsWith(product))
+                                  ?.match(/\((\d+)\)/)?.[1] || "1"
+                              }
+                              onChange={(e) => handleCategoryQuantityChange(product, e.target.value)}
+                              className="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#39b54b] focus:border-[#39b54b]"
+                            />
+                          )}
+                        </div>
                       ))}
                     </div>
                   </div>
@@ -230,16 +361,7 @@ const RequestQuotePage = () => {
                 <h2 className="text-2xl font-bold text-gray-900 mb-6">Step 2: Customization Details</h2>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Quantity Required</label>
-                    <input
-                      type="number"
-                      value={formData.quantity}
-                      onChange={(e) => handleInputChange('quantity', e.target.value)}
-                      placeholder="e.g., 500"
-                      className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#39b54b] focus:border-[#39b54b]"
-                    />
-                  </div>
+                 
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">Delivery Timeline</label>
                     <select
@@ -356,8 +478,13 @@ const RequestQuotePage = () => {
                     <input
                       type="tel"
                       value={formData.phone}
-                      onChange={(e) => handleInputChange('phone', e.target.value)}
-                      placeholder="+1 (555) 123-4567"
+                      onChange={(e) => {
+                        const numericValue = e.target.value.replace(/\D/g, ''); // Remove non-numeric characters
+                        if (numericValue.length <= 10) { // Restrict to 10 digits
+                          handleInputChange('phone', numericValue);
+                        }
+                      }}
+                      placeholder="Enter 10-digit phone number"
                       className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#39b54b] focus:border-[#39b54b]"
                     />
                   </div>
@@ -382,30 +509,39 @@ const RequestQuotePage = () => {
             {/* Step 4: Review & Submit */}
             {currentStep === 4 && (
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Step 4: Review & Submit</h2>
-                
-                <div className="bg-gray-50 rounded-lg p-6 mb-6">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">Request Summary</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">Step 4: Review & Submit</h2>
+                <div className="bg-gray-50 rounded-lg p-6 mb-6 shadow-md">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Request Summary</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <p><strong>Product:</strong> {formData.productCategory} - {formData.specificProduct}</p>
-                      <p><strong>Industry:</strong> {formData.industry}</p>
-                      <p><strong>Quantity:</strong> {formData.quantity}</p>
-                      <p><strong>Timeline:</strong> {formData.deliveryTimeline}</p>
+                      <p className="text-gray-700"><strong>Product:</strong> {formData.productCategory} - {formData.specificProduct.join(', ')}</p>
+                      <p className="text-gray-700"><strong>Industry:</strong> {formData.industry}</p>
+                      <p className="text-gray-700"><strong>Quantity:</strong> {formData.quantity}</p>
+                      <p className="text-gray-700"><strong>Timeline:</strong> {formData.deliveryTimeline}</p>
                     </div>
                     <div>
-                      <p><strong>Contact:</strong> {formData.name}</p>
-                      <p><strong>Company:</strong> {formData.company}</p>
-                      <p><strong>Email:</strong> {formData.email}</p>
-                      <p><strong>Region:</strong> {formData.region}</p>
+                      <p className="text-gray-700"><strong>Contact:</strong> {formData.name}</p>
+                      <p className="text-gray-700"><strong>Company:</strong> {formData.company}</p>
+                      <p className="text-gray-700"><strong>Email:</strong> {formData.email}</p>
+                      <p className="text-gray-700"><strong>Region:</strong> {formData.region}</p>
                     </div>
                   </div>
                   {formData.specifications && (
                     <div className="mt-4">
-                      <p><strong>Specifications:</strong></p>
-                      <p className="text-gray-700 mt-1">{formData.specifications}</p>
+                      <p className="text-gray-700"><strong>Specifications:</strong></p>
+                      <p className="text-gray-600 mt-1">{formData.specifications}</p>
                     </div>
                   )}
+                </div>
+
+                <div className="flex justify-center mb-6">
+                  <img
+                    src="/path-to-your-image.jpg"
+
+                    
+                    alt="Default Review Illustration"
+                    className="w-full max-w-md rounded-lg shadow-lg"
+                  />
                 </div>
 
                 <div className="mb-6">
@@ -434,7 +570,7 @@ const RequestQuotePage = () => {
                 className={`flex items-center space-x-2 px-6 py-3 rounded-lg transition-colors ${
                   currentStep === 1
                     ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                    : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                    : 'bg-[#39b54b] text-white hover:bg-green-600'
                 }`}
               >
                 <ChevronLeft className="w-4 h-4" />
@@ -444,7 +580,18 @@ const RequestQuotePage = () => {
               {currentStep < 4 ? (
                 <button
                   onClick={nextStep}
-                  className="flex items-center space-x-2 bg-[#39b54b] text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-colors"
+                  className={`flex items-center space-x-2 px-6 py-3 rounded-lg transition-colors ${
+                    (currentStep === 1 && formData.productCategory && formData.specificProduct.length > 0 && formData.industry) ||
+                    (currentStep === 2 && formData.deliveryTimeline) ||
+                    (currentStep === 3 && formData.name && formData.company && formData.email && formData.phone && formData.region)
+                      ? 'bg-[#39b54b] text-white hover:bg-green-600'
+                      : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                  }`}
+                  disabled={
+                    (currentStep === 1 && (!formData.productCategory || formData.specificProduct.length === 0 || !formData.industry)) ||
+                    (currentStep === 2 && !formData.deliveryTimeline) ||
+                    (currentStep === 3 && (!formData.name || !formData.company || !formData.email || !formData.phone || !formData.region))
+                  }
                 >
                   <span>Next</span>
                   <ChevronRight className="w-4 h-4" />
@@ -529,6 +676,75 @@ const RequestQuotePage = () => {
           </div>
         </div>
       </div>
+
+      {showProductModal && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <div className="bg-white rounded-lg shadow-lg p-6 w-96 text-center">
+            <h2 className="text-lg font-semibold text-gray-900 mb-4">Need More Products?</h2>
+            <p className="text-gray-600 mb-6">
+              Do you need any other products from another category?
+            </p>
+            <div className="flex justify-center space-x-4">
+              <button
+                onClick={() => handleModalResponse(false)}
+                className="bg-[#39b54b] text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors"
+              >
+                No, Proceed
+              </button>
+              <button
+                onClick={() => handleModalResponse(true)}
+                className="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400 transition-colors"
+              >
+                Yes, Add More
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {showDownloadModal && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <div className="bg-white rounded-lg shadow-lg p-6 w-96 text-center">
+            <h2 className="text-lg font-semibold text-gray-900 mb-4">Download Products</h2>
+            <p className="text-gray-600 mb-6">
+              Your selected products will be downloaded as a PDF. Do you want to proceed?
+            </p>
+            <div className="flex justify-center space-x-4">
+              <button
+                onClick={confirmDownload}
+                className="bg-[#39b54b] text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors"
+              >
+                Yes, Download
+              </button>
+              <button
+                onClick={() => setShowDownloadModal(false)}
+                className="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400 transition-colors"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {showEmailError && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <div className="bg-white rounded-lg shadow-lg p-6 w-96 text-center">
+            <h2 className="text-lg font-semibold text-red-600 mb-4">Invalid Email Address</h2>
+            <p className="text-gray-600 mb-6">
+              Please enter a valid email address containing <strong>@abc.abc</strong>.
+            </p>
+            <div className="flex justify-center space-x-4">
+              <button
+                onClick={closeEmailError}
+                className="bg-[#39b54b] text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors"
+              >
+                OK
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

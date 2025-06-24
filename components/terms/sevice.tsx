@@ -2,7 +2,7 @@ import { FileText, Shield, Globe, Mail, Phone, MapPin } from 'lucide-react';
 
 export default function TermsOfService() {
   return (
-    <div className="min-h-screen bg-gray-50 mt-[100px]">
+    <div className="min-h-screen bg-gray-50 ">
       {/* Header */}
       <div className="bg-white border-b border-gray-200">
         <div className="max-w-4xl mx-auto px-6 py-8">
