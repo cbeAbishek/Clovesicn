@@ -1,212 +1,168 @@
+'use client';
+
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Globe, PackageCheck, Users, TimerReset, CalendarDays } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import { Users, Target, Globe, Award, History, TrendingUp } from 'lucide-react';
+import HeroSection from '@/components/ui/Herosection';
+import Timeline from '@/components/ui/Timeline';
 
-export default function AboutPage() {
+const AboutPage = () => {
   const milestones = [
-    { year: '1999', title: 'Company Founded', description: 'Started with a vision to create sustainable textile solutions' },
-    { year: '2005', title: 'ISO Certification', description: 'Achieved ISO 9001 and ISO 14001 certifications' },
-    { year: '2012', title: 'Global Expansion', description: 'Opened manufacturing facilities in 3 continents' },
-    { year: '2018', title: 'Innovation Center', description: 'Established R&D facility for sustainable materials' },
-    { year: '2020', title: 'Carbon Neutral', description: 'Achieved carbon neutrality across all operations' },
-    { year: '2024', title: 'Industry Leader', description: 'Serving 500+ clients across 40+ countries' },
+    { year: '1999', title: 'Founded', description: 'Started with a vision to create sustainable packaging solutions.' },
+    { year: '2012', title: 'Global Expansion', description: 'Opened facilities across 3 continents.' },
+    { year: '2020', title: 'Carbon Neutral', description: 'Became fully carbon neutral across all operations.' },
+    { year: '2024', title: 'Industry Leader', description: 'Serving over 500 clients in 40+ countries.' },
   ];
 
-  const team = [
-    {
-      name: 'Sarah Johnson',
-      role: 'Chief Executive Officer',
-      image: 'https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-      bio: '15+ years in sustainable manufacturing and business strategy'
-    },
-    {
-      name: 'Dr. Michael Chen',
-      role: 'Chief Technology Officer',
-      image: 'https://images.pexels.com/photos/3825586/pexels-photo-3825586.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-      bio: 'Leading materials scientist with 20+ patents in eco-friendly textiles'
-    },
-    {
-      name: 'Emma Rodriguez',
-      role: 'VP of Operations',
-      image: 'https://images.pexels.com/photos/4021779/pexels-photo-4021779.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-      bio: 'Global operations expert ensuring quality and sustainability'
-    },
-    {
-      name: 'James Thompson',
-      role: 'VP of Sales & Marketing',
-      image: 'https://images.pexels.com/photos/3735230/pexels-photo-3735230.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-      bio: 'Building partnerships across healthcare and industrial sectors'
-    },
+  const stats = [
+    { icon: Users, number: '500+', label: 'Clients' },
+    { icon: Globe, number: '40+', label: 'Countries Served' },
+    { icon: PackageCheck, number: '50M+', label: 'Products Delivered' },
+    { icon: TimerReset, number: '25+', label: 'Years of Experience' },
   ];
 
   return (
     <>
       <Header />
-      <main>
-        {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-br from-primary-50 to-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-                About EcoTech Solutions
-              </h1>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                For over 25 years, we've been pioneering sustainable solutions that protect 
-                both your business and our planet.
-              </p>
-            </div>
+
+      <main className="pt-20 px-6 space-y-16 min-h-screen bg-[url('/wavesgren.jpg')] bg-cover bg-center bg-no-repeat">
+
+        {/* Hero Section (now light themed) */}
+        <motion.section
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
+          className="bg-gradient-to-br from-green-100 to-white text-green-900 text-center px-6 py-20 rounded-xl shadow-sm"
+        >
+          <div className="max-w-3xl mx-auto space-y-4">
+            <motion.h1
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              className="text-4xl font-bold"
+            >
+              About Cloves Inc.
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
+              className="text-lg text-green-800"
+            >
+              A global leader in medical waste liners and packaging — rooted in innovation, sustainability, and service.
+            </motion.p>
           </div>
+        </motion.section>
+
+        {/* Mission + Values */}
+        <section className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8">
+          {[
+            {
+              title: 'Mission Statement',
+              desc: 'To provide high-quality, sustainable products for healthcare, industrial, and commercial sectors.',
+              icon: '/mission.png'
+            },
+            {
+              title: 'Global Presence',
+              desc: 'Serving clients in North America, Europe, Asia, and Australia with agile, eco-conscious delivery.',
+              icon: '/global.png'
+            },
+            {
+              title: 'Sustainability Focus',
+              desc: 'Eco-friendly materials, carbon-neutral production, and fully recyclable product lines.',
+              icon: '/sus.png'
+            },
+            {
+              title: 'Meet the Founder',
+              desc: 'Harsha Soundararajan brings 10+ years experience in waste packaging innovation.',
+              icon: '/founder.png'
+            }
+          ].map((card, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              whileHover={{ scale: 1.03 }}
+              className="rounded-xl bg-gradient-to-br from-white to-green-50 p-6 shadow-md hover:shadow-lg transition"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-full bg-green-600 flex items-center justify-center">
+                  <img src={card.icon} alt={card.title} className="w-6 h-6 object-contain" />
+                </div>
+                <h3 className="text-2xl font-bold text-green-900">{card.title}</h3>
+              </div>
+              <p className="text-gray-700 text-sm">{card.desc}</p>
+            </motion.div>
+          ))}
         </section>
 
-        {/* Mission & Vision */}
-        <section className="py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-3 gap-12">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-primary-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                  <Target className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  To provide high-quality, sustainable products that enable our clients to achieve 
-                  their goals while contributing to a healthier planet for future generations.
-                </p>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-16 h-16 bg-secondary-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                  <Globe className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Vision</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  To be the global leader in sustainable industrial solutions, setting the standard 
-                  for environmental responsibility and innovation in our industry.
-                </p>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-16 h-16 bg-accent rounded-2xl flex items-center justify-center mx-auto mb-6">
-                  <Award className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Values</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Integrity, sustainability, innovation, and customer success drive everything we do. 
-                  We believe business success and environmental stewardship go hand in hand.
-                </p>
-              </div>
-            </div>
+        {/* Timeline Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="bg-green-900 text-white px-6 py-10 rounded-xl shadow-md max-w-3xl mx-auto text-center"
+        >
+          <div className="inline-flex items-center gap-2 justify-center text-green-100 mb-2">
+            <CalendarDays className="w-5 h-5" />
+            <span className="text-sm font-medium uppercase tracking-wider">Our Journey</span>
           </div>
-        </section>
+          <h2 className="text-3xl font-extrabold mb-2">Timeline of Innovation</h2>
+          <p className="text-green-100 text-base leading-relaxed">
+            From humble beginnings to global impact — discover how Cloves Inc. has grown into a sustainability leader.
+          </p>
+        </motion.div>
 
-        {/* Company Timeline */}
-        <section className="py-20 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <div className="inline-flex items-center space-x-2 bg-primary-100 text-primary-700 rounded-full px-4 py-2 mb-4">
-                <History className="h-4 w-4" />
-                <span className="text-sm font-medium">Our Journey</span>
-              </div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">25 Years of Innovation</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                From a small startup to a global leader, our journey has been marked by 
-                continuous innovation and unwavering commitment to sustainability.
+        {/* Timeline Component */}
+        <Timeline milestones={milestones} />
+
+        {/* Impact Stats */}
+        <section className="bg-gradient-to-r from-green-50 to-green-100 py-16">
+          <div className="max-w-6xl mx-auto px-4 text-center space-y-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-green-900 mb-2">
+                Our Impact at a Glance
+              </h2>
+              <p className="text-gray-700 text-sm max-w-2xl mx-auto">
+                Driving sustainable growth and global solutions, one milestone at a time.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="relative">
-              {/* Timeline Line */}
-              <div className="absolute left-1/2 transform -translate-x-0.5 w-1 h-full bg-primary-200" />
-              
-              {/* Timeline Items */}
-              <div className="space-y-12">
-                {milestones.map((milestone, index) => (
-                  <div key={index} className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
-                    <div className={`w-1/2 ${index % 2 === 0 ? 'pr-12 text-right' : 'pl-12 text-left'}`}>
-                      <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                        <div className="text-2xl font-bold text-primary-600 mb-2">{milestone.year}</div>
-                        <h3 className="text-xl font-semibold text-gray-900 mb-2">{milestone.title}</h3>
-                        <p className="text-gray-600">{milestone.description}</p>
-                      </div>
-                    </div>
-                    
-                    {/* Timeline Dot */}
-                    <div className="relative z-10 w-4 h-4 bg-primary-600 rounded-full border-4 border-white shadow-lg" />
-                    
-                    <div className="w-1/2" />
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              {stats.map((stat, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.2, duration: 0.5 }}
+                  className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition"
+                >
+                  <div className="flex justify-center items-center mb-4">
+                    <stat.icon className="w-8 h-8 text-green-700" />
                   </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Leadership Team */}
-        <section className="py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <div className="inline-flex items-center space-x-2 bg-secondary-100 text-secondary-700 rounded-full px-4 py-2 mb-4">
-                <Users className="h-4 w-4" />
-                <span className="text-sm font-medium">Leadership</span>
-              </div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">Meet Our Team</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Led by industry veterans with decades of combined experience in sustainable 
-                manufacturing and innovation.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {team.map((member, index) => (
-                <div key={index} className="text-center group">
-                  <div className="relative mb-6">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-32 h-32 rounded-full mx-auto object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-t from-primary-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-1">{member.name}</h3>
-                  <div className="text-primary-600 font-medium mb-3">{member.role}</div>
-                  <p className="text-gray-600 text-sm">{member.bio}</p>
-                </div>
+                  <div className="text-3xl font-bold text-green-900">{stat.number}</div>
+                  <div className="text-sm text-gray-600 mt-1">{stat.label}</div>
+                </motion.div>
               ))}
             </div>
           </div>
         </section>
-
-        {/* Statistics */}
-        <section className="py-20 bg-gradient-to-r from-primary-600 to-secondary-600 text-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold mb-6">Impact by the Numbers</h2>
-              <p className="text-xl text-primary-100 max-w-3xl mx-auto">
-                Our commitment to excellence and sustainability is reflected in our achievements.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="text-4xl font-bold mb-2">500+</div>
-                <div className="text-primary-200">Global Clients</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold mb-2">40+</div>
-                <div className="text-primary-200">Countries Served</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold mb-2">50M+</div>
-                <div className="text-primary-200">Products Delivered</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold mb-2">25+</div>
-                <div className="text-primary-200">Years Experience</div>
-              </div>
-            </div>
-          </div>
-        </section>
       </main>
+
       <Footer />
     </>
   );
-}
+};
+
+export default AboutPage;
