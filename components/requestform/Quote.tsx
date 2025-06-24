@@ -221,7 +221,7 @@ const RequestQuotePage = () => {
             <CheckCircle className="w-20 h-20 text-[#39b54b] mx-auto mb-6" />
             <h1 className="text-4xl font-bold text-gray-900 mb-4">Quote Request Submitted!</h1>
             <p className="text-xl text-gray-600 mb-6">
-              Thank you for your request. We'll get back to you within 24-48 hours with a customized quote.
+              Thank you for your request. Well get back to you within 24-48 hours with a customized quote.
             </p>
             <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">What would you like to do next?</h3>
@@ -537,8 +537,6 @@ const RequestQuotePage = () => {
                 <div className="flex justify-center mb-6">
                   <img
                     src="/path-to-your-image.jpg"
-
-                    
                     alt="Default Review Illustration"
                     className="w-full max-w-md rounded-lg shadow-lg"
                   />
@@ -657,7 +655,7 @@ const RequestQuotePage = () => {
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <h4 className="font-semibold text-gray-900 mb-2">What's the minimum order quantity?</h4>
+                <h4 className="font-semibold text-gray-900 mb-2">Whats the minimum order quantity?</h4>
                 <p className="text-gray-600 text-sm">Minimum orders vary by product. Most items start at 100 units, but we can accommodate smaller quantities for samples.</p>
               </div>
               <div>
