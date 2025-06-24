@@ -36,25 +36,25 @@ const AutoclaveLinersPage = () => {
     {
       title: 'High-Temp Plastic Liners',
       description: 'Engineered to withstand intense heat in autoclaves—ideal for medical waste.',
-      image: 'https://images.unsplash.com/photo-1583912268180-b3f3a1f7f1a4?auto=format&fit=crop&w=600&q=80',
+      image: '/product/al/p3.jpg', 
       features: ['140°C Heat Resistance', 'Medical Grade', 'Puncture Resistant']
     },
     {
       title: 'Textile Liners',
       description: 'Reusable and fabric-based liners with reliable heat resistance and reusability.',
-      image: 'https://images.unsplash.com/photo-1601121148473-14954fc111ac?auto=format&fit=crop&w=600&q=80',
+      image: '/product/al/p5.jpg', 
       features: ['Reusable Design', 'Fabric Based', 'Cost Effective']
     },
     {
       title: 'Jute/Hessian Liners',
       description: 'Natural jute-based liners—strong, breathable and biodegradable.',
-      image: 'https://images.unsplash.com/photo-1614680376574-d01b76c3b8f4?auto=format&fit=crop&w=600&q=80',
+      image: '/product/al/p7.jpg', 
       features: ['100% Natural', 'Biodegradable', 'Breathable']
     },
     {
       title: 'Woven Plastic Liners',
       description: 'Durable woven liners that handle heavy-duty applications effectively.',
-      image: 'https://images.unsplash.com/photo-1616627986600-7b97928e44f6?auto=format&fit=crop&w=600&q=80',
+      image: '/product/al/p9.jpg', 
       features: ['Heavy Duty', 'Woven Strength', 'Industrial Grade']
     },
   ];
