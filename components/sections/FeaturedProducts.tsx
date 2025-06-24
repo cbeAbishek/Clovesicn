@@ -26,7 +26,7 @@ const FeaturedProducts = () => {
       features: ["Heavy-duty construction", "Moisture resistant", "Bulk capacity", "Reusable designs"],
       gradient: "from-green-400 to-emerald-600",
       bgPattern: "bg-gradient-to-br from-emerald-50 to-green-100",
-      link:"/products/industrial-packaging"
+      link:"/products/packaging-solution"
     },
     {
       id: 3,
@@ -37,7 +37,7 @@ const FeaturedProducts = () => {
       features: ["Natural & synthetic", "Industrial strength", "Weather resistant", "Versatile applications"],
       gradient: "from-teal-400 to-green-500",
       bgPattern: "bg-gradient-to-br from-teal-50 to-emerald-100",
-      link:"/products/industrial-fabrics"
+      link:"/products/natural-synthetic-fabrics"
     },
     {
       id: 4,
