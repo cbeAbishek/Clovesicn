@@ -17,7 +17,7 @@ export default function Page() {
     <ProductSubPageTemplate
       title="High-Temp Plastic Liners"
       description="Designed to withstand the intense heat of medical autoclaves, these liners protect carts and ensure safe sterilization of hazardous medical waste."
-      image="https://example.com/images/high-temp-plastic-liner.jpg" // Replace with real image
+      image="/product/al/p1.jpg" // Replace with real image
       features={[
         "Heat resistant up to 140°C",
         "Available in lightweight 30 kg rolls",
