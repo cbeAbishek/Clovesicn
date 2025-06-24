@@ -23,7 +23,7 @@ export default function Page() {
         { name: "High Temp Plastic Liners", href: "/products/autoclave-liners/hightemp-plastic-liners" },
         { name: "Jute Hessian Liners", href: "/products/autoclave-liners/jute-hessian-liners" },
         { name: "Textile Liners", href: "/products/autoclave-liners/textile-liners" },
-        { name: "Woven Plastic Liners", href: "/products/autoclave-liners/woven-plastic-liners" },
+        { name: "Woven Plastic Liners", href: "/products/autoclave-liners/woven-pl  astic-liners" },
       ]}
     />
   );
