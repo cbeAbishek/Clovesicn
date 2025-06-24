@@ -216,43 +216,41 @@ const CommercialTextilesPage = () => {
             Explore Textile Types
           </h2>
           <div className="w-64 h-1 bg-gradient-to-r from-orange-300 to-red-300 mx-auto mb-12 rounded-full"></div>
-          <div className="space-y-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {subProducts.map((item, index) => (
               <div
                 key={index}
                 className="bg-gradient-to-r from-orange-500 to-red-600 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden text-white hover:scale-[1.02] group"
               >
-                <div className="flex flex-col lg:flex-row">
-                  <div className="lg:w-1/2 relative overflow-hidden">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="w-full h-64 lg:h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                  </div>
-                  <div className="lg:w-1/2 p-8 flex flex-col justify-center relative">
-                    <div className="absolute top-4 right-4 w-24 h-24 bg-white/5 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div className="absolute bottom-4 left-4 w-16 h-16 bg-white/10 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div className="absolute top-6 right-8 w-3 h-3 bg-white/25 rounded-full"></div>
-                    <div className="absolute top-12 right-4 w-2 h-2 bg-white/35 rounded-full"></div>
-                    <div className="absolute bottom-12 left-6 w-4 h-4 bg-white/20 rounded-full"></div>
-                    <div className="absolute bottom-6 right-12 w-1.5 h-1.5 bg-white/40 rounded-full"></div>
-                    <div className="absolute top-1/2 right-2 w-2.5 h-2.5 bg-white/30 rounded-full"></div>
-                    <h4 className="text-2xl font-bold text-white mb-3 relative z-10">
-                      {item.title}
-                    </h4>
-                    <p className="text-white/90 mb-6 leading-relaxed relative z-10">{item.description}</p>
-                    <div className="flex flex-wrap gap-2 mb-6 relative z-10">
-                      {item.features && item.features.map((feature, fIndex) => (
-                        <span
-                          key={fIndex}
-                          className="px-3 py-1 rounded-full text-xs font-medium bg-white/20 text-white border border-white/20 hover:bg-white/30 transition-colors duration-200"
-                        >
-                          {feature}
-                        </span>
-                      ))}
-                    </div>
+                {/* Vertical layout for better fit in grid */}
+        <div className="flex flex-col h-full">
+          <div className="relative overflow-hidden">
+            <img
+              src={item.image}
+              alt={item.title}
+              className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+          </div>
+          
+          <div className="p-6 flex flex-col justify-between flex-grow relative">
+            {/* Decorative elements */}
+            <div className="absolute top-4 right-4 w-16 h-16 bg-white/5 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="absolute bottom-4 left-4 w-12 h-12 bg-white/10 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="absolute top-6 right-6 w-3 h-3 bg-white/25 rounded-full"></div>
+            <div className="absolute top-10 right-4 w-2 h-2 bg-white/35 rounded-full"></div>
+            <div className="absolute bottom-8 left-4 w-4 h-4 bg-white/20 rounded-full"></div>
+            <div className="absolute bottom-4 right-8 w-1.5 h-1.5 bg-white/40 rounded-full"></div>
+            <div className="absolute top-1/2 right-2 w-2.5 h-2.5 bg-white/30 rounded-full"></div>
+            
+            <div className="relative z-10">
+              <h4 className="text-xl font-bold text-white mb-3">
+                {item.title}
+              </h4>
+              <p className="text-white/90 mb-6 leading-relaxed text-sm">
+                {item.description}
+              </p>
+            </div>
                     <div className="flex items-center text-white font-semibold hover:text-white/80 transition-colors duration-200 group-hover:translate-x-2 cursor-pointer relative z-10">
                       <span className="mr-2">View More</span>
                       <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
