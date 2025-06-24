@@ -35,25 +35,25 @@ const NaturalSyntheticFabricsPage = () => {
     {
       title: 'Hessian (Jute)',
       description: 'Natural, breathable fabric perfect for sustainable packaging needs.',
-      image: 'https://images.unsplash.com/photo-1606820175121-45c2a1e1627b?auto=format&fit=crop&w=600&q=80',
+      image: '/product/nfs/p2.jpg',
       link: '/products/natural-synthetic-fabrics/hessian-jute',
     },
     {
       title: 'Calico',
       description: 'Unbleached cotton fabric ideal for eco-conscious applications.',
-      image: 'https://images.unsplash.com/photo-1581873372795-fd4f63e380c2?auto=format&fit=crop&w=600&q=80',
+      image: '/product/nfs/p3.jpg',
       link: '/products/natural-synthetic-fabrics/calico',
     },
     {
       title: 'Poly-Woven Fabrics',
       description: 'Durable synthetic fabrics used for heavy packaging and reinforcement.',
-      image: 'https://images.unsplash.com/photo-1622817277017-40cd58644d7f?auto=format&fit=crop&w=600&q=80',
+      image: '/product/nfs/p6.jpg',
       link: '/products/natural-synthetic-fabrics/poly-woven-fabrics',
     },
     {
       title: 'Woven & Knitted Fabrics',
       description: 'Flexible solutions for industrial and commercial textile applications.',
-      image: 'https://images.unsplash.com/photo-1608566948890-5e3cd292c60c?auto=format&fit=crop&w=600&q=80',
+      image: '/product/nfs/p9.jpg',
       link: '/products/natural-synthetic-fabrics/woven-knitted-fabrics',
     },
   ];

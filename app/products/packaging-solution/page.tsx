@@ -35,25 +35,25 @@ const PackagingSolutionPage = () => {
     {
       title: 'Bulk Bags',
       description: 'Large-capacity bags ideal for handling heavy materials like grains, sand, or chemicals.',
-      image: 'https://images.unsplash.com/photo-1601134467661-bc909b56e90b?auto=format&fit=crop&w=600&q=80',
+      image: '/product/ps/p2.jpg',
       link: '/products/packaging-solution/bulk-bags',
     },
     {
       title: 'Poly-Woven Bags',
       description: 'Durable woven polypropylene bags suitable for agriculture and construction use.',
-      image: 'https://images.unsplash.com/photo-1616937145204-c1be34b3a1d6?auto=format&fit=crop&w=600&q=80',
+      image: '/product/ps/p3.jpg',
       link: '/products/packaging-solution/polywoven-bags',
     },
     {
       title: 'Mesh Bags',
       description: 'Breathable bags perfect for storing vegetables or lightweight industrial components.',
-      image: 'https://images.unsplash.com/photo-1598188304584-ec865b1a67cb?auto=format&fit=crop&w=600&q=80',
+      image: '/product/ps/p8.jpg',
       link: '/products/packaging-solution/mesh-bags',
     },
     {
       title: 'Multiwall Paper Sacks',
       description: 'Eco-conscious sacks for dry materials such as powders or animal feed.',
-      image: 'https://images.unsplash.com/photo-1579484566782-8b06f2fa2f3f?auto=format&fit=crop&w=600&q=80',
+      image: '/product/ps/p10.jpg',
       link: '/products/packaging-solution/multiwall-paper-sacks',
     },
   ];
