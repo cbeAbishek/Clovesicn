@@ -17,7 +17,7 @@ export default function Page() {
     <ProductSubPageTemplate
       title="Jute/Hessian Liners"
       description="Preferred in regions like Australia, these biodegradable and heavy-duty liners are ideal for managing unshredded medical waste in an eco-friendly way."
-      image="/product/al/p5.jpg" // Replace with real image
+      image="/Product/al/p5.jpg" // Replace with real image
       features={[
         'Strong and heavy-duty',
         'Biodegradable and environmentally friendly',

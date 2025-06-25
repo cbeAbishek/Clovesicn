@@ -17,7 +17,7 @@ export default function Page() {
     <ProductSubPageTemplate
       title="Laundry Bags"
       description="Heavy-duty laundry bags designed for commercial laundry operations, offering strength, capacity, and easy handling across healthcare and hospitality sectors."
-      image="/product/ct/p6.jpg" // Replace with real image
+      image="/Product/ct/p6.jpg" // Replace with real image
       features={[
         'Tear-resistant',
         'Available in various sizes',

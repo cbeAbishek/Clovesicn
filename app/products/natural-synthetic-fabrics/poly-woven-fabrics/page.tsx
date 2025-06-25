@@ -17,7 +17,7 @@ export default function Page() {
     <ProductSubPageTemplate
       title="Poly-Woven Fabrics"
       description="Highly durable and tear-resistant, poly-woven fabrics are ideal for industrial packaging and storage, offering a lightweight yet tough solution for demanding applications."
-      image="/product/nfs/p5.jpg" // Replace with real image
+      image="/Product/nfs/p5.jpg" // Replace with real image
       features={[
         'Tear-resistant and durable',
         'Ideal for industrial packaging',

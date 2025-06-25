@@ -17,7 +17,7 @@ export default function Page() {
     <ProductSubPageTemplate
       title="Woven Plastic Liners"
       description="Woven plastic liners provide a cost-effective and lightweight alternative to Jute liners, offering high durability and easy handling for medical waste management."
-      image="/product/al/p10.jpg" // Replace with real image
+      image="/Product/al/p10.jpg" // Replace with real image
       features={[
         'Cost-effective compared to Jute liners',
         'Strong and tear-resistant',

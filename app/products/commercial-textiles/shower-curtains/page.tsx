@@ -17,7 +17,7 @@ export default function Page() {
     <ProductSubPageTemplate
       title="Shower Curtains"
       description="Waterproof and durable, these shower curtains are ideal for use in hospitals, clinics, and hospitality sectors, offering hygiene, ease of maintenance, and customizability."
-      image="/product/ct/p8.jpg" // Replace with real image
+      image="/Product/ct/p8.jpg" // Replace with real image
       features={[
         'Water-resistant and easy to clean',
         'Durable for frequent use',
