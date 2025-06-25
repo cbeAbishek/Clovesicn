@@ -1,4 +1,4 @@
-import ProductSubPageTemplate from '@/components/Products/ProductSubPageTemplate';
+import ProductSubPageTemplate from '@/components/Products/productSubPageTemplate';
 import {
   FaTag, // For Category
   FaRulerCombined, // For Material
