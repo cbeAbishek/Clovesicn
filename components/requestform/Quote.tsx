@@ -534,8 +534,6 @@ const RequestQuotePage = () => {
                   )}
                 </div>
 
-<<<<<<< HEAD
-=======
                 <div className="flex justify-center mb-6">
                   <img
                     src="/path-to-your-image.jpg"
@@ -544,7 +542,6 @@ const RequestQuotePage = () => {
                   />
                 </div>
 
->>>>>>> 41f4d1d167e33e655427d4e820de25cd40006479
                 <div className="mb-6">
                   <label className="flex items-start space-x-3 cursor-pointer">
                     <input

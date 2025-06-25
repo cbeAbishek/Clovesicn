@@ -347,7 +347,17 @@ const ContactPage = () => {
                     type="email"
                     name="email"
                     value={formData.email}
-                    onChange={handleInputChange}
+                    onChange={(e) => {
+                      const value = e.target.value;
+                      setFormData((prev) => ({ ...prev, email: value }));
+                      if (errors.email) {
+                        setErrors((prev) => ({ ...prev, email: '' }));
+                      }
+                      if (/\S+@\S+\.\S+/.test(value)) {
+                        // Automatically focus on the next input field
+                        document.querySelector<HTMLInputElement>('[name="phone"]')?.focus();
+                      }
+                    }}
                     className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-300 group-hover:border-[#39b54b]/50 ${
                       errors.email ? 'border-red-500' : 'border-gray-300'
                     }`}
@@ -369,9 +379,14 @@ const ContactPage = () => {
                     type="tel"
                     name="phone"
                     value={formData.phone}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-300 group-hover:border-[#39b54b]/50"
-                    placeholder="+1 (555) 000-0000"
+                    onChange={(e) => {
+                      const numericValue = e.target.value.replace(/[^+\d]/g, ''); // Allow only '+' and digits
+                      if (numericValue.length <= 13) { // Restrict length to 13 characters
+                        setFormData((prev) => ({ ...prev, phone: numericValue }));
+                      }
+                    }}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-300"
+                    placeholder="+91XXXXXXXXXX"
                   />
                 </div>
               </div>
@@ -611,7 +626,7 @@ const ContactPage = () => {
               </div>
             </div>
 
-            {/* Quick Actions */}
+            {/* Quick Actions
             <div className="bg-gradient-to-r from-[#39b54b] to-[#2d8f3a] rounded-2xl p-6 lg:p-8 text-white">
               <h3 className="text-2xl font-bold mb-6">Quick Actions</h3>
 
@@ -642,7 +657,7 @@ const ContactPage = () => {
                   </div>
                 </button>
               </div>
-            </div>
+            </div> */}
 
             {/* Testimonial */}
             <div className="bg-white rounded-2xl shadow-xl p-6 lg:p-8 hover:shadow-2xl transition-shadow duration-300">
@@ -820,16 +835,6 @@ const ContactPage = () => {
             </p>
           </div>
         </div>
-      </div>
-
-      {/* Floating Action Buttons */}
-      <div className="fixed bottom-6 right-6 flex flex-col space-y-4 z-50">
-        <button className="w-14 h-14 bg-[#39b54b] text-white rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 flex items-center justify-center">
-          <MessageCircle className="w-6 h-6" />
-        </button>
-        <button className="w-14 h-14 bg-blue-600 text-white rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 flex items-center justify-center">
-          <PhoneCall className="w-6 h-6" />
-        </button>
       </div>
 
       {/* Custom Styles */}
