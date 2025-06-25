@@ -277,23 +277,23 @@ const RequestQuotePage = () => {
             {/* Step 1: Product Selection */}
             {currentStep === 1 && (
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Step 1: Product Selection</h2>
+                <h2 className="text-4xl font-extrabold text-gray-900 mb-8 text-center">Step 1: Product Selection</h2>
                 
-                <div className="mb-6">
-                  <label className="block text-sm font-medium text-gray-700 mb-3">Product Category</label>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="mb-8">
+                  <label className="block text-lg font-medium text-gray-800 mb-4">Product Category</label>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {Object.keys(productCategories).map((category) => (
                       <div
                         key={category}
                         onClick={() => handleInputChange('productCategory', category)}
-                        className={`p-4 rounded-lg border-2 cursor-pointer transition-all ${
+                        className={`p-6 rounded-lg border-2 cursor-pointer transition-all ${
                           formData.productCategory === category
-                            ? 'border-[#39b54b] bg-green-50'
-                            : 'border-gray-200 hover:border-gray-300'
+                            ? 'border-[#39b54b] bg-green-50 shadow-lg scale-105'
+                            : 'border-gray-200 hover:border-gray-300 hover:shadow-md'
                         }`}
                       >
-                        <h3 className="font-semibold text-gray-900">{category}</h3>
-                        <p className="text-sm text-gray-600 mt-1">
+                        <h3 className="font-semibold text-gray-900 text-lg">{category}</h3>
+                        <p className="text-sm text-gray-600 mt-2">
                           {productCategories[category as keyof typeof productCategories].join(', ')}
                         </p>
                       </div>
@@ -302,13 +302,13 @@ const RequestQuotePage = () => {
                 </div>
 
                 {formData.productCategory && (
-                  <div className="mb-6">
-                    <label className="block text-sm font-medium text-gray-700 mb-3">
+                  <div className="mb-8">
+                    <label className="block text-lg font-medium text-gray-800 mb-4">
                       Specific Product & Quantity (Selected: {formData.specificProduct.length})
                     </label>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       {productCategories[formData.productCategory as keyof typeof productCategories].map((product) => (
-                        <div key={product} className="space-y-2">
+                        <div key={product} className="space-y-3">
                           <label className="flex items-center space-x-3 cursor-pointer">
                             <input
                               type="checkbox"
@@ -316,9 +316,9 @@ const RequestQuotePage = () => {
                               value={product}
                               checked={formData.specificProduct.some((p) => p.startsWith(product))}
                               onChange={() => handleProductSelection(product)}
-                              className="text-[#39b54b] focus:ring-[#39b54b]"
+                              className="text-[#39b54b] focus:ring-[#39b54b] w-5 h-5"
                             />
-                            <span className="text-gray-700">{product}</span>
+                            <span className="text-gray-800 text-sm">{product}</span>
                           </label>
                           {formData.specificProduct.some((p) => p.startsWith(product)) && (
                             <input
@@ -330,7 +330,7 @@ const RequestQuotePage = () => {
                                   ?.match(/\((\d+)\)/)?.[1] || "1"
                               }
                               onChange={(e) => handleCategoryQuantityChange(product, e.target.value)}
-                              className="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#39b54b] focus:border-[#39b54b]"
+                              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#39b54b] focus:border-[#39b54b]"
                             />
                           )}
                         </div>
@@ -339,12 +339,12 @@ const RequestQuotePage = () => {
                   </div>
                 )}
 
-                <div className="mb-6">
-                  <label className="block text-sm font-medium text-gray-700 mb-3">Industry</label>
+                <div className="mb-8">
+                  <label className="block text-lg font-medium text-gray-800 mb-4">Industry</label>
                   <select
                     value={formData.industry}
                     onChange={(e) => handleInputChange('industry', e.target.value)}
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#39b54b] focus:border-[#39b54b]"
+                    className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#39b54b] focus:border-[#39b54b] text-gray-800"
                   >
                     <option value="">Select your industry</option>
                     {industries.map((industry) => (
@@ -358,7 +358,7 @@ const RequestQuotePage = () => {
             {/* Step 2: Customization Details */}
             {currentStep === 2 && (
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Step 2: Customization Details</h2>
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">Step 2: Customization Details</h2>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                  
@@ -437,7 +437,7 @@ const RequestQuotePage = () => {
             {/* Step 3: Contact & Delivery Info */}
             {currentStep === 3 && (
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Step 3: Contact & Delivery Information</h2>
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">Step 3: Contact & Delivery Information</h2>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                   <div>
@@ -532,16 +532,6 @@ const RequestQuotePage = () => {
                       <p className="text-gray-600 mt-1">{formData.specifications}</p>
                     </div>
                   )}
-                </div>
-
-                <div className="flex justify-center mb-6">
-                  <img
-                    src="/path-to-your-image.jpg"
-
-                    
-                    alt="Default Review Illustration"
-                    className="w-full max-w-md rounded-lg shadow-lg"
-                  />
                 </div>
 
                 <div className="mb-6">
