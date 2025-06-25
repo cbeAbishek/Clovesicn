@@ -14,8 +14,8 @@ const Footer = () => {
 
   const companyLinks = [
     { name: 'About Us', href: '/about' },
-    { name: 'Our Story', href: '/about#story' },
-    { name: 'Leadership Team', href: '/about#team' },
+    { name: 'Founder', href: '/about#founder' },
+    { name: 'Sustainability Focus', href: '/about#sustainbaility' },
     { name: 'Why us', href: '/whyus' },
   ];
 

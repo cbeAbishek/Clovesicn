@@ -1,12 +1,10 @@
 import '../styles/globals.css';
-import type { Metadata } from 'next';
 
 import Preloader from '../components/layout/preloader';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import { AiChatbot } from '@/components/chatbot';
-
-// app/products/autoclave-liners/page.tsx
+import BGAudio from '@/components/layout/BGAudio';
 
 export const metadata = {
   title: 'Clover Inc – Premium Industrial Packaging',
@@ -82,7 +80,8 @@ export default function RootLayout({
         <Preloader />
         <Header />
         <AiChatbot />
-        <div className="min-h-screen flex flex-col">{children}</div>
+        <BGAudio />
+        <div className="min-h-screen flex flex-col mt-[80px]" >{children}</div>
         <Footer />
       </body>
     </html>
