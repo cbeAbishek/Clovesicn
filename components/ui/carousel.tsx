@@ -1,5 +1,5 @@
 'use client';
-
+import HeroSection from '@/components/ui/Herosection';
 import * as React from 'react';
 import useEmblaCarousel, {
   type UseEmblaCarouselType,

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook, Instagram } from 'lucide-react';
 
 const Footer = () => {
@@ -6,34 +7,22 @@ const Footer = () => {
 
   const productLinks = [
     { name: 'Autoclave Liners', href: '/products/autoclave-liners' },
-    { name: 'High-Temp Liners', href: '/products/high-temp-liners' },
-    { name: 'Textile Liners', href: '/products/textile-liners' },
-    { name: 'Industrial Packaging', href: '/products/industrial-packaging' },
     { name: 'Commercial Textiles', href: '/products/commercial-textiles' },
+    { name: 'Natural & Synthetic Fabrics', href: '/products/natural-synthetic-fabrics' },
+    { name: 'Packaging Solutions', href: '/products/packaging-solutions' },
   ];
 
   const companyLinks = [
     { name: 'About Us', href: '/about' },
-    { name: 'Our Story', href: '/about#story' },
-    { name: 'Leadership Team', href: '/about#team' },
-    { name: 'Careers', href: '/careers' },
-    { name: 'Press & Media', href: '/press' },
-  ];
-
-  const resourceLinks = [
-    { name: 'Product Guides', href: '/resources/guides' },
-    { name: 'Case Studies', href: '/resources/case-studies' },
-    { name: 'Industry Blog', href: '/resources/blog' },
-    { name: 'Sustainability Report', href: '/resources/sustainability' },
-    { name: 'Certifications', href: '/b2b/certifications' },
+    { name: 'Founder', href: '/about#founder' },
+    { name: 'Sustainability Focus', href: '/about#sustainbaility' },
+    { name: 'Why us', href: '/whyus' },
   ];
 
   const supportLinks = [
     { name: 'Contact Support', href: '/contact' },
     { name: 'Request Quote', href: '/contact/request-quote' },
-    { name: 'Distributor Portal', href: '/b2b/distributors' },
     { name: 'Bulk Orders', href: '/b2b/bulk-portal' },
-    { name: 'Technical Support', href: '/support' },
   ];
 
   return (
@@ -43,13 +32,20 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2">
-            <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">E</span>
-              </div>
+            <div className="flex items-center space-x-4 group cursor-pointer">
+                 <Link href="/" className="relative">
+                <Image
+                  src="/icon.png"
+                  alt="Cloves Inc Logo"
+                  width={50}
+                  height={50}
+                  className="w-auto h-12 rounded-2xl transition-all duration-300 group-hover:scale-105"
+                />
+              </Link>
               <div>
-                <div className="font-bold text-2xl">EcoTech Solutions</div>
-                <div className="text-primary-400 font-medium">Sustainable Innovation</div>
+                <div className="font-bold text-2xl bg-white bg-clip-text text-transparent">
+                  Cloves INC
+                </div>
               </div>
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
@@ -62,18 +58,18 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-primary-400" />
-                <span className="text-gray-300">+1 (555) 123-4567</span>
+                <span className="text-gray-300">+91 73395 55309</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-primary-400" />
-                <span className="text-gray-300">info@ecotechsolutions.com</span>
+                <span className="text-gray-300">info@clovesinc.org</span>
               </div>
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-primary-400 mt-1" />
                 <span className="text-gray-300">
-                  123 Innovation Drive<br />
-                  Sustainability City, SC 12345<br />
-                  United States
+                  Coimbatore<br />
+                  Tamilnadu<br />
+                  India
                 </span>
               </div>
             </div>
@@ -131,7 +127,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Newsletter Signup */}
+        {/* Newsletter Signup 
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="bg-gray-800 rounded-2xl p-8">
             <div className="max-w-2xl">
@@ -151,7 +147,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div>*/}
       </div>
 
       {/* Bottom Bar */}
@@ -159,7 +155,7 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6 text-sm text-gray-400">
-              <span>© {currentYear} EcoTech Solutions. All rights reserved.</span>
+              <span>© {currentYear} Cloves INC. All rights reserved.</span>
               <div className="flex space-x-6">
                 <Link href="/privacy-policy" className="hover:text-primary-400 transition-colors">
                   Privacy Policy
@@ -167,9 +163,7 @@ const Footer = () => {
                 <Link href="/terms-of-service" className="hover:text-primary-400 transition-colors">
                   Terms of Service
                 </Link>
-                <Link href="/cookies" className="hover:text-primary-400 transition-colors">
-                  Cookie Policy
-                </Link>
+                
               </div>
             </div>
             

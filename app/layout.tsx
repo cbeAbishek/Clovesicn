@@ -1,27 +1,67 @@
-import './globals.css';
-import type { Metadata } from 'next';
-import { Inter, Roboto } from 'next/font/google';
+import '../styles/globals.css';
 
-const inter = Inter({ 
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
-});
+import Preloader from '../components/layout/preloader';
+import Header from '../components/layout/Header';
+import Footer from '../components/layout/Footer';
+import { AiChatbot } from '@/components/chatbot';
+import BGAudio from '@/components/layout/BGAudio';
 
-const roboto = Roboto({
-  weight: ['300', '400', '500', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-roboto',
-});
-
-export const metadata: Metadata = {
-  title: 'EcoTech Solutions - Sustainable Products for Healthcare, Industrial & Commercial',
-  description: 'Leading provider of high-quality, sustainable products for healthcare, industrial, and commercial sectors worldwide. Specializing in autoclave liners, textile solutions, and eco-friendly packaging.',
-  keywords: 'sustainable products, healthcare solutions, industrial packaging, autoclave liners, textile solutions, eco-friendly, commercial textiles',
-  authors: [{ name: 'EcoTech Solutions' }],
-  viewport: 'width=device-width, initial-scale=1',
-  robots: 'index, follow',
+export const metadata = {
+  title: 'Clover Inc – Premium Industrial Packaging',
+  description:
+    'Discover Clover Inc’s Autoclave Liners – durable, heat-resistant, and chemical-safe packaging solutions for sterilization and industrial applications.',
+  keywords: [
+    'Autoclave liners',
+    'Sterilization bags',
+    'Industrial packaging',
+    'Heat resistant liners',
+    'Medical autoclave bags',
+    'Clover Inc',
+    'High temperature liners',
+    'Custom autoclave packaging',
+  ],
+  authors: [{ name: 'Clover Inc', url: 'https://cloverinc.org' }],
+  creator: 'Clover Inc',
+  publisher: 'Clover Inc',
+  openGraph: {
+    title: 'AClover Inc | Premium Industrial Packaging',
+    description:
+      'Explore top-grade autoclave liners from Clover Inc. Ideal for sterilization, industrial, and medical use. Heat resistant and customizable.',
+    url: 'https://cloverinc.org/products/autoclave-liners',
+    siteName: 'Clover Inc',
+    locale: 'en_US',
+    images: [
+      {
+        url: 'https://i.ibb.co/Y44jjyGJ/meta.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Autoclave Liners – Clover Inc',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Clover Inc | Premium Industrial Packaging',
+    description:
+      'Discover heat-resistant autoclave liners from Clover Inc – perfect for industrial and medical sterilization.',
+    creator: '@cloverinc',
+    images: ['https://i.ibb.co/Y44jjyGJ/meta.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
+  alternates: {
+    canonical: 'https://cloverinc.org/products',
+  },
+  metadataBase: new URL('https://cloverinc.org'),
 };
 
 export default function RootLayout({
@@ -30,15 +70,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${roboto.variable}`}>
+    <html lang="en">
       <head>
-        <meta name="theme-color" content="#60b257" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta charSet="UTF-8" />
+        <meta name="theme-color" content="#39b54b" />
+        <link rel="icon" href="/icon.png" />
       </head>
-      <body className={inter.className}>
-        <div className="min-h-screen flex flex-col">
-          {children}
-        </div>
+      <body>
+        <Preloader />
+        <Header />
+        <AiChatbot />
+        <BGAudio />
+        <div className="min-h-screen flex flex-col mt-[80px]" >{children}</div>
+        <Footer />
       </body>
     </html>
   );

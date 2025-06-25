@@ -1,14 +1,27 @@
 'use client';
-
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown, Search, Phone, Mail } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import Image from 'next/image';
+import React, { useState, useEffect } from 'react';
+import {
+  Menu,
+  X,
+  ChevronDown,
+  Home,
+  Users,
+  Award,
+  Package,
+  Phone,
+  FileText,
+  Zap,
+} from 'lucide-react';
+import { usePathname } from 'next/navigation';
 
-const Header = () => {
+const NavBar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [isAudioMuted, setIsAudioMuted] = useState(true);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,198 +31,288 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const productCategories = [
-    { name: 'Autoclave Liners', href: '/products/autoclave-liners' },
-    { name: 'High-Temp Liners', href: '/products/high-temp-liners' },
-    { name: 'Textile Liners', href: '/products/textile-liners' },
-    { name: 'Jute Liners', href: '/products/jute-liners' },
-    { name: 'Woven Liners', href: '/products/woven-liners' },
-    { name: 'Industrial Packaging', href: '/products/industrial-packaging' },
-    { name: 'Commercial Textiles', href: '/products/commercial-textiles' },
-    { name: 'Specialty Solutions', href: '/products/specialty-solutions' },
+  const productSubmenu = [
+    { name: 'Autoclave Liners', href: '/products/autoclave-liners', icon: Zap },
+    {
+      name: 'Commercial Textiles',
+      href: '/products/commercial-textiles',
+      icon: Package,
+    },
+    {
+      name: 'Natural Synthetic Fabrics',
+      href: '/products/natural-synthetic-fabrics',
+      icon: Award,
+    },
+    {
+      name: 'Packaging Solutions',
+      href: '/products/packaging-solutions',
+      icon: Package,
+    },
   ];
 
-  const resourceLinks = [
-    { name: 'Product Guides', href: '/resources/guides' },
-    { name: 'Case Studies', href: '/resources/case-studies' },
-    { name: 'Blog', href: '/resources/blog' },
-    { name: 'FAQs', href: '/resources/faqs' },
+  const navItems = [
+    { name: 'Home', href: '/', icon: Home },
+    { name: 'About', href: '/about', icon: Users },
+    { name: 'Why Us', href: '/whyus', icon: Award },
+    { name: 'Contact', href: '/contact', icon: Phone },
   ];
 
   return (
     <>
-      {/* Top Bar */}
-      <div className="bg-primary-600 text-white py-2 px-4 text-sm">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="hidden md:flex items-center space-x-6">
-            <div className="flex items-center space-x-2">
-              <Phone className="h-4 w-4" />
-              <span>+1 (555) 123-4567</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Mail className="h-4 w-4" />
-              <span>info@ecotechsolutions.com</span>
-            </div>
-          </div>
-          <div className="flex items-center space-x-4">
-            <Link href="/b2b/distributors" className="hover:text-primary-200 transition-colors">
-              Distributors
-            </Link>
-            <Link href="/contact/request-quote" className="hover:text-primary-200 transition-colors">
-              Get Quote
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Header */}
-      <header
-        className={`sticky top-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-white'
+      {/* Navigation Bar */}
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled
+            ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100'
+            : 'bg-white/90 backdrop-blur-sm'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            {/* Logo */}
-            <Link href="/" className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">E</span>
+          <div className="flex items-center justify-between h-16 lg:h-20">
+            <div
+              className="flex-shrink-0 group"
+              onMouseEnter={e => {
+                const img = e.currentTarget.querySelector('img');
+                if (img) {
+                  img.classList.add('glow');
+                }
+              }}
+              onMouseLeave={e => {
+                const img = e.currentTarget.querySelector('img');
+                if (img) {
+                  img.classList.remove('glow');
+                }
+              }}
+            >
+              {/* Audio Mute/Unmute Button */}
+             
+              <div className="flex items-center space-x-4 group cursor-pointer">
+                <Link href="/" className="relative">
+                  <Image
+                    src="/cicon.png"
+                    alt="Cloves Inc Logo"
+                    width={50}
+                    height={50}
+                    className="w-auto h-12 rounded-2xl transition-all duration-300 group-hover:scale-105"
+                  />
+                </Link>
+                <style jsx global>{`
+                  .glow {
+                    box-shadow: 0 0 24px 6px #39b54b88, 0 0 8px 2px #2d8f3a55;
+                    transition: box-shadow 0.3s;
+                  }
+                `}</style>
               </div>
-              <div>
-                <div className="font-bold text-xl text-gray-900">EcoTech</div>
-                <div className="text-xs text-primary-600 font-medium">Solutions</div>
-              </div>
-            </Link>
+              {/* <div className="font-bold text-2xl bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+                Cloves INC
+              </div> */}
+            </div>
+            
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-8">
-              <Link href="/" className="text-gray-700 hover:text-primary-600 transition-colors font-medium">
-                Home
-              </Link>
-              
+            <div className="hidden lg:flex items-center space-x-1">
+              {navItems.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className={`group relative px-4 py-2 transition-all duration-300 font-medium
+                    ${
+                      pathname === item.href
+                        ? 'text-[#39b54b] font-semibold'
+                        : 'text-gray-700 hover:text-[#39b54b]'
+                    }
+                  `}
+                >
+                  <span className="flex items-center space-x-2">
+                    <item.icon className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" />
+                    <span>{item.name}</span>
+                  </span>
+                  <div
+                    className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#39b54b] to-[#2d8f3a] transition-all duration-300
+                    ${
+                      pathname === item.href
+                        ? 'w-full'
+                        : 'w-0 group-hover:w-full'
+                    }
+                  `}
+                  ></div>
+                </a>
+              ))}
+
               {/* Products Dropdown */}
-              <div
-                className="relative"
-                onMouseEnter={() => setActiveDropdown('products')}
-                onMouseLeave={() => setActiveDropdown(null)}
-              >
-                <button className="flex items-center space-x-1 text-gray-700 hover:text-primary-600 transition-colors font-medium">
+                <div
+                className="relative group"
+                onClick={() => setIsProductsOpen((open) => !open)}
+                tabIndex={0}
+                onBlur={(e) => {
+                  // Close dropdown if focus leaves the dropdown area
+                  if (!e.currentTarget.contains(e.relatedTarget)) {
+                  setIsProductsOpen(false);
+                  }
+                }}
+                >
+                <button
+                  className={`flex items-center space-x-2 px-4 py-2 transition-all duration-300 font-medium group
+                  ${
+                    pathname.startsWith('/products')
+                      ? 'text-[#39b54b] font-semibold'
+                      : 'text-gray-700 hover:text-[#39b54b]'
+                  }
+                `}
+                >
+                  <Package className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" />
                   <span>Products</span>
-                  <ChevronDown className="h-4 w-4" />
+                  <ChevronDown
+                    className={`w-4 h-4 transition-all duration-300 ${
+                      isProductsOpen ? 'rotate-180' : ''
+                    }`}
+                  />
+                  <div
+                    className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#39b54b] to-[#2d8f3a] transition-all duration-300
+                    ${
+                      pathname.startsWith('/products')
+                        ? 'w-full'
+                        : 'w-0 group-hover:w-full'
+                    }
+                  `}
+                  ></div>
                 </button>
-                {activeDropdown === 'products' && (
-                  <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-gray-100 py-4 z-50">
-                    {productCategories.map((category) => (
+
+                {/* Dropdown Menu */}
+                <div
+                  className={`absolute top-full left-0 mt-2 w-72 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden transition-all duration-300 transform ${
+                    isProductsOpen
+                      ? 'opacity-100 translate-y-0 scale-100'
+                      : 'opacity-0 translate-y-2 scale-95 pointer-events-none'
+                  }`}
+                >
+                  <div className="p-2">
+                    {productSubmenu.map((item, index) => (
                       <Link
-                        key={category.name}
-                        href={category.href}
-                        className="block px-6 py-2 text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors"
+                        key={item.name}
+                        href={item.href}
+                        className="flex items-center space-x-3 p-3 rounded-xl hover:bg-gradient-to-r hover:from-[#39b54b]/10 hover:to-[#2d8f3a]/10 transition-all duration-300 group/item"
+                        style={{ animationDelay: `${index * 50}ms` }}
                       >
-                        {category.name}
+                        <div className="w-10 h-10 bg-gradient-to-br from-[#39b54b]/20 to-[#2d8f3a]/20 rounded-lg flex items-center justify-center group-hover/item:scale-110 transition-transform duration-300">
+                          <item.icon className="w-5 h-5 text-[#39b54b]" />
+                        </div>
+                        <span className="text-gray-700 font-medium group-hover/item:text-[#39b54b] transition-colors duration-300">
+                          {item.name}
+                        </span>
                       </Link>
                     ))}
                   </div>
-                )}
+                </div>
               </div>
+            </div>
 
-              <Link href="/industries" className="text-gray-700 hover:text-primary-600 transition-colors font-medium">
-                Industries
-              </Link>
-
-              {/* Resources Dropdown */}
-              <div
-                className="relative"
-                onMouseEnter={() => setActiveDropdown('resources')}
-                onMouseLeave={() => setActiveDropdown(null)}
-              >
-                <button className="flex items-center space-x-1 text-gray-700 hover:text-primary-600 transition-colors font-medium">
-                  <span>Resources</span>
-                  <ChevronDown className="h-4 w-4" />
-                </button>
-                {activeDropdown === 'resources' && (
-                  <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-xl shadow-xl border border-gray-100 py-4 z-50">
-                    {resourceLinks.map((link) => (
-                      <Link
-                        key={link.name}
-                        href={link.href}
-                        className="block px-6 py-2 text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors"
-                      >
-                        {link.name}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              <Link href="/about" className="text-gray-700 hover:text-primary-600 transition-colors font-medium">
-                About
-              </Link>
-              <Link href="/contact" className="text-gray-700 hover:text-primary-600 transition-colors font-medium">
-                Contact
-              </Link>
-            </nav>
-
-            {/* Right side buttons */}
+            {/* Request Quote Button & Mobile Menu */}
             <div className="flex items-center space-x-4">
-              <Button variant="ghost" size="sm" className="hidden md:flex">
-                <Search className="h-4 w-4" />
-              </Button>
-              <Button className="hidden md:flex bg-primary-600 hover:bg-primary-700">
-                Request Quote
-              </Button>
-              
-              {/* Mobile menu button */}
-              <Button
-                variant="ghost"
-                size="sm"
-                className="lg:hidden"
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              {/* Request Quote Button */}
+              <a
+                href="/request-quote"
+                className="hidden sm:inline-flex items-center space-x-2 bg-gradient-to-r from-[#39b54b] to-[#2d8f3a] text-white px-6 py-2.5 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 hover:from-[#2d8f3a] hover:to-[#39b54b]"
               >
-                {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-              </Button>
+                <FileText className="w-4 h-4" />
+                <span>Request Quote</span>
+              </a>
+
+              {/* Mobile Menu Button */}
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="lg:hidden p-2 rounded-xl bg-gray-100 hover:bg-gray-200 transition-colors duration-300"
+              >
+                {isMenuOpen ? (
+                  <X className="w-6 h-6 text-gray-700" />
+                ) : (
+                  <Menu className="w-6 h-6 text-gray-700" />
+                )}
+              </button>
             </div>
           </div>
         </div>
 
         {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden bg-white border-t border-gray-200">
-            <div className="px-4 py-4 space-y-4">
-              <Link href="/" className="block text-gray-700 hover:text-primary-600 font-medium">
-                Home
-              </Link>
-              <div>
-                <div className="font-medium text-gray-900 mb-2">Products</div>
-                <div className="pl-4 space-y-2">
-                  {productCategories.slice(0, 4).map((category) => (
-                    <Link
-                      key={category.name}
-                      href={category.href}
-                      className="block text-sm text-gray-600 hover:text-primary-600"
-                    >
-                      {category.name}
-                    </Link>
-                  ))}
+        <div
+          className={`lg:hidden transition-all duration-300 overflow-hidden ${
+            isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
+          }`}
+        >
+          <div className="bg-white/95 backdrop-blur-md border-t border-gray-100">
+            <div className="px-4 py-4 space-y-2">
+              {navItems.map((item, index) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className={`flex items-center space-x-3 p-3 rounded-xl transition-all duration-300 transform hover:translate-x-2
+                    ${
+                      pathname === item.href
+                        ? 'bg-gradient-to-r from-[#39b54b]/10 to-[#2d8f3a]/10 text-[#39b54b] font-semibold'
+                        : 'hover:bg-gradient-to-r hover:from-[#39b54b]/10 hover:to-[#2d8f3a]/10 text-gray-700'
+                    }
+                  `}
+                  style={{ animationDelay: `${index * 50}ms` }}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <item.icon className="w-5 h-5 text-[#39b54b]" />
+                  <span className="font-medium">{item.name}</span>
+                </a>
+              ))}
+
+              {/* Mobile Products Section */}
+              <div className="space-y-2">
+                <div
+                  className={`flex items-center space-x-3 p-3 font-semibold
+                  ${
+                    pathname.startsWith('/products')
+                      ? 'text-[#39b54b]'
+                      : 'text-gray-800'
+                  }
+                `}
+                >
+                  <Package className="w-5 h-5 text-[#39b54b]" />
+                  <span>Products</span>
                 </div>
+                {productSubmenu.map((item, index) => (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className={`flex items-center space-x-3 p-3 pl-12 rounded-xl transition-all duration-300 transform hover:translate-x-2
+                      ${
+                        pathname === item.href
+                          ? 'bg-gradient-to-r from-[#39b54b]/10 to-[#2d8f3a]/10 text-[#39b54b] font-semibold'
+                          : 'hover:bg-gradient-to-r hover:from-[#39b54b]/10 hover:to-[#2d8f3a]/10 text-gray-600'
+                      }
+                    `}
+                    style={{
+                      animationDelay: `${(index + navItems.length) * 50}ms`,
+                    }}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <item.icon className="w-4 h-4 text-[#39b54b]" />
+                    <span className="text-sm">{item.name}</span>
+                  </a>
+                ))}
               </div>
-              <Link href="/industries" className="block text-gray-700 hover:text-primary-600 font-medium">
-                Industries
-              </Link>
-              <Link href="/about" className="block text-gray-700 hover:text-primary-600 font-medium">
-                About
-              </Link>
-              <Link href="/contact" className="block text-gray-700 hover:text-primary-600 font-medium">
-                Contact
-              </Link>
-              <Button className="w-full bg-primary-600 hover:bg-primary-700">
-                Request Quote
-              </Button>
+
+              {/* Mobile Request Quote */}
+              <div className="pt-4 border-t border-gray-200">
+                <a
+                  href="/request-quote"
+                  className="flex items-center justify-center space-x-2 bg-gradient-to-r from-[#39b54b] to-[#2d8f3a] text-white p-3 rounded-xl font-semibold shadow-lg transform hover:scale-105 transition-all duration-300"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <FileText className="w-5 h-5" />
+                  <span>Request Quote</span>
+                </a>
+              </div>
             </div>
           </div>
-        )}
-      </header>
+        </div>
+      </nav>
     </>
   );
 };
 
-export default Header;
+export default NavBar;

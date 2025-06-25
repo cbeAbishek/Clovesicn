@@ -136,6 +136,19 @@ const config: Config = {
             transform: 'translateX(0)',
           },
         },
+        dynamicSpin: {
+          '0%': { transform: 'rotate(0deg)' },
+          '10%': { transform: 'rotate(45deg)' },
+          '20%': { transform: 'rotate(90deg)' },
+          '30%': { transform: 'rotate(180deg)' },
+          '40%': { transform: 'rotate(360deg)' },
+          '50%': { transform: 'rotate(720deg)' },
+          '60%': { transform: 'rotate(1080deg)' },
+          '70%': { transform: 'rotate(1440deg)' },
+          '80%': { transform: 'rotate(1620deg)' },
+          '90%': { transform: 'rotate(1710deg)' },
+          '100%': { transform: 'rotate(1800deg)' },
+        }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -143,6 +156,7 @@ const config: Config = {
         'fade-in': 'fade-in 0.6s ease-out',
         'fade-in-up': 'fade-in-up 0.8s ease-out',
         'slide-in-right': 'slide-in-right 0.7s ease-out',
+        'dynamicSpin': 'dynamicSpin 3s cubic-bezier(0.45, 0, 0.55, 1) infinite',
       },
     },
   },

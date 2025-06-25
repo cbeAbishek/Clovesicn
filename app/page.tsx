@@ -1,19 +1,16 @@
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
 import HeroBanner from '@/components/sections/HeroBanner';
 import FeaturedProducts from '@/components/sections/FeaturedProducts';
 import WhyChooseUs from '@/components/sections/WhyChooseUs';
+import ClovesAdModal from '@/components/sections/popup';
+
 
 export default function Home() {
   return (
     <>
-      <Header />
-      <main>
+        <ClovesAdModal />
         <HeroBanner />
         <FeaturedProducts />
         <WhyChooseUs />
-      </main>
-      <Footer />
     </>
   );
 }
