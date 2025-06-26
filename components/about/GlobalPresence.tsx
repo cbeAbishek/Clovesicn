@@ -14,7 +14,7 @@ const GlobalPresenceSection = () => {
           className="rounded-3xl overflow-hidden border-4 border-[#39b54b]/20 shadow-xl"
         >
           <img
-            src="/bn.jpg"
+            src='/adi/bn.jpg'
             alt="Global Presence"
             className="w-full h-full object-cover"
           />

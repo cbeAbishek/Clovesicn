@@ -11,12 +11,14 @@ import {
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
+import { useRouter } from 'next/navigation';
 
 const PlayfulHeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const [currentEmoji, setCurrentEmoji] = useState('🚀');
+  const router = useRouter();
 
   const emojis = ['🚀', '✨', '🎯', '💡', '🌟', '🔥'];
   const floatingElements = Array.from({ length: 6 }, (_, i) => ({
@@ -124,6 +126,7 @@ const PlayfulHeroSection = () => {
                 className="group bg-gradient-to-r from-[#39b54b] to-emerald-600 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl hover:scale-105 hover:-rotate-1 transition-transform duration-300"
                 onMouseEnter={() => setIsHovering(true)}
                 onMouseLeave={() => setIsHovering(false)}
+                onClick={() => router.push('/contact')}
               >
                 <span className="flex items-center gap-3">
                   <Rocket className={`w-6 h-6 ${isHovering ? 'rotate-12 scale-110' : ''}`} />

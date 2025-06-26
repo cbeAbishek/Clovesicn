@@ -43,7 +43,7 @@ const SustainabilityFocusSection = () => {
           className="rounded-3xl overflow-hidden border-4 border-[#39b54b]/20 shadow-xl"
         >
           <img
-            src="/bu.jpg"
+            src='/adi/bu.jpg'
             alt="Sustainability Visual"
             className="w-full h-full object-cover"
           />
