@@ -7,23 +7,16 @@ import {
   Rocket,
   Play,
   ChevronDown,
-  Globe,
-  Award,
-  Handshake,
 } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
-import 'swiper/css/autoplay';
-import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 
 const PlayfulHeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const [currentEmoji, setCurrentEmoji] = useState('🚀');
-  const router = useRouter();
 
   const emojis = ['🚀', '✨', '🎯', '💡', '🌟', '🔥'];
   const floatingElements = Array.from({ length: 6 }, (_, i) => ({
@@ -131,7 +124,6 @@ const PlayfulHeroSection = () => {
                 className="group bg-gradient-to-r from-[#39b54b] to-emerald-600 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl hover:scale-105 hover:-rotate-1 transition-transform duration-300"
                 onMouseEnter={() => setIsHovering(true)}
                 onMouseLeave={() => setIsHovering(false)}
-                onClick={() => router.push('/contact')}
               >
                 <span className="flex items-center gap-3">
                   <Rocket className={`w-6 h-6 ${isHovering ? 'rotate-12 scale-110' : ''}`} />
@@ -140,12 +132,19 @@ const PlayfulHeroSection = () => {
                 </span>
               </button>
 
-              
+              <button className="group bg-white/70 backdrop-blur-sm text-slate-700 px-8 py-4 rounded-2xl font-bold text-lg border-2 border-[#39b54b]/20 hover:border-[#39b54b] hover:scale-105 hover:rotate-1 transition-all duration-300">
+                <span className="flex items-center gap-3">
+                  <span className="w-10 h-10 bg-gradient-to-r from-[#39b54b] to-emerald-600 rounded-full flex items-center justify-center group-hover:animate-pulse">
+                    <Play className="w-5 h-5 text-white" />
+                  </span>
+                  Watch Demo
+                </span>
+              </button>
             </div>
           </div>
 
           {/* Right - Swiper */}
-            <div className="relative w-full h-96 lg:h-[500px] rounded-3xl border border-white/30 shadow-2xl overflow-hidden group hover:scale-105 transition-transform duration-500">
+          <div className="relative w-full h-96 lg:h-[500px] rounded-3xl border border-white/30 shadow-2xl overflow-hidden group hover:scale-105 transition-transform duration-500">
             <Swiper
               spaceBetween={30}
               slidesPerView={1}
@@ -154,27 +153,19 @@ const PlayfulHeroSection = () => {
               autoplay={{ delay: 2500, disableOnInteraction: false }}
               style={{ width: '100%', height: '100%' }}
             >
-              {[
-              'adi/ai.jpg',
-              'adi/am.jpg',
-              'adi/as.jpg',
-              'adi/bk.jpg',
-              'adi/bn.jpg',
-              'adi/bu.jpg'
-              ].map((src, i) => (
-              <SwiperSlide key={i}>
-                <Image
-                src={src}
-                alt={`Slide ${i + 1}`}
-                className="w-full h-full object-cover rounded-3xl"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                style={{ objectFit: 'cover', borderRadius: '1.5rem' }}
-                />
-              </SwiperSlide>
+              {['adi/am.jpg',
+                'adi/ai.jpg',
+                'adi/as.jpg'].map((src, i) => (
+                <SwiperSlide key={i}>
+                  <img
+                    src={src}
+                    alt={`Slide ${i + 1}`}
+                    className="w-full h-full object-cover rounded-3xl"
+                  />
+                </SwiperSlide>
               ))}
             </Swiper>
-            </div>
+          </div>
         </div>
       </div>
 
@@ -197,17 +188,17 @@ const PlayfulHeroSection = () => {
 <div className="relative z-10 mt-8 px-4">
   <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
     {[
-      { title: 'Eco Friendly', icon: <Sparkles className="w-8 h-8 mx-auto text-white" /> },
-      { title: 'Global Reach', icon: <Globe className="w-8 h-8 mx-auto text-white" /> },
-      { title: 'Quality First', icon: <Award className="w-8 h-8 mx-auto text-white" /> },
-      { title: 'Trusted by 500+', icon: <Handshake className="w-8 h-8 mx-auto text-white" /> }
+      { title: 'Eco Friendly', icon: '🌱' },
+      { title: 'Global Reach', icon: '🌍' },
+      { title: 'Quality First', icon: '🏆' },
+      { title: 'Trusted by 500+', icon: '🤝' }
     ].map((feature, index) => (
       <div
-      key={index}
-      className="bg-gradient-to-br from-[#39b54b] to-emerald-600 text-white rounded-2xl p-6 shadow-lg text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+        key={index}
+        className="bg-gradient-to-br from-[#39b54b] to-emerald-600 text-white rounded-2xl p-6 shadow-lg text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
       >
-      <div className="mb-2 animate-bounce">{feature.icon}</div>
-      <div className="text-lg font-semibold">{feature.title}</div>
+        <div className="text-3xl mb-2 animate-bounce">{feature.icon}</div>
+        <div className="text-lg font-semibold">{feature.title}</div>
       </div>
     ))}
   </div>
