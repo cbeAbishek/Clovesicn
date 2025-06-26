@@ -96,7 +96,7 @@ export default function RootLayout({
         <Header />
         <AiChatbot />
         <BGAudio />
-        <div className="min-h-screen flex flex-col mt-[80px]" >{children}</div>
+        <div className="min-h-screen flex flex-col mt-[60px]" >{children}</div>
         <Footer />
       </body>
     </html>

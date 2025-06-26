@@ -7,7 +7,7 @@ import ClovesAdModal from '@/components/sections/popup';
 export default function Home() {
   return (
     <>
-        <ClovesAdModal />
+        {/* <ClovesAdModal /> */}
         <HeroBanner />
         <FeaturedProducts />
         <WhyChooseUs />
