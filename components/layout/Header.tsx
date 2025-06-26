@@ -90,7 +90,8 @@ const NavBar = () => {
               <div className="flex items-center space-x-4 group cursor-pointer">
                 <Link href="/" className="relative">
                   <Image
-                    src="/cicon.png"
+                     src="/lenlogo.png" //full logo path
+                    // src="/cicon.png" // icon logo path
                     alt="Cloves Inc Logo"
                     width={50}
                     height={50}

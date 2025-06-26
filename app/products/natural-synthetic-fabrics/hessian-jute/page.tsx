@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+import ProductSubPageTemplate from '../../../../components/products/ProductSubPageTemplate';
+=======
 import ProductSubPageTemplate from '@/components/Products/pstemp';
+>>>>>>> 3acf85276d2fde6d297d52df55119d0427e2f7a3
 import {
   FaTag,
   FaRulerCombined,
@@ -17,7 +21,11 @@ export default function Page() {
     <ProductSubPageTemplate
       title="Hessian (Jute)"
       description="A biodegradable and heavy-duty natural fabric used widely in industrial packaging and protection applications. Valued for its strength and sustainability."
+<<<<<<< HEAD
+      image="/product/nfs/p1.jpg" // Replace with real image
+=======
       image="/Product/nfs/p1.jpg" // Replace with real image
+>>>>>>> 3acf85276d2fde6d297d52df55119d0427e2f7a3
       features={[
         'Environmentally sustainable',
         'Biodegradable and strong',
