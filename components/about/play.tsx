@@ -156,17 +156,22 @@ const PlayfulHeroSection = () => {
               autoplay={{ delay: 2500, disableOnInteraction: false }}
               style={{ width: '100%', height: '100%' }}
             >
-              {['adi/am.jpg',
-                'adi/ai.jpg',
-                'adi/as.jpg'].map((src, i) => (
+                {[
+                'adi/7.jpg',
+                'adi/8.jpg',
+                'adi/9.jpg',
+                'adi/10.jpg',
+                'adi/11.jpg',
+                'adi/12.jpg'
+                ].map((src, i) => (
                 <SwiperSlide key={i}>
                   <img
-                    src={src}
-                    alt={`Slide ${i + 1}`}
-                    className="w-full h-full object-cover rounded-3xl"
+                  src={src}
+                  alt={`Slide ${i + 1}`}
+                  className="w-full h-full object-cover rounded-3xl"
                   />
                 </SwiperSlide>
-              ))}
+                ))}
             </Swiper>
           </div>
         </div>
