@@ -174,7 +174,6 @@ const AutoclaveLinersPage = () => {
               <Thermometer className="h-10 w-10" />
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-teal-400 to-cyan-400 opacity-75 animate-ping"></div>
             </div>
-
             <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent">
               Autoclave Liners
             </h1>
@@ -200,13 +199,11 @@ const AutoclaveLinersPage = () => {
             {/* Enhanced spray effect overlay with white shapes */}
             <div className="absolute top-0 left-1/4 w-40 h-40 bg-white/10 rounded-full blur-xl"></div>
             <div className="absolute bottom-0 right-1/3 w-32 h-32 bg-white/5 rounded-full blur-lg"></div>
-
             {/* White graphic shapes */}
             <div className="absolute top-4 right-8 w-6 h-6 bg-white/20 rounded-full"></div>
             <div className="absolute top-12 right-16 w-3 h-3 bg-white/30 rounded-full"></div>
             <div className="absolute bottom-8 left-12 w-4 h-4 bg-white/25 rounded-full"></div>
             <div className="absolute top-1/2 right-4 w-2 h-2 bg-white/40 rounded-full"></div>
-
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center relative z-10">
               {/* Left side - Image */}
               <div className="relative">
@@ -231,7 +228,6 @@ const AutoclaveLinersPage = () => {
               {/* Right side - Specifications */}
               <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 relative">
                 {/* Small white shapes inside specs card */}
-
                 <div className="flex items-center justify-between mb-6">
                   <h3 className="text-2xl font-bold text-white">
                     Technical Specifications
@@ -314,7 +310,6 @@ const AutoclaveLinersPage = () => {
                   {/* Enhanced spray effect overlay with white shapes */}
                   <div className="absolute top-0 right-0 w-16 h-16 bg-white/10 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <div className="absolute bottom-0 left-0 w-20 h-20 bg-white/5 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
                   {/* Random white shapes in each card */}
                   <div className="absolute top-2 right-3 w-2 h-2 bg-white/30 rounded-full"></div>
                   <div className="absolute top-6 right-1 w-1 h-1 bg-white/40 rounded-full"></div>
@@ -346,7 +341,6 @@ const AutoclaveLinersPage = () => {
             Explore Liner Types
           </h2>
           <div className="w-64 h-1 bg-gradient-to-r from-teal-300 to-cyan-300 mx-auto mb-12 rounded-full"></div>
-
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {subProducts.map((item, index) => (
               <div
@@ -407,7 +401,6 @@ const AutoclaveLinersPage = () => {
             <div className="absolute top-8 right-12 w-2 h-2 bg-white/35 rounded-full"></div>
             <div className="absolute bottom-6 left-16 w-3 h-3 bg-white/30 rounded-full"></div>
             <div className="absolute bottom-12 right-8 w-2.5 h-2.5 bg-white/20 rounded-full"></div>
-
             <div className="relative z-10">
               <div className="inline-block mb-4">
                 <Zap className="h-12 w-12 mx-auto animate-pulse" />
@@ -423,7 +416,6 @@ const AutoclaveLinersPage = () => {
                 <button className="bg-white text-teal-600 py-4 px-8 rounded-xl font-bold transition-all duration-300 hover:bg-gray-50 hover:scale-105 hover:shadow-xl">
                   Request Quote
                 </button>
-
                 <button className="border-2 border-white/50 text-white py-4 px-8 rounded-xl font-bold transition-all duration-300 hover:bg-white/10 backdrop-blur-sm hover:scale-105">
                   Download Catalog
                 </button>
