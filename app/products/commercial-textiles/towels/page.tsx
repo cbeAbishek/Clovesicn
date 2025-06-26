@@ -1,4 +1,4 @@
-import ProductSubPageTemplate from '../../../../components/products/ProductSubPageTemplate';
+import ProductSubPageTemplate from '@/components/Products/pstemp';
 import {
   FaTag,
   FaRulerCombined,

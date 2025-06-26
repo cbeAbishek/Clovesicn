@@ -1,4 +1,4 @@
-import ProductSubPageTemplate from '../../../../components/products/ProductSubPageTemplate';
+import ProductSubPageTemplate from '@/components/Products/pstemp';
 import {
   FaTag,
   FaRulerCombined,
@@ -17,7 +17,7 @@ export default function Page() {
     <ProductSubPageTemplate
       title="Hessian (Jute)"
       description="A biodegradable and heavy-duty natural fabric used widely in industrial packaging and protection applications. Valued for its strength and sustainability."
-      image="/product/nfs/p1.jpg" // Replace with real image
+      image="/Product/nfs/p1.jpg" // Replace with real image
       features={[
         'Environmentally sustainable',
         'Biodegradable and strong',

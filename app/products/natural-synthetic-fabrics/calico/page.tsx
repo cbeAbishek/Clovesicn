@@ -1,4 +1,4 @@
-import ProductSubPageTemplate from '../../../../components/products/ProductSubPageTemplate';
+import ProductSubPageTemplate from '@/components/Products/pstemp';
 import {
   FaTag,
   FaRulerCombined,
@@ -17,7 +17,7 @@ export default function Page() {
     <ProductSubPageTemplate
       title="Calico"
       description="A soft and breathable natural fabric commonly used in medical and commercial sectors for packaging, lining, and various textile applications."
-      image="/product/nfs/p3.jpg" // Replace with real image
+      image="/Product/nfs/p3.jpg" // Replace with real image
       features={[
         'Lightweight and breathable',
         'Ideal for medical and commercial use',

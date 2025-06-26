@@ -1,4 +1,4 @@
-import ProductSubPageTemplate from '../../../../components/products/ProductSubPageTemplate';
+import ProductSubPageTemplate from '@/components/Products/pstemp';
 import {
   FaTag,
   FaRulerCombined,
@@ -17,7 +17,7 @@ export default function Page() {
     <ProductSubPageTemplate
       title="Textile Liners"
       description="Crafted from durable polyester and cotton blends, these textile liners provide an eco-friendly and reusable alternative for medical waste management in autoclaves."
-      image="/product/al/p7.jpg" // Replace with real image
+      image="/Product/al/p7.jpg" // Replace with real image
       features={[
         'Lightweight and easy to handle',
         'Cost-effective and eco-friendly',

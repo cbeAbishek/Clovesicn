@@ -371,7 +371,7 @@ const ContactPage = () => {
                     value={formData.phone}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-300 group-hover:border-[#39b54b]/50"
-                    placeholder="+1 (555) 000-0000"
+                    placeholder="+91 12345 67890"
                   />
                 </div>
               </div>
@@ -528,8 +528,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-800">Phone</h4>
-                    <p className="text-gray-600">+1 (555) 123-4567</p>
-                    <p className="text-gray-600">+91 98765 43210</p>
+                    <p className="text-gray-600">+91 73395 55309</p>
                   </div>
                 </div>
 
@@ -550,19 +549,11 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-800">
-                      Global Offices
+                      Offices Adress
                     </h4>
                     <div className="space-y-2 text-gray-600">
                       <p>
-                        <strong>USA:</strong> 123 Spice Avenue, New York, NY
-                        10001
-                      </p>
-                      <p>
-                        <strong>India:</strong> Spice Garden Complex, Kerala
-                        682001
-                      </p>
-                      <p>
-                        <strong>UAE:</strong> Dubai Spice Souk, Dubai 12345
+                        <strong>India:</strong> Coimbatore,Tamilnadu 
                       </p>
                     </div>
                   </div>
@@ -612,7 +603,7 @@ const ContactPage = () => {
             </div>
 
             {/* Quick Actions */}
-            <div className="bg-gradient-to-r from-[#39b54b] to-[#2d8f3a] rounded-2xl p-6 lg:p-8 text-white">
+            {/* <div className="bg-gradient-to-r from-[#39b54b] to-[#2d8f3a] rounded-2xl p-6 lg:p-8 text-white">
               <h3 className="text-2xl font-bold mb-6">Quick Actions</h3>
 
               <div className="space-y-4">
@@ -642,7 +633,7 @@ const ContactPage = () => {
                   </div>
                 </button>
               </div>
-            </div>
+            </div> */}
 
             {/* Testimonial */}
             <div className="bg-white rounded-2xl shadow-xl p-6 lg:p-8 hover:shadow-2xl transition-shadow duration-300">
@@ -823,14 +814,14 @@ const ContactPage = () => {
       </div>
 
       {/* Floating Action Buttons */}
-      <div className="fixed bottom-6 right-6 flex flex-col space-y-4 z-50">
+      {/* <div className="fixed bottom-6 right-6 flex flex-col space-y-4 z-50">
         <button className="w-14 h-14 bg-[#39b54b] text-white rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 flex items-center justify-center">
           <MessageCircle className="w-6 h-6" />
         </button>
         <button className="w-14 h-14 bg-blue-600 text-white rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 flex items-center justify-center">
           <PhoneCall className="w-6 h-6" />
         </button>
-      </div>
+      </div> */}
 
       {/* Custom Styles */}
       <style jsx>{`
