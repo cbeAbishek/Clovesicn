@@ -1,4 +1,4 @@
-import ProductSubPageTemplate from '../../../../components/products/ProductSubPageTemplate';
+import ProductSubPageTemplate from '@/components/Products/pstemp';
 import {
   FaTag,
   FaRulerCombined,
@@ -17,7 +17,7 @@ export default function Page() {
     <ProductSubPageTemplate
       title="Bedding"
       description="High-quality bedding solutions designed specifically for hospitals and healthcare facilities, built for comfort, hygiene, and durability."
-      image="/product/ct/p3.jpg" // Replace with real image
+      image="/Product/ct/p3.jpg" // Replace with real image
       features={[
         'Soft and comfortable',
         'Durable for frequent laundering',
