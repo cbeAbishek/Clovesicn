@@ -45,7 +45,7 @@ const ProductsPage = () => {
             'Ideal for hazardous medical waste',
           ],
           icon: Thermometer,
-          image: '/Product/al/p3.jpg',
+          image: '/Product/al/al1.jpg',
           route: '/products/autoclave-liners/hightemp-plastic-liners',
         },
         {
@@ -56,7 +56,7 @@ const ProductsPage = () => {
             'Heat-resistant and easy to handle',
           ],
           icon: Shirt,
-          image: '/Product/al/p6.jpg',
+          image: '/Product/al/al2.jpg',
           route: '/products/autoclave-liners/textile-liners',
         },
         {
@@ -67,7 +67,7 @@ const ProductsPage = () => {
             'Suitable for unshredded medical waste',
           ],
           icon: Leaf,
-          image: '/Product/al/p8.jpg',
+          image: '/Product/al/al3.jpg',
           route: '/products/autoclave-liners/jute-hessian-liners',
         },
         {
@@ -78,7 +78,7 @@ const ProductsPage = () => {
             'Lightweight yet strong',
           ],
           icon: Shield,
-          image: '/Product/al/p10.jpg',
+          image: '/Product/al/al4.jpg',
           route: '/products/autoclave-liners/woven-plastic-liners',
         },
       ],
@@ -99,7 +99,7 @@ const ProductsPage = () => {
             'Heavy-duty construction',
           ],
           icon: Package,
-          image: '/Product/ps/p2.jpg',
+          image: '/Product/ps/ps1.jpg',
           route: '/products/packaging-solutions/bulk-bags',
         },
         {
@@ -110,7 +110,7 @@ const ProductsPage = () => {
             'Versatile for cement, fertilizers',
           ],
           icon: Shield,
-          image: '/Product/ps/p4.jpg',
+          image: '/Product/ps/ps2.jpg',
           route: '/products/packaging-solutions/polywoven-bags',
         },
         {
@@ -121,7 +121,7 @@ const ProductsPage = () => {
             'Eco-friendly design',
           ],
           icon: Globe,
-          image: '/Product/ps/p8.jpg',
+          image: '/Product/ps/ps3.jpeg',
           route: '/products/packaging-solutions/mesh-bags',
         },
         {
@@ -132,7 +132,7 @@ const ProductsPage = () => {
             'Protects from moisture',
           ],
           icon: Leaf,
-          image: '/Product/ps/p9.jpg',
+          image: '/Product/ps/ps4.png',
           route: '/products/packaging-solutions/multiwall-paper-sacks',
         },
       ],
@@ -153,7 +153,7 @@ const ProductsPage = () => {
             'Industrial packaging use',
           ],
           icon: Leaf,
-          image: '/Product/nfs/p1.jpg',
+          image: '/Product/nfs/nfs1.jpg',
           route: '/products/natural-synthetic-fabrics/hessian-jute',
         },
         {
@@ -164,7 +164,7 @@ const ProductsPage = () => {
             'Customizable for different needs',
           ],
           icon: Shirt,
-          image: '/Product/nfs/p3.jpg',
+          image: '/Product/nfs/nfs2.jpg',
           route: '/products/natural-synthetic-fabrics/calico',
         },
         {
@@ -175,7 +175,7 @@ const ProductsPage = () => {
             'Industrial grade',
           ],
           icon: Shield,
-          image: '/Product/nfs/p5.jpg',
+          image: '/Product/nfs/nfs3.jpg',
           route: '/products/natural-synthetic-fabrics/poly-woven-fabrics',
         },
         {
@@ -186,7 +186,7 @@ const ProductsPage = () => {
             'Versatile applications',
           ],
           icon: Globe,
-          image: '/Product/nfs/p9.jpg',
+          image: '/Product/nfs/nfs4.jpg',
           route: '/products/natural-synthetic-fabrics/woven-knitted-fabrics',
         },
       ],
@@ -207,7 +207,7 @@ const ProductsPage = () => {
             'Durable construction',
           ],
           icon: Bed,
-          image: '/Product/ct/p1.jpg',
+          image: '/Product/ct/ct1.jpeg',
           route: '/products/commercial-textiles/bedding',
         },
         {
@@ -218,7 +218,7 @@ const ProductsPage = () => {
             'Long-lasting performance',
           ],
           icon: Shirt,
-          image: '/Product/ct/p5.jpg',
+          image: '/Product/ct/ct2.jpg',
           route: '/products/commercial-textiles/towels',
         },
         {
@@ -229,7 +229,7 @@ const ProductsPage = () => {
             'Commercial grade',
           ],
           icon: Package,
-          image: '/Product/ct/p6.jpg',
+          image: '/Product/ct/ct3.jpg',
           route: '/products/commercial-textiles/laundry-bags',
         },
         {
@@ -240,7 +240,7 @@ const ProductsPage = () => {
             'Easy maintenance',
           ],
           icon: Shield,
-          image: '/Product/ct/p9.jpg',
+          image: '/Product/ct/ct4.jpg',
           route: '/products/commercial-textiles/shower-curtains',
         },
       ],
