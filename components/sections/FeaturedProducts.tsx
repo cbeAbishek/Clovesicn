@@ -1,182 +1,99 @@
 'use client';
-import React, { useState } from 'react';
-import { Shield, Package, Layers, Shirt, ChevronRight, Sparkles, Leaf } from 'lucide-react';
 
-const FeaturedProducts = () => {
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 
-  const products = [
-    {
-      id: 1,
-      category: "Autoclave Liners",
-      title: "High-Temperature Safety Solutions",
-      description: "Premium autoclave liners crafted from high-temp plastics, textiles, jute, and woven materials for secure medical waste management.",
-      icon: Shield,
-      features: ["High-temp resistant", "Medical grade", "Eco-friendly options", "Custom sizing"],
-      gradient: "from-emerald-400 to-teal-500",
-      bgPattern: "bg-gradient-to-br from-green-50 to-emerald-100",
-      link:"/products/autoclave-liners"
-    },
-    {
-      id: 2,
-      category: "Industrial Packaging",
-      title: "Robust Bulk Solutions",
-      description: "Comprehensive range of bulk bags, poly-woven bags, mesh bags, and multiwall paper sacks for industrial applications.",
-      icon: Package,
-      features: ["Heavy-duty construction", "Moisture resistant", "Bulk capacity", "Reusable designs"],
-      gradient: "from-green-400 to-emerald-600",
-      bgPattern: "bg-gradient-to-br from-emerald-50 to-green-100",
-      link:"/products/packaging-solution"
-    },
-    {
-      id: 3,
-      category: "Industrial Fabrics",
-      title: "Natural & Synthetic Materials",
-      description: "Quality hessian, calico, and poly-woven fabrics engineered for demanding industrial environments and applications.",
-      icon: Layers,
-      features: ["Natural & synthetic", "Industrial strength", "Weather resistant", "Versatile applications"],
-      gradient: "from-teal-400 to-green-500",
-      bgPattern: "bg-gradient-to-br from-teal-50 to-emerald-100",
-      link:"/products/natural-synthetic-fabrics"
-    },
-    {
-      id: 4,
-      category: "Commercial Textiles",
-      title: "Hospitality & Healthcare",
-      description: "Professional-grade bedding, towels, laundry bags, and shower curtains designed for commercial use.",
-      icon: Shirt,
-      features: ["Commercial grade", "Easy maintenance", "Hygienic materials", "Bulk quantities"],
-      gradient: "from-emerald-500 to-green-600",
-      bgPattern: "bg-gradient-to-br from-green-50 to-teal-100",
-      link:"/products/commercial-textiles"
-    }
-  ];
+const products = [
+  {
+    title: 'Autoclave Liners',
+    description: 'Leak-proof and heat-resistant liners for medical autoclaves.',
+    types: ['Sterile Liners', 'Biohazard Bags', 'Steam Safe', 'Medical Waste'],
+    image: 'https://plus.unsplash.com/premium_photo-1681426728047-2164a00fe3dc?fm=jpg&q=60&w=3000',
+  },
+  {
+    title: 'Industrial Packaging',
+    description: 'Durable packaging for transporting and storing bulk materials.',
+    types: ['Bulk Bags', 'Woven Poly', 'Mesh Sacks', 'Multiwall Papers'],
+    image: 'https://plus.unsplash.com/premium_photo-1681426728047-2164a00fe3dc?fm=jpg&q=60&w=3000',
+  },
+  {
+    title: 'Natural & Synthetic Fabrics',
+    description: 'Textiles designed for industrial strength and resistance.',
+    types: ['Polywoven', 'Calico', 'Thermal Weave', 'Chemical Resistant'],
+    image: 'https://plus.unsplash.com/premium_photo-1681426728047-2164a00fe3dc?fm=jpg&q=60&w=3000',
+  },
+  {
+    title: 'Commercial Textiles',
+    description: 'Aesthetic and durable fabrics for commercial use.',
+    types: ['Curtains', 'Bedding', 'Towels', 'Laundry Bags'],
+    image: 'https://plus.unsplash.com/premium_photo-1681426728047-2164a00fe3dc?fm=jpg&q=60&w=3000',
+  },
+];
 
+export default function ProductsPage() {
   return (
-    <section className="relative py-20 px-6 bg-gradient-to-br from-slate-50 via-white to-emerald-50 overflow-hidden">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-emerald-100 to-green-200 rounded-full opacity-20 animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-gradient-to-tr from-teal-100 to-emerald-200 rounded-full opacity-15 animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/4 w-32 h-32 bg-gradient-to-br from-green-200 to-emerald-300 rounded-full opacity-10 animate-bounce delay-500"></div>
-      </div>
-
-      <div className="relative max-w-7xl mx-auto">
-        {/* Header Section */}
-        <div className="text-center mb-16 relative">
-          <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-emerald-200 mb-6 shadow-sm hover:shadow-md transition-shadow duration-300">
-            <Sparkles className="w-4 h-4 text-[#39b54b]" />
-            <span className="text-sm font-medium text-gray-600">Featured Products</span>
-          </div>
-          
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-emerald-800 bg-clip-text text-transparent">
-            Sustainable Solutions for
-            <span className="block text-[#39b54b] mt-2">Global Industries</span>
-          </h2>
-          
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            From medical waste management to industrial packaging, discover our comprehensive range of 
-            eco-friendly products designed for durability and performance.
+    <div>
+      <div className="min-h-screen bg-white py-20 px-4">
+        <div className="max-w-7xl mx-auto text-center">
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-[#00B14F] mb-4">
+            Featured Products
+          </h1>
+          <p className="text-gray-800 text-base md:text-lg font-medium mb-16">
+            Explore premium-grade solutions tailored for durability and design
           </p>
         </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+          {products.map((product, index) => (
+            <div
+              key={index}
+              className="group rounded-2xl shadow-xl overflow-hidden border border-gray-100 transition-all duration-500 hover:scale-[1.03] bg-white hover:bg-[#00B14F] hover:shadow-2xl"
+              style={{ width: '100%', minHeight: '460px' }}
+            >
+              {/* Top Image with Zoom on Hover */}
+              <div className="h-48 w-full relative overflow-hidden">
+                <Image
+                  src={product.image}
+                  alt={product.title}
+                  fill
+                  className="object-cover transform transition-transform duration-700 group-hover:scale-110"
+                />
+              </div>
 
-        {/* Products Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {products.map((product, index) => {
-            const IconComponent = product.icon;
-            const isHovered = hoveredCard === product.id;
-            
-            return (
-              <div
-                key={product.id}
-                className={`group relative overflow-hidden rounded-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 cursor-pointer ${product.bgPattern} border border-white/50 shadow-lg hover:shadow-2xl`}
-                onMouseEnter={() => setHoveredCard(product.id)}
-                onMouseLeave={() => setHoveredCard(null)}
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                {/* Animated gradient overlay */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${product.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
-                
-                {/* Content */}
-                <div className="relative p-8 h-full flex flex-col">
-                  {/* Icon with animation */}
-                  <div className="relative mb-6">
-                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${product.gradient} flex items-center justify-center shadow-lg transform transition-all duration-300 ${isHovered ? 'rotate-6 scale-110' : ''}`}>
-                      <IconComponent className="w-8 h-8 text-white" />
-                    </div>
-                    
-                    {/* Floating leaf icon */}
-                    <div className={`absolute -top-2 -right-2 w-6 h-6 bg-[#39b54b] rounded-full flex items-center justify-center shadow-md transform transition-all duration-300 ${isHovered ? 'scale-110 rotate-12' : 'scale-90'}`}>
-                      <Leaf className="w-3 h-3 text-white" />
-                    </div>
-                  </div>
+              {/* Bottom Content */}
+              <div className="p-5 text-left flex flex-col justify-between h-[calc(100%-192px)] transition-colors duration-500">
+                <div>
+                <h3 className="text-xl font-extrabold tracking-tight text-[#00B14F] mb-2 group-hover:text-white transition-colors duration-300">
+  {product.title}
+</h3>
+<p className="text-sm text-gray-800 leading-relaxed font-medium mb-4 group-hover:text-white transition-colors duration-300">
+  {product.description}
+</p>
 
-                  {/* Category Badge */}
-                  <div className="inline-flex items-center gap-1 bg-white/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-[#39b54b] mb-4 self-start border border-emerald-200">
-                    <span>{product.category}</span>
-                  </div>
 
-                  {/* Title */}
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#39b54b] transition-colors duration-300">
-                    {product.title}
-                  </h3>
+                  {/* Product Types */}
+                  <ul className="text-sm space-y-1 mb-4">
+  {product.types.map((type, i) => (
+    <li
+      key={i}
+      className="before:content-['•'] before:mr-2 before:text-[#00B14F] font-medium text-gray-700 group-hover:text-white group-hover:before:text-white transition-all duration-300"
+    >
+      {type}
+    </li>
+  ))}
+</ul>
 
-                  {/* Description */}
-                  <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">
-                    {product.description}
-                  </p>
-
-                  {/* Features */}
-                  <div className="space-y-2 mb-6">
-                    {product.features.map((feature, idx) => (
-                      <div 
-                        key={idx}
-                        className={`flex items-center gap-2 text-sm text-gray-700 transform transition-all duration-300 ${isHovered ? 'translate-x-1' : ''}`}
-                        style={{ transitionDelay: `${idx * 50}ms` }}
-                      >
-                        <div className="w-1.5 h-1.5 rounded-full bg-[#39b54b]"></div>
-                        <span>{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* CTA Button */}
-                    <a 
-                    href={product.link} 
-                    className={`flex items-center gap-2 text-[#39b54b] font-medium text-sm group-hover:gap-3 transition-all duration-300 ${isHovered ? 'translate-x-1' : ''}`}
-                    >
-                    <span>Learn More</span>
-                    <ChevronRight className={`w-4 h-4 transform transition-transform duration-300 ${isHovered ? 'translate-x-1' : ''}`} />
-                    </a>
                 </div>
 
-                {/* Hover effect border */}
-                <div className={`absolute inset-0 rounded-2xl border-2 border-[#39b54b] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`}></div>
+                {/* Learn More Button */}
+                <button className="mt-auto inline-flex items-center justify-center px-4 py-2 rounded-md text-sm font-semibold transition-all duration-300 shadow-md bg-[#00B14F] text-white group-hover:bg-white group-hover:text-[#00B14F]">
+                  Learn More
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </button>
               </div>
-            );
-          })}
-        </div>
-
-        {/* Bottom CTA Section */}
-        <div className="mt-20 text-center">
-          <div className="inline-flex items-center gap-4 bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-emerald-100 hover:shadow-xl transition-shadow duration-300">
-            <div className="flex items-center gap-2 text-gray-600">
-              <Leaf className="w-5 h-5 text-[#39b54b]" />
-              <span className="text-sm font-medium">Sustainable • Customizable • Global B2B</span>
             </div>
-            <div className="w-px h-6 bg-gray-300"></div>
-            <a 
-              href="/products" 
-              className="flex items-center gap-2 bg-[#39b54b] text-white px-6 py-3 rounded-xl font-medium hover:bg-emerald-600 transition-colors duration-300 shadow-md hover:shadow-lg"
-            >
-              <span>View All Products</span>
-              <ChevronRight className="w-4 h-4" />
-            </a>
-          </div>
+          ))}
         </div>
       </div>
-    </section>
+    </div>
   );
-};
-
-export default FeaturedProducts;
+}
