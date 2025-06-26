@@ -8,25 +8,25 @@ const products = [
     title: 'Autoclave Liners',
     description: 'Leak-proof and heat-resistant liners for medical autoclaves.',
     types: ['Sterile Liners', 'Biohazard Bags', 'Steam Safe', 'Medical Waste'],
-    image: 'https://plus.unsplash.com/premium_photo-1681426728047-2164a00fe3dc?fm=jpg&q=60&w=3000',
+    image: "/Product/al/al1.jpg",
   },
   {
     title: 'Industrial Packaging',
     description: 'Durable packaging for transporting and storing bulk materials.',
     types: ['Bulk Bags', 'Woven Poly', 'Mesh Sacks', 'Multiwall Papers'],
-    image: 'https://plus.unsplash.com/premium_photo-1681426728047-2164a00fe3dc?fm=jpg&q=60&w=3000',
+    image: "/Product/ps/ps1.jpg",
   },
   {
     title: 'Natural & Synthetic Fabrics',
     description: 'Textiles designed for industrial strength and resistance.',
     types: ['Polywoven', 'Calico', 'Thermal Weave', 'Chemical Resistant'],
-    image: 'https://plus.unsplash.com/premium_photo-1681426728047-2164a00fe3dc?fm=jpg&q=60&w=3000',
+    image: "/Product/nfs/nfs1.jpg",
   },
   {
     title: 'Commercial Textiles',
     description: 'Aesthetic and durable fabrics for commercial use.',
     types: ['Curtains', 'Bedding', 'Towels', 'Laundry Bags'],
-    image: 'https://plus.unsplash.com/premium_photo-1681426728047-2164a00fe3dc?fm=jpg&q=60&w=3000',
+    image: "/Product/ct/ct3.jpg",
   },
 ];
 
