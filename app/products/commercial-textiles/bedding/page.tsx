@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import ProductSubPageTemplate from '../../../../components/products/ProductSubPageTemplate';
+=======
+import ProductSubPageTemplate from '@/components/Products/pstemp';
+>>>>>>> 3acf85276d2fde6d297d52df55119d0427e2f7a3
 import {
   FaTag,
   FaRulerCombined,
@@ -17,7 +21,11 @@ export default function Page() {
     <ProductSubPageTemplate
       title="Bedding"
       description="High-quality bedding solutions designed specifically for hospitals and healthcare facilities, built for comfort, hygiene, and durability."
+<<<<<<< HEAD
       image="/product/ct/p3.jpg" // Replace with real image
+=======
+      image="/Product/ct/p3.jpg" // Replace with real image
+>>>>>>> 3acf85276d2fde6d297d52df55119d0427e2f7a3
       features={[
         'Soft and comfortable',
         'Durable for frequent laundering',

@@ -8,12 +8,20 @@
   "description": "Your Global Leader in Medical Waste Liners & Industrial Packaging Solutions",
   "icons": [
     {
+<<<<<<< HEAD
       "src": "/icon/icon2-512x512.png",
+=======
+      "src": "/images/icons/icon2-512x512.png",
+>>>>>>> 3acf85276d2fde6d297d52df55119d0427e2f7a3
       "sizes": "192x192",
       "type": "image/png"
     },
     {
+<<<<<<< HEAD
       "src": "/icon/icon2-512x512.png",
+=======
+      "src": "/images/icons/icon2-512x512.png",
+>>>>>>> 3acf85276d2fde6d297d52df55119d0427e2f7a3
       "sizes": "512x512",
       "type": "image/png"
     }

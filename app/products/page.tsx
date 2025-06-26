@@ -1,4 +1,4 @@
-import ProductsPage from '@/components/products/commonproduct';
+import ProductsPage from '@/components/Products/commonproduct';
 
 export const metadata = {
   title: 'Cloves Inc. Products | Industrial Packaging & Textiles',

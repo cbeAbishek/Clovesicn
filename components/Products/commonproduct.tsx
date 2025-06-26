@@ -45,7 +45,11 @@ const ProductsPage = () => {
             'Ideal for hazardous medical waste',
           ],
           icon: Thermometer,
+<<<<<<< HEAD
           image: '/product/al/p3.jpg',
+=======
+          image: '/Product/al/p3.jpg',
+>>>>>>> 3acf85276d2fde6d297d52df55119d0427e2f7a3
           route: '/products/autoclave-liners/hightemp-plastic-liners',
         },
         {
@@ -56,7 +60,11 @@ const ProductsPage = () => {
             'Heat-resistant and easy to handle',
           ],
           icon: Shirt,
+<<<<<<< HEAD
           image: '/product/al/p6.jpg',
+=======
+          image: '/Product/al/p6.jpg',
+>>>>>>> 3acf85276d2fde6d297d52df55119d0427e2f7a3
           route: '/products/autoclave-liners/textile-liners',
         },
         {
@@ -67,7 +75,11 @@ const ProductsPage = () => {
             'Suitable for unshredded medical waste',
           ],
           icon: Leaf,
+<<<<<<< HEAD
           image: '/product/al/p8.jpg',
+=======
+          image: '/Product/al/p8.jpg',
+>>>>>>> 3acf85276d2fde6d297d52df55119d0427e2f7a3
           route: '/products/autoclave-liners/jute-hessian-liners',
         },
         {
@@ -78,7 +90,11 @@ const ProductsPage = () => {
             'Lightweight yet strong',
           ],
           icon: Shield,
+<<<<<<< HEAD
           image: '/product/al/p10.jpg',
+=======
+          image: '/Product/al/p10.jpg',
+>>>>>>> 3acf85276d2fde6d297d52df55119d0427e2f7a3
           route: '/products/autoclave-liners/woven-plastic-liners',
         },
       ],
@@ -99,7 +115,11 @@ const ProductsPage = () => {
             'Heavy-duty construction',
           ],
           icon: Package,
+<<<<<<< HEAD
           image: '/product/ps/p2.jpg',
+=======
+          image: '/Product/ps/p2.jpg',
+>>>>>>> 3acf85276d2fde6d297d52df55119d0427e2f7a3
           route: '/products/packaging-solutions/bulk-bags',
         },
         {
@@ -110,7 +130,11 @@ const ProductsPage = () => {
             'Versatile for cement, fertilizers',
           ],
           icon: Shield,
+<<<<<<< HEAD
           image: '/product/ps/p4.jpg',
+=======
+          image: '/Product/ps/p4.jpg',
+>>>>>>> 3acf85276d2fde6d297d52df55119d0427e2f7a3
           route: '/products/packaging-solutions/polywoven-bags',
         },
         {
@@ -121,7 +145,11 @@ const ProductsPage = () => {
             'Eco-friendly design',
           ],
           icon: Globe,
+<<<<<<< HEAD
           image: '/product/ps/p8.jpg',
+=======
+          image: '/Product/ps/p8.jpg',
+>>>>>>> 3acf85276d2fde6d297d52df55119d0427e2f7a3
           route: '/products/packaging-solutions/mesh-bags',
         },
         {
@@ -132,7 +160,11 @@ const ProductsPage = () => {
             'Protects from moisture',
           ],
           icon: Leaf,
+<<<<<<< HEAD
           image: '/product/ps/p9.jpg',
+=======
+          image: '/Product/ps/p9.jpg',
+>>>>>>> 3acf85276d2fde6d297d52df55119d0427e2f7a3
           route: '/products/packaging-solutions/multiwall-paper-sacks',
         },
       ],
@@ -153,7 +185,11 @@ const ProductsPage = () => {
             'Industrial packaging use',
           ],
           icon: Leaf,
+<<<<<<< HEAD
           image: '/product/nfs/p1.jpg',
+=======
+          image: '/Product/nfs/p1.jpg',
+>>>>>>> 3acf85276d2fde6d297d52df55119d0427e2f7a3
           route: '/products/natural-synthetic-fabrics/hessian-jute',
         },
         {
@@ -164,7 +200,11 @@ const ProductsPage = () => {
             'Customizable for different needs',
           ],
           icon: Shirt,
+<<<<<<< HEAD
           image: '/product/nfs/p3.jpg',
+=======
+          image: '/Product/nfs/p3.jpg',
+>>>>>>> 3acf85276d2fde6d297d52df55119d0427e2f7a3
           route: '/products/natural-synthetic-fabrics/calico',
         },
         {
@@ -175,7 +215,11 @@ const ProductsPage = () => {
             'Industrial grade',
           ],
           icon: Shield,
+<<<<<<< HEAD
           image: '/product/nfs/p5.jpg',
+=======
+          image: '/Product/nfs/p5.jpg',
+>>>>>>> 3acf85276d2fde6d297d52df55119d0427e2f7a3
           route: '/products/natural-synthetic-fabrics/poly-woven-fabrics',
         },
         {
@@ -186,7 +230,11 @@ const ProductsPage = () => {
             'Versatile applications',
           ],
           icon: Globe,
+<<<<<<< HEAD
           image: '/product/nfs/p9.jpg',
+=======
+          image: '/Product/nfs/p9.jpg',
+>>>>>>> 3acf85276d2fde6d297d52df55119d0427e2f7a3
           route: '/products/natural-synthetic-fabrics/woven-knitted-fabrics',
         },
       ],
@@ -207,7 +255,11 @@ const ProductsPage = () => {
             'Durable construction',
           ],
           icon: Bed,
+<<<<<<< HEAD
           image: '/product/ct/p1.jpg',
+=======
+          image: '/Product/ct/p1.jpg',
+>>>>>>> 3acf85276d2fde6d297d52df55119d0427e2f7a3
           route: '/products/commercial-textiles/bedding',
         },
         {
@@ -218,7 +270,11 @@ const ProductsPage = () => {
             'Long-lasting performance',
           ],
           icon: Shirt,
+<<<<<<< HEAD
           image: '/product/ct/p5.jpg',
+=======
+          image: '/Product/ct/p5.jpg',
+>>>>>>> 3acf85276d2fde6d297d52df55119d0427e2f7a3
           route: '/products/commercial-textiles/towels',
         },
         {
@@ -229,7 +285,11 @@ const ProductsPage = () => {
             'Commercial grade',
           ],
           icon: Package,
+<<<<<<< HEAD
           image: '/product/ct/p6.jpg',
+=======
+          image: '/Product/ct/p6.jpg',
+>>>>>>> 3acf85276d2fde6d297d52df55119d0427e2f7a3
           route: '/products/commercial-textiles/laundry-bags',
         },
         {
@@ -240,7 +300,11 @@ const ProductsPage = () => {
             'Easy maintenance',
           ],
           icon: Shield,
+<<<<<<< HEAD
           image: '/product/ct/p9.jpg',
+=======
+          image: '/Product/ct/p9.jpg',
+>>>>>>> 3acf85276d2fde6d297d52df55119d0427e2f7a3
           route: '/products/commercial-textiles/shower-curtains',
         },
       ],
@@ -286,7 +350,11 @@ const ProductsPage = () => {
           >
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
               <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+<<<<<<< HEAD
               Premium
+=======
+                Premium
+>>>>>>> 3acf85276d2fde6d297d52df55119d0427e2f7a3
               </span>
               <span className="bg-gradient-to-r from-[#39b54b] to-emerald-400 bg-clip-text text-transparent">
                 Products
@@ -316,6 +384,7 @@ const ProductsPage = () => {
         </div>
       </div>
 
+<<<<<<< HEAD
      
       
 
@@ -431,6 +500,132 @@ const ProductsPage = () => {
         </div>
       ))}
     </div>
+=======
+      {/* Product Categories */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        {productCategories.map((category, categoryIndex) => (
+          <div
+            key={category.id}
+            className={`mb-24 transition-all duration-1000 ease-out
+            ${
+              isVisible
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-8'
+            }
+          `}
+            style={{ transitionDelay: `${categoryIndex * 150}ms` }}
+          >
+            {/* Category Header */}
+            <div className="text-center mb-16">
+              <div
+                className={`inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-r ${category.color} mb-6 transform transition-all duration-500 hover:scale-110 hover:rotate-12`}
+              >
+                <category.icon className="w-10 h-10 text-white" />
+              </div>
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">
+                {category.title}
+              </h2>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                {category.description}
+              </p>
+            </div>
+
+            {/* Products Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {category.products.map((product, productIndex) => (
+                <Link
+                  key={productIndex}
+                  href={product.route}
+                  className={`group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-2 hover:scale-105 overflow-hidden
+                ${
+                  isVisible
+                    ? 'opacity-100 translate-y-0'
+                    : 'opacity-0 translate-y-8'
+                }
+              `}
+                  style={{
+                    transitionDelay: `${
+                      categoryIndex * 150 + productIndex * 80
+                    }ms`,
+                  }}
+                  onMouseEnter={() =>
+                    setHoveredProduct(`${categoryIndex}-${productIndex}`)
+                  }
+                  onMouseLeave={() => setHoveredProduct(null)}
+                >
+                  {/* Card Background Animation */}
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-r ${category.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
+                  ></div>
+
+                  {/* Product Image */}
+                  <div className="relative w-full h-36 bg-gray-100 flex items-center justify-center overflow-hidden">
+                    <Image
+                      src={product.image || '/images/hero/b1.jpg'}
+                      //src='/images/hero/b1.jpg'
+                      alt={product.name}
+                      className="object-cover w-full h-full"
+                      fill
+                      sizes="100vw"
+                      style={{ objectFit: 'cover' }}
+                    />
+                  </div>
+
+                  {/* Content */}
+                  <div className="relative p-6">
+                    <div className="flex items-center gap-4 mb-4">
+                      <div
+                        className={`w-12 h-12 rounded-xl bg-gradient-to-r ${category.color} flex items-center justify-center transform transition-all duration-300 group-hover:rotate-12 group-hover:scale-110`}
+                      >
+                        <product.icon className="w-6 h-6 text-white" />
+                      </div>
+                      <h3 className="text-lg font-bold text-gray-900 group-hover:text-[#39b54b] transition-colors duration-300">
+                        {product.name}
+                      </h3>
+                    </div>
+
+                    <div className="space-y-3">
+                      {product.features.map((feature, featureIndex) => (
+                        <div
+                          key={featureIndex}
+                          className={`flex items-start gap-3 transform transition-all duration-300 ${
+                            hoveredProduct ===
+                            `${categoryIndex}-${productIndex}`
+                              ? 'translate-x-0 opacity-100'
+                              : 'translate-x-2 opacity-70'
+                          }`}
+                          style={{ transitionDelay: `${featureIndex * 100}ms` }}
+                        >
+                          <CheckCircle className="w-4 h-4 text-[#39b54b] mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-gray-600 group-hover:text-gray-800 transition-colors duration-300">
+                            {feature}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Hover Action */}
+                    <div
+                      className={`mt-6 flex items-center gap-2 text-[#39b54b] font-medium text-sm transform transition-all duration-300 ${
+                        hoveredProduct === `${categoryIndex}-${productIndex}`
+                          ? 'translate-x-0 opacity-100'
+                          : 'translate-x-4 opacity-0 pointer-events-none'
+                      }`}
+                    >
+                      <span>Learn More</span>
+                      <ChevronRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
+                    </div>
+                  </div>
+
+                  {/* Animated Border */}
+                  <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-[#39b54b]/20 transition-all duration-500"></div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+>>>>>>> 3acf85276d2fde6d297d52df55119d0427e2f7a3
 
       {/* CTA Section */}
       <div className="bg-gradient-to-r from-[#39b54b] to-emerald-600 py-20">

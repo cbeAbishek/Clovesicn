@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import ProductSubPageTemplate from '../../../../components/products/ProductSubPageTemplate';
+=======
+import ProductSubPageTemplate from '@/components/Products/pstemp';
+>>>>>>> 3acf85276d2fde6d297d52df55119d0427e2f7a3
 import {
   FaTag,
   FaRulerCombined,
@@ -17,7 +21,11 @@ export default function Page() {
     <ProductSubPageTemplate
       title="Jute/Hessian Liners"
       description="Preferred in regions like Australia, these biodegradable and heavy-duty liners are ideal for managing unshredded medical waste in an eco-friendly way."
+<<<<<<< HEAD
       image="/product/al/p5.jpg" // Replace with real image
+=======
+      image="/Product/al/p5.jpg" // Replace with real image
+>>>>>>> 3acf85276d2fde6d297d52df55119d0427e2f7a3
       features={[
         'Strong and heavy-duty',
         'Biodegradable and environmentally friendly',

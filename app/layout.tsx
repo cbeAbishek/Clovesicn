@@ -24,20 +24,21 @@ export const metadata = {
   creator: 'Clover Inc',
   publisher: 'Clover Inc',
   openGraph: {
-    title: 'AClover Inc | Premium Industrial Packaging',
+    title: 'Clover Inc | Premium Industrial Packaging',
     description:
       'Explore top-grade autoclave liners from Clover Inc. Ideal for sterilization, industrial, and medical use. Heat resistant and customizable.',
-    url: 'https://cloverinc.org/products/autoclave-liners',
+    url: 'https://cloverinc.org/products',
     siteName: 'Clover Inc',
     locale: 'en_US',
     images: [
       {
-        url: 'https://i.ibb.co/Y44jjyGJ/meta.jpg',
+        url: 'https://i.ibb.co/01WW7vv/meta1.jpg',
         width: 1200,
         height: 630,
         alt: 'Autoclave Liners – Clover Inc',
       },
     ],
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
@@ -45,7 +46,8 @@ export const metadata = {
     description:
       'Discover heat-resistant autoclave liners from Clover Inc – perfect for industrial and medical sterilization.',
     creator: '@cloverinc',
-    images: ['https://i.ibb.co/Y44jjyGJ/meta.jpg'],
+    images: ['https://i.ibb.co/01WW7vv/meta1.jpg'],
+    site: '@cloverinc',
   },
   robots: {
     index: true,
@@ -62,6 +64,19 @@ export const metadata = {
     canonical: 'https://cloverinc.org/products',
   },
   metadataBase: new URL('https://cloverinc.org'),
+  icons: {
+    icon: '/icon.png',
+    shortcut: '/icon.png',
+    apple: '/icon.png',
+  },
+  applicationName: 'Clover Inc',
+  category: 'Industrial Packaging',
+  generator: 'Next.js',
+  referrer: 'origin-when-cross-origin',
+  themeColor: '#39b54b',
+  colorScheme: 'light',
+  viewport: 'width=device-width, initial-scale=1',
+  manifest: '/manifest.json',
 };
 
 export default function RootLayout({

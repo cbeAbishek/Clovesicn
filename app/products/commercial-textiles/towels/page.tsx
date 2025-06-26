@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import ProductSubPageTemplate from '../../../../components/products/ProductSubPageTemplate';
+=======
+import ProductSubPageTemplate from '@/components/Products/pstemp';
+>>>>>>> 3acf85276d2fde6d297d52df55119d0427e2f7a3
 import {
   FaTag,
   FaRulerCombined,

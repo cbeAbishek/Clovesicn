@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import ProductSubPageTemplate from '../../../../components/products/ProductSubPageTemplate';
+=======
+import ProductSubPageTemplate from '@/components/Products/pstemp';
+>>>>>>> 3acf85276d2fde6d297d52df55119d0427e2f7a3
 import {
   FaTag,
   FaRulerCombined,
@@ -17,7 +21,11 @@ export default function Page() {
     <ProductSubPageTemplate
       title="Calico"
       description="A soft and breathable natural fabric commonly used in medical and commercial sectors for packaging, lining, and various textile applications."
+<<<<<<< HEAD
       image="/product/nfs/p3.jpg" // Replace with real image
+=======
+      image="/Product/nfs/p3.jpg" // Replace with real image
+>>>>>>> 3acf85276d2fde6d297d52df55119d0427e2f7a3
       features={[
         'Lightweight and breathable',
         'Ideal for medical and commercial use',

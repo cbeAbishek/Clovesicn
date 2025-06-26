@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import ProductSubPageTemplate from '../../../../components/products/ProductSubPageTemplate';
+=======
+import ProductSubPageTemplate from '@/components/Products/pstemp';
+>>>>>>> 3acf85276d2fde6d297d52df55119d0427e2f7a3
 import {
   FaTag,
   FaRulerCombined,
@@ -17,7 +21,11 @@ export default function Page() {
     <ProductSubPageTemplate
       title="Laundry Bags"
       description="Heavy-duty laundry bags designed for commercial laundry operations, offering strength, capacity, and easy handling across healthcare and hospitality sectors."
+<<<<<<< HEAD
       image="/product/ct/p6.jpg" // Replace with real image
+=======
+      image="/Product/ct/p6.jpg" // Replace with real image
+>>>>>>> 3acf85276d2fde6d297d52df55119d0427e2f7a3
       features={[
         'Tear-resistant',
         'Available in various sizes',
