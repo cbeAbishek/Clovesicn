@@ -173,7 +173,7 @@ const HeroBanner = () => {
           </div>
         </div>
       </div>
-      <style jsx global>{`
+      <style>{`
         @keyframes fade-in {
           from {
             opacity: 0;
