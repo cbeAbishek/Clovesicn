@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import ProductSubPageTemplate from '../../../../components/products/ProductSubPageTemplate';
-=======
 import ProductSubPageTemplate from '@/components/Products/pstemp';
->>>>>>> 3acf85276d2fde6d297d52df55119d0427e2f7a3
 import {
   FaTag,
   FaRulerCombined,
@@ -21,11 +17,7 @@ export default function Page() {
     <ProductSubPageTemplate
       title="Woven Plastic Liners"
       description="Woven plastic liners provide a cost-effective and lightweight alternative to Jute liners, offering high durability and easy handling for medical waste management."
-<<<<<<< HEAD
-      image="/product/al/p10.jpg" // Replace with real image
-=======
       image="/Product/al/p10.jpg" // Replace with real image
->>>>>>> 3acf85276d2fde6d297d52df55119d0427e2f7a3
       features={[
         'Cost-effective compared to Jute liners',
         'Strong and tear-resistant',

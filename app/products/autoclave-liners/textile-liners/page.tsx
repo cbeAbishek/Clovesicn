@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import ProductSubPageTemplate from '../../../../components/products/ProductSubPageTemplate';
-=======
 import ProductSubPageTemplate from '@/components/Products/pstemp';
->>>>>>> 3acf85276d2fde6d297d52df55119d0427e2f7a3
 import {
   FaTag,
   FaRulerCombined,
@@ -21,11 +17,7 @@ export default function Page() {
     <ProductSubPageTemplate
       title="Textile Liners"
       description="Crafted from durable polyester and cotton blends, these textile liners provide an eco-friendly and reusable alternative for medical waste management in autoclaves."
-<<<<<<< HEAD
-      image="/product/al/p7.jpg" // Replace with real image
-=======
       image="/Product/al/p7.jpg" // Replace with real image
->>>>>>> 3acf85276d2fde6d297d52df55119d0427e2f7a3
       features={[
         'Lightweight and easy to handle',
         'Cost-effective and eco-friendly',

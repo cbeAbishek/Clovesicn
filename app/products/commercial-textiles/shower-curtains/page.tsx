@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import ProductSubPageTemplate from '../../../../components/products/ProductSubPageTemplate';
-=======
 import ProductSubPageTemplate from '@/components/Products/pstemp';
->>>>>>> 3acf85276d2fde6d297d52df55119d0427e2f7a3
 import {
   FaTag,
   FaRulerCombined,
@@ -21,11 +17,7 @@ export default function Page() {
     <ProductSubPageTemplate
       title="Shower Curtains"
       description="Waterproof and durable, these shower curtains are ideal for use in hospitals, clinics, and hospitality sectors, offering hygiene, ease of maintenance, and customizability."
-<<<<<<< HEAD
-      image="/product/ct/p8.jpg" // Replace with real image
-=======
       image="/Product/ct/p8.jpg" // Replace with real image
->>>>>>> 3acf85276d2fde6d297d52df55119d0427e2f7a3
       features={[
         'Water-resistant and easy to clean',
         'Durable for frequent use',
