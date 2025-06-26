@@ -43,7 +43,7 @@ const MissionSection = () => {
           className="rounded-3xl overflow-hidden border-4 border-[#39b54b]/20 shadow-xl"
         >
           <img
-            src='/adi/bk.jpg'
+            src='/adi/6.jpg'
             alt="Mission Visual"
             className="w-full h-full object-cover"
           />
