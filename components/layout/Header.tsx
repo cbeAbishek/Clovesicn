@@ -53,6 +53,7 @@ const NavBar = () => {
   const navItems = [
     { name: 'Home', href: '/', icon: Home },
     { name: 'About', href: '/about', icon: Users },
+    { name: 'Products', href: '/products', icon: Package },
     { name: 'Why Us', href: '/whyus', icon: Award },
     { name: 'Contact', href: '/contact', icon: Phone },
   ];
@@ -71,13 +72,13 @@ const NavBar = () => {
           <div className="flex items-center justify-between h-16 lg:h-20">
             <div
               className="flex-shrink-0 group"
-              onMouseEnter={e => {
+              onMouseEnter={(e) => {
                 const img = e.currentTarget.querySelector('img');
                 if (img) {
                   img.classList.add('glow');
                 }
               }}
-              onMouseLeave={e => {
+              onMouseLeave={(e) => {
                 const img = e.currentTarget.querySelector('img');
                 if (img) {
                   img.classList.remove('glow');
@@ -85,7 +86,7 @@ const NavBar = () => {
               }}
             >
               {/* Audio Mute/Unmute Button */}
-             
+
               <div className="flex items-center space-x-4 group cursor-pointer">
                 <Link href="/" className="relative">
                   <Image
@@ -107,7 +108,6 @@ const NavBar = () => {
                 Cloves INC
               </div> */}
             </div>
-            
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-1">
@@ -140,71 +140,7 @@ const NavBar = () => {
               ))}
 
               {/* Products Dropdown */}
-                <div
-                className="relative group"
-                onClick={() => setIsProductsOpen((open) => !open)}
-                tabIndex={0}
-                onBlur={(e) => {
-                  // Close dropdown if focus leaves the dropdown area
-                  if (!e.currentTarget.contains(e.relatedTarget)) {
-                  setIsProductsOpen(false);
-                  }
-                }}
-                >
-                <button
-                  className={`flex items-center space-x-2 px-4 py-2 transition-all duration-300 font-medium group
-                  ${
-                    pathname.startsWith('/products')
-                      ? 'text-[#39b54b] font-semibold'
-                      : 'text-gray-700 hover:text-[#39b54b]'
-                  }
-                `}
-                >
-                  <Package className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" />
-                  <span>Products</span>
-                  <ChevronDown
-                    className={`w-4 h-4 transition-all duration-300 ${
-                      isProductsOpen ? 'rotate-180' : ''
-                    }`}
-                  />
-                  <div
-                    className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#39b54b] to-[#2d8f3a] transition-all duration-300
-                    ${
-                      pathname.startsWith('/products')
-                        ? 'w-full'
-                        : 'w-0 group-hover:w-full'
-                    }
-                  `}
-                  ></div>
-                </button>
-
-                {/* Dropdown Menu */}
-                <div
-                  className={`absolute top-full left-0 mt-2 w-72 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden transition-all duration-300 transform ${
-                    isProductsOpen
-                      ? 'opacity-100 translate-y-0 scale-100'
-                      : 'opacity-0 translate-y-2 scale-95 pointer-events-none'
-                  }`}
-                >
-                  <div className="p-2">
-                    {productSubmenu.map((item, index) => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        className="flex items-center space-x-3 p-3 rounded-xl hover:bg-gradient-to-r hover:from-[#39b54b]/10 hover:to-[#2d8f3a]/10 transition-all duration-300 group/item"
-                        style={{ animationDelay: `${index * 50}ms` }}
-                      >
-                        <div className="w-10 h-10 bg-gradient-to-br from-[#39b54b]/20 to-[#2d8f3a]/20 rounded-lg flex items-center justify-center group-hover/item:scale-110 transition-transform duration-300">
-                          <item.icon className="w-5 h-5 text-[#39b54b]" />
-                        </div>
-                        <span className="text-gray-700 font-medium group-hover/item:text-[#39b54b] transition-colors duration-300">
-                          {item.name}
-                        </span>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              </div>
+              
             </div>
 
             {/* Request Quote Button & Mobile Menu */}
@@ -260,41 +196,8 @@ const NavBar = () => {
                 </a>
               ))}
 
-              {/* Mobile Products Section */}
-              <div className="space-y-2">
-                <div
-                  className={`flex items-center space-x-3 p-3 font-semibold
-                  ${
-                    pathname.startsWith('/products')
-                      ? 'text-[#39b54b]'
-                      : 'text-gray-800'
-                  }
-                `}
-                >
-                  <Package className="w-5 h-5 text-[#39b54b]" />
-                  <span>Products</span>
-                </div>
-                {productSubmenu.map((item, index) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className={`flex items-center space-x-3 p-3 pl-12 rounded-xl transition-all duration-300 transform hover:translate-x-2
-                      ${
-                        pathname === item.href
-                          ? 'bg-gradient-to-r from-[#39b54b]/10 to-[#2d8f3a]/10 text-[#39b54b] font-semibold'
-                          : 'hover:bg-gradient-to-r hover:from-[#39b54b]/10 hover:to-[#2d8f3a]/10 text-gray-600'
-                      }
-                    `}
-                    style={{
-                      animationDelay: `${(index + navItems.length) * 50}ms`,
-                    }}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    <item.icon className="w-4 h-4 text-[#39b54b]" />
-                    <span className="text-sm">{item.name}</span>
-                  </a>
-                ))}
-              </div>
+             
+              
 
               {/* Mobile Request Quote */}
               <div className="pt-4 border-t border-gray-200">
