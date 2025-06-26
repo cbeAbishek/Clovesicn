@@ -135,14 +135,14 @@ const PlayfulHeroSection = () => {
                 </span>
               </button>
 
-              <button className="group bg-white/70 backdrop-blur-sm text-slate-700 px-8 py-4 rounded-2xl font-bold text-lg border-2 border-[#39b54b]/20 hover:border-[#39b54b] hover:scale-105 hover:rotate-1 transition-all duration-300">
+              {/* <button className="group bg-white/70 backdrop-blur-sm text-slate-700 px-8 py-4 rounded-2xl font-bold text-lg border-2 border-[#39b54b]/20 hover:border-[#39b54b] hover:scale-105 hover:rotate-1 transition-all duration-300">
                 <span className="flex items-center gap-3">
                   <span className="w-10 h-10 bg-gradient-to-r from-[#39b54b] to-emerald-600 rounded-full flex items-center justify-center group-hover:animate-pulse">
                     <Play className="w-5 h-5 text-white" />
                   </span>
                   Watch Demo
                 </span>
-              </button>
+              </button> */}
             </div>
           </div>
 
@@ -157,20 +157,26 @@ const PlayfulHeroSection = () => {
               style={{ width: '100%', height: '100%' }}
             >
                 {[
-                'adi/7.jpg',
-                'adi/8.jpg',
-                'adi/9.jpg',
-                'adi/10.jpg',
-                'adi/11.jpg',
-                'adi/12.jpg'
+                  'adi/1.jpg',
+                  'adi/2.jpg',
+                  'adi/3.jpg',
+                  'adi/4.jpg',
+                  'adi/5.jpg',
+                  'adi/6.jpg',
+                  'adi/7.jpg',
+                  'adi/8.jpg',
+                  'adi/9.jpg',
+                  'adi/10.jpg',
+                  'adi/11.jpg',
+                  'adi/12.jpg'
                 ].map((src, i) => (
-                <SwiperSlide key={i}>
-                  <img
-                  src={src}
-                  alt={`Slide ${i + 1}`}
-                  className="w-full h-full object-cover rounded-3xl"
-                  />
-                </SwiperSlide>
+                  <SwiperSlide key={i}>
+                    <img
+                      src={src}
+                      alt={`Slide ${i + 1}`}
+                      className="w-full h-full object-cover rounded-3xl"
+                    />
+                  </SwiperSlide>
                 ))}
             </Swiper>
           </div>

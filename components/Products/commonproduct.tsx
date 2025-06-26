@@ -391,7 +391,14 @@ const ProductsPage = () => {
                   <div className="relative p-6">
                     <div className="flex items-center gap-4 mb-4">
                       <div
-                        className={`w-12 h-12 rounded-xl bg-gradient-to-r ${category.color} flex items-center justify-center transform transition-all duration-300 group-hover:rotate-12 group-hover:scale-110`}
+                        className={`w-12 h-12 rounded-xl bg-gradient-to-r ${category.color} flex items-center justify-center transform transition-all duration-300
+                          group-hover:rotate-12 group-hover:scale-110
+                          group-hover:brightness-110 group-hover:saturate-150
+                          ${hoveredProduct === `${categoryIndex}-${productIndex}` ? 'shadow-lg shadow-emerald-400/40' : ''}
+                        `}
+                        style={{
+                          transitionProperty: 'transform, filter, box-shadow',
+                        }}
                       >
                         <product.icon className="w-6 h-6 text-white" />
                       </div>
@@ -405,8 +412,7 @@ const ProductsPage = () => {
                         <div
                           key={featureIndex}
                           className={`flex items-start gap-3 transform transition-all duration-300 ${
-                            hoveredProduct ===
-                            `${categoryIndex}-${productIndex}`
+                            hoveredProduct === `${categoryIndex}-${productIndex}`
                               ? 'translate-x-0 opacity-100'
                               : 'translate-x-2 opacity-70'
                           }`}
@@ -422,14 +428,27 @@ const ProductsPage = () => {
 
                     {/* Hover Action */}
                     <div
-                      className={`mt-6 flex items-center gap-2 text-[#39b54b] font-medium text-sm transform transition-all duration-300 ${
-                        hoveredProduct === `${categoryIndex}-${productIndex}`
-                          ? 'translate-x-0 opacity-100'
-                          : 'translate-x-4 opacity-0 pointer-events-none'
-                      }`}
+                      className={`mt-6 flex items-center gap-2 font-semibold text-sm transition-all duration-300
+                        ${
+                          hoveredProduct === `${categoryIndex}-${productIndex}`
+                            ? 'opacity-100 translate-x-0'
+                            : 'opacity-0 translate-x-4 pointer-events-none'
+                        }
+                      `}
                     >
-                      <span>Learn More</span>
-                      <ChevronRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
+                      <span
+                        className={`
+                          px-4 py-2 rounded-full
+                          bg-gradient-to-r from-[#39b54b] to-emerald-500
+                          text-white shadow-lg border-2 border-[#39b54b]
+                          transition-all duration-300
+                          font-bold tracking-wide
+                          group-hover:scale-105 group-hover:shadow-emerald-300/40
+                        `}
+                      >
+                        Learn More
+                      </span>
+                      <ChevronRight className="w-4 h-4 text-[#39b54b] group-hover:translate-x-1 transition-transform duration-300" />
                     </div>
                   </div>
 
