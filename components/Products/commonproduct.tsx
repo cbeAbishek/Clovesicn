@@ -453,9 +453,11 @@ const ProductsPage = () => {
             specific industry needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-white text-[#39b54b] font-bold rounded-full hover:bg-gray-100 transform transition-all duration-300 hover:scale-105 hover:shadow-lg">
-              Get Quote
-            </button>
+            <Link href="/request-quote" passHref legacyBehavior>
+              <a className="px-8 py-4 bg-white text-[#39b54b] font-bold rounded-full hover:bg-gray-100 transform transition-all duration-300 hover:scale-105 hover:shadow-lg text-center">
+                Get Quote
+              </a>
+            </Link>
             <Link href="/contact" passHref legacyBehavior>
               <a className="px-8 py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-[#39b54b] transform transition-all duration-300 hover:scale-105 text-center">
                 Contact Us
