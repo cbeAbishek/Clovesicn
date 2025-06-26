@@ -319,8 +319,9 @@ const ProductsPage = () => {
       {/* Product Categories */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {productCategories.map((category, categoryIndex) => (
-          <div
+          <section
             key={category.id}
+            id={category.id}
             className={`mb-24 transition-all duration-1000 ease-out
             ${
               isVisible
@@ -437,7 +438,7 @@ const ProductsPage = () => {
                 </Link>
               ))}
             </div>
-          </div>
+          </section>
         ))}
       </div>
 

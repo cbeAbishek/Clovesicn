@@ -2,28 +2,33 @@
 
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const products = [
   {
     title: 'Autoclave Liners',
+    id: 'autoclave',
     description: 'Leak-proof and heat-resistant liners for medical autoclaves.',
     types: ['Sterile Liners', 'Biohazard Bags', 'Steam Safe', 'Medical Waste'],
     image: "/Product/al/al1.jpg",
   },
   {
     title: 'Industrial Packaging',
+    id: 'packaging',
     description: 'Durable packaging for transporting and storing bulk materials.',
     types: ['Bulk Bags', 'Woven Poly', 'Mesh Sacks', 'Multiwall Papers'],
     image: "/Product/ps/ps1.jpg",
   },
   {
     title: 'Natural & Synthetic Fabrics',
+    id: 'fabrics',
     description: 'Textiles designed for industrial strength and resistance.',
     types: ['Polywoven', 'Calico', 'Thermal Weave', 'Chemical Resistant'],
     image: "/Product/nfs/nfs1.jpg",
   },
   {
     title: 'Commercial Textiles',
+    id: 'textiles',
     description: 'Aesthetic and durable fabrics for commercial use.',
     types: ['Curtains', 'Bedding', 'Towels', 'Laundry Bags'],
     image: "/Product/ct/ct3.jpg",
@@ -85,10 +90,12 @@ export default function ProductsPage() {
                 </div>
 
                 {/* Learn More Button */}
-                <button className="mt-auto inline-flex items-center justify-center px-4 py-2 rounded-md text-sm font-semibold transition-all duration-300 shadow-md bg-[#00B14F] text-white group-hover:bg-white group-hover:text-[#00B14F]">
-                  Learn More
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </button>
+                <Link href={`/products#${product.id}`} passHref legacyBehavior>
+                  <a className="mt-auto inline-flex items-center justify-center px-4 py-2 rounded-md text-sm font-semibold transition-all duration-300 shadow-md bg-[#00B14F] text-white group-hover:bg-white group-hover:text-[#00B14F]">
+                    Learn More
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </a>
+                </Link>
               </div>
             </div>
           ))}
