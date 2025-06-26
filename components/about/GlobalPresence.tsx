@@ -1,21 +1,23 @@
 'use client';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { Globe } from 'lucide-react';
 
 const GlobalPresenceSection = () => {
   return (
     <section className="bg-white py-20 px-4">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-        {/* Left Side - Image */}
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-            className="rounded-3xl overflow-hidden "
+        {/* Left Side - Image (Hidden on mobile, visible on md+) */}
+        <div className="hidden md:block">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="rounded-3xl overflow-hidden shadow-lg"
           >
             <Image
-              src="/about/Global.png"
+              src="/adi/bl.jpg"
               alt="Global Presence"
               className="w-full h-full object-cover"
               width={800}
@@ -23,9 +25,10 @@ const GlobalPresenceSection = () => {
               layout="responsive"
               priority
             />
-        </motion.div>
+          </motion.div>
+        </div>
 
-        {/* Right Side - Content */}
+        {/* Right Side - Minimal Content with Icon */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -33,7 +36,8 @@ const GlobalPresenceSection = () => {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="space-y-6"
         >
-          <div className="inline-block bg-[#39b54b]/10 text-[#39b54b] px-4 py-2 rounded-full font-semibold text-sm tracking-wider uppercase">
+          <div className="flex items-center gap-2 bg-[#e6f4ea] text-[#2e7d32] px-4 py-2 rounded-full font-medium text-sm w-fit uppercase tracking-wide">
+            <Globe className="w-4 h-4" />
             Global Presence
           </div>
 
@@ -41,17 +45,12 @@ const GlobalPresenceSection = () => {
             Delivering Worldwide, Supporting Locally
           </h2>
 
-          <p className="text-gray-700 text-base leading-relaxed">
-            Cloves Inc. serves clients across North America, Europe, Asia, and Australia. Our global network of manufacturing and distribution centers ensures timely delivery and localized support.
-          </p>
-
-          <p className="text-gray-700 text-base leading-relaxed">
-            Through agile logistics and strong regional partnerships, we tailor our packaging solutions to meet diverse regulatory and environmental requirements across borders.
-          </p>
-
-          <p className="text-gray-700 text-base leading-relaxed">
-            Our vision is to lead not just in scale, but in trust and impact — becoming the go-to provider for sustainable packaging around the world.
-          </p>
+          <ul className="text-gray-700 text-base space-y-4 leading-relaxed list-disc pl-5 marker:text-green-600">
+            <li>Operations across 4 continents.</li>
+            <li>Localized support through regional hubs.</li>
+            <li>Agile logistics tailored by region.</li>
+            <li>Trusted globally for sustainable solutions.</li>
+          </ul>
         </motion.div>
       </div>
     </section>
