@@ -17,7 +17,7 @@ export default function Page() {
     <ProductSubPageTemplate
       title="Mesh Bags"
       description="Lightweight and breathable, mesh bags are ideal for packaging produce such as fruits and vegetables, offering freshness and air circulation."
-      image="https://example.com/images/mesh-bags.jpg" // Replace with real image
+      image="/Product/ps/ps3.jpeg" // Replace with real image
       features={[
         'Lightweight and breathable',
         'Ideal for produce and perishables',

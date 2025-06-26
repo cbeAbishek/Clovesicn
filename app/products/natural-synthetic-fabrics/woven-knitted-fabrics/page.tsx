@@ -17,7 +17,7 @@ export default function Page() {
     <ProductSubPageTemplate
       title="Woven & Knitted Fabrics"
       description="Specially engineered for industrial applications, these fabrics offer superior tear resistance and reinforcement for packaging, protection, and other demanding uses."
-      image="/Product/nfs/p8.jpg" // Replace with real image
+      image="/Product/nfs/nfs4.jpg" // Replace with real image
       features={[
         'Reinforced for heavy-duty applications',
         'Tear-resistant',

@@ -17,7 +17,7 @@ export default function Page() {
     <ProductSubPageTemplate
       title="Textile Liners"
       description="Crafted from durable polyester and cotton blends, these textile liners provide an eco-friendly and reusable alternative for medical waste management in autoclaves."
-      image="/Product/al/p7.jpg" // Replace with real image
+      image="/Product/al/p9.jpg" // Replace with real image
       features={[
         'Lightweight and easy to handle',
         'Cost-effective and eco-friendly',
