@@ -17,7 +17,7 @@ export default function Page() {
     <ProductSubPageTemplate
       title="Bulk Bags"
       description="These large, heavy-duty bulk bags are ideal for transporting materials such as chemicals, grains, and other industrial goods. Designed for strength and durability."
-      image="https://example.com/images/bulk-bags.jpg" // Replace with real image
+      image="/Product/ps/ps1.jpg" // Replace with real image
       features={[
         'High strength and durability',
         'Available in various sizes',

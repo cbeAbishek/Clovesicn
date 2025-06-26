@@ -17,7 +17,7 @@ export default function Page() {
     <ProductSubPageTemplate
       title="Towels"
       description="Industrial-grade towels built for high absorbency and repeated washing. Ideal for healthcare, hospitality, and industrial environments."
-      image="/product/towels.jpg" // Replace with real image
+      image="/Product/ct/ct2.jpg" // Replace with real image
       features={[
         'High absorbency',
         'Durable and long-lasting',

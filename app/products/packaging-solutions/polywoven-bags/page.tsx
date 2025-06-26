@@ -17,7 +17,7 @@ export default function Page() {
     <ProductSubPageTemplate
       title="Poly Woven Bags"
       description="Poly woven bags are tear-resistant and moisture-proof packaging solutions, ideal for transporting heavy materials such as cement, grains, and chemicals."
-      image="https://example.com/images/poly-woven-bags.jpg" // Replace with real image
+      image="/Product/ps/ps2.jpg" // Replace with real image
       features={[
         'Tear-resistant and moisture-proof',
         'Available in custom sizes and designs',
