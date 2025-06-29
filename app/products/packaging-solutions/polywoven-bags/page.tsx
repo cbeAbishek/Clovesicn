@@ -16,10 +16,10 @@ export default function Page() {
   return (
     <ProductSubPageTemplate
       title="Poly Woven Bags"
-      description="Poly woven bags are tear-resistant and moisture-proof packaging solutions, ideal for transporting heavy materials such as cement, grains, and chemicals."
+      description="Poly woven bags are tear-resistant packaging solutions, ideal for transporting heavy materials such as cement, grains, and chemicals."
       image="/Product/ps/ps2.jpg" // Replace with real image
       features={[
-        'Tear-resistant and moisture-proof',
+        'Tear-resistant construction',
         'Available in custom sizes and designs',
         'Excellent for transporting heavy materials',
       ]}
@@ -41,13 +41,8 @@ export default function Page() {
         },
         {
           label: 'Eco-Friendly',
-          value: 'Partially (Reusable)',
+          value: 'Sustainable materials',
           icon: <FaLeaf size={32} className="text-white" />,
-        },
-        {
-          label: 'Reusability',
-          value: 'Yes',
-          icon: <FaSyncAlt size={32} className="text-white" />,
         },
         {
           label: 'Use Case',
@@ -60,19 +55,23 @@ export default function Page() {
           icon: <FaTools size={32} className="text-white" />,
         },
         {
-          label: 'Durability',
-          value: 'High - Tear and puncture resistant',
+          label: 'Construction',
+          value: 'Tear and puncture resistant',
           icon: <FaHammer size={32} className="text-white" />,
         },
         {
-          label: 'Water Resistance',
-          value: 'Yes (moisture-proof coating)',
+          label: 'Coating',
+          value: 'Protective coating',
           icon: <FaTint size={32} className="text-white" />,
         },
         {
           label: 'Region Popularity',
           value: 'Widely used in agriculture and construction sectors',
           icon: <FaGlobeAmericas size={32} className="text-white" />,
+        },
+        {
+          label: 'Environmental Impact',
+          value: 'Low',
         },
       ]}
     />

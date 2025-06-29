@@ -53,7 +53,7 @@ export function AiChatbot() {
     // Simulate bot response with common college-related queries
     setTimeout(() => {
       let botResponse =
-        "I'm not sure how to help with that. Can you try asking about products, sustainability, certifications, or bulk orders?";
+        "I'm not sure how to help with that. Can you try asking about products, sustainability, quality standards, or bulk orders?";
 
       const lowerCaseMessage = message.toLowerCase();
 
@@ -69,30 +69,27 @@ export function AiChatbot() {
         lowerCaseMessage.includes('liner')
       ) {
         botResponse =
-          'Our autoclave liners withstand up to 140°C, protect carts from melting waste, and include eco-friendly options like reusable textile liners. Jute liners are popular in Australia for durability. Need specs or pricing?';
+          'Our autoclave liners withstand up to 140°C, protect carts from melting waste, and include eco-friendly options like textile liners. Jute liners are popular in Australia. Need specs or pricing?';
       } else if (
         lowerCaseMessage.includes('packaging') ||
         lowerCaseMessage.includes('bag')
       ) {
         botResponse =
-          'Our industrial packaging includes bulk bags (up to 1MT capacity), poly-woven bags (tear-resistant), breathable mesh bags, and moisture-proof multiwall paper sacks. Custom sizes available. Want a quote?';
+          'We offer bulk bags (up to 1 ton), tear-resistant poly-woven bags, breathable mesh bags, and protective multiwall paper sacks. Custom sizes available. Want a quote?';
       }
 
       // Sustainability & certifications
       if (
         lowerCaseMessage.includes('sustainability') ||
         lowerCaseMessage.includes('eco') ||
-        lowerCaseMessage.includes('green')
-      ) {
-        botResponse =
-          'We prioritize eco-friendly materials (e.g., biodegradable jute liners, recyclable poly-woven fabrics) and optimize manufacturing to reduce carbon footprint. All products align with circular economy principles.';
-      } else if (
+        lowerCaseMessage.includes('environment') ||
+        lowerCaseMessage.includes('green') ||
         lowerCaseMessage.includes('certification') ||
         lowerCaseMessage.includes('iso') ||
         lowerCaseMessage.includes('fda')
       ) {
         botResponse =
-          'We hold ISO 9001 certification, FDA approval for medical-grade materials, and comply with REACH/RoHS standards. Compliance documents available on request.';
+          'We are committed to sustainable practices and environmental responsibility. Our products are designed with eco-friendly materials and processes. Quality documents available on request.';
       }
 
       // Company info
@@ -139,10 +136,10 @@ export function AiChatbot() {
       // Default fallback
       if (
         botResponse ===
-        "I'm not sure how to help with that. Can you try asking about products, sustainability, certifications, or bulk orders?"
+        "I'm not sure how to help with that. Can you try asking about products, sustainability, quality standards, or bulk orders?"
       ) {
         botResponse =
-          "Try asking about specific products (e.g., 'jute liners'), sustainability, certifications, or bulk orders. Need help? Just say 'Contact me!'";
+          "Try asking about specific products (e.g., 'jute liners'), sustainability, quality standards, or bulk orders. Need help? Just say 'Contact me!'";
       }
 
       const botMessageObj: Message = {

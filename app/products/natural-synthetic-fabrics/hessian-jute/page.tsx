@@ -45,11 +45,6 @@ export default function Page() {
           icon: <FaLeaf size={32} className="text-white" />,
         },
         {
-          label: 'Reusability',
-          value: 'Yes (Reusable and compostable)',
-          icon: <FaSyncAlt size={32} className="text-white" />,
-        },
-        {
           label: 'Use Case',
           value: 'Industrial and agricultural packaging',
           icon: <FaBriefcase size={32} className="text-white" />,
@@ -60,13 +55,13 @@ export default function Page() {
           icon: <FaTools size={32} className="text-white" />,
         },
         {
-          label: 'Durability',
-          value: 'High - Tough and rugged',
+          label: 'Construction',
+          value: 'Tough and rugged',
           icon: <FaHammer size={32} className="text-white" />,
         },
         {
-          label: 'Water Resistance',
-          value: 'Low - Absorbs moisture',
+          label: 'Absorption',
+          value: 'Absorbs moisture',
           icon: <FaTint size={32} className="text-white" />,
         },
         {

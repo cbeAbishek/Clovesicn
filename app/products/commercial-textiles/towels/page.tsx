@@ -31,47 +31,42 @@ export default function Page() {
         },
         {
           label: 'Material',
-          value: 'Cotton-rich industrial blend',
+          value: 'High-Quality Cotton Blend',
           icon: <FaRulerCombined size={32} className="text-white" />,
         },
         {
           label: 'Temperature Resistance',
-          value: 'Suitable for industrial laundering',
+          value: 'High-temperature washable',
           icon: <FaThermometerHalf size={32} className="text-white" />,
         },
         {
           label: 'Eco-Friendly',
-          value: 'Yes (Reusable)',
+          value: 'Industrial-grade materials',
           icon: <FaLeaf size={32} className="text-white" />,
         },
         {
-          label: 'Reusability',
-          value: 'Yes (Withstands repeated washes)',
-          icon: <FaSyncAlt size={32} className="text-white" />,
-        },
-        {
           label: 'Use Case',
-          value: 'Hospitals, hotels, industrial sanitation',
+          value: 'Healthcare and hospitality facilities',
           icon: <FaBriefcase size={32} className="text-white" />,
         },
         {
           label: 'Customization',
-          value: 'Size and thickness customization available',
+          value: 'Available in various sizes and weights',
           icon: <FaTools size={32} className="text-white" />,
         },
         {
-          label: 'Durability',
-          value: 'Very High - Built for commercial use',
+          label: 'Construction',
+          value: 'Highly absorbent',
           icon: <FaHammer size={32} className="text-white" />,
         },
         {
-          label: 'Water Resistance',
-          value: 'High absorbency (not waterproof)',
+          label: 'Absorption',
+          value: 'High absorbency',
           icon: <FaTint size={32} className="text-white" />,
         },
         {
           label: 'Region Popularity',
-          value: 'Standard in healthcare and hospitality industries',
+          value: 'Widely used in hospitality globally',
           icon: <FaGlobeAmericas size={32} className="text-white" />,
         },
       ]}

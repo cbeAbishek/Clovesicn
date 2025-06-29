@@ -270,7 +270,7 @@ const RequestQuotePage = () => {
               <div className="bg-white bg-opacity-20 backdrop-blur-sm px-4 py-2 rounded-full flex items-center space-x-2 animate-pulse">
                 <Award className="h-5 w-5" />
                 <span className="text-sm font-medium">
-                  ISO 9001 Certified | Eco-Friendly Materials
+                  Advanced Manufacturing Technology | Eco-Friendly Materials
                 </span>
                 <Leaf className="h-5 w-5" />
               </div>

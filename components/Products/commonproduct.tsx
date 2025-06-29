@@ -35,14 +35,16 @@ const ProductsPage = () => {
       icon: FlaskConical,
       color: 'from-emerald-400 to-teal-600',
       description:
-        'Protect autoclave carts during high-temperature sterilization processes',
+        'High-temperature atactic polypropylene liners for medical waste autoclave facilities - the only manufacturer with global supply capability',
       products: [
         {
           name: 'High-Temp Plastic Liners',
           features: [
             'Withstand up to 140°C',
-            'Lightweight (30 kg rolls)',
-            'Ideal for hazardous medical waste',
+            'Allows higher steam penetration',
+            'Enables lower cook time and lower energy cost',
+            'Cost effective in purchase price and cooking cost',
+            'Available in any size (100"x80", 75"x90", 75"x110", 100"x120", 130"x150")',
           ],
           icon: Thermometer,
           image: '/Product/al/al1.jpg',
@@ -51,9 +53,10 @@ const ProductsPage = () => {
         {
           name: 'Textile Liners',
           features: [
-            'Polyester & cotton blends',
-            'Reusable & eco-friendly',
+            'Atactic polypropylene & cotton blends',
             'Heat-resistant and easy to handle',
+            'Allows higher steam penetration',
+            'Enables lower cook time and lower energy cost',
           ],
           icon: Shirt,
           image: '/Product/al/al2.jpg',
@@ -65,6 +68,8 @@ const ProductsPage = () => {
             'Popular in Australia',
             'Biodegradable & heavy-duty',
             'Suitable for unshredded medical waste',
+            'Allows higher steam penetration',
+            'Enables lower cook time and lower energy cost',
           ],
           icon: Leaf,
           image: '/Product/al/al3.jpg',
@@ -105,7 +110,7 @@ const ProductsPage = () => {
         {
           name: 'Poly-Woven Bags',
           features: [
-            'Tear-resistant & moisture-proof',
+            'Tear-resistant construction',
             'Custom sizes & designs',
             'Versatile for cement, fertilizers',
           ],
@@ -129,7 +134,7 @@ const ProductsPage = () => {
           features: [
             'Multi-layered for strength',
             'Environmentally friendly',
-            'Protects from moisture',
+            'Protective packaging',
           ],
           icon: Leaf,
           image: '/Product/ps/ps4.png',
@@ -235,9 +240,9 @@ const ProductsPage = () => {
         {
           name: 'Shower Curtains',
           features: [
-            'Waterproof & durable',
-            'Healthcare and hotel use',
+            'Hygiene-focused design',
             'Easy maintenance',
+            'Customizable options',
           ],
           icon: Shield,
           image: '/Product/ct/ct4.jpg',
@@ -255,8 +260,8 @@ const ProductsPage = () => {
     },
     {
       icon: Award,
-      title: 'Certified Quality',
-      description: 'ISO, FDA, REACH/RoHS certified',
+      title: 'Quality Assurance',
+      description: 'Advanced manufacturing technology and strict quality control processes.',
     },
     {
       icon: Globe,

@@ -9,11 +9,11 @@ const mobileSlides = [
       title: "Innovation Meets Sustainability",
       subtitle: "Advanced textile solutions and industrial packaging designed for performance and environmental responsibility",
       image: "/images/hero/mobile/b2.jpg",
-      stats: "ISO 14001 Certified Manufacturing"
+      stats: "Advanced Manufacturing Technology"
     },
     {
       title: "Healthcare Solutions You Can Trust",
-      subtitle: "Premium autoclave liners and medical-grade textiles meeting the highest industry standards",
+      subtitle: "High-temperature atactic polypropylene autoclave liners - the only manufacturer with global supply capability",
       image: "/images/hero/mobile/b6.jpg",
       stats: "99.9% Customer Satisfaction Rate"
     },
@@ -31,9 +31,9 @@ const mobileSlides = [
     },
     {
       title: "Eco-Friendly Packaging Solutions",
-      subtitle: "Reduce your carbon footprint with our biodegradable and recyclable packaging options",
+      subtitle: "Reduce your carbon footprint with our biodegradable packaging options",
       image: "/images/hero/mobile/b5.jpg",
-      stats: "100% Recyclable Materials"
+      stats: "Sustainable Materials"
     },
     {
       title: "Trusted by Industry Leaders",

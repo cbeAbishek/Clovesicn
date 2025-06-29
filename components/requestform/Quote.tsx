@@ -44,7 +44,7 @@ const RequestQuotePage = () => {
   const productCategories = {
     'Autoclave Liners': ['High-temp plastic', 'Textile', 'Jute/Hessian', 'Woven plastic'],
     'Packaging Solutions': ['Bulk bags', 'Poly woven bags', 'Mesh bags', 'Multiwall paper sacks'],
-    'Natural/Synthetic Fabrics': ['Cotton blends', 'Polyester', 'Biodegradable options', 'Custom weaves'],
+    'Natural/Synthetic Fabrics': ['Cotton blends', 'atactic polypropylene', 'Biodegradable options', 'Custom weaves'],
     'Commercial Textiles': ['Industrial fabrics', 'Hospitality linens', 'Protective materials', 'Custom solutions']
   };
 
@@ -636,11 +636,7 @@ const RequestQuotePage = () => {
               <div className="space-y-2">
                 <div className="flex items-center space-x-2">
                   <Award className="w-4 h-4 text-[#39b54b]" />
-                  <span className="text-sm text-gray-700">ISO 9001:2015 Certified</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Award className="w-4 h-4 text-[#39b54b]" />
-                  <span className="text-sm text-gray-700">REACH Compliant</span>
+                  <span className="text-sm text-gray-700">Advanced Manufacturing Technology</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Leaf className="w-4 h-4 text-[#39b54b]" />

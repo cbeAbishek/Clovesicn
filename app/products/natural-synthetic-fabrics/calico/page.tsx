@@ -31,47 +31,42 @@ export default function Page() {
         },
         {
           label: 'Material',
-          value: 'Cotton (Natural Calico Fabric)',
+          value: 'Cotton (Natural Fiber)',
           icon: <FaRulerCombined size={32} className="text-white" />,
         },
         {
           label: 'Temperature Resistance',
-          value: 'Moderate - suitable for general use',
+          value: 'Moderate (not for high heat)',
           icon: <FaThermometerHalf size={32} className="text-white" />,
         },
         {
           label: 'Eco-Friendly',
-          value: 'Yes (Biodegradable)',
+          value: 'Yes (Natural and biodegradable)',
           icon: <FaLeaf size={32} className="text-white" />,
         },
         {
-          label: 'Reusability',
-          value: 'Yes',
-          icon: <FaSyncAlt size={32} className="text-white" />,
-        },
-        {
           label: 'Use Case',
-          value: 'Medical packaging, commercial liners, textile base',
+          value: 'Medical, commercial, and industrial applications',
           icon: <FaBriefcase size={32} className="text-white" />,
         },
         {
           label: 'Customization',
-          value: 'Custom sizing and design available',
+          value: 'Available in various weights and finishes',
           icon: <FaTools size={32} className="text-white" />,
         },
         {
-          label: 'Durability',
-          value: 'Moderate - Soft but reusable',
+          label: 'Construction',
+          value: 'Soft but strong',
           icon: <FaHammer size={32} className="text-white" />,
         },
         {
-          label: 'Water Resistance',
-          value: 'Low - Absorbent',
+          label: 'Breathability',
+          value: 'Highly breathable',
           icon: <FaTint size={32} className="text-white" />,
         },
         {
           label: 'Region Popularity',
-          value: 'Common in healthcare and textile sectors',
+          value: 'Widely used globally',
           icon: <FaGlobeAmericas size={32} className="text-white" />,
         },
       ]}

@@ -22,11 +22,11 @@ const SustainabilityFocusSection = () => {
           </h2>
 
           <p className="text-gray-700 text-base leading-relaxed">
-            Sustainability is not a feature — it's our foundation. From recyclable raw materials to zero-waste production lines, Cloves Inc. designs every process to minimize environmental impact.
+            Sustainability is not a feature — it's our foundation. From sustainable raw materials to zero-waste production lines, Cloves Inc. designs every process to minimize environmental impact.
           </p>
 
           <p className="text-gray-700 text-base leading-relaxed">
-            We invest heavily in R&D to continuously innovate biodegradable liners and reusable systems that meet evolving regulations and expectations.
+            We invest heavily in R&D to continuously innovate biodegradable liners and sustainable systems that meet evolving regulations and expectations.
           </p>
 
           <p className="text-gray-700 text-base leading-relaxed">

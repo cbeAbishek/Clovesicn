@@ -16,11 +16,11 @@ export default function Page() {
   return (
     <ProductSubPageTemplate
       title="Multiwall Paper Sacks"
-      description="Multiwall paper sacks are strong, multi-layered paper bags ideal for packaging dry goods and industrial materials. They provide excellent protection against moisture and external elements."
+      description="Multiwall paper sacks are strong, multi-layered paper bags ideal for packaging dry goods and industrial materials. They provide excellent protection against external elements."
       image="/Product/ps/ps4.png" // Replace with real image
       features={[
         'Environmentally friendly',
-        'High strength and moisture resistance',
+        'High strength construction',
         'Suitable for various industrial applications',
       ]}
       specifications={[
@@ -41,13 +41,8 @@ export default function Page() {
         },
         {
           label: 'Eco-Friendly',
-          value: 'Yes (Biodegradable and recyclable)',
+          value: 'Biodegradable materials',
           icon: <FaLeaf size={32} className="text-white" />,
-        },
-        {
-          label: 'Reusability',
-          value: 'Limited (Typically single-use)',
-          icon: <FaSyncAlt size={32} className="text-white" />,
         },
         {
           label: 'Use Case',
@@ -60,13 +55,13 @@ export default function Page() {
           icon: <FaTools size={32} className="text-white" />,
         },
         {
-          label: 'Durability',
-          value: 'High - Multi-layered strength',
+          label: 'Construction',
+          value: 'Multi-layered strength',
           icon: <FaHammer size={32} className="text-white" />,
         },
         {
-          label: 'Water Resistance',
-          value: 'Good moisture resistance',
+          label: 'Protection',
+          value: 'Good protection',
           icon: <FaTint size={32} className="text-white" />,
         },
         {

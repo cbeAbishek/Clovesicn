@@ -31,47 +31,42 @@ export default function Page() {
         },
         {
           label: 'Material',
-          value: 'Polypropylene Woven Fabric',
+          value: 'Polypropylene Woven',
           icon: <FaRulerCombined size={32} className="text-white" />,
         },
         {
           label: 'Temperature Resistance',
-          value: 'Standard industrial tolerance',
+          value: 'Moderate (not for high heat)',
           icon: <FaThermometerHalf size={32} className="text-white" />,
         },
         {
           label: 'Eco-Friendly',
-          value: 'Partially (Reusable, not biodegradable)',
+          value: 'Sustainable materials',
           icon: <FaLeaf size={32} className="text-white" />,
         },
         {
-          label: 'Reusability',
-          value: 'Yes',
-          icon: <FaSyncAlt size={32} className="text-white" />,
-        },
-        {
           label: 'Use Case',
-          value: 'Heavy-duty packaging and storage',
+          value: 'Heavy-duty packaging and protection',
           icon: <FaBriefcase size={32} className="text-white" />,
         },
         {
           label: 'Customization',
-          value: 'Custom sizes and GSM options',
+          value: 'Available in various weights and sizes',
           icon: <FaTools size={32} className="text-white" />,
         },
         {
-          label: 'Durability',
-          value: 'Very High - For demanding environments',
+          label: 'Construction',
+          value: 'Tear-resistant and long-lasting',
           icon: <FaHammer size={32} className="text-white" />,
         },
         {
-          label: 'Water Resistance',
-          value: 'Good - Non-absorbent surface',
+          label: 'Protection',
+          value: 'Tear resistant',
           icon: <FaTint size={32} className="text-white" />,
         },
         {
           label: 'Region Popularity',
-          value: 'Popular in industrial and logistics sectors worldwide',
+          value: 'Widely used in industrial sectors',
           icon: <FaGlobeAmericas size={32} className="text-white" />,
         },
       ]}

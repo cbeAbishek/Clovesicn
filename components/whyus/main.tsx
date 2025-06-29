@@ -58,11 +58,10 @@ const WhyChooseUs = () => {
     },
     {
       icon: Award,
-      title: 'Certified Excellence',
-      description:
-        'ISO 9001 certified, FDA approved, and compliant with REACH/RoHS standards.',
+      title: 'Quality Assurance',
+      description: 'Advanced manufacturing technology and strict quality control processes.',
       color: 'from-yellow-500 to-orange-500',
-      stats: '12+ Certifications',
+      stats: '12+ Quality Standards',
     },
     {
       icon: Users,

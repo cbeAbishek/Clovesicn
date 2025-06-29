@@ -16,12 +16,14 @@ export default function Page() {
   return (
     <ProductSubPageTemplate
       title="Woven Plastic Liners"
-      description="Woven plastic liners provide a cost-effective and lightweight alternative to Jute liners, offering high durability and easy handling for medical waste management."
-      image="/Product/al/al4.jpg" // Replace with real image
+      description="Cost-effective woven plastic liners for medical waste autoclave facilities. Allows higher steam penetration and lower energy costs while maintaining lightweight properties."
+      image="/Product/al/al4.jpg"
       features={[
-        'Cost-effective compared to Jute liners',
-        'Strong and tear-resistant',
-        'Lightweight and durable',
+        'Cost-effective alternative to Jute liners',
+        'Allows higher steam penetration',
+        'Enables lower cook time and lower energy cost',
+        'Cost effective in purchase price and cooking cost',
+        'Available in any size',
       ]}
       specifications={[
         {
@@ -36,42 +38,42 @@ export default function Page() {
         },
         {
           label: 'Temperature Resistance',
-          value: 'Suitable for general autoclave use',
+          value: 'Suitable for autoclaving',
           icon: <FaThermometerHalf size={32} className="text-white" />,
         },
         {
-          label: 'Eco-Friendly',
-          value: 'Partially (Reusable but synthetic)',
+          label: 'Steam Penetration',
+          value: 'Enhanced steam penetration',
           icon: <FaLeaf size={32} className="text-white" />,
         },
         {
-          label: 'Reusability',
-          value: 'Yes (Reusable)',
+          label: 'Energy Efficiency',
+          value: 'Lower cook time and energy cost',
           icon: <FaSyncAlt size={32} className="text-white" />,
         },
         {
           label: 'Use Case',
-          value: 'Medical waste management and transport',
+          value: 'Medical waste autoclave facilities',
           icon: <FaBriefcase size={32} className="text-white" />,
         },
         {
           label: 'Customization',
-          value: 'Sizes and capacities available on request',
+          value: 'Available in any size',
           icon: <FaTools size={32} className="text-white" />,
         },
         {
-          label: 'Durability',
-          value: 'High - Strong and tear-resistant',
+          label: 'Cost Effectiveness',
+          value: 'Cost effective in purchase and cooking',
           icon: <FaHammer size={32} className="text-white" />,
         },
         {
-          label: 'Water Resistance',
-          value: 'Yes',
+          label: 'Manufacturing',
+          value: 'Only manufacturer with global supply capability',
           icon: <FaTint size={32} className="text-white" />,
         },
         {
           label: 'Region Popularity',
-          value: 'Used globally in cost-sensitive operations',
+          value: 'Global medical waste facilities',
           icon: <FaGlobeAmericas size={32} className="text-white" />,
         },
       ]}

@@ -65,10 +65,10 @@ const CommercialTextilesPage = () => {
     },
     {
       title: 'Shower Curtains',
-      description: 'Water-resistant and easy-to-clean curtains for hospitals.',
+      description: 'Hygiene-focused curtains for hospitals.',
       image: '/Product/ct/p8.jpg',
       link: '/products/commercial-textiles/shower-curtains',
-      features: ['Water-resistant', 'Easy Clean', 'Hospital Grade'],
+      features: ['Hygiene-focused', 'Easy Clean', 'Hospital Grade'],
     },
   ];
 

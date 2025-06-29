@@ -8,8 +8,8 @@ const products = [
   {
     title: 'Autoclave Liners',
     id: 'autoclave',
-    description: 'Leak-proof and heat-resistant liners for medical autoclaves.',
-    types: ['Sterile Liners', 'Biohazard Bags', 'Steam Safe', 'Medical Waste'],
+    description: 'High-temperature atactic polypropylene liners - the only manufacturer with global supply capability for medical waste autoclave facilities.',
+    types: ['High-Temp Plastic', 'Textile Liners', 'Jute/Hessian', 'Woven Plastic'],
     image: "/Product/al/al1.jpg",
   },
   {
@@ -44,7 +44,7 @@ export default function ProductsPage() {
             Featured Products
           </h1>
           <p className="text-gray-800 text-base md:text-lg font-medium mb-16">
-            Explore premium-grade solutions tailored for durability and design
+            Explore premium-grade solutions tailored for design and performance
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">

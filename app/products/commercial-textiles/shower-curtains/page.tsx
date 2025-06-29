@@ -16,12 +16,12 @@ export default function Page() {
   return (
     <ProductSubPageTemplate
       title="Shower Curtains"
-      description="Waterproof and durable, these shower curtains are ideal for use in hospitals, clinics, and hospitality sectors, offering hygiene, ease of maintenance, and customizability."
+      description="Hygiene-focused shower curtains ideal for use in hospitals, clinics, and hospitality sectors, offering ease of maintenance and customizability."
       image="/Product/ct/ct4.jpg" // Replace with real image
       features={[
-        'Water-resistant and easy to clean',
-        'Durable for frequent use',
-        'Customizable sizes and designs',
+        'Hygiene-focused design',
+        'Easy maintenance',
+        'Customizable options',
       ]}
       specifications={[
         {
@@ -31,47 +31,42 @@ export default function Page() {
         },
         {
           label: 'Material',
-          value: 'PVC, PEVA, or polyester-based blends',
+          value: 'Hygiene Fabric',
           icon: <FaRulerCombined size={32} className="text-white" />,
         },
         {
           label: 'Temperature Resistance',
-          value: 'Resistant to warm water exposure',
+          value: 'Standard temperature range',
           icon: <FaThermometerHalf size={32} className="text-white" />,
         },
         {
           label: 'Eco-Friendly',
-          value: 'Varies by material (PEVA preferred)',
+          value: 'Commercial-grade materials',
           icon: <FaLeaf size={32} className="text-white" />,
         },
         {
-          label: 'Reusability',
-          value: 'Yes',
-          icon: <FaSyncAlt size={32} className="text-white" />,
-        },
-        {
           label: 'Use Case',
-          value: 'Hospitals, hotels, and hygiene-sensitive zones',
+          value: 'Healthcare and hospitality facilities',
           icon: <FaBriefcase size={32} className="text-white" />,
         },
         {
           label: 'Customization',
-          value: 'Custom lengths, hooks, and print options',
+          value: 'Available in various sizes and designs',
           icon: <FaTools size={32} className="text-white" />,
         },
         {
-          label: 'Durability',
-          value: 'High - Daily use ready',
+          label: 'Construction',
+          value: 'Hygiene and mildew resistant',
           icon: <FaHammer size={32} className="text-white" />,
         },
         {
-          label: 'Water Resistance',
-          value: 'Yes (Fully waterproof)',
+          label: 'Protection',
+          value: 'Hygiene barrier',
           icon: <FaTint size={32} className="text-white" />,
         },
         {
           label: 'Region Popularity',
-          value: 'Widely used in institutional and hospitality settings',
+          value: 'Widely used in hospitality globally',
           icon: <FaGlobeAmericas size={32} className="text-white" />,
         },
       ]}

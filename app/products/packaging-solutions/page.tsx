@@ -43,7 +43,7 @@ const PackagingSolutionPage = () => {
     { label: 'Material Types', value: 'Multiple options', icon: Factory },
     { label: 'Applications', value: 'Multi-industry use', icon: Shield },
     { label: 'Customization', value: 'Various sizes & designs', icon: Recycle },
-    { label: 'Durability', value: 'Tear & moisture resistant', icon: Shield },
+    { label: 'Construction', value: 'Tear resistant', icon: Shield },
     { label: 'Sustainability', value: 'Eco-friendly materials', icon: Recycle },
   ];
 

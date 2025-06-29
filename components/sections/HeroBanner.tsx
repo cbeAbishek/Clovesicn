@@ -108,8 +108,7 @@ const HeroBanner = () => {
                 animationFillMode: 'forwards',
               }}
             >
-              Your Global Leader in Medical Waste Liners & Industrial Packaging
-              Solutions
+              The Only Manufacturer with Global Supply Capability for High-Temperature Atactic Polypropylene Autoclave Liners
             </p>
 
             {/* CTA Buttons */}

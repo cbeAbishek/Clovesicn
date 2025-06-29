@@ -3,12 +3,11 @@ import {
   FaTag, // For Category
   FaRulerCombined, // For Material
   FaThermometerHalf, // For Temperature Resistance
-  FaLeaf, // For Eco-Friendly
-  FaSyncAlt, // For Reusability
+  FaLeaf, // For Steam Penetration
+  FaSyncAlt, // For Energy Efficiency
   FaBriefcase, // For Use Case
   FaTools, // For Customization
-  FaHammer, // For Durability
-  FaTint, // For Water Resistance
+  FaHammer, // For Cost Effectiveness
   FaGlobeAmericas, // For Region Popularity
 } from 'react-icons/fa';
 
@@ -16,12 +15,14 @@ export default function Page() {
   return (
     <ProductSubPageTemplate
       title="High-Temp Plastic Liners"
-      description="Designed to withstand the intense heat of medical autoclaves, these liners protect carts and ensure safe sterilization of hazardous medical waste."
-      image="/Product/al/al1.jpg" // Replace with real image
+      description="High-temperature atactic polypropylene liners designed to withstand the intense heat of medical autoclaves. The only manufacturer with global supply capability for medical waste autoclave facilities."
+      image="/Product/al/al1.jpg"
       features={[
         'Heat resistant up to 140°C',
-        'Available in lightweight 30 kg rolls',
-        'Ideal for sterilizing hazardous medical waste',
+        'Allows higher steam penetration',
+        'Enables lower cook time and lower energy cost',
+        'Cost effective in purchase price and cooking cost',
+        'Available in any size (100"x80", 75"x90", 75"x110", 100"x120", 130"x150")',
       ]}
       specifications={[
         {
@@ -31,7 +32,7 @@ export default function Page() {
         },
         {
           label: 'Material',
-          value: 'Durable Plastic (Polyester Blend)',
+          value: 'High-temperature atactic polypropylene',
           icon: <FaRulerCombined size={32} className="text-white" />,
         },
         {
@@ -40,38 +41,38 @@ export default function Page() {
           icon: <FaThermometerHalf size={32} className="text-white" />,
         },
         {
-          label: 'Eco-Friendly',
-          value: 'Yes',
+          label: 'Steam Penetration',
+          value: 'Enhanced steam penetration',
           icon: <FaLeaf size={32} className="text-white" />,
         },
         {
-          label: 'Reusability',
-          value: 'No (Single-use)',
+          label: 'Energy Efficiency',
+          value: 'Lower cook time and energy cost',
           icon: <FaSyncAlt size={32} className="text-white" />,
         },
         {
           label: 'Use Case',
-          value: 'Hospital waste sterilization',
+          value: 'Medical waste autoclave facilities',
           icon: <FaBriefcase size={32} className="text-white" />,
         },
         {
           label: 'Customization',
-          value: 'Available in various sizes',
+          value: 'Available in any size',
           icon: <FaTools size={32} className="text-white" />,
         },
         {
-          label: 'Durability',
-          value: 'High - Prevents melting of medical waste',
+          label: 'Cost Effectiveness',
+          value: 'Cost effective in purchase and cooking',
           icon: <FaHammer size={32} className="text-white" />,
         },
         {
-          label: 'Water Resistance',
-          value: 'Yes',
-          icon: <FaTint size={32} className="text-white" />,
+          label: 'Manufacturing',
+          value: 'Only manufacturer with global supply capability',
+          icon: <FaHammer size={32} className="text-white" />,
         },
         {
           label: 'Region Popularity',
-          value: 'Global (especially healthcare facilities)',
+          value: 'Global medical waste facilities',
           icon: <FaGlobeAmericas size={32} className="text-white" />,
         },
       ]}
