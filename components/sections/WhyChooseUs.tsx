@@ -86,7 +86,7 @@ const WhyChooseUs = () => {
             </div>
           </div>
           <p className="text-xl text-gray-600 mt-8 max-w-3xl mx-auto animate-fade-in delay-700">
-            Experience excellence through our commitment to innovation, sustainability, and customer satisfaction
+            Experience excellence through our commitment to innovation, quality, and customer satisfaction
           </p>
         </div>
 

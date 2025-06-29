@@ -18,7 +18,7 @@ const MissionSection = () => {
           </div>
 
           <h2 className="text-3xl md:text-4xl font-bold text-green-900 leading-tight">
-            Sustainable Solutions, Global Vision
+            Quality Solutions, Global Vision
           </h2>
 
           <p className="text-gray-700 text-base leading-relaxed">
@@ -26,11 +26,11 @@ const MissionSection = () => {
           </p>
 
           <p className="text-gray-700 text-base leading-relaxed">
-            With a relentless focus on innovation and scalability, we empower global industries to adopt sustainable alternatives without compromising on quality or efficiency.
+            With a relentless focus on innovation and scalability, we empower global industries to adopt quality alternatives without compromising on performance or efficiency.
           </p>
 
           <p className="text-gray-700 text-base leading-relaxed">
-            Backed by years of expertise and a passionate team, Cloves Inc. leads with purpose — delivering smart, sustainable packaging systems that drive real impact.
+            Backed by years of expertise and a passionate team, Cloves Inc. leads with purpose — delivering smart, quality packaging systems that drive real impact.
           </p>
         </motion.div>
 

@@ -264,7 +264,7 @@ const RequestQuotePage = () => {
           <h1 className="text-5xl font-bold mb-4">Request a Quote</h1>
           <p className="text-xl opacity-90 max-w-2xl mx-auto">
             Get tailored solutions for your healthcare, industrial, and commercial needs. 
-            Our sustainable products meet the highest quality standards.
+            Our quality products meet the highest quality standards.
           </p>
         </div>
       </div>
@@ -427,7 +427,7 @@ const RequestQuotePage = () => {
                     />
                     <span className="text-gray-700 flex items-center">
                       <Leaf className="w-4 h-4 text-[#39b54b] mr-2" />
-                      I prefer eco-friendly and sustainable options
+                      I prefer eco-friendly and quality options
                     </span>
                   </label>
                 </div>

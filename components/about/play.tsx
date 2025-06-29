@@ -116,7 +116,7 @@ const PlayfulHeroSection = () => {
             </h1>
 
             <p className={`text-xl sm:text-2xl text-slate-600 max-w-lg font-medium transition-all delay-400 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'}`}>
-              A global leader in medical waste liners and packaging — rooted in innovation, sustainability, and service. {" "}
+              A global leader in medical waste liners and packaging — rooted in innovation, quality, and service. {" "}
               <span className="text-[#39b54b] font-bold underline decoration-wavy decoration-[#39b54b]/50">amazing realities</span> {currentEmoji}
             </p>
 

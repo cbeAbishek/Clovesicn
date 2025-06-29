@@ -45,7 +45,7 @@ const GlobalPresenceSection = () => {
           </p>
 
           <p className="text-gray-700 text-base leading-relaxed">
-            Our vision is to lead not just in scale, but in trust and impact — becoming the go-to provider for sustainable packaging around the world.
+            Our vision is to lead not just in scale, but in trust and impact — becoming the go-to provider for quality packaging around the world.
           </p>
         </motion.div>
       </div>

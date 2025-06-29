@@ -240,7 +240,7 @@ export default function TermsOfService() {
           {/* Footer Note */}
           <div className="border-t border-gray-200 pt-6 mt-8">
             <div className="bg-green-50 rounded-lg p-4">
-              <h3 className="font-semibold text-gray-900 mb-2">Commitment to Sustainability and Ethics</h3>
+              <h3 className="font-semibold text-gray-900 mb-2">Commitment to Quality and Ethics</h3>
               <p className="text-gray-700 text-sm">
                 Clover Inc. is dedicated to ethical business practices and environmental stewardship. These Terms reflect our commitment to transparency, quality, and global compliance.
               </p>

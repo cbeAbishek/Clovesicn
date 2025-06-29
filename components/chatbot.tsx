@@ -53,7 +53,7 @@ export function AiChatbot() {
     // Simulate bot response with common college-related queries
     setTimeout(() => {
       let botResponse =
-        "I'm not sure how to help with that. Can you try asking about products, sustainability, quality standards, or bulk orders?";
+        "I'm not sure how to help with that. Can you try asking about products, quality standards, bulk orders, or technical specifications?";
 
       const lowerCaseMessage = message.toLowerCase();
 
@@ -78,9 +78,9 @@ export function AiChatbot() {
           'We offer bulk bags (up to 1 ton), tear-resistant poly-woven bags, breathable mesh bags, and protective multiwall paper sacks. Custom sizes available. Want a quote?';
       }
 
-      // Sustainability & certifications
+      // Quality & certifications
       if (
-        lowerCaseMessage.includes('sustainability') ||
+        lowerCaseMessage.includes('quality') ||
         lowerCaseMessage.includes('eco') ||
         lowerCaseMessage.includes('environment') ||
         lowerCaseMessage.includes('green') ||
@@ -89,7 +89,7 @@ export function AiChatbot() {
         lowerCaseMessage.includes('fda')
       ) {
         botResponse =
-          'We are committed to sustainable practices and environmental responsibility. Our products are designed with eco-friendly materials and processes. Quality documents available on request.';
+          'We are committed to quality practices and environmental responsibility. Our products are designed with eco-friendly materials and processes. Quality documents available on request.';
       }
 
       // Company info
@@ -136,10 +136,10 @@ export function AiChatbot() {
       // Default fallback
       if (
         botResponse ===
-        "I'm not sure how to help with that. Can you try asking about products, sustainability, quality standards, or bulk orders?"
+        "I'm not sure how to help with that. Can you try asking about products, quality standards, bulk orders, or technical specifications?"
       ) {
         botResponse =
-          "Try asking about specific products (e.g., 'jute liners'), sustainability, quality standards, or bulk orders. Need help? Just say 'Contact me!'";
+          "Try asking about specific products (e.g., 'jute liners'), quality standards, bulk orders, or technical specifications. Need help? Just say 'Contact me!'";
       }
 
       const botMessageObj: Message = {

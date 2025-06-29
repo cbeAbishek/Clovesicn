@@ -29,7 +29,7 @@ const PackagingSolutionPage = () => {
     {
       icon: Recycle,
       text: 'Environmentally Friendly',
-      desc: 'Sustainable packaging options',
+      desc: 'Innovative packaging options',
     },
     {
       icon: Factory,

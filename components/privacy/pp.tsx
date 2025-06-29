@@ -92,7 +92,7 @@ export default function PrivacyPolicyPage() {
             <ul className="space-y-3 text-gray-700">
               <li><strong>Provide Products/Services:</strong> Process orders, fulfill requests, and deliver autoclave liners, packaging solutions, and textiles.</li>
               <li><strong>Customer Support:</strong> Respond to inquiries, resolve issues, and manage accounts.</li>
-              <li><strong>Marketing:</strong> Share updates about products, promotions, or sustainability initiatives (opt-out available).</li>
+              <li><strong>Marketing:</strong> Share updates about products, promotions, or quality initiatives (opt-out available).</li>
               <li><strong>Operational Improvements:</strong> Analyze website traffic, optimize user experience, and improve product design.</li>
               <li><strong>Compliance:</strong> Meet legal obligations, enforce terms of service, and protect our rights.</li>
             </ul>
@@ -213,9 +213,9 @@ export default function PrivacyPolicyPage() {
 
           {/* Commitment Section */}
           <section className="bg-[#39b54b]/5 rounded-lg p-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">Commitment to Sustainability and Trust</h2>
+            <h2 className="text-xl font-bold text-gray-900 mb-4">Commitment to Quality and Trust</h2>
             <p className="text-gray-700">
-              At Clover Inc., our dedication to sustainability extends to data privacy. We strive to protect both the environment and your information through ethical, transparent practices. This policy aligns with Clover Inc.'s mission to innovate sustainably while prioritizing customer trust and global compliance.
+              At Clover Inc., our dedication to quality extends to data privacy. We strive to protect both the environment and your information through ethical, transparent practices. This policy aligns with Clover Inc.'s mission to innovate responsibly while prioritizing customer trust and global compliance.
             </p>
           </section>
         </div>

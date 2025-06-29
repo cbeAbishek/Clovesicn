@@ -68,7 +68,7 @@ const RequestQuotePage = () => {
     'Packaging Solutions': [
       { id: 'ps-1', name: 'Biodegradable Food Containers', price: '$45' },
       { id: 'ps-2', name: 'Compostable Packaging Films', price: '$78' },
-      { id: 'ps-3', name: 'Sustainable Clamshell Boxes', price: '$92' },
+      { id: 'ps-3', name: 'Premium Clamshell Boxes', price: '$92' },
       { id: 'ps-4', name: 'Eco-Friendly Wrap Materials', price: '$123' },
     ],
     'Industrial Solutions': [
@@ -292,7 +292,7 @@ const RequestQuotePage = () => {
               </div>
               <div className="flex items-center space-x-2">
                 <Recycle className="h-5 w-5" />
-                <span>Sustainable</span>
+                <span>Eco-Friendly</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Star className="h-5 w-5" />
@@ -504,7 +504,7 @@ const RequestQuotePage = () => {
                 />
                 <span className="text-gray-700 flex items-center">
                   <Leaf className="h-5 w-5 mr-2 text-[#39b54b]" />I prefer
-                  eco-friendly and sustainable materials
+                  eco-friendly and quality materials
                 </span>
               </label>
             </div>

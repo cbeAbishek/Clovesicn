@@ -19,7 +19,7 @@ export default function Page() {
       description="A biodegradable and heavy-duty natural fabric used widely in industrial packaging and protection applications. Valued for its strength and sustainability."
       image="/Product/nfs/nfs2.jpg" // Replace with real image
       features={[
-        'Environmentally sustainable',
+        'Environmentally friendly',
         'Biodegradable and strong',
         'Suitable for industrial packaging',
       ]}

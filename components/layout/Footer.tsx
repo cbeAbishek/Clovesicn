@@ -15,7 +15,7 @@ const Footer = () => {
   const companyLinks = [
     { name: 'About Us', href: '/about' },
     { name: 'Founder', href: '/about#founder' },
-    { name: 'Sustainability Focus', href: '/about#sustainbaility' },
+    { name: 'Quality Focus', href: '/about#quality' },
     { name: 'Why us', href: '/whyus' },
   ];
 
@@ -49,7 +49,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
-              Leading provider of high-quality, sustainable products for healthcare, industrial, 
+              Leading provider of high-quality, innovative products for healthcare, industrial, 
               and commercial sectors worldwide. We continuously innovate to meet the evolving 
               needs of our customers while protecting our planet.
             </p>
@@ -133,7 +133,7 @@ const Footer = () => {
             <div className="max-w-2xl">
               <h3 className="text-xl font-semibold mb-2">Stay Updated</h3>
               <p className="text-gray-300 mb-6">
-                Get the latest industry insights, product updates, and sustainability news delivered to your inbox.
+                Get the latest industry insights, product updates, and quality news delivered to your inbox.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <input

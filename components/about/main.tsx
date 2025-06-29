@@ -45,7 +45,7 @@ const AboutPage = () => {
               transition={{ delay: 0.4, duration: 0.5 }}
               className="text-lg text-green-800"
             >
-              A global leader in medical waste liners and packaging — rooted in innovation, sustainability, and service.
+              A global leader in medical waste liners and packaging — rooted in innovation, quality, and service.
             </motion.p>
           </div>
         </motion.section>
@@ -66,7 +66,7 @@ const AboutPage = () => {
                 Our Impact at a Glance
               </h2>
               <p className="text-gray-700 text-sm max-w-2xl mx-auto">
-                Driving sustainable growth and global solutions, one milestone at a time.
+                Driving quality growth and global solutions, one milestone at a time.
               </p>
             </motion.div>
 

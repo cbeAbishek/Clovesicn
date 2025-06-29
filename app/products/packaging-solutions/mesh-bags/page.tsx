@@ -41,7 +41,7 @@ export default function Page() {
         },
         {
           label: 'Eco-Friendly',
-          value: 'Sustainable materials',
+          value: 'Quality materials',
           icon: <FaLeaf size={32} className="text-white" />,
         },
         {

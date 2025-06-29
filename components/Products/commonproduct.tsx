@@ -255,7 +255,7 @@ const ProductsPage = () => {
   const keyFeatures = [
     {
       icon: Leaf,
-      title: 'Sustainable Materials',
+      title: 'Quality Materials',
       description: 'Eco-friendly & biodegradable options',
     },
     {
@@ -271,7 +271,7 @@ const ProductsPage = () => {
     {
       icon: Recycle,
       title: 'Circular Economy',
-      description: 'Supporting sustainable practices',
+      description: 'Supporting quality practices',
     },
   ];
 
@@ -298,7 +298,7 @@ const ProductsPage = () => {
               </span>
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              High-quality, sustainable solutions for healthcare, industrial
+              High-quality, innovative solutions for healthcare, industrial
               packaging, and commercial textile sectors worldwide
             </p>
             <div className="mt-12 flex flex-wrap justify-center gap-4">
@@ -473,7 +473,7 @@ const ProductsPage = () => {
             Ready to Partner with Us?
           </h2>
           <p className="text-xl text-emerald-100 mb-8 max-w-2xl mx-auto">
-            Discover how our sustainable, high-quality products can meet your
+            Discover how our innovative, high-quality products can meet your
             specific industry needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -1,82 +1,44 @@
-const lapSlides = [
+export const slides = [
   {
-      title: "Sustainable Solutions for a Better Tomorrow",
-      subtitle: "Leading provider of eco-friendly products for healthcare, industrial, and commercial sectors worldwide",
-      image: "/images/hero/b1.jpg",
-      stats: "50M+ Products Delivered Globally"
-    },
-    {
-      title: "Innovation Meets Sustainability",
-      subtitle: "Advanced textile solutions and industrial packaging designed for performance and environmental responsibility",
-      image: "/images/hero/b2.jpg",
-      stats: "Advanced Manufacturing Technology"
-    },
-    {
-      title: "Healthcare Solutions You Can Trust",
-      subtitle: "High-temperature atactic polypropylene autoclave liners - the only manufacturer with global supply capability",
-      image: "/images/hero/b6.jpg",
-      stats: "99.9% Customer Satisfaction Rate"
-    },
-    {
-      title: "Global Reach, Local Impact",
-      subtitle: "Supplying sustainable products to over 10 countries, supporting local communities and economies",
-      image: "/images/hero/b14.jpg",
-      stats: "10+ Countries Served"
-    },
-    {
-      title: "Award-Winning Quality",
-      subtitle: "Recognized for excellence in product innovation and customer service",
-      image: "/images/hero/b4.jpg",
-      stats: "5 Industry Awards"
-    },
-    {
-      title: "Eco-Friendly Packaging Solutions",
-      subtitle: "Reduce your carbon footprint with our biodegradable packaging options",
-      image: "/images/hero/b5.jpg",
-      stats: "Sustainable Materials"
-    },
-    {
-      title: "Trusted by Industry Leaders",
-      subtitle: "Partnering with top brands to deliver reliable and sustainable solutions",
-      image: "/images/hero/b7.jpg",
-      stats: "Trusted by 200+ Brands"
-    },
-    {
-      title: "Cutting-Edge Manufacturing",
-      subtitle: "Utilizing the latest technology for efficient and sustainable production",
-      image: "/images/hero/b8.jpg",
-      stats: "State-of-the-Art Facilities"
-    },
-    {
-      title: "Committed to Green Initiatives",
-      subtitle: "Actively reducing waste and promoting renewable resources in every process",
-      image: "/images/hero/b9.jpg",
-      stats: "Zero Waste Policy"
-    },
-    {
-      title: "Comprehensive Product Range",
-      subtitle: "From medical textiles to industrial packaging, find solutions for every need",
-      image: "/images/hero/b10.jpg",
-      stats: "500+ Products Available"
-    },
-    {
-      title: "Customer-Centric Approach",
-      subtitle: "Dedicated support and tailored solutions for every client",
-      image: "/images/hero/b11.jpg",
-      stats: "24/7 Customer Support"
-    },
-    {
-      title: "Sustainability at Our Core",
-      subtitle: "Every product designed with the planet in mind, ensuring a greener future",
-      image: "/images/hero/b12.jpg",
-      stats: "100% Sustainable Practices"
-    },
-    {
-      title: "Fast & Reliable Delivery",
-      subtitle: "Ensuring your orders arrive on time, every time, anywhere in the world",
-      image: "/images/hero/b13.jpg",
-      stats: "99% On-Time Delivery"
-    }
+    title: "Innovative Solutions for a Better Tomorrow",
+    subtitle: "Leading the industry with cutting-edge technology and reliable products",
+    image: "/images/hero/b1.jpg",
+    stats: "Industry Leader"
+  },
+  {
+    title: "Global Supply Network",
+    subtitle: "Supplying products to over 10 countries, supporting local communities and economies",
+    image: "/images/hero/b2.jpg",
+    stats: "10+ Countries"
+  },
+  {
+    title: "Eco-Friendly Packaging Solutions",
+    subtitle: "Reduce your carbon footprint with our biodegradable packaging options",
+    image: "/images/hero/b5.jpg",
+    stats: "Eco-Friendly Materials"
+  },
+  {
+    title: "Trusted by Top Brands",
+    subtitle: "Partnering with top brands to deliver reliable and innovative solutions",
+    image: "/images/hero/b6.jpg",
+    stats: "Trusted Partner"
+  },
+  {
+    title: "Advanced Manufacturing",
+    subtitle: "Utilizing the latest technology for efficient and quality production",
+    image: "/images/hero/b7.jpg",
+    stats: "Advanced Technology"
+  },
+  {
+    title: "Quality Assurance",
+    subtitle: "Every product meets the highest standards of quality and performance",
+    image: "/images/hero/b8.jpg",
+    stats: "Quality Guaranteed"
+  },
+  {
+    title: "Innovation at Our Core",
+    subtitle: "Continuously developing new solutions to meet evolving industry needs",
+    image: "/images/hero/b9.jpg",
+    stats: "100% Innovative Practices"
+  },
 ];
-
-export default lapSlides;

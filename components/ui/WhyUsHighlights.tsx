@@ -4,9 +4,9 @@ import Leaf from '../../assets/leaf.png';
 
 const highlights = [
   {
-    title: 'Sustainable Manufacturing',
-    description: 'Carbon-neutral manufacturing with sustainable materials and eco-friendly practices.',
     icon: '🌱',
+    title: 'Quality Manufacturing',
+    description: 'Carbon-neutral manufacturing with premium materials and advanced practices.',
   },
   {
     title: 'Quality Assurance',

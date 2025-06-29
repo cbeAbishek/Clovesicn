@@ -19,7 +19,7 @@ const NaturalSyntheticFabricsPage = () => {
     {
       icon: Leaf,
       text: 'Eco-Friendly Materials',
-      desc: 'Biodegradable and sustainable options',
+      desc: 'Biodegradable and eco-friendly options',
     },
     {
       icon: Shield,
@@ -55,7 +55,7 @@ const NaturalSyntheticFabricsPage = () => {
     {
       title: 'Hessian (Jute)',
       description:
-        'Natural, breathable fabric perfect for sustainable packaging needs.',
+        'Natural, breathable fabric perfect for eco-friendly packaging needs.',
       image: '/Product/nfs/p2.jpg',
       link: '/products/natural-synthetic-fabrics/hessian-jute',
     },
@@ -157,7 +157,7 @@ const NaturalSyntheticFabricsPage = () => {
             </h1>
           </div>
           <p className="text-xl text-gray-600 mb-4 max-w-4xl mx-auto">
-            Sustainable fabrics for industrial-grade packaging, protection &
+            Eco-friendly fabrics for industrial-grade packaging, protection &
             reinforcement
           </p>
           <p className="text-lg text-gray-700 max-w-5xl mx-auto leading-relaxed">

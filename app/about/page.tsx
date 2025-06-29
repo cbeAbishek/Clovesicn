@@ -3,7 +3,7 @@ import PlayfulHeroSection from "@/components/about/play";
 import MeetTheFounderSection from '@/components/about/MeetTheFounderSection';
 import MissionSection from '@/components/about/MissionSection';
  import GlobalPresenceSection from "@/components/about/GlobalPresence";
-import SustainabilityFocusSection from "@/components/about/Sustain";
+import QualityFocusSection from "@/components/about/Sustain";
 const About = () => {
   return (
     <>
@@ -13,7 +13,7 @@ const About = () => {
       {/* ✅ Mission Section */}
       <MissionSection />
        <GlobalPresenceSection />
-       <SustainabilityFocusSection />  
+       <QualityFocusSection />  
       <AboutPage />
 
       

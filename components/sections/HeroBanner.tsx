@@ -10,8 +10,8 @@ import {
   Award,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import lapSlides from '@/constants/slides.lap';
-import mobileSlides from '@/constants/slides.mobile';
+import { slides as lapSlides } from '@/constants/slides.lap';
+import { slides as mobileSlides } from '@/constants/slides.mobile';
 
 const HeroBanner = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -108,7 +108,7 @@ const HeroBanner = () => {
                 animationFillMode: 'forwards',
               }}
             >
-              The Only Manufacturer with Global Supply Capability for High-Temperature Atactic Polypropylene Autoclave Liners
+              The Only Manufacturer with Global Supply Capability for Medical Waste Autoclave Facilities
             </p>
 
             {/* CTA Buttons */}
