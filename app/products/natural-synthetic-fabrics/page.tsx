@@ -244,16 +244,6 @@ const NaturalSyntheticFabricsPage = () => {
                       })}
                   </div>
                 </div>
-                {!expandedSpecs && (
-                  <div className="text-center mt-4">
-                    <button
-                      onClick={() => setExpandedSpecs(true)}
-                      className="text-white text-sm font-medium hover:text-white/80 transition-colors"
-                    >
-                      View All Specifications →
-                    </button>
-                  </div>
-                )}
               </div>
             </div>
           </div>
@@ -376,11 +366,8 @@ const NaturalSyntheticFabricsPage = () => {
                 eco-alternatives for your packaging needs.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-white text-purple-600 py-4 px-8 rounded-xl font-bold transition-all duration-300 hover:bg-gray-50 hover:scale-105 hover:shadow-xl">
+                <button className="bg-white text-green-700 py-4 px-8 rounded-xl font-bold transition-all duration-300 hover:bg-gray-50 hover:scale-105 hover:shadow-xl">
                   Request Quote
-                </button>
-                <button className="border-2 border-white/50 text-white py-4 px-8 rounded-xl font-bold transition-all duration-300 hover:bg-white/10 backdrop-blur-sm hover:scale-105">
-                  Download Catalog
                 </button>
               </div>
             </div>

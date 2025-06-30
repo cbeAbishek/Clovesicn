@@ -43,38 +43,6 @@ const HeroBanner = () => {
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-white">
-<<<<<<< HEAD
-      {/* Abstract Circles and Lines Background with Subtle Blur */}
-      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none blur-md" aria-hidden="true">
-        <svg
-          className="w-full h-full"
-          viewBox="0 0 1440 600"
-          fill="none"
-          aria-hidden="true"
-        >
-          <defs>
-            <linearGradient id="blue1" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="#0ea5e9" />
-              <stop offset="100%" stopColor="#22d3ee" />
-            </linearGradient>
-            <linearGradient id="blue2" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="#0e7490" />
-              <stop offset="100%" stopColor="#38bdf8" />
-            </linearGradient>
-          </defs>
-          {/* Large filled circles */}
-          <circle cx="400" cy="500" r="350" fill="url(#blue1)" opacity="0.18" />
-          <circle cx="1200" cy="200" r="300" fill="url(#blue2)" opacity="0.22" />
-          <circle cx="900" cy="600" r="200" fill="#0ea5e9" opacity="0.12" />
-          {/* Overlapping arcs/lines */}
-          <path d="M200,600 A400,400 0 0,1 800,0" stroke="#38bdf8" strokeWidth="8" fill="none" opacity="0.18"/>
-          <path d="M300,600 A350,350 0 0,1 900,0" stroke="#0ea5e9" strokeWidth="6" fill="none" opacity="0.13"/>
-          <path d="M400,600 A300,300 0 0,1 1000,0" stroke="#22d3ee" strokeWidth="4" fill="none" opacity="0.11"/>
-          {/* Thin concentric arcs */}
-          <path d="M0,600 A600,600 0 0,1 1200,0" stroke="#67e8f9" strokeWidth="2" fill="none" opacity="0.10"/>
-          <path d="M100,600 A500,500 0 0,1 1100,0" stroke="#38bdf8" strokeWidth="2" fill="none" opacity="0.08"/>
-        </svg>
-=======
       {/* Animated Green Shape Decorations */}
       {/* Top Left Shape */}
       <div
@@ -97,7 +65,6 @@ const HeroBanner = () => {
         aria-hidden="true"
       >
         <span className="block w-40 h-40 rounded-full bg-green-200/30 blur-2xl animate-green-loop3" />
->>>>>>> 588aeac076b34582da64bc0b8fd0d1ee46508d73
       </div>
 
       {/* Content */}
@@ -141,12 +108,7 @@ const HeroBanner = () => {
                 animationFillMode: 'forwards',
               }}
             >
-<<<<<<< HEAD
-              Your Global Leader in Medical Waste Liners & Industrial Packaging
-              Solutions
-=======
               The Only Manufacturer with Global Supply Capability for Medical Waste Autoclave Facilities
->>>>>>> 588aeac076b34582da64bc0b8fd0d1ee46508d73
             </p>
 
             {/* CTA Buttons */}
@@ -167,11 +129,7 @@ const HeroBanner = () => {
                 <Button
                   size="lg"
                   variant="outline"
-<<<<<<< HEAD
-                  className="border-primary-600 text-primary-600 hover:bg-primary-white hover:text-primary-700 px-8 py-4 text-lg font-semibold backdrop-blur-sm"
-=======
                   className="border-primary-600 text-primary-600 hover:bg-primary-50 hover:text-primary-700 px-8 py-4 text-lg font-semibold backdrop-blur-sm"
->>>>>>> 588aeac076b34582da64bc0b8fd0d1ee46508d73
                 >
                   About us
                 </Button>
@@ -206,11 +164,7 @@ const HeroBanner = () => {
           </div>
         </div>
       </div>
-<<<<<<< HEAD
-      <style>{`
-=======
       <style jsx global>{`
->>>>>>> 588aeac076b34582da64bc0b8fd0d1ee46508d73
         @keyframes fade-in {
           from {
             opacity: 0;
@@ -315,8 +269,4 @@ const AnimatedTitle = ({ slides, currentSlide }: AnimatedTitleProps) => {
   );
 };
 
-<<<<<<< HEAD
 export default HeroBanner;
-=======
-export default HeroBanner;
->>>>>>> 588aeac076b34582da64bc0b8fd0d1ee46508d73
