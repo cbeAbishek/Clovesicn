@@ -16,11 +16,7 @@ export default function Page() {
   return (
     <ProductSubPageTemplate
       title="Hessian (Jute)"
-<<<<<<< HEAD
-      description="A biodegradable and heavy-duty natural fabric used widely in industrial packaging and protection applications. Valued for its strength and sustainability."
-=======
       description="A biodegradable and heavy-duty natural fabric used widely in industrial packaging and protection applications. Allows higher steam penetration and enables lower cook time and energy cost."
->>>>>>> 588aeac076b34582da64bc0b8fd0d1ee46508d73
       image="/Product/nfs/nfs2.jpg" // Replace with real image
       features={[
         'Biodegradable and eco-friendly',

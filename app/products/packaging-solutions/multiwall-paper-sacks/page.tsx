@@ -16,11 +16,7 @@ export default function Page() {
   return (
     <ProductSubPageTemplate
       title="Multiwall Paper Sacks"
-<<<<<<< HEAD
-      description="Multiwall paper sacks are strong, multi-layered paper bags ideal for packaging dry goods and industrial materials. They provide excellent protection against moisture and external elements."
-=======
       description="Multiwall paper sacks are strong, multi-layered paper bags ideal for packaging dry goods and industrial materials. They provide excellent protection against external elements."
->>>>>>> 588aeac076b34582da64bc0b8fd0d1ee46508d73
       image="/Product/ps/ps4.png" // Replace with real image
       features={[
         'Environmentally friendly',

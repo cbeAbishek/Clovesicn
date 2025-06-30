@@ -16,11 +16,7 @@ export default function Page() {
   return (
     <ProductSubPageTemplate
       title="Calico"
-<<<<<<< HEAD
-      description="A soft and breathable natural fabric commonly used in medical and commercial sectors for packaging, lining, and various textile applications."
-=======
       description="Unbleached cotton fabric ideal for eco-conscious applications. Allows higher steam penetration and enables lower cook time and energy cost."
->>>>>>> 588aeac076b34582da64bc0b8fd0d1ee46508d73
       image="/Product/nfs/nfs2.jpg" // Replace with real image
       features={[
         'Natural cotton material',

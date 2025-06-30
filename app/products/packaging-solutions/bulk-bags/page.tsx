@@ -16,11 +16,7 @@ export default function Page() {
   return (
     <ProductSubPageTemplate
       title="Bulk Bags"
-<<<<<<< HEAD
-      description="These large, heavy-duty bulk bags are ideal for transporting materials such as chemicals, grains, and other industrial goods. Designed for strength and durability."
-=======
       description="These large, heavy-duty bulk bags are ideal for transporting materials such as chemicals, grains, and other industrial goods."
->>>>>>> 588aeac076b34582da64bc0b8fd0d1ee46508d73
       image="/Product/ps/ps1.jpg" // Replace with real image
       features={[
         'High strength construction',

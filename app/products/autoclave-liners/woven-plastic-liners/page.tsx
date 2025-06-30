@@ -16,13 +16,8 @@ export default function Page() {
   return (
     <ProductSubPageTemplate
       title="Woven Plastic Liners"
-<<<<<<< HEAD
-      description="Woven plastic liners provide a cost-effective and lightweight alternative to Jute liners, offering high durability and easy handling for medical waste management."
-      image="/Product/al/al4.jpg" // Replace with real image
-=======
       description="Cost-effective woven plastic liners for medical waste autoclave facilities. Allows higher steam penetration and lower energy costs while maintaining lightweight properties."
       image="/Product/al/al4.jpg"
->>>>>>> 588aeac076b34582da64bc0b8fd0d1ee46508d73
       features={[
         'Cost-effective alternative to Jute liners',
         'Allows higher steam penetration',

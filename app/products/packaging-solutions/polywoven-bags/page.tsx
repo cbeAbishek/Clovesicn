@@ -16,11 +16,7 @@ export default function Page() {
   return (
     <ProductSubPageTemplate
       title="Poly Woven Bags"
-<<<<<<< HEAD
-      description="Poly woven bags are tear-resistant and moisture-proof packaging solutions, ideal for transporting heavy materials such as cement, grains, and chemicals."
-=======
       description="Poly woven bags are tear-resistant packaging solutions, ideal for transporting heavy materials such as cement, grains, and chemicals."
->>>>>>> 588aeac076b34582da64bc0b8fd0d1ee46508d73
       image="/Product/ps/ps2.jpg" // Replace with real image
       features={[
         'Tear-resistant construction',

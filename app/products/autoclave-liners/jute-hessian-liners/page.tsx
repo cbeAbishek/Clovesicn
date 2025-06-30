@@ -16,13 +16,8 @@ export default function Page() {
   return (
     <ProductSubPageTemplate
       title="Jute/Hessian Liners"
-<<<<<<< HEAD
-      description="Preferred in regions like Australia, these biodegradable and heavy-duty liners are ideal for managing unshredded medical waste in an eco-friendly way."
-      image="/Product/al/p8.jpg" // Replace with real image
-=======
       description="Biodegradable and heavy-duty liners popular in Australia for medical waste autoclave facilities. Allows higher steam penetration and lower energy costs while maintaining eco-friendly properties."
       image="/Product/al/p8.jpg"
->>>>>>> 588aeac076b34582da64bc0b8fd0d1ee46508d73
       features={[
         'Biodegradable and environmentally friendly',
         'Allows higher steam penetration',
