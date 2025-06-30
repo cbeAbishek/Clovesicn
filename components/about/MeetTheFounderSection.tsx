@@ -36,7 +36,7 @@ const MeetTheFounderSection = () => {
             Harsha Soundararajan
           </h2>
           <p className="text-gray-700 text-base leading-relaxed">
-            Harsha is a packaging and waste management expert with over a decade of industry experience across organizations like McCain Foods and Cleanaway. As the visionary founder of Cloves Inc., he brings passion, sustainability, and innovation to the forefront of every solution.
+            Harsha is a packaging and waste management expert with over a decade of industry experience across organizations like McCain Foods and Cleanaway. As the founder of Cloves Inc., he brings passion, quality, and innovation to the forefront of every solution.
           </p>
           <p className="text-gray-700 text-base leading-relaxed">
             His mission is to build eco-conscious alternatives that drive global change — while supporting clients with reliable, cutting-edge packaging systems.

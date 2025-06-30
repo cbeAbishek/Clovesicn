@@ -41,13 +41,8 @@ export default function Page() {
         },
         {
           label: 'Eco-Friendly',
-          value: 'Partially (Reusable)',
+          value: 'Quality materials',
           icon: <FaLeaf size={32} className="text-white" />,
-        },
-        {
-          label: 'Reusability',
-          value: 'Yes',
-          icon: <FaSyncAlt size={32} className="text-white" />,
         },
         {
           label: 'Use Case',
@@ -60,13 +55,13 @@ export default function Page() {
           icon: <FaTools size={32} className="text-white" />,
         },
         {
-          label: 'Durability',
-          value: 'Moderate - suitable for perishables',
+          label: 'Construction',
+          value: 'Breathable mesh design',
           icon: <FaHammer size={32} className="text-white" />,
         },
         {
-          label: 'Water Resistance',
-          value: 'Breathable (not waterproof)',
+          label: 'Air Circulation',
+          value: 'Breathable design',
           icon: <FaTint size={32} className="text-white" />,
         },
         {

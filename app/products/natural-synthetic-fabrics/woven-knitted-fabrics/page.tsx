@@ -31,47 +31,42 @@ export default function Page() {
         },
         {
           label: 'Material',
-          value: 'Engineered Woven and Knitted Blends',
+          value: 'Woven & Knitted Fabrics',
           icon: <FaRulerCombined size={32} className="text-white" />,
         },
         {
           label: 'Temperature Resistance',
-          value: 'Depends on blend (moderate to high)',
+          value: 'Moderate (not for high heat)',
           icon: <FaThermometerHalf size={32} className="text-white" />,
         },
         {
           label: 'Eco-Friendly',
-          value: 'Varies (select blends available)',
+          value: 'Depends on material composition',
           icon: <FaLeaf size={32} className="text-white" />,
         },
         {
-          label: 'Reusability',
-          value: 'Yes',
-          icon: <FaSyncAlt size={32} className="text-white" />,
-        },
-        {
           label: 'Use Case',
-          value: 'Protective barriers, reinforced packaging',
+          value: 'Industrial reinforcement and packaging',
           icon: <FaBriefcase size={32} className="text-white" />,
         },
         {
           label: 'Customization',
-          value: 'Custom weave patterns and strengths available',
+          value: 'Available in various weights and sizes',
           icon: <FaTools size={32} className="text-white" />,
         },
         {
-          label: 'Durability',
-          value: 'Very High - Built for industrial use',
+          label: 'Construction',
+          value: 'Reinforced for industrial use',
           icon: <FaHammer size={32} className="text-white" />,
         },
         {
-          label: 'Water Resistance',
-          value: 'Optional depending on coating',
+          label: 'Flexibility',
+          value: 'Versatile applications',
           icon: <FaTint size={32} className="text-white" />,
         },
         {
           label: 'Region Popularity',
-          value: 'Industrial markets globally',
+          value: 'Widely used in industrial sectors',
           icon: <FaGlobeAmericas size={32} className="text-white" />,
         },
       ]}

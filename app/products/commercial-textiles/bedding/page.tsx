@@ -16,11 +16,15 @@ export default function Page() {
   return (
     <ProductSubPageTemplate
       title="Bedding"
+<<<<<<< HEAD
       description="High-quality bedding solutions designed specifically for hospitals and healthcare facilities, built for comfort, hygiene, and durability."
+=======
+      description="High-quality bedding solutions designed specifically for hospitals and healthcare facilities, built for comfort and hygiene."
+>>>>>>> 588aeac076b34582da64bc0b8fd0d1ee46508d73
       image="/Product/ct/ct1.jpg" // Replace with real image
       features={[
         'Soft and comfortable',
-        'Durable for frequent laundering',
+        'Frequent laundering ready',
         'Suitable for healthcare environments',
       ]}
       specifications={[
@@ -31,47 +35,42 @@ export default function Page() {
         },
         {
           label: 'Material',
-          value: 'Medical-grade cotton/poly blends',
+          value: 'Hospital-Grade Fabric',
           icon: <FaRulerCombined size={32} className="text-white" />,
         },
         {
           label: 'Temperature Resistance',
-          value: 'Wash-safe (High temp laundry resistant)',
+          value: 'High-temperature washable',
           icon: <FaThermometerHalf size={32} className="text-white" />,
         },
         {
           label: 'Eco-Friendly',
-          value: 'Yes (Reusable)',
+          value: 'Hospital-grade materials',
           icon: <FaLeaf size={32} className="text-white" />,
         },
         {
-          label: 'Reusability',
-          value: 'Yes (Multiple wash cycles)',
-          icon: <FaSyncAlt size={32} className="text-white" />,
-        },
-        {
           label: 'Use Case',
-          value: 'Hospital beds, patient care settings',
+          value: 'Healthcare and hospitality facilities',
           icon: <FaBriefcase size={32} className="text-white" />,
         },
         {
           label: 'Customization',
-          value: 'Sizes, colors, and stitching options available',
+          value: 'Available in various sizes and styles',
           icon: <FaTools size={32} className="text-white" />,
         },
         {
-          label: 'Durability',
-          value: 'High - Designed for commercial laundering',
+          label: 'Construction',
+          value: 'Hospital-grade comfort',
           icon: <FaHammer size={32} className="text-white" />,
         },
         {
-          label: 'Water Resistance',
-          value: 'Not applicable',
+          label: 'Care',
+          value: 'Easy to maintain and clean',
           icon: <FaTint size={32} className="text-white" />,
         },
         {
           label: 'Region Popularity',
-          value: 'Hospitals and healthcare systems globally',
+          value: 'Widely used in healthcare globally',
           icon: <FaGlobeAmericas size={32} className="text-white" />,
         },
       ]}

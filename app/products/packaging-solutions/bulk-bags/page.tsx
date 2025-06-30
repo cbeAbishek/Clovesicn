@@ -16,10 +16,14 @@ export default function Page() {
   return (
     <ProductSubPageTemplate
       title="Bulk Bags"
+<<<<<<< HEAD
       description="These large, heavy-duty bulk bags are ideal for transporting materials such as chemicals, grains, and other industrial goods. Designed for strength and durability."
+=======
+      description="These large, heavy-duty bulk bags are ideal for transporting materials such as chemicals, grains, and other industrial goods."
+>>>>>>> 588aeac076b34582da64bc0b8fd0d1ee46508d73
       image="/Product/ps/ps1.jpg" // Replace with real image
       features={[
-        'High strength and durability',
+        'High strength construction',
         'Available in various sizes',
         'Suitable for industrial and agricultural use',
       ]}
@@ -41,13 +45,8 @@ export default function Page() {
         },
         {
           label: 'Eco-Friendly',
-          value: 'Partially (Reusable and recyclable)',
+          value: 'Quality materials',
           icon: <FaLeaf size={32} className="text-white" />,
-        },
-        {
-          label: 'Reusability',
-          value: 'Yes',
-          icon: <FaSyncAlt size={32} className="text-white" />,
         },
         {
           label: 'Use Case',
@@ -60,13 +59,13 @@ export default function Page() {
           icon: <FaTools size={32} className="text-white" />,
         },
         {
-          label: 'Durability',
-          value: 'Very High - Designed for heavy loads',
+          label: 'Load Capacity',
+          value: 'Designed for heavy loads',
           icon: <FaHammer size={32} className="text-white" />,
         },
         {
-          label: 'Water Resistance',
-          value: 'Depends on liner (optional waterproofing)',
+          label: 'Construction',
+          value: 'Heavy-duty woven fabric',
           icon: <FaTint size={32} className="text-white" />,
         },
         {

@@ -44,7 +44,7 @@ const RequestQuotePage = () => {
   const productCategories = {
     'Autoclave Liners': ['High-temp plastic', 'Textile', 'Jute/Hessian', 'Woven plastic'],
     'Packaging Solutions': ['Bulk bags', 'Poly woven bags', 'Mesh bags', 'Multiwall paper sacks'],
-    'Natural/Synthetic Fabrics': ['Cotton blends', 'Polyester', 'Biodegradable options', 'Custom weaves'],
+    'Natural/Synthetic Fabrics': ['Cotton blends', 'atactic polypropylene', 'Biodegradable options', 'Custom weaves'],
     'Commercial Textiles': ['Industrial fabrics', 'Hospitality linens', 'Protective materials', 'Custom solutions']
   };
 
@@ -264,7 +264,7 @@ const RequestQuotePage = () => {
           <h1 className="text-5xl font-bold mb-4">Request a Quote</h1>
           <p className="text-xl opacity-90 max-w-2xl mx-auto">
             Get tailored solutions for your healthcare, industrial, and commercial needs. 
-            Our sustainable products meet the highest quality standards.
+            Our quality products meet the highest quality standards.
           </p>
         </div>
       </div>
@@ -427,7 +427,7 @@ const RequestQuotePage = () => {
                     />
                     <span className="text-gray-700 flex items-center">
                       <Leaf className="w-4 h-4 text-[#39b54b] mr-2" />
-                      I prefer eco-friendly and sustainable options
+                      I prefer eco-friendly and quality options
                     </span>
                   </label>
                 </div>
@@ -636,11 +636,7 @@ const RequestQuotePage = () => {
               <div className="space-y-2">
                 <div className="flex items-center space-x-2">
                   <Award className="w-4 h-4 text-[#39b54b]" />
-                  <span className="text-sm text-gray-700">ISO 9001:2015 Certified</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Award className="w-4 h-4 text-[#39b54b]" />
-                  <span className="text-sm text-gray-700">REACH Compliant</span>
+                  <span className="text-sm text-gray-700">Advanced Manufacturing Technology</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Leaf className="w-4 h-4 text-[#39b54b]" />

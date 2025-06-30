@@ -18,7 +18,7 @@ const MissionSection = () => {
           </div>
 
           <h2 className="text-3xl md:text-4xl font-bold text-green-900 leading-tight">
-            Sustainable Solutions, Global Vision
+            Quality Solutions, Global Vision
           </h2>
 
           <p className="text-gray-700 text-base leading-relaxed">
@@ -26,11 +26,19 @@ const MissionSection = () => {
           </p>
 
           <p className="text-gray-700 text-base leading-relaxed">
+<<<<<<< HEAD
             With a relentless focus on innovation and scalability, we empower global industries to adopt sustainable alternatives without compromising on quality or efficiency.
           </p>
 
           <p className="text-gray-700 text-base leading-relaxed">
             Backed by years of expertise and a passionate team, Cloves Inc. leads with purpose — delivering smart, sustainable packaging systems that drive real impact.
+=======
+            With a relentless focus on innovation and scalability, we empower global industries to adopt quality alternatives without compromising on performance or efficiency.
+          </p>
+
+          <p className="text-gray-700 text-base leading-relaxed">
+            Backed by years of expertise and a passionate team, Cloves Inc. leads with purpose — delivering smart, quality packaging systems that drive real impact.
+>>>>>>> 588aeac076b34582da64bc0b8fd0d1ee46508d73
           </p>
         </motion.div>
 
@@ -43,7 +51,11 @@ const MissionSection = () => {
           className="rounded-3xl overflow-hidden border-4 border-[#39b54b]/20 shadow-xl"
         >
           <img
+<<<<<<< HEAD
             src='/adi/bk.jpg'
+=======
+            src='/adi/6.jpg'
+>>>>>>> 588aeac076b34582da64bc0b8fd0d1ee46508d73
             alt="Mission Visual"
             className="w-full h-full object-cover"
           />

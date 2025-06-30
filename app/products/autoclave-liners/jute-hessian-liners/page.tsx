@@ -16,12 +16,19 @@ export default function Page() {
   return (
     <ProductSubPageTemplate
       title="Jute/Hessian Liners"
+<<<<<<< HEAD
       description="Preferred in regions like Australia, these biodegradable and heavy-duty liners are ideal for managing unshredded medical waste in an eco-friendly way."
       image="/Product/al/p8.jpg" // Replace with real image
+=======
+      description="Biodegradable and heavy-duty liners popular in Australia for medical waste autoclave facilities. Allows higher steam penetration and lower energy costs while maintaining eco-friendly properties."
+      image="/Product/al/p8.jpg"
+>>>>>>> 588aeac076b34582da64bc0b8fd0d1ee46508d73
       features={[
-        'Strong and heavy-duty',
         'Biodegradable and environmentally friendly',
-        'Ideal for waste systems that don’t require shredding',
+        'Allows higher steam penetration',
+        'Enables lower cook time and lower energy cost',
+        'Cost effective in purchase price and cooking cost',
+        'Available in any size',
       ]}
       specifications={[
         {
@@ -36,42 +43,42 @@ export default function Page() {
         },
         {
           label: 'Temperature Resistance',
-          value: 'Suitable for non-shredding autoclave systems',
+          value: 'Suitable for autoclaving',
           icon: <FaThermometerHalf size={32} className="text-white" />,
         },
         {
-          label: 'Eco-Friendly',
-          value: 'Yes (Biodegradable)',
+          label: 'Steam Penetration',
+          value: 'Enhanced steam penetration',
           icon: <FaLeaf size={32} className="text-white" />,
         },
         {
-          label: 'Reusability',
-          value: 'Yes (Limited Reuse)',
+          label: 'Energy Efficiency',
+          value: 'Lower cook time and energy cost',
           icon: <FaSyncAlt size={32} className="text-white" />,
         },
         {
           label: 'Use Case',
-          value: 'Unshredded medical waste handling',
+          value: 'Medical waste autoclave facilities',
           icon: <FaBriefcase size={32} className="text-white" />,
         },
         {
           label: 'Customization',
-          value: 'Available in standard and custom sizes',
+          value: 'Available in any size',
           icon: <FaTools size={32} className="text-white" />,
         },
         {
-          label: 'Durability',
-          value: 'Very High - Designed for rugged use',
+          label: 'Cost Effectiveness',
+          value: 'Cost effective in purchase and cooking',
           icon: <FaHammer size={32} className="text-white" />,
         },
         {
-          label: 'Water Resistance',
-          value: 'Low (absorbent nature)',
+          label: 'Manufacturing',
+          value: 'Only manufacturer with global supply capability',
           icon: <FaTint size={32} className="text-white" />,
         },
         {
           label: 'Region Popularity',
-          value: 'Highly preferred in Australia and eco-sensitive markets',
+          value: 'Popular in Australia and global markets',
           icon: <FaGlobeAmericas size={32} className="text-white" />,
         },
       ]}

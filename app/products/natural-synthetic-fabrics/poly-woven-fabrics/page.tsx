@@ -16,12 +16,19 @@ export default function Page() {
   return (
     <ProductSubPageTemplate
       title="Poly-Woven Fabrics"
+<<<<<<< HEAD
       description="Highly durable and tear-resistant, poly-woven fabrics are ideal for industrial packaging and storage, offering a lightweight yet tough solution for demanding applications."
+=======
+      description="Highly tear-resistant, poly-woven fabrics are ideal for industrial packaging and storage, offering a lightweight yet tough solution for demanding applications."
+>>>>>>> 588aeac076b34582da64bc0b8fd0d1ee46508d73
       image="/Product/nfs/nfs3.jpg" // Replace with real image
       features={[
-        'Tear-resistant and durable',
+        'Tear-resistant and long-lasting',
         'Ideal for industrial packaging',
         'Lightweight and easy to handle',
+        'Allows higher steam penetration',
+        'Enables lower cook time and lower energy cost',
+        'Cost effective both in purchase price and cooking cost',
       ]}
       specifications={[
         {
@@ -31,47 +38,42 @@ export default function Page() {
         },
         {
           label: 'Material',
-          value: 'Polypropylene Woven Fabric',
+          value: 'Polypropylene Woven',
           icon: <FaRulerCombined size={32} className="text-white" />,
         },
         {
           label: 'Temperature Resistance',
-          value: 'Standard industrial tolerance',
+          value: 'Moderate (not for high heat)',
           icon: <FaThermometerHalf size={32} className="text-white" />,
         },
         {
           label: 'Eco-Friendly',
-          value: 'Partially (Reusable, not biodegradable)',
+          value: 'Quality materials',
           icon: <FaLeaf size={32} className="text-white" />,
         },
         {
-          label: 'Reusability',
-          value: 'Yes',
-          icon: <FaSyncAlt size={32} className="text-white" />,
-        },
-        {
           label: 'Use Case',
-          value: 'Heavy-duty packaging and storage',
+          value: 'Heavy-duty packaging and protection',
           icon: <FaBriefcase size={32} className="text-white" />,
         },
         {
           label: 'Customization',
-          value: 'Custom sizes and GSM options',
+          value: 'Available in various weights and sizes',
           icon: <FaTools size={32} className="text-white" />,
         },
         {
-          label: 'Durability',
-          value: 'Very High - For demanding environments',
+          label: 'Construction',
+          value: 'Tear-resistant and long-lasting',
           icon: <FaHammer size={32} className="text-white" />,
         },
         {
-          label: 'Water Resistance',
-          value: 'Good - Non-absorbent surface',
+          label: 'Protection',
+          value: 'Tear resistant',
           icon: <FaTint size={32} className="text-white" />,
         },
         {
           label: 'Region Popularity',
-          value: 'Popular in industrial and logistics sectors worldwide',
+          value: 'Widely used in industrial sectors',
           icon: <FaGlobeAmericas size={32} className="text-white" />,
         },
       ]}

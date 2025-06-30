@@ -2,11 +2,11 @@
 
 ## Overview  
 
-Welcome to our company portfolio site! We specialize in providing high-quality, sustainable products for healthcare, industrial, and commercial sectors worldwide. Our mission is to continuously innovate to meet the evolving needs of our customers.  
+Welcome to our company portfolio site! We specialize in providing high-quality, innovative products for healthcare, industrial, and commercial sectors worldwide. Our mission is to continuously innovate to meet the evolving needs of our customers.  
 
 ## Features  
 
-- **Sustainability**: Environmentally friendly products tailored to diverse industries.  
+- **Quality**: High-quality products tailored to diverse industries.  
 - **Innovation**: Cutting-edge solutions for healthcare, industrial, and commercial applications.  
 - **Global Reach**: Serving customers worldwide with reliable and high-quality offerings.  
 

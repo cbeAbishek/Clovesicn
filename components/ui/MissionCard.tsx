@@ -12,7 +12,7 @@ const MissionCard = () => {
     >
       <h3 className="text-xl font-semibold text-green-700 mb-2">Our Mission</h3>
       <p className="text-gray-600">
-        To provide high-quality, sustainable products...
+        To provide high-quality, innovative products...
       </p>
     </motion.div>
   );

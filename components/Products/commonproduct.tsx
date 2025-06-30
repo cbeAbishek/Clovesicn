@@ -35,14 +35,16 @@ const ProductsPage = () => {
       icon: FlaskConical,
       color: 'from-emerald-400 to-teal-600',
       description:
-        'Protect autoclave carts during high-temperature sterilization processes',
+        'High-temperature atactic polypropylene liners for medical waste autoclave facilities - the only manufacturer with global supply capability',
       products: [
         {
           name: 'High-Temp Plastic Liners',
           features: [
             'Withstand up to 140°C',
-            'Lightweight (30 kg rolls)',
-            'Ideal for hazardous medical waste',
+            'Allows higher steam penetration',
+            'Enables lower cook time and lower energy cost',
+            'Cost effective in purchase price and cooking cost',
+            'Available in any size (100"x80", 75"x90", 75"x110", 100"x120", 130"x150")',
           ],
           icon: Thermometer,
           image: '/Product/al/al1.jpg',
@@ -51,9 +53,10 @@ const ProductsPage = () => {
         {
           name: 'Textile Liners',
           features: [
-            'Polyester & cotton blends',
-            'Reusable & eco-friendly',
+            'Atactic polypropylene & cotton blends',
             'Heat-resistant and easy to handle',
+            'Allows higher steam penetration',
+            'Enables lower cook time and lower energy cost',
           ],
           icon: Shirt,
           image: '/Product/al/al2.jpg',
@@ -65,6 +68,8 @@ const ProductsPage = () => {
             'Popular in Australia',
             'Biodegradable & heavy-duty',
             'Suitable for unshredded medical waste',
+            'Allows higher steam penetration',
+            'Enables lower cook time and lower energy cost',
           ],
           icon: Leaf,
           image: '/Product/al/al3.jpg',
@@ -73,9 +78,11 @@ const ProductsPage = () => {
         {
           name: 'Woven Plastic Liners',
           features: [
-            'Durable and tear-resistant',
-            'Cost-effective alternative',
+            'Allows higher steam penetration',
+            'Enables lower cook time and lower energy cost',
+            'Cost effective in purchase price and cooking cost',
             'Lightweight yet strong',
+            'Available in various sizes',
           ],
           icon: Shield,
           image: '/Product/al/al4.jpg',
@@ -105,7 +112,7 @@ const ProductsPage = () => {
         {
           name: 'Poly-Woven Bags',
           features: [
-            'Tear-resistant & moisture-proof',
+            'Tear-resistant construction',
             'Custom sizes & designs',
             'Versatile for cement, fertilizers',
           ],
@@ -129,7 +136,7 @@ const ProductsPage = () => {
           features: [
             'Multi-layered for strength',
             'Environmentally friendly',
-            'Protects from moisture',
+            'Protective packaging',
           ],
           icon: Leaf,
           image: '/Product/ps/ps4.png',
@@ -235,9 +242,9 @@ const ProductsPage = () => {
         {
           name: 'Shower Curtains',
           features: [
-            'Waterproof & durable',
-            'Healthcare and hotel use',
+            'Hygiene-focused design',
             'Easy maintenance',
+            'Customizable options',
           ],
           icon: Shield,
           image: '/Product/ct/ct4.jpg',
@@ -250,13 +257,13 @@ const ProductsPage = () => {
   const keyFeatures = [
     {
       icon: Leaf,
-      title: 'Sustainable Materials',
+      title: 'Quality Materials',
       description: 'Eco-friendly & biodegradable options',
     },
     {
       icon: Award,
-      title: 'Certified Quality',
-      description: 'ISO, FDA, REACH/RoHS certified',
+      title: 'Quality Assurance',
+      description: 'Advanced manufacturing technology and strict quality control processes.',
     },
     {
       icon: Globe,
@@ -266,7 +273,7 @@ const ProductsPage = () => {
     {
       icon: Recycle,
       title: 'Circular Economy',
-      description: 'Supporting sustainable practices',
+      description: 'Supporting quality practices',
     },
   ];
 
@@ -293,7 +300,7 @@ const ProductsPage = () => {
               </span>
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              High-quality, sustainable solutions for healthcare, industrial
+              High-quality, innovative solutions for healthcare, industrial
               packaging, and commercial textile sectors worldwide
             </p>
             <div className="mt-12 flex flex-wrap justify-center gap-4">
@@ -391,7 +398,14 @@ const ProductsPage = () => {
                   <div className="relative p-6">
                     <div className="flex items-center gap-4 mb-4">
                       <div
-                        className={`w-12 h-12 rounded-xl bg-gradient-to-r ${category.color} flex items-center justify-center transform transition-all duration-300 group-hover:rotate-12 group-hover:scale-110`}
+                        className={`w-12 h-12 rounded-xl bg-gradient-to-r ${category.color} flex items-center justify-center transform transition-all duration-300
+                          group-hover:rotate-12 group-hover:scale-110
+                          group-hover:brightness-110 group-hover:saturate-150
+                          ${hoveredProduct === `${categoryIndex}-${productIndex}` ? 'shadow-lg shadow-emerald-400/40' : ''}
+                        `}
+                        style={{
+                          transitionProperty: 'transform, filter, box-shadow',
+                        }}
                       >
                         <product.icon className="w-6 h-6 text-white" />
                       </div>
@@ -405,8 +419,7 @@ const ProductsPage = () => {
                         <div
                           key={featureIndex}
                           className={`flex items-start gap-3 transform transition-all duration-300 ${
-                            hoveredProduct ===
-                            `${categoryIndex}-${productIndex}`
+                            hoveredProduct === `${categoryIndex}-${productIndex}`
                               ? 'translate-x-0 opacity-100'
                               : 'translate-x-2 opacity-70'
                           }`}
@@ -422,14 +435,27 @@ const ProductsPage = () => {
 
                     {/* Hover Action */}
                     <div
-                      className={`mt-6 flex items-center gap-2 text-[#39b54b] font-medium text-sm transform transition-all duration-300 ${
-                        hoveredProduct === `${categoryIndex}-${productIndex}`
-                          ? 'translate-x-0 opacity-100'
-                          : 'translate-x-4 opacity-0 pointer-events-none'
-                      }`}
+                      className={`mt-6 flex items-center gap-2 font-semibold text-sm transition-all duration-300
+                        ${
+                          hoveredProduct === `${categoryIndex}-${productIndex}`
+                            ? 'opacity-100 translate-x-0'
+                            : 'opacity-0 translate-x-4 pointer-events-none'
+                        }
+                      `}
                     >
-                      <span>Learn More</span>
-                      <ChevronRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
+                      <span
+                        className={`
+                          px-4 py-2 rounded-full
+                          bg-gradient-to-r from-[#39b54b] to-emerald-500
+                          text-white shadow-lg border-2 border-[#39b54b]
+                          transition-all duration-300
+                          font-bold tracking-wide
+                          group-hover:scale-105 group-hover:shadow-emerald-300/40
+                        `}
+                      >
+                        Learn More
+                      </span>
+                      <ChevronRight className="w-4 h-4 text-[#39b54b] group-hover:translate-x-1 transition-transform duration-300" />
                     </div>
                   </div>
 
@@ -449,7 +475,7 @@ const ProductsPage = () => {
             Ready to Partner with Us?
           </h2>
           <p className="text-xl text-emerald-100 mb-8 max-w-2xl mx-auto">
-            Discover how our sustainable, high-quality products can meet your
+            Discover how our innovative, high-quality products can meet your
             specific industry needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

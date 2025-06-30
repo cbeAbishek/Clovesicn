@@ -10,8 +10,8 @@ import {
   Award,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import lapSlides from '@/constants/slides.lap';
-import mobileSlides from '@/constants/slides.mobile';
+import { slides as lapSlides } from '@/constants/slides.lap';
+import { slides as mobileSlides } from '@/constants/slides.mobile';
 
 const HeroBanner = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -43,6 +43,7 @@ const HeroBanner = () => {
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-white">
+<<<<<<< HEAD
       {/* Abstract Circles and Lines Background with Subtle Blur */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none blur-md" aria-hidden="true">
         <svg
@@ -73,6 +74,30 @@ const HeroBanner = () => {
           <path d="M0,600 A600,600 0 0,1 1200,0" stroke="#67e8f9" strokeWidth="2" fill="none" opacity="0.10"/>
           <path d="M100,600 A500,500 0 0,1 1100,0" stroke="#38bdf8" strokeWidth="2" fill="none" opacity="0.08"/>
         </svg>
+=======
+      {/* Animated Green Shape Decorations */}
+      {/* Top Left Shape */}
+      <div
+        className="absolute top-[-10px] left-[-80px] z-0 pointer-events-none"
+        aria-hidden="true"
+      >
+        <span className="block w-36 h-36 sm:w-64 sm:h-64  rounded-full bg-green-600 blur-3xl animate-green-loop1" />
+      </div>
+      {/* Bottom Right Shape */}
+      <div
+        className="absolute bottom-[90px] right-[10px] sm:right-[80px] z-0 pointer-events-none"
+        aria-hidden="true"
+      >
+        <span className="block w-[100px] h-[100px] sm:w-[150px] sm:h-[150px] rounded-full bg-green-400 blur-2xl animate-green-loop2" />
+      </div>
+      {/* Center Left Shape */}
+      <div
+        className="absolute top-1/2 left-[-60px] z-0 pointer-events-none"
+        style={{ transform: 'translateY(-50%)' }}
+        aria-hidden="true"
+      >
+        <span className="block w-40 h-40 rounded-full bg-green-200/30 blur-2xl animate-green-loop3" />
+>>>>>>> 588aeac076b34582da64bc0b8fd0d1ee46508d73
       </div>
 
       {/* Content */}
@@ -116,8 +141,12 @@ const HeroBanner = () => {
                 animationFillMode: 'forwards',
               }}
             >
+<<<<<<< HEAD
               Your Global Leader in Medical Waste Liners & Industrial Packaging
               Solutions
+=======
+              The Only Manufacturer with Global Supply Capability for Medical Waste Autoclave Facilities
+>>>>>>> 588aeac076b34582da64bc0b8fd0d1ee46508d73
             </p>
 
             {/* CTA Buttons */}
@@ -138,7 +167,11 @@ const HeroBanner = () => {
                 <Button
                   size="lg"
                   variant="outline"
+<<<<<<< HEAD
                   className="border-primary-600 text-primary-600 hover:bg-primary-white hover:text-primary-700 px-8 py-4 text-lg font-semibold backdrop-blur-sm"
+=======
+                  className="border-primary-600 text-primary-600 hover:bg-primary-50 hover:text-primary-700 px-8 py-4 text-lg font-semibold backdrop-blur-sm"
+>>>>>>> 588aeac076b34582da64bc0b8fd0d1ee46508d73
                 >
                   About us
                 </Button>
@@ -173,7 +206,11 @@ const HeroBanner = () => {
           </div>
         </div>
       </div>
+<<<<<<< HEAD
       <style>{`
+=======
+      <style jsx global>{`
+>>>>>>> 588aeac076b34582da64bc0b8fd0d1ee46508d73
         @keyframes fade-in {
           from {
             opacity: 0;
@@ -278,4 +315,8 @@ const AnimatedTitle = ({ slides, currentSlide }: AnimatedTitleProps) => {
   );
 };
 
+<<<<<<< HEAD
 export default HeroBanner;
+=======
+export default HeroBanner;
+>>>>>>> 588aeac076b34582da64bc0b8fd0d1ee46508d73

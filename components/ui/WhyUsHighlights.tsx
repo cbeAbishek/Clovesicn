@@ -1,14 +1,16 @@
 import React from 'react';
+import Award from '../../assets/award.png';
+import Leaf from '../../assets/leaf.png';
 
 const highlights = [
   {
-    title: 'Environmental Leadership',
-    description: 'Carbon-neutral manufacturing with 100% recyclable materials and sustainable practices.',
     icon: '🌱',
+    title: 'Quality Manufacturing',
+    description: 'Carbon-neutral manufacturing with premium materials and advanced practices.',
   },
   {
-    title: 'Premium Quality',
-    description: 'ISO certified products meeting the highest international standards for healthcare and industry.',
+    title: 'Quality Assurance',
+    description: 'Advanced manufacturing technology and strict quality control processes for healthcare and industry.',
     icon: '🏆',
   },
   {

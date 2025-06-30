@@ -14,7 +14,11 @@ const GlobalPresenceSection = () => {
           className="rounded-3xl overflow-hidden border-4 border-[#39b54b]/20 shadow-xl"
         >
           <img
+<<<<<<< HEAD
             src='/adi/bn.jpg'
+=======
+            src='/adi/4.jpg'
+>>>>>>> 588aeac076b34582da64bc0b8fd0d1ee46508d73
             alt="Global Presence"
             className="w-full h-full object-cover"
           />
@@ -45,7 +49,7 @@ const GlobalPresenceSection = () => {
           </p>
 
           <p className="text-gray-700 text-base leading-relaxed">
-            Our vision is to lead not just in scale, but in trust and impact — becoming the go-to provider for sustainable packaging around the world.
+            Our vision is to lead not just in scale, but in trust and impact — becoming the go-to provider for quality packaging around the world.
           </p>
         </motion.div>
       </div>

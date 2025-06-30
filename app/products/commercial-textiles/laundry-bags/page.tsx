@@ -31,47 +31,42 @@ export default function Page() {
         },
         {
           label: 'Material',
-          value: 'Durable polyester or poly-cotton blends',
+          value: 'Heavy-Duty Fabric',
           icon: <FaRulerCombined size={32} className="text-white" />,
         },
         {
           label: 'Temperature Resistance',
-          value: 'Wash-safe, compatible with hot water cycles',
+          value: 'High-temperature washable',
           icon: <FaThermometerHalf size={32} className="text-white" />,
         },
         {
           label: 'Eco-Friendly',
-          value: 'Yes (Reusable)',
+          value: 'Commercial-grade materials',
           icon: <FaLeaf size={32} className="text-white" />,
         },
         {
-          label: 'Reusability',
-          value: 'Yes (Multiple cycles)',
-          icon: <FaSyncAlt size={32} className="text-white" />,
-        },
-        {
           label: 'Use Case',
-          value: 'Commercial laundry for hospitals and hotels',
+          value: 'Healthcare and hospitality facilities',
           icon: <FaBriefcase size={32} className="text-white" />,
         },
         {
           label: 'Customization',
-          value: 'Available with color coding and closures',
+          value: 'Available in various sizes and volumes',
           icon: <FaTools size={32} className="text-white" />,
         },
         {
-          label: 'Durability',
-          value: 'High - Industrial-grade stitching and material',
+          label: 'Construction',
+          value: 'Tear-resistant material',
           icon: <FaHammer size={32} className="text-white" />,
         },
         {
-          label: 'Water Resistance',
-          value: 'Low - Breathable by design',
+          label: 'Capacity',
+          value: 'Customizable for volume',
           icon: <FaTint size={32} className="text-white" />,
         },
         {
           label: 'Region Popularity',
-          value: 'Common across global healthcare facilities',
+          value: 'Widely used in healthcare globally',
           icon: <FaGlobeAmericas size={32} className="text-white" />,
         },
       ]}

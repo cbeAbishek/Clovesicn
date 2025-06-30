@@ -20,22 +20,22 @@ const AutoclaveLinersPage = () => {
     {
       icon: Thermometer,
       text: 'Heat Resistant',
-      desc: 'Withstands up to 140°C for safe autoclave use',
+      desc: 'High-temperature atactic polypropylene withstands up to 140°C',
     },
     {
       icon: Shield,
-      text: 'Cart Protection',
-      desc: 'Guards against heat damage and melting waste',
+      text: 'Steam Penetration',
+      desc: 'Allows higher steam penetration for better sterilization',
     },
     {
       icon: Leaf,
-      text: 'Eco-Friendly Options',
-      desc: 'Sustainable material choices available',
+      text: 'Energy Efficient',
+      desc: 'Enables lower cook time and lower energy cost',
     },
     {
       icon: Package,
-      text: 'Multiple Material Types',
-      desc: 'Plastic, textile, jute & woven fabrics',
+      text: 'Global Supply',
+      desc: 'Only manufacturer with global supply capability',
     },
   ];
 
@@ -45,21 +45,21 @@ const AutoclaveLinersPage = () => {
       value: 'Up to 140°C',
       icon: Thermometer,
     },
-    { label: 'Weight Capacity', value: 'Up to 30kg (Plastic)', icon: Package },
+    { label: 'Material', value: 'Atactic polypropylene', icon: Package },
     {
-      label: 'Material Options',
-      value: 'Plastic, Textile, Jute, Woven',
+      label: 'Steam Penetration',
+      value: 'Enhanced steam penetration',
       icon: Leaf,
     },
     {
-      label: 'Applications',
-      value: 'Medical waste sterilization',
+      label: 'Energy Efficiency',
+      value: 'Lower cook time and energy cost',
       icon: Shield,
     },
-    { label: 'Durability', value: 'Heavy-duty performance', icon: Award },
+    { label: 'Cost Effectiveness', value: 'Cost effective in purchase and cooking', icon: Award },
     {
-      label: 'Sustainability',
-      value: 'Eco-compliant options',
+      label: 'Customization',
+      value: 'Available in any size',
       icon: CheckCircle,
     },
   ];
@@ -68,34 +68,34 @@ const AutoclaveLinersPage = () => {
     {
       title: 'High-Temp Plastic Liners',
       description:
-        'Engineered to withstand intense heat in autoclaves—ideal for medical waste.',
+        'High-temperature atactic polypropylene liners for medical waste autoclave facilities.',
       image: '/Product/al/p3.jpg',
       features: [
         '140°C Heat Resistance',
-        'Medical Grade',
-        'Puncture Resistant',
+        'Enhanced Steam Penetration',
+        'Cost Effective',
       ],
     },
     {
       title: 'Textile Liners',
       description:
-        'Reusable and fabric-based liners with reliable heat resistance and reusability.',
+        'Atactic polypropylene and cotton blend liners with enhanced steam penetration.',
       image: '/Product/al/p5.jpg',
-      features: ['Reusable Design', 'Fabric Based', 'Cost Effective'],
+      features: ['Atactic Polypropylene', 'Enhanced Steam Penetration', 'Cost Effective'],
     },
     {
       title: 'Jute/Hessian Liners',
       description:
-        'Natural jute-based liners—strong, breathable and biodegradable.',
+        'Biodegradable liners popular in Australia with enhanced steam penetration.',
       image: '/Product/al/p7.jpg',
-      features: ['100% Natural', 'Biodegradable', 'Breathable'],
+      features: ['Biodegradable', 'Enhanced Steam Penetration', 'Cost Effective'],
     },
     {
       title: 'Woven Plastic Liners',
       description:
-        'Durable woven liners that handle heavy-duty applications effectively.',
+        'Cost-effective woven plastic liners with enhanced steam penetration.',
       image: '/Product/al/p9.jpg',
-      features: ['Heavy Duty', 'Woven Strength', 'Industrial Grade'],
+      features: ['Cost Effective', 'Enhanced Steam Penetration', 'Available in Any Size'],
     },
   ];
 
@@ -181,13 +181,13 @@ const AutoclaveLinersPage = () => {
           </div>
 
           <p className="text-xl text-gray-600 mb-4 max-w-4xl mx-auto">
-            Safe, heat-resistant liners for sterilization processes
+            High-temperature atactic polypropylene liners for medical waste autoclave facilities
           </p>
 
           <p className="text-lg text-gray-700 max-w-5xl mx-auto leading-relaxed">
-            Built to handle extreme heat and safeguard your waste management
-            systems—available in various materials tailored for medical,
-            clinical and industrial needs.
+            The only manufacturer with global supply capability for medical waste autoclave facilities. 
+            Our liners allow higher steam penetration, enabling lower cook time and lower energy cost, 
+            making them cost effective both in purchase price and cooking cost.
           </p>
         </div>
 

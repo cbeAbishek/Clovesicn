@@ -21,7 +21,7 @@ export const generateQuotePDF = (formData, selectedProducts, quantities, product
             doc.setFontSize(10);
             doc.setFont('helvetica', 'normal');
             doc.setFontSize(8);
-            doc.text('ISO 9001 Certified | Eco-Friendly Materials', 20, 22);
+            doc.text('Advanced Manufacturing Technology | Eco-Friendly Materials', 20, 22);
             const logoBase64 = '/icon.png';
             doc.addImage(logoBase64, 'PNG', pageWidth - 25, 2.5, 20, 20);
         };

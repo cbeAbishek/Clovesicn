@@ -19,7 +19,7 @@ const NaturalSyntheticFabricsPage = () => {
     {
       icon: Leaf,
       text: 'Eco-Friendly Materials',
-      desc: 'Biodegradable and sustainable options',
+      desc: 'Biodegradable and eco-friendly options',
     },
     {
       icon: Shield,
@@ -47,7 +47,7 @@ const NaturalSyntheticFabricsPage = () => {
       value: 'Available in various sizes',
       icon: Recycle,
     },
-    { label: 'Durability', value: 'Tear-resistant design', icon: Shield },
+    { label: 'Tear Resistance', value: 'Tear-resistant design', icon: Shield },
     { label: 'Sustainability', value: 'Eco-friendly options', icon: Leaf },
   ];
 
@@ -55,7 +55,7 @@ const NaturalSyntheticFabricsPage = () => {
     {
       title: 'Hessian (Jute)',
       description:
-        'Natural, breathable fabric perfect for sustainable packaging needs.',
+        'Natural, breathable fabric perfect for eco-friendly packaging needs.',
       image: '/Product/nfs/p2.jpg',
       link: '/products/natural-synthetic-fabrics/hessian-jute',
     },
@@ -69,7 +69,7 @@ const NaturalSyntheticFabricsPage = () => {
     {
       title: 'Poly-Woven Fabrics',
       description:
-        'Durable synthetic fabrics used for heavy packaging and reinforcement.',
+        'Synthetic fabrics used for heavy packaging and reinforcement.',
       image: '/Product/nfs/p6.jpg',
       link: '/products/natural-synthetic-fabrics/poly-woven-fabrics',
     },
@@ -157,13 +157,12 @@ const NaturalSyntheticFabricsPage = () => {
             </h1>
           </div>
           <p className="text-xl text-gray-600 mb-4 max-w-4xl mx-auto">
-            Sustainable fabrics for industrial-grade packaging, protection &
+            Eco-friendly fabrics for industrial-grade packaging, protection &
             reinforcement
           </p>
           <p className="text-lg text-gray-700 max-w-5xl mx-auto leading-relaxed">
             Premium fabrics designed for demanding environments, combining
-            durability, eco-friendliness, and flexibility for various
-            industries.
+            eco-friendliness and flexibility for various industries.
           </p>
         </div>
         {/* Showcase Image and Specs */}

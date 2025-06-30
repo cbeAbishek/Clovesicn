@@ -16,12 +16,18 @@ export default function Page() {
   return (
     <ProductSubPageTemplate
       title="Calico"
+<<<<<<< HEAD
       description="A soft and breathable natural fabric commonly used in medical and commercial sectors for packaging, lining, and various textile applications."
+=======
+      description="Unbleached cotton fabric ideal for eco-conscious applications. Allows higher steam penetration and enables lower cook time and energy cost."
+>>>>>>> 588aeac076b34582da64bc0b8fd0d1ee46508d73
       image="/Product/nfs/nfs2.jpg" // Replace with real image
       features={[
-        'Lightweight and breathable',
-        'Ideal for medical and commercial use',
-        'Customizable for various applications',
+        'Natural cotton material',
+        'Allows higher steam penetration',
+        'Enables lower cook time and lower energy cost',
+        'Cost effective in purchase and cooking',
+        'Available in various sizes',
       ]}
       specifications={[
         {
@@ -31,48 +37,58 @@ export default function Page() {
         },
         {
           label: 'Material',
-          value: 'Cotton (Natural Calico Fabric)',
+          value: 'Cotton (Natural Fiber)',
           icon: <FaRulerCombined size={32} className="text-white" />,
         },
         {
           label: 'Temperature Resistance',
-          value: 'Moderate - suitable for general use',
+          value: 'Moderate (not for high heat)',
           icon: <FaThermometerHalf size={32} className="text-white" />,
         },
         {
           label: 'Eco-Friendly',
-          value: 'Yes (Biodegradable)',
+          value: 'Yes (Natural and biodegradable)',
           icon: <FaLeaf size={32} className="text-white" />,
         },
         {
-          label: 'Reusability',
-          value: 'Yes',
-          icon: <FaSyncAlt size={32} className="text-white" />,
-        },
-        {
           label: 'Use Case',
-          value: 'Medical packaging, commercial liners, textile base',
+          value: 'Medical, commercial, and industrial applications',
           icon: <FaBriefcase size={32} className="text-white" />,
         },
         {
           label: 'Customization',
-          value: 'Custom sizing and design available',
+          value: 'Available in various weights and finishes',
           icon: <FaTools size={32} className="text-white" />,
         },
         {
-          label: 'Durability',
-          value: 'Moderate - Soft but reusable',
+          label: 'Construction',
+          value: 'Soft but strong',
           icon: <FaHammer size={32} className="text-white" />,
         },
         {
-          label: 'Water Resistance',
-          value: 'Low - Absorbent',
+          label: 'Breathability',
+          value: 'Highly breathable',
           icon: <FaTint size={32} className="text-white" />,
         },
         {
           label: 'Region Popularity',
-          value: 'Common in healthcare and textile sectors',
+          value: 'Widely used globally',
           icon: <FaGlobeAmericas size={32} className="text-white" />,
+        },
+        {
+          label: 'Steam Penetration',
+          value: 'Allows higher steam penetration',
+          icon: <FaLeaf size={32} className="text-white" />,
+        },
+        {
+          label: 'Energy Efficiency',
+          value: 'Lower cook time and energy cost',
+          icon: <FaSyncAlt size={32} className="text-white" />,
+        },
+        {
+          label: 'Cost Effectiveness',
+          value: 'Cost effective in purchase and cooking',
+          icon: <FaHammer size={32} className="text-white" />,
         },
       ]}
     />

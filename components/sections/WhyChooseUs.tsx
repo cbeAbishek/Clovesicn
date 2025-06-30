@@ -14,12 +14,7 @@ const WhyChooseUs = () => {
       description: "Serving clients across North America, Europe, Asia, and Australia with tailored solutions.",
       gradient: "from-emerald-400 to-teal-500"
     },
-    {
-      icon: Leaf,
-      title: "Sustainable Focus",
-      description: "Eco-friendly materials and processes that support a circular economy.",
-      gradient: "from-green-400 to-emerald-500"
-    },
+    
     {
       icon: Lightbulb,
       title: "Innovation & Quality",
@@ -32,12 +27,7 @@ const WhyChooseUs = () => {
       description: "One-stop solution for autoclave liners, industrial packaging, fabrics, and commercial textiles.",
       gradient: "from-teal-400 to-green-500"
     },
-    {
-      icon: Award,
-      title: "Certified Excellence",
-      description: "ISO 9001 certified, FDA approved, and compliant with REACH/RoHS standards.",
-      gradient: "from-emerald-500 to-green-600"
-    },
+    
     {
       icon: Users,
       title: "Customer-Centric Approach",
@@ -96,7 +86,7 @@ const WhyChooseUs = () => {
             </div>
           </div>
           <p className="text-xl text-gray-600 mt-8 max-w-3xl mx-auto animate-fade-in delay-700">
-            Experience excellence through our commitment to innovation, sustainability, and customer satisfaction
+            Experience excellence through our commitment to innovation, quality, and customer satisfaction
           </p>
         </div>
 
