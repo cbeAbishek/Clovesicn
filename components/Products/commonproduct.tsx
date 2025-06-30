@@ -263,7 +263,8 @@ const ProductsPage = () => {
     {
       icon: Award,
       title: 'Quality Assurance',
-      description: 'Advanced manufacturing technology and strict quality control processes.',
+      description:
+        'Advanced manufacturing technology and strict quality control processes.',
     },
     {
       icon: Globe,
@@ -359,13 +360,11 @@ const ProductsPage = () => {
                 <Link
                   key={productIndex}
                   href={product.route}
-                  className={`group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-2 hover:scale-105 overflow-hidden
-                ${
-                  isVisible
-                    ? 'opacity-100 translate-y-0'
-                    : 'opacity-0 translate-y-8'
-                }
-              `}
+                  className={`
+        group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl
+        transition duration-700 transform hover:-translate-y-2 hover:scale-[1.03]
+        ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
+      `}
                   style={{
                     transitionDelay: `${
                       categoryIndex * 150 + productIndex * 80
@@ -376,36 +375,39 @@ const ProductsPage = () => {
                   }
                   onMouseLeave={() => setHoveredProduct(null)}
                 >
-                  {/* Card Background Animation */}
+                  {/* Gradient Overlay */}
                   <div
                     className={`absolute inset-0 bg-gradient-to-r ${category.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
-                  ></div>
+                  />
 
-                  {/* Product Image */}
-                  <div className="relative w-full h-36 bg-gray-100 flex items-center justify-center overflow-hidden">
+                  {/* Image */}
+                  <div className="relative w-full aspect-[4/3] bg-gray-100 overflow-hidden">
                     <Image
                       src={product.image || '/images/hero/b1.jpg'}
-                      //src='/images/hero/b1.jpg'
                       alt={product.name}
                       className="object-cover w-full h-full"
                       fill
                       sizes="100vw"
-                      style={{ objectFit: 'cover' }}
                     />
                   </div>
 
                   {/* Content */}
                   <div className="relative p-6">
+                    {/* Icon + Title */}
                     <div className="flex items-center gap-4 mb-4">
                       <div
-                        className={`w-12 h-12 rounded-xl bg-gradient-to-r ${category.color} flex items-center justify-center transform transition-all duration-300
-                          group-hover:rotate-12 group-hover:scale-110
-                          group-hover:brightness-110 group-hover:saturate-150
-                          ${hoveredProduct === `${categoryIndex}-${productIndex}` ? 'shadow-lg shadow-emerald-400/40' : ''}
-                        `}
-                        style={{
-                          transitionProperty: 'transform, filter, box-shadow',
-                        }}
+                        className={`
+              w-12 h-12 rounded-xl bg-gradient-to-r ${
+                category.color
+              } flex items-center justify-center
+              transition duration-300 ease-in-out
+              group-hover:rotate-12 group-hover:scale-110 group-hover:brightness-110
+              ${
+                hoveredProduct === `${categoryIndex}-${productIndex}`
+                  ? 'shadow-lg shadow-emerald-400/40'
+                  : ''
+              }
+            `}
                       >
                         <product.icon className="w-6 h-6 text-white" />
                       </div>
@@ -414,15 +416,19 @@ const ProductsPage = () => {
                       </h3>
                     </div>
 
+                    {/* Features */}
                     <div className="space-y-3">
                       {product.features.map((feature, featureIndex) => (
                         <div
                           key={featureIndex}
-                          className={`flex items-start gap-3 transform transition-all duration-300 ${
-                            hoveredProduct === `${categoryIndex}-${productIndex}`
-                              ? 'translate-x-0 opacity-100'
-                              : 'translate-x-2 opacity-70'
-                          }`}
+                          className={`
+                flex items-start gap-3 transition duration-300
+                ${
+                  hoveredProduct === `${categoryIndex}-${productIndex}`
+                    ? 'translate-x-0 opacity-100'
+                    : 'translate-x-2 opacity-60'
+                }
+              `}
                           style={{ transitionDelay: `${featureIndex * 100}ms` }}
                         >
                           <CheckCircle className="w-4 h-4 text-[#39b54b] mt-0.5 flex-shrink-0" />
@@ -433,34 +439,40 @@ const ProductsPage = () => {
                       ))}
                     </div>
 
-                    {/* Hover Action */}
+                    {/* CTA Button */}
                     <div
-                      className={`mt-6 flex items-center gap-2 font-semibold text-sm transition-all duration-300
-                        ${
-                          hoveredProduct === `${categoryIndex}-${productIndex}`
-                            ? 'opacity-100 translate-x-0'
-                            : 'opacity-0 translate-x-4 pointer-events-none'
-                        }
-                      `}
+                      className={`
+            mt-6 flex items-center gap-2 font-semibold text-sm
+            transition duration-300 ease-in-out
+            ${
+              hoveredProduct === `${categoryIndex}-${productIndex}`
+                ? 'opacity-100 translate-x-0'
+                : 'opacity-0 translate-x-4 pointer-events-none'
+            }
+          `}
                     >
-                      <span
+                      <button
                         className={`
-                          px-4 py-2 rounded-full
+                          flex items-center gap-2 px-4 py-2 rounded-md
                           bg-gradient-to-r from-[#39b54b] to-emerald-500
-                          text-white shadow-lg border-2 border-[#39b54b]
+                          text-white font-bold tracking-wide shadow-md border-2 border-[#39b54b]
                           transition-all duration-300
-                          font-bold tracking-wide
                           group-hover:scale-105 group-hover:shadow-emerald-300/40
+                          focus:outline-none focus:ring-2 focus:ring-[#39b54b] focus:ring-offset-2
+                          active:scale-95
                         `}
+                        tabIndex={0}
+                        aria-label="Learn more about this product"
                       >
-                        Learn More
-                      </span>
-                      <ChevronRight className="w-4 h-4 text-[#39b54b] group-hover:translate-x-1 transition-transform duration-300" />
+                        <span>Learn More </span>
+                        <ChevronRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform duration-300" />
+                      </button>
+                      
                     </div>
                   </div>
 
-                  {/* Animated Border */}
-                  <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-[#39b54b]/20 transition-all duration-500"></div>
+                  {/* Border Accent */}
+                  <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-[#39b54b]/30 transition-all duration-500"></div>
                 </Link>
               ))}
             </div>

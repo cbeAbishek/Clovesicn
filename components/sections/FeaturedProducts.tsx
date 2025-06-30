@@ -3,6 +3,7 @@
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import React, { useEffect, useRef, useState } from 'react';
 
 const products = [
   {
@@ -43,8 +44,51 @@ const products = [
 ];
 
 export default function ProductsPage() {
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [visible, setVisible] = useState<boolean[]>(
+    Array(products.length).fill(false),
+  );
+
+  useEffect(() => {
+    const observers: IntersectionObserver[] = [];
+    products.forEach((_, i) => {
+      if (!cardRefs.current[i]) return;
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setVisible((prev) => {
+                const updated = [...prev];
+                updated[i] = true;
+                return updated;
+              });
+              observer.disconnect();
+            }
+          });
+        },
+        { threshold: 0.2 },
+      );
+      observer.observe(cardRefs.current[i]!);
+      observers.push(observer);
+    });
+    return () => {
+      observers.forEach((observer) => observer.disconnect());
+    };
+  }, []);
+
   return (
     <div>
+      <style>{`
+        .slide-in {
+          opacity: 1;
+          transform: translateX(0);
+          transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1);
+        }
+        .before-slide-in {
+          opacity: 0;
+          transform: translateX(60px);
+        }
+      `}</style>
       <div className="min-h-screen bg-white py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-[#00B14F] mb-4">
@@ -58,8 +102,14 @@ export default function ProductsPage() {
           {products.map((product, index) => (
             <div
               key={index}
-              className="group rounded-2xl shadow-lg overflow-hidden border border-gray-200 transition-transform duration-500 hover:scale-[1.03] bg-white hover:bg-[#00B14F] hover:shadow-2xl"
-              style={{ width: '100%' }}
+              ref={(el) => (cardRefs.current[index] = el)}
+              className={`group rounded-2xl shadow-lg overflow-hidden border border-gray-200 transition-transform duration-500 hover:scale-[1.03] bg-white hover:bg-[#00B14F] hover:shadow-2xl ${
+                visible[index] ? 'slide-in' : 'before-slide-in'
+              }`}
+              style={{
+                width: '100%',
+                transitionDelay: visible[index] ? `${index * 120}ms` : '0ms',
+              }}
             >
               {/* Image Section */}
               <div className="h-48 sm:h-52 md:h-56 w-full relative overflow-hidden">
