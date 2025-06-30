@@ -53,6 +53,7 @@ const RequestQuotePage = () => {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [animateHeader, setAnimateHeader] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     setAnimateHeader(true);
@@ -218,7 +219,7 @@ const RequestQuotePage = () => {
     setGenerationStatus('Generating PDF quote...');
 
     try {
-      // Generate PDF
+     
       const pdfResult = generateQuotePDF(
         formData,
         selectedProducts,
@@ -229,6 +230,8 @@ const RequestQuotePage = () => {
       if (!pdfResult.success) {
         throw new Error(pdfResult.error);
       }
+      setShowPopup(true);
+      setTimeout(() => setShowPopup(false), 3000);
 
       setGenerationStatus('Creating email...');
 
@@ -253,6 +256,14 @@ const RequestQuotePage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
+       {showPopup && (
+        <div className="fixed top-6 left-1/2 z-50 transform -translate-x-1/2 bg-green-600 text-white px-6 py-3 rounded-xl shadow-lg flex items-center gap-3 animate-slide-in">
+          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4" />
+          </svg>
+          <span>Specification PDF is downloading...</span>
+        </div>
+      )}
       {/* Header Section */}
       <div className="relative bg-gradient-to-r from-[#39b54b] to-[#2d8f3a] overflow-hidden">
         <div className="absolute inset-0 bg-black bg-opacity-10"></div>

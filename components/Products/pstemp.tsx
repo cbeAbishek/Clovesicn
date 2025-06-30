@@ -21,6 +21,7 @@ export default function ProductSubPageTemplate({
   iconSize = 26,
 }: ProductSubPageTemplateProps) {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,18 +35,29 @@ export default function ProductSubPageTemplate({
 
   // Add a function to handle download with confirmation
   const handleDownloadPDF = useCallback(() => {
-    if (window.confirm('Do you want to download the specification PDF?')) {
-      const link = document.createElement('a');
-      link.href = '/documents/specification.pdf';
-      link.download = 'specification.pdf';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    }
+    // Show popup and auto-download PDF
+    setShowPopup(true);
+    // Start download
+    const link = document.createElement('a');
+    link.href = '/documents/specification.pdf';
+    link.download = 'specification.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    // Hide popup after 3 seconds
+    setTimeout(() => setShowPopup(false), 3000);
   }, []);
 
   return (
     <section className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-green-50">
+       {showPopup && (
+        <div className="fixed top-6 left-1/2 z-50 transform -translate-x-1/2 bg-green-600 text-white px-6 py-3 rounded-xl shadow-lg flex items-center gap-3 animate-slide-in">
+          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4" />
+          </svg>
+          <span>Specification PDF is downloading...</span>
+        </div>
+      )}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         
         {/* Back Button */}

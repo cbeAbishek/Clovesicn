@@ -28,12 +28,12 @@ const WhyChooseUs = () => {
       gradient: "from-teal-400 to-green-500"
     },
     
-    {
-      icon: Users,
-      title: "Customer-Centric Approach",
-      description: "Personalized service, timely delivery, and post-sales support.",
-      gradient: "from-green-500 to-emerald-600"
-    },
+    // {
+    //   icon: Users,
+    //   title: "Customer-Centric Approach",
+    //   description: "Personalized service, timely delivery, and post-sales support.",
+    //   gradient: "from-green-500 to-emerald-600"
+    // },
     {
       icon: User,
       title: "Experienced Leadership",
@@ -168,7 +168,7 @@ const WhyChooseUs = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-16 animate-fade-in delay-1000">
+        {/* <div className="text-center mt-16 animate-fade-in delay-1000">
           <div className="inline-flex items-center space-x-4 bg-white/80 backdrop-blur-sm rounded-full px-8 py-4 shadow-lg border border-gray-200/50 hover:shadow-xl transition-all duration-300 group cursor-pointer">
             <div className="w-12 h-12 bg-gradient-to-br from-[#39b54b] to-emerald-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <Award className="w-6 h-6 text-white" />
@@ -183,7 +183,7 @@ const WhyChooseUs = () => {
             </div>
             <div className="w-2 h-2 bg-[#39b54b] rounded-full animate-pulse"></div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       <style jsx>{`

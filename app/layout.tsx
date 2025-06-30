@@ -92,7 +92,7 @@ export default function RootLayout({
         <link rel="icon" href="/icon.png" />
       </head>
       <body>
-        <Preloader />
+        {/* <Preloader /> */}
         <Header />
         <AiChatbot />
         <BGAudio />
