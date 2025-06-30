@@ -16,12 +16,14 @@ export default function Page() {
   return (
     <ProductSubPageTemplate
       title="Calico"
-      description="A soft and breathable natural fabric commonly used in medical and commercial sectors for packaging, lining, and various textile applications."
+      description="Unbleached cotton fabric ideal for eco-conscious applications. Allows higher steam penetration and enables lower cook time and energy cost."
       image="/Product/nfs/nfs2.jpg" // Replace with real image
       features={[
-        'Lightweight and breathable',
-        'Ideal for medical and commercial use',
-        'Customizable for various applications',
+        'Natural cotton material',
+        'Allows higher steam penetration',
+        'Enables lower cook time and lower energy cost',
+        'Cost effective in purchase and cooking',
+        'Available in various sizes',
       ]}
       specifications={[
         {
@@ -68,6 +70,21 @@ export default function Page() {
           label: 'Region Popularity',
           value: 'Widely used globally',
           icon: <FaGlobeAmericas size={32} className="text-white" />,
+        },
+        {
+          label: 'Steam Penetration',
+          value: 'Allows higher steam penetration',
+          icon: <FaLeaf size={32} className="text-white" />,
+        },
+        {
+          label: 'Energy Efficiency',
+          value: 'Lower cook time and energy cost',
+          icon: <FaSyncAlt size={32} className="text-white" />,
+        },
+        {
+          label: 'Cost Effectiveness',
+          value: 'Cost effective in purchase and cooking',
+          icon: <FaHammer size={32} className="text-white" />,
         },
       ]}
     />

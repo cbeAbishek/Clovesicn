@@ -78,9 +78,11 @@ const ProductsPage = () => {
         {
           name: 'Woven Plastic Liners',
           features: [
-            'Durable and tear-resistant',
-            'Cost-effective alternative',
+            'Allows higher steam penetration',
+            'Enables lower cook time and lower energy cost',
+            'Cost effective in purchase price and cooking cost',
             'Lightweight yet strong',
+            'Available in various sizes',
           ],
           icon: Shield,
           image: '/Product/al/al4.jpg',

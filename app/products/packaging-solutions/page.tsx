@@ -44,7 +44,10 @@ const PackagingSolutionPage = () => {
     { label: 'Applications', value: 'Multi-industry use', icon: Shield },
     { label: 'Customization', value: 'Various sizes & designs', icon: Recycle },
     { label: 'Construction', value: 'Tear resistant', icon: Shield },
-    { label: 'Sustainability', value: 'Eco-friendly materials', icon: Recycle },
+    { label: 'Eco Impact', value: 'Eco-friendly materials', icon: Recycle },
+    { label: 'Steam Penetration', value: 'Allows higher steam penetration', icon: ArrowRight },
+    { label: 'Energy Efficiency', value: 'Enables lower cook time and lower energy cost', icon: ArrowRight },
+    { label: 'Cost Effectiveness', value: 'Cost effective both in purchase price and cooking cost', icon: ArrowRight },
   ];
 
   const subProducts = [

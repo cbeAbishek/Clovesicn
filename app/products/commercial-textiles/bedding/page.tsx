@@ -16,11 +16,11 @@ export default function Page() {
   return (
     <ProductSubPageTemplate
       title="Bedding"
-      description="High-quality bedding solutions designed specifically for hospitals and healthcare facilities, built for comfort, hygiene, and durability."
+      description="High-quality bedding solutions designed specifically for hospitals and healthcare facilities, built for comfort and hygiene."
       image="/Product/ct/ct1.jpg" // Replace with real image
       features={[
         'Soft and comfortable',
-        'Durable for frequent laundering',
+        'Frequent laundering ready',
         'Suitable for healthcare environments',
       ]}
       specifications={[

@@ -47,7 +47,7 @@ const NaturalSyntheticFabricsPage = () => {
       value: 'Available in various sizes',
       icon: Recycle,
     },
-    { label: 'Durability', value: 'Tear-resistant design', icon: Shield },
+    { label: 'Tear Resistance', value: 'Tear-resistant design', icon: Shield },
     { label: 'Sustainability', value: 'Eco-friendly options', icon: Leaf },
   ];
 
@@ -69,7 +69,7 @@ const NaturalSyntheticFabricsPage = () => {
     {
       title: 'Poly-Woven Fabrics',
       description:
-        'Durable synthetic fabrics used for heavy packaging and reinforcement.',
+        'Synthetic fabrics used for heavy packaging and reinforcement.',
       image: '/Product/nfs/p6.jpg',
       link: '/products/natural-synthetic-fabrics/poly-woven-fabrics',
     },
@@ -162,8 +162,7 @@ const NaturalSyntheticFabricsPage = () => {
           </p>
           <p className="text-lg text-gray-700 max-w-5xl mx-auto leading-relaxed">
             Premium fabrics designed for demanding environments, combining
-            durability, eco-friendliness, and flexibility for various
-            industries.
+            eco-friendliness and flexibility for various industries.
           </p>
         </div>
         {/* Showcase Image and Specs */}

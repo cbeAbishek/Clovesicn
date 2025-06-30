@@ -20,7 +20,6 @@ export default function Page() {
       image="/Product/ct/ct2.jpg" // Replace with real image
       features={[
         'High absorbency',
-        'Durable and long-lasting',
         'Available in various sizes',
       ]}
       specifications={[

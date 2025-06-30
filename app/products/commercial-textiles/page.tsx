@@ -22,31 +22,47 @@ const CommercialTextilesPage = () => {
       text: 'Withstands Industrial Washing',
       desc: 'High-temp laundry cycles supported',
     },
-    { icon: Shield, text: 'Durable Build', desc: 'Lasts through repeated use' },
     { icon: Leaf, text: 'Hygienic & Soft', desc: 'Skin-safe and breathable' },
     {
       icon: Package,
       text: 'Multiple Options',
       desc: 'Bedding, Towels, Curtains, and more',
     },
+    {
+      icon: ArrowRight,
+      text: 'Cost Effective',
+      desc: 'Both in purchase price and cooking cost',
+    },
+    {
+      icon: Eye,
+      text: 'Higher Steam Penetration',
+      desc: 'Allows higher steam penetration for better results',
+    },
+    {
+      icon: Thermometer,
+      text: 'Lower Cook Time & Energy Cost',
+      desc: 'Enables lower cook time and lower energy cost',
+    },
   ];
 
   const specs = [
     { label: 'Quality Grade', value: 'Hospital & Commercial', icon: Shield },
     { label: 'Washability', value: 'High-temp resistant', icon: Thermometer },
-    { label: 'Durability', value: 'Long-lasting performance', icon: Shield },
     { label: 'Applications', value: 'Healthcare & Hospitality', icon: Package },
     { label: 'Customization', value: 'Various sizes available', icon: Package },
     { label: 'Maintenance', value: 'Easy care & cleaning', icon: Leaf },
+    { label: 'Cost Efficiency', value: 'Low purchase & cooking cost', icon: ArrowRight },
+    { label: 'Steam Penetration', value: 'Allows higher steam penetration', icon: Eye },
+    { label: 'Energy Saving', value: 'Lower cook time & energy cost', icon: Thermometer },
   ];
 
   const subProducts = [
     {
       title: 'Bedding',
-      description: 'Soft, durable, and hygienic for hospital and hotel use.',
+      description: 'Soft and hygienic for hospital and hotel use.',
       image: '/Product/ct/p2.jpg',
       link: '/products/commercial-textiles/bedding',
-      features: ['Soft', 'Durable', 'Hygienic'],
+      features: ['Soft', 'Hygienic'],
     },
     {
       title: 'Towels',
@@ -58,10 +74,10 @@ const CommercialTextilesPage = () => {
     },
     {
       title: 'Laundry Bags',
-      description: 'Durable textile bags for hygienic laundry handling.',
+      description: 'Textile bags for hygienic laundry handling.',
       image: '/Product/ct/p6.jpg',
       link: '/products/commercial-textiles/laundry-bags',
-      features: ['Durable', 'Hygienic', 'Easy Handling'],
+      features: ['Hygienic', 'Easy Handling'],
     },
     {
       title: 'Shower Curtains',
@@ -109,7 +125,7 @@ const CommercialTextilesPage = () => {
           </p>
           <p className="text-lg text-gray-700 max-w-5xl mx-auto leading-relaxed">
             High-performance textiles engineered for healthcare, hospitality,
-            and industrial use with optimal durability and care standards.
+            and industrial use with optimal care standards.
           </p>
         </div>
 

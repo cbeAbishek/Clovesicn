@@ -16,12 +16,14 @@ export default function Page() {
   return (
     <ProductSubPageTemplate
       title="Hessian (Jute)"
-      description="A biodegradable and heavy-duty natural fabric used widely in industrial packaging and protection applications. Valued for its strength and sustainability."
+      description="A biodegradable and heavy-duty natural fabric used widely in industrial packaging and protection applications. Allows higher steam penetration and enables lower cook time and energy cost."
       image="/Product/nfs/nfs2.jpg" // Replace with real image
       features={[
-        'Environmentally friendly',
-        'Biodegradable and strong',
-        'Suitable for industrial packaging',
+        'Biodegradable and eco-friendly',
+        'Allows higher steam penetration',
+        'Enables lower cook time and lower energy cost',
+        'Cost effective in purchase and cooking',
+        'Available in various sizes',
       ]}
       specifications={[
         {
@@ -68,6 +70,21 @@ export default function Page() {
           label: 'Region Popularity',
           value: 'Popular in eco-conscious markets',
           icon: <FaGlobeAmericas size={32} className="text-white" />,
+        },
+        {
+          label: 'Steam Penetration',
+          value: 'Allows higher steam penetration',
+          icon: <FaLeaf size={32} className="text-white" />,
+        },
+        {
+          label: 'Energy Efficiency',
+          value: 'Lower cook time and energy cost',
+          icon: <FaSyncAlt size={32} className="text-white" />,
+        },
+        {
+          label: 'Cost Effectiveness',
+          value: 'Cost effective in purchase and cooking',
+          icon: <FaHammer size={32} className="text-white" />,
         },
       ]}
     />
