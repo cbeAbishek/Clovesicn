@@ -32,7 +32,7 @@ export const metadata = {
     locale: 'en_US',
     images: [
       {
-        url: 'https://raw.githubusercontent.com/cbeAbishek/Clovesicn/refs/heads/main/public/meta1.jpg?token=GHSAT0AAAAAADEYCPKLYKGMJZJK55HR72ZW2DC3D4A',
+        url: 'https://raw.githubusercontent.com/cbeAbishek/Clovesicn/refs/heads/main/public/meta1.jpg?token=GHSAT0AAAAAADEYCPKLR5OS6PTLSZ3NR2XS2DC5QTA',
         width: 1200,
         height: 630,
         alt: 'Autoclave Liners – Clover Inc',
@@ -46,7 +46,7 @@ export const metadata = {
     description:
       'Discover heat-resistant autoclave liners from Clover Inc – perfect for industrial and medical sterilization.',
     creator: '@cloverinc',
-    images: ['https://raw.githubusercontent.com/cbeAbishek/Clovesicn/refs/heads/main/public/meta1.jpg?token=GHSAT0AAAAAADEYCPKLYKGMJZJK55HR72ZW2DC3D4A'],
+    images: ['https://raw.githubusercontent.com/cbeAbishek/Clovesicn/refs/heads/main/public/meta1.jpg?token=GHSAT0AAAAAADEYCPKLR5OS6PTLSZ3NR2XS2DC5QTA'],
     site: '@cloverinc',
   },
   robots: {
