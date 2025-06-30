@@ -45,11 +45,7 @@ const AboutPage = () => {
               transition={{ delay: 0.4, duration: 0.5 }}
               className="text-lg text-green-800"
             >
-<<<<<<< HEAD
-              A global leader in medical waste liners and packaging — rooted in innovation, sustainability, and service.
-=======
               A global leader in medical waste liners and packaging — rooted in innovation, quality, and service.
->>>>>>> 588aeac076b34582da64bc0b8fd0d1ee46508d73
             </motion.p>
           </div>
         </motion.section>

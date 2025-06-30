@@ -135,22 +135,14 @@ const PlayfulHeroSection = () => {
                 </span>
               </button>
 
-<<<<<<< HEAD
-              <button className="group bg-white/70 backdrop-blur-sm text-slate-700 px-8 py-4 rounded-2xl font-bold text-lg border-2 border-[#39b54b]/20 hover:border-[#39b54b] hover:scale-105 hover:rotate-1 transition-all duration-300">
-=======
               {/* <button className="group bg-white/70 backdrop-blur-sm text-slate-700 px-8 py-4 rounded-2xl font-bold text-lg border-2 border-[#39b54b]/20 hover:border-[#39b54b] hover:scale-105 hover:rotate-1 transition-all duration-300">
->>>>>>> 588aeac076b34582da64bc0b8fd0d1ee46508d73
                 <span className="flex items-center gap-3">
                   <span className="w-10 h-10 bg-gradient-to-r from-[#39b54b] to-emerald-600 rounded-full flex items-center justify-center group-hover:animate-pulse">
                     <Play className="w-5 h-5 text-white" />
                   </span>
                   Watch Demo
                 </span>
-<<<<<<< HEAD
-              </button>
-=======
               </button> */}
->>>>>>> 588aeac076b34582da64bc0b8fd0d1ee46508d73
             </div>
           </div>
 
@@ -164,19 +156,6 @@ const PlayfulHeroSection = () => {
               autoplay={{ delay: 2500, disableOnInteraction: false }}
               style={{ width: '100%', height: '100%' }}
             >
-<<<<<<< HEAD
-              {['adi/am.jpg',
-                'adi/ai.jpg',
-                'adi/as.jpg'].map((src, i) => (
-                <SwiperSlide key={i}>
-                  <img
-                    src={src}
-                    alt={`Slide ${i + 1}`}
-                    className="w-full h-full object-cover rounded-3xl"
-                  />
-                </SwiperSlide>
-              ))}
-=======
                 {[
                   'adi/1.jpg',
                   'adi/2.jpg',
@@ -196,7 +175,6 @@ const PlayfulHeroSection = () => {
                     />
                   </SwiperSlide>
                 ))}
->>>>>>> 588aeac076b34582da64bc0b8fd0d1ee46508d73
             </Swiper>
           </div>
         </div>
