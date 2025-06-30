@@ -34,7 +34,7 @@ const WhyChooseUs = () => {
     },
     {
       icon: Leaf,
-      title: 'Quality Focus',
+      title: 'Sustainable Focus',
       description:
         'Eco-friendly materials and processes that support a circular economy.',
       color: 'from-green-500 to-emerald-500',
@@ -58,10 +58,11 @@ const WhyChooseUs = () => {
     },
     {
       icon: Award,
-      title: 'Quality Assurance',
-      description: 'Advanced manufacturing technology and strict quality control processes.',
+      title: 'Certified Excellence',
+      description:
+        'ISO 9001 certified, FDA approved, and compliant with REACH/RoHS standards.',
       color: 'from-yellow-500 to-orange-500',
-      stats: '12+ Quality Standards',
+      stats: '12+ Certifications',
     },
     {
       icon: Users,
@@ -157,7 +158,7 @@ const WhyChooseUs = () => {
                 </span>
               </h1>
               <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90">
-                Your trusted partner in quality packaging solutions with
+                Your trusted partner in sustainable packaging solutions with
                 global expertise and innovation
               </p>
             </div>
@@ -286,4 +287,136 @@ const WhyChooseUs = () => {
                 key={index}
                 data-animate
                 id={`additional-${index}`}
-                className={`
+                className={`text-center group transform transition-all duration-700 hover:scale-105 ${
+                  isVisible[`additional-${index}`]
+                    ? 'translate-y-0 opacity-100'
+                    : 'translate-y-8 opacity-0'
+                }`}
+                style={{ transitionDelay: `${index * 100}ms` }}
+              >
+                <div className="bg-gradient-to-br from-[#39b54b] to-[#2d8f3a] w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg">
+                  <feature.icon className="w-10 h-10 text-white" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+                <p className="text-gray-300 mb-4">{feature.description}</p>
+                <span className="inline-block bg-[#39b54b] bg-opacity-20 text-[#39b54b] px-4 py-2 rounded-full text-sm font-semibold">
+                  {feature.value}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Leadership Section */}
+      <div className="bg-white py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            data-animate
+            id="leadership"
+            className={`bg-gradient-to-br from-[#39b54b] to-[#2d8f3a] rounded-3xl p-8 md:p-12 text-white transform transition-all duration-1000 ${
+              isVisible['leadership']
+                ? 'translate-y-0 opacity-100'
+                : 'translate-y-8 opacity-0'
+            }`}
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <div className="flex items-center mb-6">
+                  <User className="w-12 h-12 bg-white bg-opacity-20 rounded-full p-2 mr-4" />
+                  <div>
+                    <h3 className="text-2xl font-bold">
+                      Experienced Leadership
+                    </h3>
+                    <p className="text-green-100">Founded by Industry Expert</p>
+                  </div>
+                </div>
+
+                <h4 className="text-xl font-semibold mb-4">
+                  Harsha Soundararajan
+                </h4>
+                <p className="text-lg mb-6 leading-relaxed opacity-90">
+                  Our founder brings over a decade of industry expertise,
+                  leading innovations in sustainable packaging solutions and
+                  building trusted relationships with clients worldwide.
+                </p>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="text-center bg-white bg-opacity-10 rounded-lg p-4">
+                    <div className="text-2xl font-bold">10+</div>
+                    <div className="text-sm opacity-90">Years Experience</div>
+                  </div>
+                  <div className="text-center bg-white bg-opacity-10 rounded-lg p-4">
+                    <div className="text-2xl font-bold">500+</div>
+                    <div className="text-sm opacity-90">Projects Led</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative">
+                <div className="bg-white bg-opacity-10 rounded-2xl p-8 backdrop-blur-sm">
+                  <Lightbulb className="w-16 h-16 text-yellow-300 mb-6 animate-pulse" />
+                  <h4 className="text-xl font-bold mb-4">
+                    Vision & Innovation
+                  </h4>
+                  <p className="opacity-90 leading-relaxed">
+                    Our commitment to sustainable innovation drives us to create
+                    packaging solutions that not only meet today&#39;s needs
+                    but protect tomorrow&#39;s environment.
+                  </p>
+                  <div className="flex items-center mt-6">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className="w-5 h-5 text-yellow-300 fill-current"
+                      />
+                    ))}
+                    <span className="ml-2 text-sm opacity-90">
+                      Industry Recognition
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Call to Action */}
+      <div className="bg-gradient-to-br from-gray-50 to-white py-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div
+            data-animate
+            id="cta"
+            className={`transform transition-all duration-1000 ${
+              isVisible['cta']
+                ? 'translate-y-0 opacity-100'
+                : 'translate-y-8 opacity-0'
+            }`}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              Ready to Experience the Cloves Inc. Difference?
+            </h2>
+            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+              Join thousands of satisfied clients who trust us for their
+              packaging needs. Let&#39;s discuss how we can support your
+              business goals.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href="/request-quote"
+                  className="bg-[#39b54b] hover:bg-[#2d8f3a] text-white px-8 py-4 rounded-full font-semibold text-lg transform hover:scale-105 transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl"
+                >
+                  Get Your Quote Now
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default WhyChooseUs;
