@@ -15,13 +15,8 @@ export default function Page() {
   return (
     <ProductSubPageTemplate
       title="High-Temp Plastic Liners"
-<<<<<<< HEAD
-      description="Designed to withstand the intense heat of medical autoclaves, these liners protect carts and ensure safe sterilization of hazardous medical waste."
-      image="/Product/al/al1.jpg" // Replace with real image
-=======
       description="High-temperature atactic polypropylene liners designed to withstand the intense heat of medical autoclaves. The only manufacturer with global supply capability for medical waste autoclave facilities."
       image="/Product/al/al1.jpg"
->>>>>>> 588aeac076b34582da64bc0b8fd0d1ee46508d73
       features={[
         'Heat resistant up to 140°C',
         'Allows higher steam penetration',

@@ -16,13 +16,8 @@ export default function Page() {
   return (
     <ProductSubPageTemplate
       title="Textile Liners"
-<<<<<<< HEAD
-      description="Crafted from durable polyester and cotton blends, these textile liners provide an eco-friendly and reusable alternative for medical waste management in autoclaves."
-      image="/Product/al/p9.jpg" // Replace with real image
-=======
       description="Atactic polypropylene and cotton blend liners providing eco-friendly solutions for medical waste autoclave facilities. Allows higher steam penetration and lower energy costs."
       image="/Product/al/p9.jpg"
->>>>>>> 588aeac076b34582da64bc0b8fd0d1ee46508d73
       features={[
         'Atactic polypropylene & cotton blends',
         'Allows higher steam penetration',
