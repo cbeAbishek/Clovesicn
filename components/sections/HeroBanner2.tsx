@@ -64,7 +64,7 @@ export default function HeroBanner2() {
                         }`}
                     >
                         <a
-                            href="#"
+                            href="/about"
                             className="inline-flex items-center gap-2 px-6 py-3 bg-[#39b54b] text-white font-semibold rounded-full shadow-lg hover:scale-105 transition-transform duration-200 focus:ring-4 focus:ring-[#39b54b]/30"
                         >
                             Learn More

@@ -165,10 +165,13 @@ const HeroSection = () => {
                   : 'translate-y-8 opacity-0'
               }`}
             >
-              <button className="group bg-[#39b54b] text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#2d8f3a] transition-all duration-300 hover:shadow-lg hover:scale-105 flex items-center justify-center gap-2">
+                <a
+                href="/products"
+                className="group bg-[#39b54b] text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#2d8f3a] transition-all duration-300 hover:shadow-lg hover:scale-105 flex items-center justify-center gap-2"
+                >
                 View Products
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-              </button>
+                </a>
             </div>
 
             {/* Animated Stats */}
