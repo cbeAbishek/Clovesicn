@@ -1,7 +1,7 @@
 'use client';
-
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
+
 
 const Preloader = () => {
   const [loading, setLoading] = useState(true);
@@ -73,7 +73,7 @@ const Preloader = () => {
           ></span>
         </div>
       </div>
-      <div className="mt-8 text-white font-semibold">Loading...</div>
+      
     </div>
   );
 };
