@@ -32,10 +32,11 @@ export const metadata = {
     locale: 'en_US',
     images: [
       {
-        url: 'https://raw.githubusercontent.com/cbeAbishek/Clovesicn/refs/heads/main/public/meta1.jpg?token=GHSAT0AAAAAADEYCPKLR5OS6PTLSZ3NR2XS2DC5QTA',
+        url: 'https://i.postimg.cc/gJb5q8P1/meta1.jpg',
         width: 1200,
         height: 630,
         alt: 'Autoclave Liners – Clover Inc',
+        type: 'image/jpeg',
       },
     ],
     type: 'website',
@@ -46,7 +47,7 @@ export const metadata = {
     description:
       'Discover heat-resistant autoclave liners from Clover Inc – perfect for industrial and medical sterilization.',
     creator: '@cloverinc',
-    images: ['https://raw.githubusercontent.com/cbeAbishek/Clovesicn/refs/heads/main/public/meta1.jpg?token=GHSAT0AAAAAADEYCPKLR5OS6PTLSZ3NR2XS2DC5QTA'],
+    images: ['https://i.postimg.cc/gJb5q8P1/meta1.jpg'],
     site: '@cloverinc',
   },
   robots: {
@@ -77,6 +78,38 @@ export const metadata = {
   colorScheme: 'light',
   viewport: 'width=device-width, initial-scale=1',
   manifest: '/manifest.json',
+  other: {
+    'og:title': 'Clover Inc | Premium Industrial Packaging',
+    'og:description':
+      'Explore top-grade autoclave liners from Clover Inc. Ideal for sterilization, industrial, and medical use. Heat resistant and customizable.',
+    'og:image': 'https://i.postimg.cc/gJb5q8P1/meta1.jpg',
+    'og:image:width': '1200',
+    'og:image:height': '630',
+    'og:image:type': 'image/jpeg',
+    'og:url': 'https://cloverinc.org/products',
+    'og:type': 'website',
+    'og:site_name': 'Clover Inc',
+    'og:locale': 'en_US',
+    'twitter:card': 'summary_large_image',
+    'twitter:title': 'Clover Inc | Premium Industrial Packaging',
+    'twitter:description':
+      'Discover heat-resistant autoclave liners from Clover Inc – perfect for industrial and medical sterilization.',
+    'twitter:image': 'https://i.postimg.cc/gJb5q8P1/meta1.jpg',
+    'twitter:site': '@cloverinc',
+    'twitter:creator': '@cloverinc',
+    'twitter:image:alt': 'Autoclave Liners – Clover Inc',
+    'twitter:image:width': '1200',
+    'twitter:image:height': '630',
+    'twitter:image:type': 'image/jpeg',
+    'application-name': 'Clover Inc',
+    'theme-color': '#39b54b',
+    'referrer': 'origin-when-cross-origin',
+    'viewport': 'width=device-width, initial-scale=1',
+    'robots': 'index, follow',
+    'googlebot': 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+    'itemprop': 'image',
+    'image': 'https://i.postimg.cc/gJb5q8P1/meta1.jpg',
+  },
 };
 
 export default function RootLayout({
