@@ -18,7 +18,7 @@ export default function Page() {
       description="High-temperature atactic polypropylene liners designed to withstand the intense heat of medical autoclaves. The only manufacturer with global supply capability for medical waste autoclave facilities."
       image="/Product/al/al1.jpg"
       features={[
-        'Heat resistant up to 140°C',
+        'Heat resistant up to 150°C',
         'Allows higher steam penetration',
         'Enables lower cook time and lower energy cost',
         'Cost effective in purchase price and cooking cost',

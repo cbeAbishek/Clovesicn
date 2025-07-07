@@ -66,12 +66,12 @@ export const metadata = {
         secureUrl: 'https://i.postimg.cc/gJb5q8P1/meta1.jpg',
       },
       {
-        url: 'https://i.postimg.cc/7hQw8QwF/meta2.jpg',
+        url: 'https://i.postimg.cc/gJb5q8P1/meta1.jpg',
         width: 1200,
         height: 630,
         alt: 'Sterilization Bags – Clover Inc',
         type: 'image/jpeg',
-        secureUrl: 'https://i.postimg.cc/7hQw8QwF/meta2.jpg',
+        secureUrl: 'https://i.postimg.cc/gJb5q8P1/meta1.jpg',
       },
     ],
     type: 'website',
@@ -104,7 +104,7 @@ export const metadata = {
         height: 630,
       },
       {
-        url: 'https://i.postimg.cc/7hQw8QwF/meta2.jpg',
+        url: 'https://i.postimg.cc/gJb5q8P1/meta1.jpg',
         alt: 'Sterilization Bags – Clover Inc Premium Solutions',
         width: 1200,
         height: 630,
@@ -113,15 +113,9 @@ export const metadata = {
     site: '@cloverinc',
     app: {
       name: 'Clover Inc',
-      id: {
-        iphone: 'cloverinc://products',
-        ipad: 'cloverinc://products',
-        googleplay: 'com.cloverinc.app',
-      },
       url: {
-        iphone: 'https://cloverinc.org/app',
-        ipad: 'https://cloverinc.org/app',
-        googleplay: 'https://play.google.com/store/apps/details?id=com.cloverinc.app',
+        iphone: 'https://cloverinc.org',
+        ipad: 'https://cloverinc.org',
       },
     },
   },

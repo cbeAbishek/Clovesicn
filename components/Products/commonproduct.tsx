@@ -40,7 +40,7 @@ const ProductsPage = () => {
         {
           name: 'High-Temp Plastic Liners',
           features: [
-            'Withstand up to 140°C',
+            'Withstand up to 150°C',
             'Allows higher steam penetration',
             'Enables lower cook time and lower energy cost',
             'Cost effective in purchase price and cooking cost',
