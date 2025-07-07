@@ -13,6 +13,7 @@ import {
   Factory,
   Stethoscope,
   Wheat,
+  Package,
 } from 'lucide-react';
 import './animate.css';
 import { slides as lapSlides } from '@/constants/slides.lap';
@@ -165,13 +166,13 @@ const HeroSection = () => {
                   : 'translate-y-8 opacity-0'
               }`}
             >
-                <a
+              <a
                 href="/products"
                 className="group bg-[#39b54b] text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#2d8f3a] transition-all duration-300 hover:shadow-lg hover:scale-105 flex items-center justify-center gap-2"
-                >
+              >
                 View Products
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                </a>
+              </a>
             </div>
 
             {/* Animated Stats */}
@@ -193,11 +194,13 @@ const HeroSection = () => {
                   <div className="absolute inset-0 bg-gradient-to-br from-[#39b54b] to-emerald-500 rounded-full shadow-2xl animate-pulse-slow"></div>
                   <div className="absolute inset-4 bg-white rounded-full shadow-inner flex items-center justify-center">
                     <div className="text-center">
-                      <Recycle className="w-16 h-16 text-[#39b54b] mx-auto mb-4 animate-spin-slow" />
+                      <Package className="w-16 h-16 text-[#39b54b] mx-auto mb-4 animate-spin-slow" />
                       <h3 className="text-xl font-bold text-gray-900 mb-2">
-                        Eco-Friendly
+                        Smart Packaging
                       </h3>
-                      <p className="text-sm text-gray-600">100% Sustainable</p>
+                      <p className="text-sm text-gray-600">
+                        Secure & Efficient Delivery Solutions
+                      </p>
                     </div>
                   </div>
                 </div>

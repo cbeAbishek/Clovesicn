@@ -32,14 +32,14 @@ const WhyChooseUs = () => {
       color: 'from-blue-500 to-cyan-500',
       stats: '50+ Countries Served',
     },
-    {
-      icon: Leaf,
-      title: 'Sustainable Focus',
-      description:
-        'Eco-friendly materials and processes that support a circular economy.',
-      color: 'from-green-500 to-emerald-500',
-      stats: '100% Eco-Friendly',
-    },
+    // {
+    //   icon: Leaf,
+    //   title: 'Sustainable Focus',
+    //   description:
+    //     'Eco-friendly materials and processes that support a circular economy.',
+    //   color: 'from-green-500 to-emerald-500',
+    //   stats: '100% Eco-Friendly',
+    // },
     {
       icon: Zap,
       title: 'Innovation & Quality',
@@ -56,22 +56,22 @@ const WhyChooseUs = () => {
       color: 'from-orange-500 to-red-500',
       stats: '500+ Product Lines',
     },
-    {
-      icon: Award,
-      title: 'Certified Excellence',
-      description:
-        'ISO 9001 certified, FDA approved, and compliant with REACH/RoHS standards.',
-      color: 'from-yellow-500 to-orange-500',
-      stats: '12+ Certifications',
-    },
-    {
-      icon: Users,
-      title: 'Customer-Centric',
-      description:
-        'Personalized service, timely delivery, and post-sales support.',
-      color: 'from-indigo-500 to-purple-500',
-      stats: '99.8% Client Satisfaction',
-    },
+    // {
+    //   icon: Award,
+    //   title: 'Certified Excellence',
+    //   description:
+    //     'ISO 9001 certified, FDA approved, and compliant with REACH/RoHS standards.',
+    //   color: 'from-yellow-500 to-orange-500',
+    //   stats: '12+ Certifications',
+    // },
+    // {
+    //   icon: Users,
+    //   title: 'Customer-Centric',
+    //   description:
+    //     'Personalized service, timely delivery, and post-sales support.',
+    //   color: 'from-indigo-500 to-purple-500',
+    //   stats: '99.8% Client Satisfaction',
+    // },
   ];
 
   const additionalFeatures = [
@@ -104,12 +104,12 @@ const WhyChooseUs = () => {
     },
   ];
 
-  const testimonialStats = [
-    { number: '10,000+', label: 'Happy Clients', icon: Heart },
-    { number: '50M+', label: 'Products Delivered', icon: Package },
-    { number: '99.9%', label: 'On-Time Delivery', icon: Clock },
-    { number: '24/7', label: 'Global Support', icon: Users },
-  ];
+  // const testimonialStats = [
+  //   { number: '10,000+', label: 'Happy Clients', icon: Heart },
+  //   { number: '50M+', label: 'Products Delivered', icon: Package },
+  //   { number: '99.9%', label: 'On-Time Delivery', icon: Clock },
+  //   { number: '24/7', label: 'Global Support', icon: Users },
+  // ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -163,7 +163,7 @@ const WhyChooseUs = () => {
               </p>
             </div>
 
-            <div className="flex flex-wrap justify-center gap-4 mt-8">
+            {/* <div className="flex flex-wrap justify-center gap-4 mt-8">
               {testimonialStats.map((stat, index) => (
                 <div
                   key={index}
@@ -183,7 +183,7 @@ const WhyChooseUs = () => {
                   </div>
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -341,7 +341,7 @@ const WhyChooseUs = () => {
                   building trusted relationships with clients worldwide.
                 </p>
 
-                <div className="grid grid-cols-2 gap-4">
+                {/* <div className="grid grid-cols-2 gap-4">
                   <div className="text-center bg-white bg-opacity-10 rounded-lg p-4">
                     <div className="text-2xl font-bold">10+</div>
                     <div className="text-sm opacity-90">Years Experience</div>
@@ -350,7 +350,7 @@ const WhyChooseUs = () => {
                     <div className="text-2xl font-bold">500+</div>
                     <div className="text-sm opacity-90">Projects Led</div>
                   </div>
-                </div>
+                </div> */}
               </div>
 
               <div className="relative">

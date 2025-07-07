@@ -14,7 +14,7 @@ const About = () => {
       <MissionSection />
       <GlobalPresenceSection />
       <SustainabilityFocusSection />
-      <AboutPage />
+      {/* <AboutPage /> */}
     </>
   );
 };

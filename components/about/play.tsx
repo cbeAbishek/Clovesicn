@@ -1,13 +1,7 @@
-"use client";
+'use client';
 
 import React, { useState, useEffect } from 'react';
-import {
-  ArrowRight,
-  Sparkles,
-  Rocket,
-  Play,
-  ChevronDown,
-} from 'lucide-react';
+import { ArrowRight, Sparkles, Rocket, Play, ChevronDown } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -26,7 +20,7 @@ const PlayfulHeroSection = () => {
     x: Math.random() * 100,
     y: Math.random() * 100,
     delay: Math.random() * 2,
-    duration: 3 + Math.random() * 2
+    duration: 3 + Math.random() * 2,
   }));
 
   useEffect(() => {
@@ -45,7 +39,7 @@ const PlayfulHeroSection = () => {
     const rect = e.currentTarget.getBoundingClientRect();
     setMousePosition({
       x: (e.clientX - rect.left) / rect.width,
-      y: (e.clientY - rect.top) / rect.height
+      y: (e.clientY - rect.top) / rect.height,
     });
   };
 
@@ -55,14 +49,18 @@ const PlayfulHeroSection = () => {
       onMouseMove={handleMouseMove}
     >
       {/* Background animations */}
-      <div className="absolute inset-0 opacity-40">
+      <div
+        className={`absolute inset-0 opacity-40 transition-opacity duration-1000 ${
+          isVisible ? 'opacity-40' : 'opacity-0'
+        }`}
+      >
         {/* Blobs */}
         <div
           className="absolute w-72 h-72 bg-gradient-to-r from-[#39b54b]/30 to-emerald-400/30 rounded-full blur-3xl animate-pulse"
           style={{
             left: `${10 + mousePosition.x * 5}%`,
             top: `${20 + mousePosition.y * 3}%`,
-            animationDuration: '4s'
+            animationDuration: '4s',
           }}
         />
         <div
@@ -70,7 +68,7 @@ const PlayfulHeroSection = () => {
           style={{
             right: `${5 + mousePosition.x * 3}%`,
             top: `${10 + mousePosition.y * 2}%`,
-            animationDuration: '6s'
+            animationDuration: '6s',
           }}
         />
         <div
@@ -78,7 +76,7 @@ const PlayfulHeroSection = () => {
           style={{
             left: `${70 + mousePosition.x * 2}%`,
             bottom: `${30 + mousePosition.y * 4}%`,
-            animationDuration: '3s'
+            animationDuration: '3s',
           }}
         />
 
@@ -91,7 +89,7 @@ const PlayfulHeroSection = () => {
               left: `${el.x}%`,
               top: `${el.y}%`,
               animationDelay: `${el.delay}s`,
-              animationDuration: `${el.duration}s`
+              animationDuration: `${el.duration}s`,
             }}
           />
         ))}
@@ -105,23 +103,55 @@ const PlayfulHeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center w-full">
           {/* Text Left */}
           <div className="space-y-8 text-left">
-            <div className={`inline-flex items-center gap-3 bg-white/80 backdrop-blur-md border-2 border-[#39b54b]/20 rounded-full px-6 py-3 shadow-lg transition-all ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+            <div
+              className={`inline-flex items-center gap-3 bg-white/80 backdrop-blur-md border-2 border-[#39b54b]/20 rounded-full px-6 py-3 shadow-lg transition-all ${
+                isVisible
+                  ? 'translate-y-0 opacity-100'
+                  : 'translate-y-8 opacity-0'
+              }`}
+            >
               <Sparkles className="w-5 h-5 text-[#39b54b] animate-spin" />
-              <span className="text-[#39b54b] font-bold text-sm tracking-wide">✨ NEW & EXCITING</span>
+              <span className="text-[#39b54b] font-bold text-sm tracking-wide">
+                ✨ NEW & EXCITING
+              </span>
             </div>
 
-            <h1 className={`text-5xl sm:text-6xl lg:text-7xl font-black leading-tight transition-all delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+            <h1
+              className={`text-5xl sm:text-6xl lg:text-7xl font-black leading-tight transition-all delay-200 ${
+                isVisible
+                  ? 'translate-y-0 opacity-100'
+                  : 'translate-y-8 opacity-0'
+              }`}
+            >
               <span className="block text-slate-800">About</span>
-              <span className="block bg-gradient-to-r from-[#39b54b] via-emerald-500 to-[#39b54b] bg-clip-text text-transparent animate-pulse">Cloves Inc.</span>
+              <span className="block bg-gradient-to-r from-[#39b54b] via-emerald-500 to-[#39b54b] bg-clip-text text-transparent animate-pulse">
+                Cloves Inc.
+              </span>
             </h1>
 
-            <p className={`text-xl sm:text-2xl text-slate-600 max-w-lg font-medium transition-all delay-400 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'}`}>
-              A global leader in medical waste liners and packaging — rooted in innovation, quality, and service. {" "}
-              <span className="text-[#39b54b] font-bold underline decoration-wavy decoration-[#39b54b]/50">amazing realities</span> {currentEmoji}
+            <p
+              className={`text-xl sm:text-2xl text-slate-600 max-w-lg font-medium transition-all delay-400 ${
+                isVisible
+                  ? 'translate-y-0 opacity-100'
+                  : 'translate-y-6 opacity-0'
+              }`}
+            >
+              A global leader in medical waste liners and packaging — rooted in
+              innovation, quality, and service.{' '}
+              <span className="text-[#39b54b] font-bold underline decoration-wavy decoration-[#39b54b]/50">
+                amazing realities
+              </span>{' '}
+              {currentEmoji}
             </p>
 
             {/* Buttons */}
-            <div className={`flex flex-col sm:flex-row gap-4 transition-all delay-800 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'}`}>
+            <div
+              className={`flex flex-col sm:flex-row gap-4 transition-all delay-800 ${
+                isVisible
+                  ? 'translate-y-0 opacity-100'
+                  : 'translate-y-6 opacity-0'
+              }`}
+            >
               <button
                 className="group bg-gradient-to-r from-[#39b54b] to-emerald-600 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl hover:scale-105 hover:-rotate-1 transition-transform duration-300"
                 onMouseEnter={() => setIsHovering(true)}
@@ -129,7 +159,11 @@ const PlayfulHeroSection = () => {
                 onClick={() => router.push('/contact')}
               >
                 <span className="flex items-center gap-3">
-                  <Rocket className={`w-6 h-6 ${isHovering ? 'rotate-12 scale-110' : ''}`} />
+                  <Rocket
+                    className={`w-6 h-6 ${
+                      isHovering ? 'rotate-12 scale-110' : ''
+                    }`}
+                  />
                   Start Your Journey
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                 </span>
@@ -156,25 +190,25 @@ const PlayfulHeroSection = () => {
               autoplay={{ delay: 2500, disableOnInteraction: false }}
               style={{ width: '100%', height: '100%' }}
             >
-                {[
-                  'adi/1.jpg',
-                  'adi/2.jpg',
-                  'adi/3.jpg',
-                  'adi/7.jpg',
-                  'adi/8.jpg',
-                  'adi/9.jpg',
-                  'adi/10.jpg',
-                  'adi/11.jpg',
-                  'adi/12.jpg'
-                ].map((src, i) => (
-                  <SwiperSlide key={i}>
-                    <img
-                      src={src}
-                      alt={`Slide ${i + 1}`}
-                      className="w-full h-full object-cover rounded-3xl"
-                    />
-                  </SwiperSlide>
-                ))}
+              {[
+                'adi/1.jpg',
+                'adi/2.jpg',
+                'adi/3.jpg',
+                'adi/7.jpg',
+                'adi/8.jpg',
+                'adi/9.jpg',
+                'adi/10.jpg',
+                'adi/11.jpg',
+                'adi/12.jpg',
+              ].map((src, i) => (
+                <SwiperSlide key={i}>
+                  <img
+                    src={src}
+                    alt={`Slide ${i + 1}`}
+                    className="w-full h-full object-cover rounded-3xl"
+                  />
+                </SwiperSlide>
+              ))}
             </Swiper>
           </div>
         </div>
@@ -191,30 +225,33 @@ const PlayfulHeroSection = () => {
       {/* Orbit animation (CSS) */}
       <style jsx>{`
         @keyframes orbit {
-          0% { transform: rotate(0deg) translateX(80px) rotate(0deg); }
-          100% { transform: rotate(360deg) translateX(80px) rotate(-360deg); }
+          0% {
+            transform: rotate(0deg) translateX(80px) rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg) translateX(80px) rotate(-360deg);
+          }
         }
       `}</style>
-        {/* Floating Feature Boxes */}
-<div className="relative z-10 mt-8 px-4">
-  <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
-    {[
-      { title: 'Eco Friendly', icon: '🌱' },
-      { title: 'Global Reach', icon: '🌍' },
-      { title: 'Quality First', icon: '🏆' },
-      { title: 'Trusted by 500+', icon: '🤝' }
-    ].map((feature, index) => (
-      <div
-        key={index}
-        className="bg-gradient-to-br from-[#39b54b] to-emerald-600 text-white rounded-2xl p-6 shadow-lg text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
-      >
-        <div className="text-3xl mb-2 animate-bounce">{feature.icon}</div>
-        <div className="text-lg font-semibold">{feature.title}</div>
+      {/* Floating Feature Boxes */}
+      <div className="relative z-10 mt-8 px-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          {[
+            { title: 'Eco Friendly', icon: '🌱' },
+            { title: 'Global Reach', icon: '🌍' },
+            { title: 'Quality First', icon: '🏆' },
+            { title: 'Trusted by 500+', icon: '🤝' },
+          ].map((feature, index) => (
+            <div
+              key={index}
+              className="bg-gradient-to-br from-[#39b54b] to-emerald-600 text-white rounded-2xl p-6 shadow-lg text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+            >
+              <div className="text-3xl mb-2 animate-bounce">{feature.icon}</div>
+              <div className="text-lg font-semibold">{feature.title}</div>
+            </div>
+          ))}
+        </div>
       </div>
-    ))}
-  </div>
-</div>
-
     </div>
   );
 };
