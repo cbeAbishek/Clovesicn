@@ -181,7 +181,11 @@ const PlayfulHeroSection = () => {
           </div>
 
           {/* Right - Swiper */}
-          <div className="relative w-full h-96 lg:h-[500px] rounded-3xl border border-white/30 shadow-2xl overflow-hidden group hover:scale-105 transition-transform duration-500">
+            <div
+            className={`relative w-full h-96 lg:h-[500px] rounded-3xl border border-white/30 shadow-2xl overflow-hidden group hover:scale-105 transition-transform duration-500 ${
+              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+            }`}
+            >
             <Swiper
               spaceBetween={30}
               slidesPerView={1}
@@ -191,26 +195,22 @@ const PlayfulHeroSection = () => {
               style={{ width: '100%', height: '100%' }}
             >
               {[
-                'adi/1.jpg',
-                'adi/2.jpg',
-                'adi/3.jpg',
-                'adi/7.jpg',
-                'adi/8.jpg',
-                'adi/9.jpg',
-                'adi/10.jpg',
-                'adi/11.jpg',
-                'adi/12.jpg',
+              'adi/1.jpg',
+              'adi/2.jpg',
+              'adi/3.jpg',
+              'adi/13.jpg',
+              'adi/14.jpg',
               ].map((src, i) => (
-                <SwiperSlide key={i}>
-                  <img
-                    src={src}
-                    alt={`Slide ${i + 1}`}
-                    className="w-full h-full object-cover rounded-3xl"
-                  />
-                </SwiperSlide>
+              <SwiperSlide key={i}>
+                <img
+                src={src}
+                alt={`Slide ${i + 1}`}
+                className="w-full h-full object-cover rounded-3xl"
+                />
+              </SwiperSlide>
               ))}
             </Swiper>
-          </div>
+            </div>
         </div>
       </div>
 

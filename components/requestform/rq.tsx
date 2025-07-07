@@ -457,7 +457,7 @@ const RequestQuotePage = () => {
                   onChange={(e) =>
                     handleInputChange('industry', e.target.value)
                   }
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-3 border bg-white border-gray-300 rounded-lg focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-200"
                 >
                   <option value="">Select your industry</option>
                   {industries.map((industry) => (
@@ -511,7 +511,7 @@ const RequestQuotePage = () => {
                   onChange={(e) =>
                     handleInputChange('sustainability', e.target.checked)
                   }
-                  className="h-5 w-5 text-[#39b54b] rounded focus:ring-[#39b54b]"
+                  className="h-5 w-5 bg-white text-[#39b54b] rounded focus:ring-[#39b54b]"
                 />
                 <span className="text-gray-700 flex items-center">
                   <Leaf className="h-5 w-5 mr-2 text-[#39b54b]" />I prefer
@@ -537,7 +537,7 @@ const RequestQuotePage = () => {
                   type="text"
                   value={formData.name}
                   onChange={(e) => handleInputChange('name', e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-200"
                   placeholder="Enter your full name"
                 />
               </div>
@@ -550,7 +550,7 @@ const RequestQuotePage = () => {
                   type="text"
                   value={formData.company}
                   onChange={(e) => handleInputChange('company', e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-3 border bg-white border-gray-300 rounded-lg focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-200"
                   placeholder="Enter company name"
                 />
               </div>
@@ -563,7 +563,7 @@ const RequestQuotePage = () => {
                   type="email"
                   value={formData.email}
                   onChange={(e) => handleInputChange('email', e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-3 border bg-white border-gray-300 rounded-lg focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-200"
                   placeholder="Enter email address"
                 />
               </div>
@@ -576,7 +576,7 @@ const RequestQuotePage = () => {
                   type="tel"
                   value={formData.phone}
                   onChange={(e) => handleInputChange('phone', e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-3 border bg-white border-gray-300 rounded-lg focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-200"
                   placeholder="Enter phone number"
                 />
               </div>
@@ -589,7 +589,7 @@ const RequestQuotePage = () => {
                   type="text"
                   value={formData.region}
                   onChange={(e) => handleInputChange('region', e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-3 border bg-white border-gray-300 rounded-lg focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-200"
                   placeholder="Enter your region/location"
                 />
               </div>
@@ -603,7 +603,7 @@ const RequestQuotePage = () => {
                   onChange={(e) =>
                     handleInputChange('deliveryTimeline', e.target.value)
                   }
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-3 border bg-white border-gray-300 rounded-lg focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-200"
                 >
                   <option value="">Select timeline</option>
                   <option value="ASAP">ASAP</option>
@@ -624,7 +624,7 @@ const RequestQuotePage = () => {
                   onChange={(e) =>
                     handleInputChange('customDate', e.target.value)
                   }
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-3 border bg-white border-gray-300 rounded-lg focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-200"
                 />
               </div>
             )}
@@ -656,7 +656,7 @@ const RequestQuotePage = () => {
           </div> */}
 
           {/* GDPR Compliance */}
-          <div className="mb-8 p-6 bg-gray-50 rounded-2xl">
+          <div className="mb-8 p-6 border-[#39b54b]-600 rounded-2xl">
             <label className="flex items-start space-x-3 cursor-pointer">
               <input
                 type="checkbox"
@@ -664,7 +664,7 @@ const RequestQuotePage = () => {
                 onChange={(e) =>
                   handleInputChange('gdprConsent', e.target.checked)
                 }
-                className="h-5 w-5 text-[#39b54b] rounded focus:ring-[#39b54b] mt-1"
+                className="bg= h-5 w-5 text-[#39b54b] rounded focus:ring-[#39b54b] mt-1"
               />
               <div className="text-sm text-gray-700">
                 <p className="font-medium mb-1">GDPR Compliance *</p>

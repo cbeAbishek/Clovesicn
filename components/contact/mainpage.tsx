@@ -212,7 +212,7 @@ const ContactPage = () => {
               From premium spices to custom packaging solutions - we&#39;re here
               to elevate your business
             </p>
-            <div className="flex flex-wrap justify-center gap-4 animate-slide-up delay-300">
+            {/* <div className="flex flex-wrap justify-center gap-4 animate-slide-up delay-300">
               <div className="flex items-center space-x-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
                 <Clock className="w-5 h-5" />
                 <span>24/7 Support</span>
@@ -225,14 +225,14 @@ const ContactPage = () => {
                 <Award className="w-5 h-5" />
                 <span>ISO Certified</span>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent z-30"></div>
       </div>
 
       {/* Stats Section */}
-      <div className="py-12 bg-white">
+      {/* <div className="py-12 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center group hover:scale-105 transition-transform duration-300">
@@ -261,7 +261,7 @@ const ContactPage = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Main Content */}
       <div className="container mx-auto px-4 py-16">
