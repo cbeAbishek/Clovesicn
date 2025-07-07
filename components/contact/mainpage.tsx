@@ -83,7 +83,10 @@ const ContactPage = () => {
     > {}
 
   const handleInputChange = (e: HandleInputChangeEvent) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target as
+      | HTMLInputElement
+      | HTMLTextAreaElement
+      | HTMLSelectElement;
     setFormData((prev: FormData) => ({ ...prev, [name]: value }));
     if (errors[name]) {
       setErrors((prev: Errors) => ({ ...prev, [name]: '' }));
@@ -302,7 +305,7 @@ const ContactPage = () => {
                     name="fullName"
                     value={formData.fullName}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-300 group-hover:border-[#39b54b]/50 ${
+                    className={`w-full px-4 py-3 border bg-white rounded-xl focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-300 group-hover:border-[#39b54b]/50 ${
                       errors.fullName ? 'border-red-500' : 'border-gray-300'
                     }`}
                     placeholder="John Doe"
@@ -324,7 +327,7 @@ const ContactPage = () => {
                     name="companyName"
                     value={formData.companyName}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-300 group-hover:border-[#39b54b]/50 ${
+                    className={`w-full px-4 py-3 border bg-white rounded-xl focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-300 group-hover:border-[#39b54b]/50 ${
                       errors.companyName ? 'border-red-500' : 'border-gray-300'
                     }`}
                     placeholder="Your Company"
@@ -348,7 +351,7 @@ const ContactPage = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-300 group-hover:border-[#39b54b]/50 ${
+                    className={`w-full px-4 py-3 border bg-white rounded-xl focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-300 group-hover:border-[#39b54b]/50 ${
                       errors.email ? 'border-red-500' : 'border-gray-300'
                     }`}
                     placeholder="john@company.com"
@@ -370,7 +373,7 @@ const ContactPage = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-300 group-hover:border-[#39b54b]/50"
+                    className="w-full px-4 py-3 border bg-white border-gray-300 rounded-xl focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-300 group-hover:border-[#39b54b]/50"
                     placeholder="+91 12345 67890"
                   />
                 </div>
@@ -385,7 +388,7 @@ const ContactPage = () => {
                     name="industry"
                     value={formData.industry}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-300 group-hover:border-[#39b54b]/50 ${
+                    className={`w-full px-4 py-3 border bg-white rounded-xl focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-300 group-hover:border-[#39b54b]/50 ${
                       errors.industry ? 'border-red-500' : 'border-gray-300'
                     }`}
                   >
@@ -412,7 +415,7 @@ const ContactPage = () => {
                     name="subject"
                     value={formData.subject}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-300 group-hover:border-[#39b54b]/50 ${
+                    className={`w-full px-4 py-3 border bg-white rounded-xl focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-300 group-hover:border-[#39b54b]/50 ${
                       errors.subject ? 'border-red-500' : 'border-gray-300'
                     }`}
                   >
@@ -441,7 +444,7 @@ const ContactPage = () => {
                   value={formData.message}
                   onChange={handleInputChange}
                   rows={5}
-                  className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-300 group-hover:border-[#39b54b]/50 resize-none ${
+                  className={`w-full px-4 py-3 border bg-white rounded-xl focus:ring-2 focus:ring-[#39b54b] focus:border-transparent transition-all duration-300 group-hover:border-[#39b54b]/50 resize-none ${
                     errors.message ? 'border-red-500' : 'border-gray-300'
                   }`}
                   placeholder="Tell us about your requirements, quantities, specifications, or any questions..."
@@ -462,7 +465,7 @@ const ContactPage = () => {
                   <input
                     type="file"
                     onChange={handleFileUpload}
-                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                    className="absolute bg-white inset-0 w-full h-full opacity-0 cursor-pointer"
                     accept=".pdf,.doc,.docx,.txt,.jpg,.png"
                   />
                   <div className="text-center">
@@ -553,7 +556,7 @@ const ContactPage = () => {
                     </h4>
                     <div className="space-y-2 text-gray-600">
                       <p>
-                        <strong>India:</strong> Coimbatore,Tamilnadu 
+                        <strong>India:</strong> Coimbatore,Tamilnadu
                       </p>
                     </div>
                   </div>
@@ -739,7 +742,7 @@ const ContactPage = () => {
               <input
                 type="email"
                 placeholder="Enter your email address"
-                className="flex-1 px-6 py-4 rounded-xl text-gray-800 focus:outline-none focus:ring-4 focus:ring-white/50"
+                className="flex-1 px-6 py-4 rounded-xl bg-white text-gray-800 focus:outline-none focus:ring-4 focus:ring-white/50"
               />
               <button className="bg-white text-[#39b54b] px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-colors duration-300 flex items-center justify-center space-x-2">
                 <Mail className="w-5 h-5" />
