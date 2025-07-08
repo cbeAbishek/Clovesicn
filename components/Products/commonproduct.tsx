@@ -38,7 +38,7 @@ const ProductsPage = () => {
         'High-temperature atactic polypropylene liners for medical waste autoclave facilities - the only manufacturer with global supply capability',
       products: [
         {
-          name: 'High-Temp Plastic Liners',
+          name: 'Atactic PP autoclave Liners',
           features: [
             'Withstand up to 150°C',
             'Allows higher steam penetration',
@@ -47,7 +47,7 @@ const ProductsPage = () => {
             'Available in any size (100"x80", 75"x90", 75"x110", 100"x120", 130"x150")',
           ],
           icon: Thermometer,
-          image: '/Product/al/al1.jpg',
+          image: '/adi/13.jpg',
           route: '/products/autoclave-liners/hightemp-plastic-liners',
         },
         {

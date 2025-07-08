@@ -12,7 +12,7 @@ const products = [
     description:
       'High-temperature atactic polypropylene liners - the only manufacturer with global supply capability for medical waste autoclave facilities.',
     types: [
-      'High-Temp Plastic',
+      'Atactic PP autoclave Liners',
       'Textile Liners',
       'Jute/Hessian',
       'Woven Plastic',

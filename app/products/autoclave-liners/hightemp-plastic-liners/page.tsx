@@ -14,9 +14,9 @@ import {
 export default function Page() {
   return (
     <ProductSubPageTemplate
-      title="High-Temp Plastic Liners"
+      title="Atactic PP autoclave Liners"
       description="High-temperature atactic polypropylene liners designed to withstand the intense heat of medical autoclaves. The only manufacturer with global supply capability for medical waste autoclave facilities."
-      image="/Product/al/al1.jpg"
+      image="/adi/14.jpg"
       features={[
         'Heat resistant up to 150°C',
         'Allows higher steam penetration',
