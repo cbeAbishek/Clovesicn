@@ -17,7 +17,7 @@ const products = [
       'Jute/Hessian',
       'Woven Plastic',
     ],
-    image: '/public/Product/al/p1.jpg',
+    image: '/public/adi/14.jpg',
   },
   {
     title: 'Industrial Packaging',
