@@ -51,7 +51,7 @@ export const metadata = {
   openGraph: {
     title: 'Clover Inc | Premium Industrial Packaging & Autoclave Solutions | India Made',
     description:
-      'America\'s trusted source for industrial packaging solutions. Our India-made autoclave liners and sterilization bags ensure safety and compliance for medical, laboratory, and industrial applications nationwide.',
+      'Leading supplier of industrial packaging solutions including autoclave liners and sterilization bags for medical, laboratory, and industrial applications across the India. High-quality, compliant, and customizable solutions.',
     url: 'https://cloverinc.org/products',
     siteName: 'Clover Inc',
     locale: 'en_US',
@@ -139,7 +139,7 @@ export const metadata = {
   generator: 'Next.js',
   referrer: 'origin-when-cross-origin',
   themeColor: '#39b54b',
-  colorScheme: 'light dark',
+  colorScheme: 'light',
   viewport: 'width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes',
   manifest: '/manifest.json',
   verification: {
@@ -180,12 +180,6 @@ export const metadata = {
     'twitter:label2': 'Products',
     'twitter:data2': 'Autoclave Liners, Sterilization Bags',
     
-    // Enhanced GEO location tags
-    'geo.region': 'US-NY',
-    'geo.placename': 'New York',
-    'geo.position': '40.7128;-74.0060',
-    'ICBM': '40.7128, -74.0060',
-    'DC.title': 'Clover Inc | American-Made Industrial Packaging',
     
     // Enhanced location and business information
     'business:contact_data:country_name': 'United States',
