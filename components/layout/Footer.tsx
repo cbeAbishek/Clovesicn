@@ -1,6 +1,14 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook, Instagram } from 'lucide-react';
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Linkedin,
+  Twitter,
+  Facebook,
+  Instagram,
+} from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -8,7 +16,10 @@ const Footer = () => {
   const productLinks = [
     { name: 'Autoclave Liners', href: '/products/autoclave-liners' },
     { name: 'Commercial Textiles', href: '/products/commercial-textiles' },
-    { name: 'Natural & Synthetic Fabrics', href: '/products/natural-synthetic-fabrics' },
+    {
+      name: 'Natural & Synthetic Fabrics',
+      href: '/products/natural-synthetic-fabrics',
+    },
     { name: 'Packaging Solutions', href: '/products/packaging-solutions' },
   ];
 
@@ -22,7 +33,6 @@ const Footer = () => {
   const supportLinks = [
     { name: 'Contact Support', href: '/contact' },
     { name: 'Request Quote', href: '/contact/request-quote' },
-    { name: 'Bulk Orders', href: '/b2b/bulk-portal' },
   ];
 
   return (
@@ -33,7 +43,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-4 group cursor-pointer">
-                 <Link href="/" className="relative">
+              <Link href="/" className="relative">
                 <Image
                   src="/icon.png"
                   alt="Cloves Inc Logo"
@@ -49,11 +59,12 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
-              Leading provider of high-quality, innovative products for healthcare, industrial, 
-              and commercial sectors worldwide. We continuously innovate to meet the evolving 
-              needs of our customers while protecting our planet.
+              Leading provider of high-quality, innovative products for
+              healthcare, industrial, and commercial sectors worldwide. We
+              continuously innovate to meet the evolving needs of our customers
+              while protecting our planet.
             </p>
-            
+
             {/* Contact Info */}
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
@@ -67,8 +78,10 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-primary-400 mt-1" />
                 <span className="text-gray-300">
-                  Coimbatore<br />
-                  Tamilnadu<br />
+                  Coimbatore
+                  <br />
+                  Tamilnadu
+                  <br />
                   India
                 </span>
               </div>
@@ -81,8 +94,8 @@ const Footer = () => {
             <ul className="space-y-3">
               {productLinks.map((link) => (
                 <li key={link.name}>
-                  <Link 
-                    href={link.href} 
+                  <Link
+                    href={link.href}
                     className="text-gray-300 hover:text-primary-400 transition-colors text-sm"
                   >
                     {link.name}
@@ -98,8 +111,8 @@ const Footer = () => {
             <ul className="space-y-3">
               {companyLinks.map((link) => (
                 <li key={link.name}>
-                  <Link 
-                    href={link.href} 
+                  <Link
+                    href={link.href}
                     className="text-gray-300 hover:text-primary-400 transition-colors text-sm"
                   >
                     {link.name}
@@ -115,8 +128,8 @@ const Footer = () => {
             <ul className="space-y-3">
               {supportLinks.map((link) => (
                 <li key={link.name}>
-                  <Link 
-                    href={link.href} 
+                  <Link
+                    href={link.href}
                     className="text-gray-300 hover:text-primary-400 transition-colors text-sm"
                   >
                     {link.name}
@@ -157,31 +170,64 @@ const Footer = () => {
             <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6 text-sm text-gray-400">
               <span>© {currentYear} Cloves INC. All rights reserved.</span>
               <div className="flex space-x-6">
-                <Link href="/privacy-policy" className="hover:text-primary-400 transition-colors">
+                <Link
+                  href="/legal/privacy-policy"
+                  className="hover:text-primary-400 transition-colors"
+                >
                   Privacy Policy
                 </Link>
-                <Link href="/terms-of-service" className="hover:text-primary-400 transition-colors">
+                <Link
+                  href="/legal/terms-of-service"
+                  className="hover:text-primary-400 transition-colors"
+                >
                   Terms of Service
                 </Link>
-                
               </div>
             </div>
-            
+
             {/* Social Links */}
             <div className="flex items-center space-x-4">
-              <Link href="#" className="text-gray-400 hover:text-primary-400 transition-colors">
+              <Link
+                href="#"
+                className="text-gray-400 hover:text-primary-400 transition-colors"
+              >
                 <Linkedin className="h-5 w-5" />
               </Link>
-              <Link href="#" className="text-gray-400 hover:text-primary-400 transition-colors">
+              <Link
+                href="#"
+                className="text-gray-400 hover:text-primary-400 transition-colors"
+              >
                 <Twitter className="h-5 w-5" />
               </Link>
-              <Link href="#" className="text-gray-400 hover:text-primary-400 transition-colors">
+              <Link
+                href="#"
+                className="text-gray-400 hover:text-primary-400 transition-colors"
+              >
                 <Facebook className="h-5 w-5" />
               </Link>
-              <Link href="#" className="text-gray-400 hover:text-primary-400 transition-colors">
+              <Link
+                href="#"
+                className="text-gray-400 hover:text-primary-400 transition-colors"
+              >
                 <Instagram className="h-5 w-5" />
               </Link>
             </div>
+          </div>
+        </div>
+      </div>
+      {/* Developer Credit Bar */}
+      <div className="bg-gray-950 border-t border-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+          <div className="flex justify-center items-center">
+            <span className="text-xs text-gray-500">
+              Developed with ❤️ by{' '}
+              <Link
+                href="https://abi-portfoilio.vercel.app/"
+                className="text-primary-400 font-medium hover:underline"
+              >
+                Abishek
+              </Link>
+            </span>
           </div>
         </div>
       </div>
