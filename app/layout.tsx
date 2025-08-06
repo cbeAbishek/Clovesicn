@@ -1,5 +1,4 @@
 import '../styles/globals.css';
-
 import Preloader from '../components/layout/preloader';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
@@ -7,41 +6,41 @@ import { AiChatbot } from '@/components/chatbot';
 import BGAudio from '@/components/layout/BGAudio';
 
 export const metadata = {
-  title: 'Clover Inc – Premium Industrial Packaging | Autoclave Liners, Sterilization Bags & Custom Solutions',
+  title: 'Clover Inc – Premium Industrial Packaging | Autoclave Liners & Sterilization Solutions',
   description:
-    'Discover Clover Inc s comprehensive range of premium industrial packaging solutions, including durable autoclave liners, heat-resistant sterilization bags, and customizable packaging for medical, laboratory, and industrial applications. Our products ensure safety, compliance, and efficiency for sterilization processes, chemical handling, and high-temperature environments. Trust Clover Inc for innovative, reliable, and sustainable packaging tailored to your needs.',
+    'Leading supplier of industrial packaging solutions including autoclave liners and sterilization bags for medical, laboratory, and industrial applications across the India. High-quality, compliant, and customizable solutions.',
   keywords: [
-    'Autoclave liners',
-    'Sterilization bags',
-    'Industrial packaging',
-    'Heat resistant liners',
-    'Medical autoclave bags',
-    'Clover Inc',
-    'High temperature liners',
-    'Custom autoclave packaging',
-    'Laboratory packaging',
-    'Chemical safe packaging',
-    'Sterilization pouches',
-    'Medical waste bags',
-    'Custom packaging solutions',
-    'Sustainable packaging',
-    'Industrial liners',
-    'Autoclave safe bags',
-    'Reusable liners',
-    'Disposable autoclave bags',
-    'Industrial waste management',
-    'Medical packaging supplies',
-    'Pharmaceutical packaging',
-    'Healthcare packaging',
-    'Sterile packaging',
-    'High performance liners',
-    'Eco-friendly packaging',
-    'Custom printed liners',
-    'Bulk packaging',
-    'Heavy duty liners',
-    'Autoclave process supplies',
-    'Industrial safety packaging',
-    'Premium packaging materials',
+    'Autoclave liners India',
+    'Sterilization bags North America',
+    'Industrial packaging United States',
+    'Heat resistant liners US market',
+    'Medical autoclave bags New York',
+    'Clover Inc India',
+    'High temperature liners American made',
+    'Custom autoclave packaging US',
+    'Laboratory packaging domestic',
+    'Chemical safe packaging India certified',
+    'Sterilization pouches North American standard',
+    'Medical waste bags US compliance',
+    'Custom packaging solutions United States',
+    'Sustainable packaging American industry',
+    'Industrial liners nationwide shipping',
+    'Autoclave safe bags FDA approved',
+    'ReIndiable liners US standards',
+    'Disposable autoclave bags American healthcare',
+    'Industrial waste management India',
+    'Medical packaging supplies US hospitals',
+    'Pharmaceutical packaging American market',
+    'Healthcare packaging US certified',
+    'Sterile packaging FDA compliance',
+    'High performance liners US manufactured',
+    'Eco-friendly packaging American made',
+    'Custom printed liners US supplier',
+    'Bulk packaging India wholesale',
+    'Heavy duty liners New York based',
+    'Autoclave process supplies American standard',
+    'Industrial safety packaging US regulations',
+    'Premium packaging materials made in India',
   ],
   authors: [
     { name: 'Clover Inc', url: 'https://cloverinc.org' },
@@ -50,9 +49,9 @@ export const metadata = {
   creator: 'Clover Inc',
   publisher: 'Clover Inc',
   openGraph: {
-    title: 'Clover Inc | Premium Industrial Packaging & Autoclave Liners',
+    title: 'Clover Inc | Premium Industrial Packaging & Autoclave Solutions | India Made',
     description:
-      'Discover Clover Inc s comprehensive range of premium industrial packaging solutions, including durable autoclave liners, heat-resistant sterilization bags, and customizable packaging for medical, laboratory, and industrial applications. Our products ensure safety, compliance, and efficiency for sterilization processes, chemical handling, and high-temperature environments. Trust Clover Inc for innovative, reliable, and sustainable packaging tailored to your needs.',
+      'America\'s trusted source for industrial packaging solutions. Our India-made autoclave liners and sterilization bags ensure safety and compliance for medical, laboratory, and industrial applications nationwide.',
     url: 'https://cloverinc.org/products',
     siteName: 'Clover Inc',
     locale: 'en_US',
@@ -61,7 +60,7 @@ export const metadata = {
         url: 'https://i.postimg.cc/gJb5q8P1/meta1.jpg',
         width: 1200,
         height: 630,
-        alt: 'Autoclave Liners – Clover Inc',
+        alt: 'American-Made Autoclave Liners – Clover Inc',
         type: 'image/jpeg',
         secureUrl: 'https://i.postimg.cc/gJb5q8P1/meta1.jpg',
       },
@@ -69,7 +68,7 @@ export const metadata = {
         url: 'https://i.postimg.cc/gJb5q8P1/meta1.jpg',
         width: 1200,
         height: 630,
-        alt: 'Sterilization Bags – Clover Inc',
+        alt: 'India Certified Sterilization Bags – Clover Inc',
         type: 'image/jpeg',
         secureUrl: 'https://i.postimg.cc/gJb5q8P1/meta1.jpg',
       },
@@ -83,20 +82,14 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Clover Inc | Premium Industrial Packaging & Autoclave Liners',
+    title: 'Clover Inc | India-Made Industrial Packaging & Autoclave Solutions',
     description:
-      'Discover heat-resistant autoclave liners, sterilization bags, and custom packaging from Clover Inc – perfect for industrial, laboratory, and medical sterilization. Safe, reliable, and customizable.',
+      'American-made heat-resistant autoclave liners and sterilization bags for industrial, laboratory, and medical facilities nationwide. Safe, FDA-compliant, and customizable solutions.',
     creator: '@cloverinc',
     images: [
       {
         url: 'https://i.postimg.cc/gJb5q8P1/meta1.jpg',
-        alt: 'Autoclave Liners – Clover Inc Premium Solutions',
-        width: 1200,
-        height: 630,
-      },
-      {
-        url: 'https://i.postimg.cc/gJb5q8P1/meta1.jpg',
-        alt: 'Sterilization Bags – Clover Inc Premium Solutions',
+        alt: 'India-Made Autoclave Liners – Clover Inc Premium Solutions',
         width: 1200,
         height: 630,
       },
@@ -142,7 +135,7 @@ export const metadata = {
     ],
   },
   applicationName: 'Clover Inc',
-  category: 'Industrial Packaging, Medical Packaging, Laboratory Supplies',
+  category: 'Industrial Packaging, Medical Packaging, Laboratory Supplies, India Manufacturing',
   generator: 'Next.js',
   referrer: 'origin-when-cross-origin',
   themeColor: '#39b54b',
@@ -169,89 +162,59 @@ export const metadata = {
     statusBarStyle: 'black-translucent',
   },
   other: {
-    // Enhanced OpenGraph tags for WhatsApp preview
-    'og:title': 'Clover Inc | Premium Industrial Packaging & Autoclave Liners',
-    'og:description': 'Discover Clover Incs comprehensive range of premium industrial packaging solutions for medical, laboratory, and industrial applications. Safe, reliable, and customizable products for all your packaging needs.',
+    // Enhanced OpenGraph tags
+    'og:title': 'Clover Inc | Industrial Packaging Solutions',
+    'og:description': 'American-manufactured premium industrial packaging solutions for medical, laboratory, and industrial facilities nationwide. FDA-compliant, sustainable, made in the India.',
     'og:image': 'https://i.postimg.cc/gJb5q8P1/meta1.jpg',
-    'og:image:width': '1200',
-    'og:image:height': '630',
-    'og:image:type': 'image/jpeg',
-    'og:image:alt': 'Autoclave Liners – Clover Inc',
-    'og:image:secure_url': 'https://i.postimg.cc/gJb5q8P1/meta1.jpg',
+    'og:image:alt': 'India-Made Autoclave Liners – Clover Inc',
     'og:url': 'https://cloverinc.org/products',
     'og:type': 'website',
     'og:site_name': 'Clover Inc',
     'og:locale': 'en_US',
-    'og:audio': {
-      url: '/bg.mp3',
-      secureUrl: '/bg.mp3',
-      type: 'audio/mpeg',
-    },
     
     // Twitter enhanced tags
     'twitter:card': 'summary_large_image',
-    'twitter:title': 'Clover Inc | Premium Industrial Packaging & Autoclave Liners',
-    'twitter:description': 'Discover heat-resistant autoclave liners, sterilization bags, and custom packaging from Clover Inc – perfect for industrial, laboratory, and medical sterilization.',
+    'twitter:title': 'Clover Inc | Industrial Packaging Solutions',
+    'twitter:description': 'American-manufactured heat-resistant autoclave liners and sterilization bags for medical and industrial applications nationwide.',
     'twitter:image': 'https://i.postimg.cc/gJb5q8P1/meta1.jpg',
-    'twitter:image:alt': 'Autoclave Liners – Clover Inc',
-    'twitter:image:width': '1200',
-    'twitter:image:height': '630',
-    'twitter:image:type': 'image/jpeg',
     'twitter:site': '@cloverinc',
     'twitter:creator': '@cloverinc',
-    'twitter:label1': 'Industry',
-    'twitter:data1': 'Industrial Packaging',
     'twitter:label2': 'Products',
     'twitter:data2': 'Autoclave Liners, Sterilization Bags',
     
-    // WhatsApp specific
-    'whatsapp-title': 'Clover Inc - Premium Industrial Packaging Solutions',
-    'whatsapp-description': 'Discover our premium industrial packaging solutions for medical, laboratory and industrial applications',
-    
-    // General meta
-    'application-name': 'Clover Inc',
-    'theme-color': '#39b54b',
-    'referrer': 'origin-when-cross-origin',
-    'viewport': 'width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes',
-    'robots': 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
-    'googlebot': 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
-    'itemprop': 'image',
-    'image': 'https://i.postimg.cc/gJb5q8P1/meta1.jpg',
-    'author': 'Clover Inc Packaging Team',
-    'publisher': 'Clover Inc',
-    'category': 'Industrial Packaging, Medical Packaging, Laboratory Supplies',
-    'keywords': 'Autoclave liners, Sterilization bags, Industrial packaging, Heat resistant liners, Medical autoclave bags, Clover Inc',
-    
-    // Contact information
-    'contact': 'info@cloverinc.org',
-    'address': '123 Industrial Park, City, Country',
-    'phone': '+1-800-555-0199',
-    'email': 'info@cloverinc.org',
-    'site_name': 'Clover Inc',
-    'copyright': '© 2024 Clover Inc. All rights reserved.',
-    
-    // GEO location tags
+    // Enhanced GEO location tags
     'geo.region': 'US-NY',
-    'DC.title': 'Clover Inc | Premium Industrial Packaging',
+    'geo.placename': 'New York',
+    'geo.position': '40.7128;-74.0060',
+    'ICBM': '40.7128, -74.0060',
+    'DC.title': 'Clover Inc | American-Made Industrial Packaging',
     
-    // Apple specific
-    'apple-mobile-web-app-capable': 'yes',
-    'apple-mobile-web-app-status-bar-style': 'black-translucent',
-    'apple-mobile-web-app-title': 'Clover Inc',
+    // Enhanced location and business information
+    'business:contact_data:country_name': 'United States',
+    'business:contact_data:region': 'New York',
+    'business:contact_data:locality': 'New York City',
+    'place:location:latitude': '40.7128',
+    'place:location:longitude': '-74.0060',
+    'distribution': 'United States',
     
-    // Microsoft specific
-    'msapplication-TileColor': '#39b54b',
-    'msapplication-TileImage': '/images/icons/icon2-512x512.png',
-    'msapplication-config': '/browserconfig.xml',
-    
-    
-    
-    // Structured data hints
+    // Structured data hints with enhanced geo targeting
     'schema:type': 'Organization',
     'schema:name': 'Clover Inc',
     'schema:url': 'https://cloverinc.org',
     'schema:logo': '/images/icons/icon2-512x512.png',
     'schema:description': 'Premium Industrial Packaging Solutions',
+    'schema:areaServed': 'United States, North America',
+    
+    // Enhanced contact information
+    'contact': 'info@cloverinc.org',
+    'address': '123 Industrial Park, New York, NY, United States',
+    'phone': '+1-800-555-0199',
+    'email': 'info@cloverinc.org',
+    'site_name': 'Clover Inc - India Manufacturing',
+    'copyright': '© 2024 Clover Inc. Made in India. All rights reserved.',
+    
+    // Enhanced keywords for geographic targeting
+    'keywords': 'Autoclave liners India, Sterilization bags US market, Industrial packaging New York, American-made medical supplies',
   },
 };
 
