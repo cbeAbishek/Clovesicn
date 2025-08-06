@@ -143,10 +143,8 @@ export const metadata = {
   viewport: 'width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes',
   manifest: '/manifest.json',
   verification: {
-    google: 'google-site-verification-code',
-    yandex: 'yandex-verification-code',
-    yahoo: 'yahoo-verification-code',
-    bing: 'msvalidate.01:verification-code',
+    google: 'mUdRZItyxSkTiCWHY6fIUSPo6VoY1Nl8bVnmxgkYoIg',
+    yandex: '5bebeacb5a9a63c2',
     me: ['info@cloverinc.org', '@cloverinc'],
   },
   formatDetection: {
