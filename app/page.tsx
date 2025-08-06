@@ -10,12 +10,22 @@ import HeroBanner4 from '@/components/sections/HeroBanner4';
 export default function Home() {
   return (
     <>
-        {/* <ClovesAdModal /> */}
-        <HeroBanner3 />
-        <HeroBanner2 />
-        {/* <HeroBanner /> */}
-        <FeaturedProducts />
-        <WhyChooseUs />
+      {/* Google tag (gtag.js) */}
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-MEWNHMN7TP"></script>
+      <script>
+        {`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-MEWNHMN7TP');
+        `}
+      </script>
+      {/* <ClovesAdModal /> */}
+      <HeroBanner3 />
+      <HeroBanner2 />
+      {/* <HeroBanner /> */}
+      <FeaturedProducts />
+      <WhyChooseUs />
     </>
   );
 }
