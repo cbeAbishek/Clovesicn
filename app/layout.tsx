@@ -129,7 +129,7 @@ export const metadata = {
   },
   metadataBase: new URL('https://cloverinc.org'),
   icons: {
-    icon: '/images/icons/icon2-512x512.png',
+    icon: '/cicon.ico',
     shortcut: '/images/icons/icon2-512x512.png',
     apple: '/images/icons/icon2-512x512.png',
     other: [
@@ -140,6 +140,8 @@ export const metadata = {
         url: '/images/icons/icon2-512x512.png',
       },
       { rel: 'mask-icon', url: '/safari-pinned-tab.svg', color: '#39b54b' },
+      { rel: 'icon', type: 'image/png', sizes: '32x32', url: '/favicon-32x32.png' },
+      { rel: 'icon', type: 'image/png', sizes: '16x16', url: '/favicon-16x16.png' },
     ],
   },
   applicationName: 'Clover Inc',
