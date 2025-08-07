@@ -3,4 +3,4 @@
 User-agent: *
 Allow: /
 
-# Sitemap: https://www.clovesinc.org/sitemap.xml
+Sitemap: https://www.clovesinc.org/sitemap.xml
