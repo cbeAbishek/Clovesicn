@@ -8,7 +8,8 @@ import Script from 'next/script';
 import Image from 'next/image';
 
 export const metadata = {
-  title: 'Clover Inc – Premium Industrial Packaging | Autoclave Liners & Sterilization Solutions',
+  title:
+    'Clover Inc – Premium Industrial Packaging | Autoclave Liners & Sterilization Solutions',
   description:
     'Leading supplier of industrial packaging solutions including autoclave liners and sterilization bags for medical, laboratory, and industrial applications across the India. High-quality, compliant, and customizable solutions.',
   keywords: [
@@ -51,7 +52,8 @@ export const metadata = {
   creator: 'Clover Inc',
   publisher: 'Clover Inc',
   openGraph: {
-    title: 'Clover Inc | Premium Industrial Packaging & Autoclave Solutions | India Made',
+    title:
+      'Clover Inc | Premium Industrial Packaging & Autoclave Solutions | India Made',
     description:
       'Leading supplier of industrial packaging solutions including autoclave liners and sterilization bags for medical, laboratory, and industrial applications across the India. High-quality, compliant, and customizable solutions.',
     url: 'https://cloverinc.org/products',
@@ -132,17 +134,23 @@ export const metadata = {
     apple: '/images/icons/icon2-512x512.png',
     other: [
       { rel: 'apple-touch-icon', url: '/images/icons/icon2-512x512.png' },
-      { rel: 'apple-touch-icon', sizes: '180x180', url: '/images/icons/icon2-512x512.png' },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '180x180',
+        url: '/images/icons/icon2-512x512.png',
+      },
       { rel: 'mask-icon', url: '/safari-pinned-tab.svg', color: '#39b54b' },
     ],
   },
   applicationName: 'Clover Inc',
-  category: 'Industrial Packaging, Medical Packaging, Laboratory Supplies, India Manufacturing',
+  category:
+    'Industrial Packaging, Medical Packaging, Laboratory Supplies, India Manufacturing',
   generator: 'Next.js',
   referrer: 'origin-when-cross-origin',
   themeColor: '#39b54b',
   colorScheme: 'light',
-  viewport: 'width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes',
+  viewport:
+    'width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes',
   manifest: '/manifest.json',
   verification: {
     google: 'mUdRZItyxSkTiCWHY6fIUSPo6VoY1Nl8bVnmxgkYoIg',
@@ -164,33 +172,34 @@ export const metadata = {
   other: {
     // Enhanced OpenGraph tags
     'og:title': 'Clover Inc | Industrial Packaging Solutions',
-    'og:description': 'American-manufactured premium industrial packaging solutions for medical, laboratory, and industrial facilities nationwide. FDA-compliant, sustainable, made in the India.',
+    'og:description':
+      'American-manufactured premium industrial packaging solutions for medical, laboratory, and industrial facilities nationwide. FDA-compliant, sustainable, made in the India.',
     'og:image': 'https://i.postimg.cc/gJb5q8P1/meta1.jpg',
     'og:image:alt': 'India-Made Autoclave Liners – Clover Inc',
     'og:url': 'https://cloverinc.org/products',
     'og:type': 'website',
     'og:site_name': 'Clover Inc',
     'og:locale': 'en_US',
-    
+
     // Twitter enhanced tags
     'twitter:card': 'summary_large_image',
     'twitter:title': 'Clover Inc | Industrial Packaging Solutions',
-    'twitter:description': 'American-manufactured heat-resistant autoclave liners and sterilization bags for medical and industrial applications nationwide.',
+    'twitter:description':
+      'American-manufactured heat-resistant autoclave liners and sterilization bags for medical and industrial applications nationwide.',
     'twitter:image': 'https://i.postimg.cc/gJb5q8P1/meta1.jpg',
     'twitter:site': '@cloverinc',
     'twitter:creator': '@cloverinc',
     'twitter:label2': 'Products',
     'twitter:data2': 'Autoclave Liners, Sterilization Bags',
-    
-    
+
     // Enhanced location and business information
     'business:contact_data:country_name': 'United States',
     'business:contact_data:region': 'New York',
     'business:contact_data:locality': 'New York City',
     'place:location:latitude': '40.7128',
     'place:location:longitude': '-74.0060',
-    'distribution': 'United States',
-    
+    distribution: 'United States',
+
     // Structured data hints with enhanced geo targeting
     'schema:type': 'Organization',
     'schema:name': 'Clover Inc',
@@ -198,17 +207,18 @@ export const metadata = {
     'schema:logo': '/images/icons/icon2-512x512.png',
     'schema:description': 'Premium Industrial Packaging Solutions',
     'schema:areaServed': 'United States, North America',
-    
+
     // Enhanced contact information
-    'contact': 'info@cloverinc.org',
-    'address': '123 Industrial Park, New York, NY, United States',
-    'phone': '+1-800-555-0199',
-    'email': 'info@cloverinc.org',
-    'site_name': 'Clover Inc - India Manufacturing',
-    'copyright': '© 2024 Clover Inc. Made in India. All rights reserved.',
-    
+    contact: 'info@cloverinc.org',
+    address: '123 Industrial Park, New York, NY, United States',
+    phone: '+1-800-555-0199',
+    email: 'info@cloverinc.org',
+    site_name: 'Clover Inc - India Manufacturing',
+    copyright: '© 2024 Clover Inc. Made in India. All rights reserved.',
+
     // Enhanced keywords for geographic targeting
-    'keywords': 'Autoclave liners India, Sterilization bags US market, Industrial packaging New York, American-made medical supplies',
+    keywords:
+      'Autoclave liners India, Sterilization bags US market, Industrial packaging New York, American-made medical supplies',
   },
 };
 
@@ -220,47 +230,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <Script
-        id="yandex-metrika"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function(m,e,t,r,i,k,a){
-                m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-                m[i].l=1*new Date();
-                for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-                k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-            })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=103632210', 'ym');
-            ym(103632210, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
-          `,
-        }}
-      />
-      <noscript>
-        <div>
-          <Image
-            src="https://mc.yandex.ru/watch/103632210"
-            style={{ position: 'absolute', left: '-9999px' }}
-            alt=""
-            width={1}
-            height={1}
-            unoptimized
-            priority
-          />
-        </div>
-      </noscript>
-
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-MEWNHMN7TP"
-        strategy="afterInteractive"
-      />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-MEWNHMN7TP');
-        `}
-      </Script>
         <meta charSet="UTF-8" />
         <meta name="theme-color" content="#39b54b" />
         <link rel="icon" href="/icon.png" />
@@ -270,8 +239,49 @@ export default function RootLayout({
         <Header />
         <AiChatbot />
         <BGAudio />
-        <div className="min-h-screen flex flex-col mt-[60px]" >{children}</div>
+        <div className="min-h-screen flex flex-col mt-[60px]">{children}</div>
         <Footer />
+        <Script
+          id="yandex-metrika"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+            (function(m,e,t,r,i,k,a){
+                m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+                m[i].l=1*new Date();
+                for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+                k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+            })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=103632210', 'ym');
+            ym(103632210, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+          `,
+          }}
+        />
+        <noscript>
+          <div>
+            <Image
+              src="https://mc.yandex.ru/watch/103632210"
+              style={{ position: 'absolute', left: '-9999px' }}
+              alt=""
+              width={1}
+              height={1}
+              unoptimized
+              priority
+            />
+          </div>
+        </noscript>
+
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-MEWNHMN7TP"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-MEWNHMN7TP');
+        `}
+        </Script>
       </body>
     </html>
   );
