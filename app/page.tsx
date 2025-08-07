@@ -7,12 +7,13 @@ import HeroBanner2 from '@/components/sections/HeroBanner2';
 import HeroBanner3 from '@/components/sections/HeroBanner3';
 import HeroBanner4 from '@/components/sections/HeroBanner4';
 import Script from 'next/script';
+import Image from 'next/image';
 
 
 export default function Home() {
   return (
     <>
-      {/* Google tag (gtag.js) */}
+      
       <Script
         id="yandex-metrika"
         strategy="afterInteractive"
@@ -30,22 +31,30 @@ export default function Home() {
       />
       <noscript>
         <div>
-          <img
+          <Image
             src="https://mc.yandex.ru/watch/103632210"
             style={{ position: 'absolute', left: '-9999px' }}
             alt=""
+            width={1}
+            height={1}
+            unoptimized
+            priority
           />
         </div>
       </noscript>
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-MEWNHMN7TP"></script>
-      <script>
+
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-MEWNHMN7TP"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
         {`
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-MEWNHMN7TP');
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-MEWNHMN7TP');
         `}
-      </script>
+      </Script>
       {/* <ClovesAdModal /> */}
       <HeroBanner3 />
       <HeroBanner2 />
