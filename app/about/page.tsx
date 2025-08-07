@@ -4,7 +4,11 @@ import MeetTheFounderSection from '@/components/about/MeetTheFounderSection';
 import MissionSection from '@/components/about/MissionSection';
 import GlobalPresenceSection from '@/components/about/GlobalPresence';
 import SustainabilityFocusSection from '@/components/about/Sustain';
-
+import { Metadata } from 'next';
+export const metadata: Metadata = {
+  title: 'About Us - Clovesicn',
+  description: 'Learn more about Clovesicn, our mission, global presence, and commitment to sustainability.',
+};
 
 const About = () => {
   return (

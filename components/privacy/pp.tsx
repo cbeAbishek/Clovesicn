@@ -205,7 +205,7 @@ export default function PrivacyPolicyPage() {
                 </div>
                 <div className="flex items-center gap-3">
                   <MapPin className="w-5 h-5 text-[#39b54b]" />
-                  <span className="text-gray-700">[Registered Office Address]</span>
+                  <span className="text-gray-700">Tamil Nadu - India</span>
                 </div>
               </div>
             </div>

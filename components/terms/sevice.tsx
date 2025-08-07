@@ -231,7 +231,7 @@ export default function TermsOfService() {
                 <MapPin className="w-5 h-5 text-[#39b54b] mt-1" />
                 <div>
                   <p className="font-medium text-gray-900">Address</p>
-                  <p className="text-gray-700 text-sm">Registered Office Address</p>
+                  <p className="text-gray-700 text-sm">Tamil Nadu - India</p>
                 </div>
               </div>
             </div>
