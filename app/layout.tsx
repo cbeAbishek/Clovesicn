@@ -234,7 +234,7 @@ export default function RootLayout({
       <head>
         <meta charSet="UTF-8" />
         <meta name="theme-color" content="#39b54b" />
-        <link rel="icon" href="/icon.png" />
+        <link rel="icon" href="/cion.ico" />
       </head>
       <body>
         <Preloader />
