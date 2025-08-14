@@ -32,7 +32,7 @@ const Footer = () => {
 
   const supportLinks = [
     { name: 'Contact Support', href: '/contact' },
-    { name: 'Request Quote', href: '/contact/request-quote' },
+    // { name: 'Request Quote', href: '/contact/request-quote' },
   ];
 
   return (
@@ -186,7 +186,7 @@ const Footer = () => {
             </div>
 
             {/* Social Links */}
-            <div className="flex items-center space-x-4">
+            {/* <div className="flex items-center space-x-4">
               <Link
                 href="#"
                 className="text-gray-400 hover:text-primary-400 transition-colors"
@@ -211,7 +211,7 @@ const Footer = () => {
               >
                 <Instagram className="h-5 w-5" />
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

@@ -55,7 +55,7 @@ const NavBar = () => {
     { name: 'About', href: '/about', icon: Users },
     { name: 'Products', href: '/products', icon: Package },
     { name: 'Why Us', href: '/whyus', icon: Award },
-    { name: 'Contact', href: '/contact', icon: Phone },
+    // { name: 'Contact', href: '/contact', icon: Phone },
   ];
 
   return (
@@ -148,11 +148,11 @@ const NavBar = () => {
             <div className="flex items-center space-x-4">
               {/* Request Quote Button */}
               <a
-                href="/request-quote"
+                href="/contact"
                 className="hidden sm:inline-flex items-center space-x-2 bg-gradient-to-r from-[#39b54b] to-[#2d8f3a] text-white px-6 py-2.5 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 hover:from-[#2d8f3a] hover:to-[#39b54b]"
               >
-                <FileText className="w-4 h-4" />
-                <span>Request Quote</span>
+                <Phone className="w-4 h-4" />
+                <span>Contact Us</span>
               </a>
 
               {/* Mobile Menu Button */}
