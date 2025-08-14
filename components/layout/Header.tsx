@@ -90,12 +90,12 @@ const NavBar = () => {
               <div className="flex items-center space-x-4 group cursor-pointer">
                 <Link href="/" className="relative group">
                   <Image
-                  src="/lenlogo.png" // full logo path
-                  // src="/cicon.png" // icon logo path
-                  alt="Cloves Inc Logo"
-                  width={50}
-                  height={50}
-                  className="w-auto h-12 rounded-2xl transition-all duration-800 group-hover:scale-105 group-hover:shadow-[0_0_24px_6px_#39b54b88,0_0_8px_2px_#2d8f3a55]"
+                    src="/lenlogo.png" // full logo path
+                    // src="/cicon.png" // icon logo path
+                    alt="Cloves Inc Logo"
+                    width={50}
+                    height={50}
+                    className="w-auto h-12 rounded-2xl transition-all duration-800 group-hover:scale-105 group-hover:shadow-[0_0_24px_6px_#39b54b88,0_0_8px_2px_#2d8f3a55]"
                   />
                 </Link>
                 <style jsx global>{`
@@ -141,7 +141,6 @@ const NavBar = () => {
               ))}
 
               {/* Products Dropdown */}
-              
             </div>
 
             {/* Request Quote Button & Mobile Menu */}
@@ -197,9 +196,6 @@ const NavBar = () => {
                 </a>
               ))}
 
-             
-              
-
               {/* Mobile Request Quote */}
               <div className="pt-4 border-t border-gray-200">
                 <a
@@ -207,8 +203,8 @@ const NavBar = () => {
                   className="flex items-center justify-center space-x-2 bg-gradient-to-r from-[#39b54b] to-[#2d8f3a] text-white p-3 rounded-xl font-semibold shadow-lg transform hover:scale-105 transition-all duration-300"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  <FileText className="w-5 h-5" />
-                  <span>Request Quote</span>
+                  <Phone className="w-4 h-4" />
+                  <span>Contact Us</span>
                 </a>
               </div>
             </div>

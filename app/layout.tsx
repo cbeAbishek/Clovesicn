@@ -139,7 +139,7 @@ export const metadata = {
         sizes: '180x180',
         url: '/images/icons/icon2-512x512.png',
       },
-      { rel: 'mask-icon', url: '/safari-pinned-tab.svg', color: '#39b54b' },
+      { rel: 'mask-icon', url: '/cicon.ico' },
       { rel: 'icon', type: 'image/png', sizes: '32x32', url: '/favicon-32x32.png' },
       { rel: 'icon', type: 'image/png', sizes: '16x16', url: '/favicon-16x16.png' },
     ],
@@ -233,8 +233,6 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta charSet="UTF-8" />
-        <meta name="theme-color" content="#39b54b" />
-        <link rel="icon" href="/cion.ico" />
       </head>
       <body>
         <Preloader />
